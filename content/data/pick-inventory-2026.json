@@ -1,0 +1,55 @@
+{
+  "_meta": "BMFFFL draft pick inventory — 2026 and 2027 seasons. Source: Sleeper API traded_picks endpoint. Generated 2026-03-15.",
+  "_validAsOf": "March 2026 offseason snapshot — pre-2026 rookie draft",
+  "_leagueId": "1312123497203376128",
+  "summary": [
+    { "owner": "Grandes",       "picks2026": 10, "picks2027": 6,  "total": 16, "firsts2026": 3, "firsts2027": 2, "note": "Full rebuild mode — massive stockpile. Likely has 1.01." },
+    { "owner": "MLSchools12",   "picks2026": 4,  "picks2027": 5,  "total": 9,  "firsts2026": 1, "firsts2027": 1, "note": "Steady; JuicyBussy 2027 1st is the key future asset." },
+    { "owner": "Tubes94",       "picks2026": 5,  "picks2027": 4,  "total": 9,  "firsts2026": 1, "firsts2027": 1, "note": "Own 1st + Grandes' 2026 2nd." },
+    { "owner": "eldridm20",     "picks2026": 5,  "picks2027": 4,  "total": 9,  "firsts2026": 2, "firsts2027": 1, "note": "Acquired tdtd19844's 2026 1st — holds two 2026 firsts." },
+    { "owner": "rbr",           "picks2026": 4,  "picks2027": 4,  "total": 8,  "firsts2026": 1, "firsts2027": 1, "note": "All own picks, no trades." },
+    { "owner": "Cogdeill11",    "picks2026": 4,  "picks2027": 4,  "total": 8,  "firsts2026": 1, "firsts2027": 1, "note": "All own picks, no trades." },
+    { "owner": "Bimfle",        "picks2026": 4,  "picks2027": 4,  "total": 8,  "firsts2026": 1, "firsts2027": 1, "note": "All own picks (new owner)." },
+    { "owner": "eldridsm",      "picks2026": 4,  "picks2027": 4,  "total": 8,  "firsts2026": 1, "firsts2027": 2, "note": "Holds MLSchools12's 2027 1st — premium future asset." },
+    { "owner": "tdtd19844",     "picks2026": 3,  "picks2027": 4,  "total": 7,  "firsts2026": 0, "firsts2027": 1, "note": "No 2026 1st — traded to eldridm20. Defending champion without a first-round pick." },
+    { "owner": "Cmaleski",      "picks2026": 3,  "picks2027": 4,  "total": 7,  "firsts2026": 0, "firsts2027": 1, "note": "No own 2026 1st; holds SexMachineAndyD 2nd and 4th." },
+    { "owner": "SexMachineAndyD", "picks2026": 2, "picks2027": 3, "total": 5,  "firsts2026": 1, "firsts2027": 0, "note": "Thin — only 5 picks over 2 years. Traded 2026 1st to Grandes." },
+    { "owner": "JuicyBussy",    "picks2026": 0,  "picks2027": 2,  "total": 2,  "firsts2026": 0, "firsts2027": 0, "note": "DEPLETED — no picks until 2027 Round 3. Major fire sale funded Grandes' rebuild." }
+  ],
+  "highlights": {
+    "mostCapital": "Grandes (16 picks, 3 first-rounders in 2026)",
+    "leastCapital": "JuicyBussy (2 picks total, 0 first-rounders through 2027)",
+    "keyTrade": "JuicyBussy to Grandes fire sale — multiple 1sts and picks traded",
+    "defendingChampionNoFirst": "tdtd19844 enters 2026 as champion without a 2026 1st-round pick",
+    "sleepingAsset": "eldridsm holds MLSchools12's 2027 1st — could be a top pick if MLSchools12 misses playoffs"
+  },
+  "picks2026": {
+    "Grandes": [
+      { "round": 1, "source": "OWN", "note": "Likely 1.01 — last-place 2025 team" },
+      { "round": 1, "source": "SexMachineAndyD", "note": "~1.04-1.07 range" },
+      { "round": 1, "source": "JuicyBussy", "note": "~1.09-1.10 range" },
+      { "round": 2, "source": "MLSchools12", "note": "Late 2nd" },
+      { "round": 2, "source": "Cmaleski", "note": "Mid 2nd" },
+      { "round": 3, "source": "MLSchools12", "note": "Late 3rd" },
+      { "round": 3, "source": "Cmaleski", "note": "Mid 3rd" },
+      { "round": 3, "source": "JuicyBussy", "note": "Mid 3rd" },
+      { "round": 4, "source": "OWN", "note": null },
+      { "round": 4, "source": "JuicyBussy", "note": null }
+    ],
+    "eldridm20": [
+      { "round": 1, "source": "OWN", "note": null },
+      { "round": 1, "source": "tdtd19844", "note": "Acquired in trade — where picks from defending champion" },
+      { "round": 2, "source": "OWN", "note": null },
+      { "round": 3, "source": "OWN", "note": null },
+      { "round": 4, "source": "OWN", "note": null }
+    ],
+    "MLSchools12": [
+      { "round": 1, "source": "OWN", "note": "Will pick late (best record in 2025)" },
+      { "round": 2, "source": "OWN", "note": null },
+      { "round": 3, "source": "OWN", "note": null },
+      { "round": 4, "source": "OWN", "note": null }
+    ],
+    "JuicyBussy": [],
+    "_note": "Full pick-by-pick detail available in bmfffl-draft-pick-inventory-2026.md"
+  }
+}

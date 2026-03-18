@@ -1,0 +1,386 @@
+{
+  "_meta": {
+    "description": "BMFFFL master statistics database. All-time and per-season records for all owners across 6 Sleeper seasons (2020-2025). Source: standings-history.json + season archives.",
+    "generatedAt": "2026-03-15",
+    "seasonsIncluded": [2020, 2021, 2022, 2023, 2024, 2025],
+    "notes": "Points against not available from corpus — requires Sleeper API enrichment. FAAB spend data not available from corpus. Trade counts estimated from trade-history-analysis.md."
+  },
+  "leagueSummary": {
+    "totalSeasons": 6,
+    "totalGames": 504,
+    "highestSingleSeasonPoints": { "owner": "MLSchools12", "season": 2021, "points": 2327.06 },
+    "lowestSingleSeasonPoints": { "owner": "MCSchools", "season": 2021, "points": 1374.74, "note": "Retired after this 0-14 season" },
+    "mostWinsInSeason": { "owner": "MLSchools12", "season": 2023, "wins": 13 },
+    "mostWinsInSeason2": { "owner": "MLSchools12", "season": 2025, "wins": 13 },
+    "narrowestChampionshipMargin": { "season": 2020, "winner": "Cogdeill11", "loser": "eldridsm", "margin": 4.76 },
+    "narrowestAnyGame": { "season": 2025, "game": "3rd place", "margin": 0.94 },
+    "totalTrades": 257
+  },
+  "owners": [
+    {
+      "owner": "MLSchools12",
+      "displayName": "MLSchools12",
+      "teamNames": ["The Murder Boners", "Schoolcraft Football Team"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 68,
+        "losses": 15,
+        "winPct": 0.819,
+        "pointsFor": 13032.72,
+        "pointsForAvg": 2172.12,
+        "playoffAppearances": 6,
+        "championships": 2,
+        "runnerUps": 0,
+        "thirdPlace": 2,
+        "moodieBowls": 0,
+        "regularSeasonTitles": 5
+      },
+      "seasons": [
+        { "year": 2020, "wins": 11, "losses": 2, "pointsFor": 2115.74, "regularSeasonRank": 1, "seed": 1, "playoffResult": "Lost semis" },
+        { "year": 2021, "wins": 11, "losses": 3, "pointsFor": 2327.06, "regularSeasonRank": 1, "seed": 1, "playoffResult": "CHAMPION" },
+        { "year": 2022, "wins": 10, "losses": 4, "pointsFor": 2260.28, "regularSeasonRank": 1, "seed": 1, "playoffResult": "Lost semis (2.80 pts)" },
+        { "year": 2023, "wins": 13, "losses": 1, "pointsFor": 2201.02, "regularSeasonRank": 1, "seed": 1, "playoffResult": "Lost semis" },
+        { "year": 2024, "wins": 10, "losses": 4, "pointsFor": 1967.20, "regularSeasonRank": 3, "seed": 3, "playoffResult": "CHAMPION" },
+        { "year": 2025, "wins": 13, "losses": 1, "pointsFor": 2161.42, "regularSeasonRank": 1, "seed": 1, "playoffResult": "3rd place" }
+      ],
+      "signatureAchievements": ["Only team with two 13-1 seasons", "6-for-6 playoff appearances", "Both championships from seed 1 or 3", "Highest all-time win percentage"]
+    },
+    {
+      "owner": "Tubes94",
+      "displayName": "Tubes94",
+      "teamNames": ["Swamp Donkey's", "Burn it all", "Nacua Matata", "Whale Tails"],
+      "seasonsPlayed": 5,
+      "allTime": {
+        "wins": 34,
+        "losses": 36,
+        "winPct": 0.486,
+        "pointsFor": 8379.84,
+        "pointsForAvg": 1675.97,
+        "playoffAppearances": 2,
+        "championships": 0,
+        "runnerUps": 1,
+        "thirdPlace": 1,
+        "moodieBowls": 0,
+        "note": "Joined 2021. Went 2-12 in debut. Best rebrand story in BMFFFL history."
+      },
+      "seasons": [
+        { "year": 2021, "wins": 2, "losses": 12, "pointsFor": 1475.72, "regularSeasonRank": 11, "seed": null, "playoffResult": "Consolation" },
+        { "year": 2022, "wins": 4, "losses": 10, "pointsFor": 1340.28, "regularSeasonRank": 11, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 7, "losses": 7, "pointsFor": 1700.82, "regularSeasonRank": 7, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 11, "losses": 3, "pointsFor": 1928.36, "regularSeasonRank": 2, "seed": 2, "playoffResult": "3rd place" },
+        { "year": 2025, "wins": 10, "losses": 4, "pointsFor": 1934.66, "regularSeasonRank": 2, "seed": 2, "playoffResult": "Runner-up" }
+      ],
+      "signatureAchievements": ["Greatest single-season turnaround arc (2-12 to contender)", "Best trade record in league history", "2 consecutive playoff runs (2024-2025)"]
+    },
+    {
+      "owner": "SexMachineAndyD",
+      "displayName": "SexMachineAndyD",
+      "teamNames": ["Herbert's Heros", "SexMachineAndyD"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 50,
+        "losses": 33,
+        "winPct": 0.602,
+        "pointsFor": 11434.96,
+        "pointsForAvg": 1905.83,
+        "playoffAppearances": 4,
+        "championships": 0,
+        "runnerUps": 1,
+        "thirdPlace": 1,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 9, "losses": 4, "pointsFor": 1930.78, "regularSeasonRank": 3, "seed": 3, "playoffResult": "Lost wild card" },
+        { "year": 2021, "wins": 10, "losses": 4, "pointsFor": 2050.50, "regularSeasonRank": 2, "seed": 2, "playoffResult": "3rd place" },
+        { "year": 2022, "wins": 6, "losses": 8, "pointsFor": 1807.84, "regularSeasonRank": 9, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 5, "losses": 9, "pointsFor": 1615.18, "regularSeasonRank": 10, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 11, "losses": 3, "pointsFor": 2034.18, "regularSeasonRank": 1, "seed": 1, "playoffResult": "Runner-up" },
+        { "year": 2025, "wins": 9, "losses": 5, "pointsFor": 1996.48, "regularSeasonRank": 3, "seed": 3, "playoffResult": "Lost wild card" }
+      ]
+    },
+    {
+      "owner": "tdtd19844",
+      "displayName": "tdtd19844",
+      "teamNames": ["Acorns & river water", "WaiverWireWarriors", "14kids0wins/teammoodie", "THE Shameful Saggy sack"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 36,
+        "losses": 47,
+        "winPct": 0.434,
+        "pointsFor": 10521.62,
+        "pointsForAvg": 1753.60,
+        "playoffAppearances": 3,
+        "championships": 1,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 6, "losses": 7, "pointsFor": 1818.28, "regularSeasonRank": 6, "seed": 6, "playoffResult": "Lost semis" },
+        { "year": 2021, "wins": 6, "losses": 8, "pointsFor": 1684.74, "regularSeasonRank": 9, "seed": null, "playoffResult": "Consolation" },
+        { "year": 2022, "wins": 3, "losses": 11, "pointsFor": 1529.58, "regularSeasonRank": 12, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 5, "losses": 9, "pointsFor": 1639.20, "regularSeasonRank": 9, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 8, "losses": 6, "pointsFor": 1915.58, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Lost wild card" },
+        { "year": 2025, "wins": 8, "losses": 6, "pointsFor": 1934.24, "regularSeasonRank": 4, "seed": 4, "playoffResult": "CHAMPION" }
+      ],
+      "signatureAchievements": ["2025 champion", "Lowest seed to win championship in league history (4th seed)"]
+    },
+    {
+      "owner": "JuicyBussy",
+      "displayName": "JuicyBussy",
+      "teamNames": ["Juicy Bussy"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 46,
+        "losses": 37,
+        "winPct": 0.554,
+        "pointsFor": 11542.12,
+        "pointsForAvg": 1923.69,
+        "playoffAppearances": 5,
+        "championships": 1,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 5, "losses": 8, "pointsFor": 1783.40, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2021, "wins": 8, "losses": 6, "pointsFor": 1926.12, "regularSeasonRank": 6, "seed": 6, "playoffResult": "Lost round 1" },
+        { "year": 2022, "wins": 10, "losses": 4, "pointsFor": 2105.18, "regularSeasonRank": 2, "seed": 2, "playoffResult": "Lost semis" },
+        { "year": 2023, "wins": 8, "losses": 6, "pointsFor": 1845.72, "regularSeasonRank": 6, "seed": 6, "playoffResult": "CHAMPION" },
+        { "year": 2024, "wins": 8, "losses": 6, "pointsFor": 2036.54, "regularSeasonRank": 4, "seed": 4, "playoffResult": "Lost semis" },
+        { "year": 2025, "wins": 7, "losses": 7, "pointsFor": 1845.16, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Lost wild card" }
+      ],
+      "signatureAchievements": ["2023 champion as 6th seed (lowest-seeded champion in BMFFFL history)", "5/6 playoff appearances", "Highest points-for among all owners in 2024"]
+    },
+    {
+      "owner": "Grandes",
+      "displayName": "Grandes",
+      "teamNames": ["El Rioux Grandes"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 42,
+        "losses": 41,
+        "winPct": 0.506,
+        "pointsFor": 11320.80,
+        "pointsForAvg": 1886.80,
+        "playoffAppearances": 4,
+        "championships": 1,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 1
+      },
+      "seasons": [
+        { "year": 2020, "wins": 4, "losses": 9, "pointsFor": 1697.70, "regularSeasonRank": 10, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2021, "wins": 10, "losses": 4, "pointsFor": 1974.92, "regularSeasonRank": 3, "seed": 3, "playoffResult": "Lost round 1" },
+        { "year": 2022, "wins": 8, "losses": 6, "pointsFor": 2024.32, "regularSeasonRank": 4, "seed": 4, "playoffResult": "CHAMPION" },
+        { "year": 2023, "wins": 9, "losses": 5, "pointsFor": 2134.06, "regularSeasonRank": 2, "seed": 2, "playoffResult": "Lost semis" },
+        { "year": 2024, "wins": 7, "losses": 7, "pointsFor": 1941.48, "regularSeasonRank": 7, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 4, "losses": 10, "pointsFor": 1548.32, "regularSeasonRank": 12, "seed": null, "playoffResult": "Moodie Bowl" }
+      ],
+      "signatureAchievements": ["2022 champion as 4th seed", "Won championship despite having worst record heading into playoffs by 2.80-point upset semifinal"]
+    },
+    {
+      "owner": "rbr",
+      "displayName": "rbr",
+      "teamNames": ["Really Big Rings"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 44,
+        "losses": 39,
+        "winPct": 0.530,
+        "pointsFor": 11297.66,
+        "pointsForAvg": 1882.94,
+        "playoffAppearances": 4,
+        "championships": 0,
+        "runnerUps": 2,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 6, "losses": 7, "pointsFor": 1887.44, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Lost wild card" },
+        { "year": 2021, "wins": 9, "losses": 5, "pointsFor": 1980.00, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Runner-up" },
+        { "year": 2022, "wins": 10, "losses": 4, "pointsFor": 2082.38, "regularSeasonRank": 3, "seed": 3, "playoffResult": "Runner-up" },
+        { "year": 2023, "wins": 6, "losses": 8, "pointsFor": 1758.56, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 8, "losses": 6, "pointsFor": 1891.12, "regularSeasonRank": 6, "seed": 6, "playoffResult": "Lost wild card" },
+        { "year": 2025, "wins": 5, "losses": 9, "pointsFor": 1698.16, "regularSeasonRank": 9, "seed": null, "playoffResult": "Missed playoffs" }
+      ],
+      "signatureAchievements": ["Two consecutive runner-up finishes (2021-2022) — most of any owner", "0 championships despite high floor"]
+    },
+    {
+      "owner": "eldridsm",
+      "displayName": "eldridsm",
+      "teamNames": ["eldridsm"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 41,
+        "losses": 42,
+        "winPct": 0.494,
+        "pointsFor": 10953.10,
+        "pointsForAvg": 1825.52,
+        "playoffAppearances": 3,
+        "championships": 0,
+        "runnerUps": 1,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 8, "losses": 5, "pointsFor": 1819.42, "regularSeasonRank": 4, "seed": 4, "playoffResult": "Runner-up" },
+        { "year": 2021, "wins": 7, "losses": 7, "pointsFor": 1848.60, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2022, "wins": 8, "losses": 6, "pointsFor": 1936.96, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Lost wild card" },
+        { "year": 2023, "wins": 9, "losses": 5, "pointsFor": 1995.28, "regularSeasonRank": 3, "seed": 3, "playoffResult": "Lost wild card" },
+        { "year": 2024, "wins": 4, "losses": 10, "pointsFor": 1601.00, "regularSeasonRank": 11, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 5, "losses": 9, "pointsFor": 1751.84, "regularSeasonRank": 11, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    {
+      "owner": "eldridm20",
+      "displayName": "eldridm20",
+      "teamNames": ["Franks Little Beauties"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 39,
+        "losses": 44,
+        "winPct": 0.470,
+        "pointsFor": 10865.18,
+        "pointsForAvg": 1810.86,
+        "playoffAppearances": 2,
+        "championships": 0,
+        "runnerUps": 1,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 4, "losses": 9, "pointsFor": 1625.74, "regularSeasonRank": 11, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2021, "wins": 8, "losses": 6, "pointsFor": 1881.10, "regularSeasonRank": 7, "seed": null, "playoffResult": "Consolation" },
+        { "year": 2022, "wins": 7, "losses": 7, "pointsFor": 1739.20, "regularSeasonRank": 6, "seed": 6, "playoffResult": "Lost wild card" },
+        { "year": 2023, "wins": 8, "losses": 6, "pointsFor": 1897.36, "regularSeasonRank": 5, "seed": 5, "playoffResult": "Runner-up" },
+        { "year": 2024, "wins": 6, "losses": 8, "pointsFor": 1917.28, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 6, "losses": 8, "pointsFor": 1804.50, "regularSeasonRank": 7, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    {
+      "owner": "Cogdeill11",
+      "displayName": "Cogdeill11",
+      "teamNames": ["Cogdeill11", "With alvins penix", "Earn it"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 38,
+        "losses": 45,
+        "winPct": 0.458,
+        "pointsFor": 10420.98,
+        "pointsForAvg": 1736.83,
+        "playoffAppearances": 2,
+        "championships": 1,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 10, "losses": 3, "pointsFor": 1914.48, "regularSeasonRank": 2, "seed": 2, "playoffResult": "CHAMPION" },
+        { "year": 2021, "wins": 9, "losses": 5, "pointsFor": 2008.02, "regularSeasonRank": 4, "seed": 4, "playoffResult": "Lost round 1" },
+        { "year": 2022, "wins": 7, "losses": 7, "pointsFor": 1663.66, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 3, "losses": 11, "pointsFor": 1538.30, "regularSeasonRank": 11, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 4, "losses": 10, "pointsFor": 1670.02, "regularSeasonRank": 10, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 5, "losses": 9, "pointsFor": 1626.50, "regularSeasonRank": 10, "seed": null, "playoffResult": "Missed playoffs" }
+      ],
+      "signatureAchievements": ["2020 champion", "4 consecutive non-playoff seasons (2022-2025) — steepest dynasty decline arc in league"]
+    },
+    {
+      "owner": "Cmaleski",
+      "displayName": "Cmaleski",
+      "teamNames": ["Locked & Loaded", "Showtyme Boyz"],
+      "seasonsPlayed": 6,
+      "allTime": {
+        "wins": 36,
+        "losses": 47,
+        "winPct": 0.434,
+        "pointsFor": 10705.04,
+        "pointsForAvg": 1784.17,
+        "playoffAppearances": 2,
+        "championships": 0,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 0
+      },
+      "seasons": [
+        { "year": 2020, "wins": 6, "losses": 7, "pointsFor": 1598.98, "regularSeasonRank": 7, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2021, "wins": 4, "losses": 10, "pointsFor": 1750.04, "regularSeasonRank": 10, "seed": null, "playoffResult": "Consolation" },
+        { "year": 2022, "wins": 7, "losses": 7, "pointsFor": 1688.56, "regularSeasonRank": 7, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 9, "losses": 5, "pointsFor": 1958.66, "regularSeasonRank": 4, "seed": 4, "playoffResult": "Lost wild card" },
+        { "year": 2024, "wins": 4, "losses": 10, "pointsFor": 1718.72, "regularSeasonRank": 9, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 6, "losses": 8, "pointsFor": 1990.08, "regularSeasonRank": 6, "seed": 6, "playoffResult": "Lost semis" }
+      ],
+      "signatureAchievements": ["2025 semifinal run as 6th seed with 6-8 record and 1990 points — highest scoring non-playoff-qualifying team in league history"]
+    },
+    {
+      "owner": "Escuelas",
+      "displayName": "Escuelas",
+      "teamNames": ["Grindin Gere's", "Loud and Stroud!", "The Young Guns + backups", "Booty Cheeks"],
+      "seasonsPlayed": 4,
+      "allTime": {
+        "wins": 15,
+        "losses": 41,
+        "winPct": 0.268,
+        "pointsFor": 6014.80,
+        "pointsForAvg": 1503.70,
+        "playoffAppearances": 0,
+        "championships": 0,
+        "runnerUps": 0,
+        "thirdPlace": 0,
+        "moodieBowls": 0,
+        "note": "Joined league 2022. 0/4 playoff appearances to date."
+      },
+      "seasons": [
+        { "year": 2022, "wins": 4, "losses": 10, "pointsFor": 1480.90, "regularSeasonRank": 10, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2023, "wins": 2, "losses": 12, "pointsFor": 1526.06, "regularSeasonRank": 12, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2024, "wins": 3, "losses": 11, "pointsFor": 1312.36, "regularSeasonRank": 12, "seed": null, "playoffResult": "Missed playoffs" },
+        { "year": 2025, "wins": 6, "losses": 8, "pointsFor": 1695.48, "regularSeasonRank": 8, "seed": null, "playoffResult": "Missed playoffs" }
+      ],
+      "signatureAchievements": ["6-win improvement from 2024 to 2025 — fastest single-season win improvement in league"]
+    }
+  ],
+  "allTimeRankings": {
+    "byWinPct": [
+      { "rank": 1, "owner": "MLSchools12", "winPct": 0.819, "record": "68-15" },
+      { "rank": 2, "owner": "SexMachineAndyD", "winPct": 0.602, "record": "50-33" },
+      { "rank": 3, "owner": "JuicyBussy", "winPct": 0.554, "record": "46-37" },
+      { "rank": 4, "owner": "rbr", "winPct": 0.530, "record": "44-39" },
+      { "rank": 5, "owner": "Grandes", "winPct": 0.506, "record": "42-41" },
+      { "rank": 6, "owner": "eldridsm", "winPct": 0.494, "record": "41-42" },
+      { "rank": 7, "owner": "Tubes94", "winPct": 0.486, "record": "34-36", "note": "5 seasons only" },
+      { "rank": 8, "owner": "eldridm20", "winPct": 0.470, "record": "39-44" },
+      { "rank": 9, "owner": "Cogdeill11", "winPct": 0.458, "record": "38-45" },
+      { "rank": 10, "owner": "tdtd19844", "winPct": 0.434, "record": "36-47" },
+      { "rank": 10, "owner": "Cmaleski", "winPct": 0.434, "record": "36-47" },
+      { "rank": 12, "owner": "Escuelas", "winPct": 0.268, "record": "15-41", "note": "4 seasons only" }
+    ],
+    "byChampionships": [
+      { "rank": 1, "owner": "MLSchools12", "championships": 2 },
+      { "rank": 2, "owner": "Cogdeill11", "championships": 1 },
+      { "rank": 2, "owner": "Grandes", "championships": 1 },
+      { "rank": 2, "owner": "JuicyBussy", "championships": 1 },
+      { "rank": 2, "owner": "tdtd19844", "championships": 1 }
+    ],
+    "byPlayoffRate": [
+      { "rank": 1, "owner": "MLSchools12", "rate": 1.000, "appearances": "6/6" },
+      { "rank": 2, "owner": "JuicyBussy", "rate": 0.833, "appearances": "5/6" },
+      { "rank": 3, "owner": "SexMachineAndyD", "rate": 0.667, "appearances": "4/6" },
+      { "rank": 3, "owner": "Grandes", "rate": 0.667, "appearances": "4/6" },
+      { "rank": 3, "owner": "rbr", "rate": 0.667, "appearances": "4/6" },
+      { "rank": 6, "owner": "eldridsm", "rate": 0.500, "appearances": "3/6" },
+      { "rank": 6, "owner": "tdtd19844", "rate": 0.500, "appearances": "3/6" },
+      { "rank": 8, "owner": "Cogdeill11", "rate": 0.333, "appearances": "2/6" },
+      { "rank": 8, "owner": "Cmaleski", "rate": 0.333, "appearances": "2/6" },
+      { "rank": 8, "owner": "eldridm20", "rate": 0.333, "appearances": "2/6" },
+      { "rank": 11, "owner": "Tubes94", "rate": 0.400, "appearances": "2/5", "note": "5 seasons" },
+      { "rank": 12, "owner": "Escuelas", "rate": 0.000, "appearances": "0/4", "note": "4 seasons" }
+    ],
+    "byPointsForSeason": [
+      { "rank": 1, "owner": "MLSchools12", "season": 2021, "points": 2327.06 },
+      { "rank": 2, "owner": "MLSchools12", "season": 2022, "points": 2260.28 },
+      { "rank": 3, "owner": "MLSchools12", "season": 2025, "points": 2161.42 },
+      { "rank": 4, "owner": "MLSchools12", "season": 2023, "points": 2201.02 },
+      { "rank": 5, "owner": "JuicyBussy", "season": 2022, "points": 2105.18 }
+    ]
+  }
+}

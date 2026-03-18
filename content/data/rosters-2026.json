@@ -1,0 +1,56 @@
+{
+  "_meta": "BMFFFL current rosters — 2026 offseason. Source: Sleeper API league 1312123497203376128. Generated 2026-03-15.",
+  "_validAsOf": "March 2026 offseason — pre-NFL Draft, pre-rookie draft",
+  "_season": 2026,
+  "_leagueId": "1312123497203376128",
+  "rosters": [
+    {
+      "rosterId": 5,
+      "owner": "MLSchools12",
+      "teamName": "Schoolcraft Football Team",
+      "division": "Group of Death",
+      "record2025": "13-1",
+      "points2025": 2161.42,
+      "dynastyRank": 1,
+      "starters": [
+        { "player": "Lamar Jackson",  "pos": "QB",   "nflTeam": "BAL", "age": 29 },
+        { "player": "CeeDee Lamb",    "pos": "WR",   "nflTeam": "DAL", "age": 26 },
+        { "player": "Christian McCaffrey", "pos": "RB", "nflTeam": "SF", "age": 29 },
+        { "player": "Josh Jacobs",    "pos": "RB",   "nflTeam": "GB",  "age": 28 },
+        { "player": "Jaylen Waddle",  "pos": "WR",   "nflTeam": "MIA", "age": 27 },
+        { "player": "Bucky Irving",   "pos": "RB",   "nflTeam": "TB",  "age": 23 },
+        { "player": "Hunter Henry",   "pos": "TE",   "nflTeam": "NE",  "age": 31 },
+        { "player": "Deebo Samuel",   "pos": "WR",   "nflTeam": "FA",  "age": 30 },
+        { "player": "Davante Adams",  "pos": "WR",   "nflTeam": "LAR", "age": 33 },
+        { "player": "Jacoby Brissett", "pos": "QB",  "nflTeam": "ARI", "age": 33 }
+      ],
+      "keyBench": [
+        { "player": "Kyler Murray",   "pos": "QB", "nflTeam": "MIN", "age": 28 },
+        { "player": "Justin Fields",  "pos": "QB", "nflTeam": "NYJ", "age": 27 },
+        { "player": "Jordan Addison", "pos": "WR", "nflTeam": "MIN", "age": 24 },
+        { "player": "George Kittle",  "pos": "TE", "nflTeam": "SF",  "age": 32 },
+        { "player": "Ricky Pearsall", "pos": "WR", "nflTeam": "SF",  "age": 25 }
+      ],
+      "taxi": ["Riley Leonard (QB)", "Mitchell Evans (TE)", "Jaylin Lane (WR)", "Konata Mumpfield (WR)", "Gage Larvadain (WR)"],
+      "rosterId": 5
+    },
+    {
+      "rosterId": 12,
+      "owner": "Tubes94",
+      "teamName": "Whale Tails",
+      "division": "Moodie's Wives",
+      "record2025": "10-4",
+      "points2025": 1934.66,
+      "dynastyRank": 2,
+      "starters": [
+        { "player": "Trevor Lawrence", "pos": "QB", "nflTeam": "JAX", "age": 26 },
+        { "player": "Bijan Robinson", "pos": "RB", "nflTeam": "ATL", "age": 24 },
+        { "player": "Breece Hall",    "pos": "RB", "nflTeam": "NYJ", "age": 24 }
+      ],
+      "keyBench": [],
+      "taxi": [],
+      "note": "Full roster available in bmfffl-current-rosters-2026.md"
+    }
+  ],
+  "_note": "Full 12-team roster detail in bmfffl-current-rosters-2026.md. This file contains key starters for web display. Complete rosters available via Sleeper API at runtime."
+}

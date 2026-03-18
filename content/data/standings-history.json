@@ -1,0 +1,140 @@
+{
+  "_meta": "BMFFFL historical standings (2020-2025). Source: Sleeper API seasons. Generated 2026-03-15.",
+  "_validAsOf": "March 2026 — complete through 2025 season",
+  "_leagueIds": {
+    "2020": "515286181558452224",
+    "2021": "649927136014065664",
+    "2022": "784483016662724608",
+    "2023": "917929860344004608",
+    "2024": "1048281095227236352",
+    "2025": "1180109269263917056"
+  },
+  "seasons": {
+    "2020": {
+      "champion": "Cogdeill11",
+      "runnerUp": "eldridsm",
+      "thirdPlace": "MLSchools12",
+      "moodieBowl": null,
+      "regularSeasonWinner": "MLSchools12",
+      "standings": [
+        { "rank": 1, "owner": "MLSchools12", "team": "The Murder Boners", "wins": 11, "losses": 2, "pointsFor": 2115.74, "seed": 1, "playoffResult": "Lost semis" },
+        { "rank": 2, "owner": "Cogdeill11", "team": "Cogdeill11", "wins": 10, "losses": 3, "pointsFor": 1914.48, "seed": 2, "playoffResult": "CHAMPION" },
+        { "rank": 3, "owner": "SexMachineAndyD", "team": "Herbert's Heros", "wins": 9, "losses": 4, "pointsFor": 1930.78, "seed": 3, "playoffResult": "Lost wild card" },
+        { "rank": 4, "owner": "eldridsm", "team": "eldridsm", "wins": 8, "losses": 5, "pointsFor": 1819.42, "seed": 4, "playoffResult": "Runner-up" },
+        { "rank": 5, "owner": "rbr", "team": "Really Big Rings", "wins": 6, "losses": 7, "pointsFor": 1887.44, "seed": 5, "playoffResult": "Lost wild card" },
+        { "rank": 6, "owner": "tdtd19844", "team": "Acorns & river water", "wins": 6, "losses": 7, "pointsFor": 1818.28, "seed": 6, "playoffResult": "Lost semis" },
+        { "rank": 7, "owner": "Cmaleski", "team": "Locked & Loaded", "wins": 6, "losses": 7, "pointsFor": 1598.98, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 8, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 5, "losses": 8, "pointsFor": 1783.40, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "MCSchools", "team": "Mike Was Adopted", "wins": 5, "losses": 8, "pointsFor": 1587.02, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 10, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 4, "losses": 9, "pointsFor": 1697.70, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 11, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 4, "losses": 9, "pointsFor": 1625.74, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 12, "owner": "mmoodie12", "team": "mmoodie12", "wins": 4, "losses": 9, "pointsFor": 1483.84, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    "2021": {
+      "champion": "MLSchools12",
+      "runnerUp": "rbr",
+      "thirdPlace": "SexMachineAndyD",
+      "moodieBowl": null,
+      "regularSeasonWinner": "MLSchools12",
+      "standings": [
+        { "rank": 1, "owner": "MLSchools12", "team": "The Murder Boners", "wins": 11, "losses": 3, "pointsFor": 2327.06, "seed": 1, "playoffResult": "CHAMPION" },
+        { "rank": 2, "owner": "SexMachineAndyD", "team": "SexMachineAndyD", "wins": 10, "losses": 4, "pointsFor": 2050.50, "seed": 2, "playoffResult": "3rd place" },
+        { "rank": 3, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 10, "losses": 4, "pointsFor": 1974.92, "seed": 3, "playoffResult": "Lost round 1" },
+        { "rank": 4, "owner": "Cogdeill11", "team": "Cogdeill11", "wins": 9, "losses": 5, "pointsFor": 2008.02, "seed": 4, "playoffResult": "Lost round 1" },
+        { "rank": 5, "owner": "rbr", "team": "Really Big Rings", "wins": 9, "losses": 5, "pointsFor": 1980.00, "seed": 5, "playoffResult": "Runner-up" },
+        { "rank": 6, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 8, "losses": 6, "pointsFor": 1926.12, "seed": 6, "playoffResult": "Lost round 1" },
+        { "rank": 7, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 8, "losses": 6, "pointsFor": 1881.10, "seed": null, "playoffResult": "Consolation" },
+        { "rank": 8, "owner": "eldridsm", "team": "eldridsm", "wins": 7, "losses": 7, "pointsFor": 1848.60, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "tdtd19844", "team": "WaiverWireWarriors", "wins": 6, "losses": 8, "pointsFor": 1684.74, "seed": null, "playoffResult": "Consolation" },
+        { "rank": 10, "owner": "Cmaleski", "team": "Showtyme Boyz", "wins": 4, "losses": 10, "pointsFor": 1750.04, "seed": null, "playoffResult": "Consolation" },
+        { "rank": 11, "owner": "Tubes94", "team": "Swamp Donkey's", "wins": 2, "losses": 12, "pointsFor": 1475.72, "seed": null, "playoffResult": "Consolation" },
+        { "rank": 12, "owner": "MCSchools", "team": "Our Lady of the Poor", "wins": 0, "losses": 14, "pointsFor": 1374.74, "seed": null, "playoffResult": "0-14 (retired)" }
+      ]
+    },
+    "2022": {
+      "champion": "Grandes",
+      "runnerUp": "rbr",
+      "thirdPlace": "MLSchools12",
+      "moodieBowl": null,
+      "regularSeasonWinner": "MLSchools12",
+      "standings": [
+        { "rank": 1, "owner": "MLSchools12", "team": "The Murder Boners", "wins": 10, "losses": 4, "pointsFor": 2260.28, "seed": 1, "playoffResult": "Lost semis (2.80 pts)" },
+        { "rank": 2, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 10, "losses": 4, "pointsFor": 2105.18, "seed": 2, "playoffResult": "Lost semis" },
+        { "rank": 3, "owner": "rbr", "team": "Really Big Rings", "wins": 10, "losses": 4, "pointsFor": 2082.38, "seed": 3, "playoffResult": "Runner-up" },
+        { "rank": 4, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 8, "losses": 6, "pointsFor": 2024.32, "seed": 4, "playoffResult": "CHAMPION" },
+        { "rank": 5, "owner": "eldridsm", "team": "eldridsm", "wins": 8, "losses": 6, "pointsFor": 1936.96, "seed": 5, "playoffResult": "Lost wild card" },
+        { "rank": 6, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 7, "losses": 7, "pointsFor": 1739.20, "seed": 6, "playoffResult": "Lost wild card" },
+        { "rank": 7, "owner": "Cmaleski", "team": "Showtyme Boyz", "wins": 7, "losses": 7, "pointsFor": 1688.56, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 8, "owner": "Cogdeill11", "team": "Cogdeill11", "wins": 7, "losses": 7, "pointsFor": 1663.66, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "SexMachineAndyD", "team": "SexMachineAndyD", "wins": 6, "losses": 8, "pointsFor": 1807.84, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 10, "owner": "Escuelas", "team": "Grindin Gere's", "wins": 4, "losses": 10, "pointsFor": 1480.90, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 11, "owner": "Tubes94", "team": "Burn it all", "wins": 4, "losses": 10, "pointsFor": 1340.28, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 12, "owner": "tdtd19844", "team": "WaiverWireWarriors", "wins": 3, "losses": 11, "pointsFor": 1529.58, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    "2023": {
+      "champion": "JuicyBussy",
+      "runnerUp": "eldridm20",
+      "thirdPlace": "MLSchools12",
+      "moodieBowl": null,
+      "regularSeasonWinner": "MLSchools12",
+      "standings": [
+        { "rank": 1, "owner": "MLSchools12", "team": "The Murder Boners", "wins": 13, "losses": 1, "pointsFor": 2201.02, "seed": 1, "playoffResult": "Lost semis" },
+        { "rank": 2, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 9, "losses": 5, "pointsFor": 2134.06, "seed": 2, "playoffResult": "Lost semis" },
+        { "rank": 3, "owner": "eldridsm", "team": "eldridsm", "wins": 9, "losses": 5, "pointsFor": 1995.28, "seed": 3, "playoffResult": "Lost wild card" },
+        { "rank": 4, "owner": "Cmaleski", "team": "Showtyme Boyz", "wins": 9, "losses": 5, "pointsFor": 1958.66, "seed": 4, "playoffResult": "Lost wild card" },
+        { "rank": 5, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 8, "losses": 6, "pointsFor": 1897.36, "seed": 5, "playoffResult": "Runner-up" },
+        { "rank": 6, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 8, "losses": 6, "pointsFor": 1845.72, "seed": 6, "playoffResult": "CHAMPION" },
+        { "rank": 7, "owner": "Tubes94", "team": "Burn it all", "wins": 7, "losses": 7, "pointsFor": 1700.82, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 8, "owner": "rbr", "team": "Really Big Rings", "wins": 6, "losses": 8, "pointsFor": 1758.56, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "tdtd19844", "team": "14kids0wins/teammoodie", "wins": 5, "losses": 9, "pointsFor": 1639.20, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 10, "owner": "SexMachineAndyD", "team": "SexMachineAndyD", "wins": 5, "losses": 9, "pointsFor": 1615.18, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 11, "owner": "Cogdeill11", "team": "Cogdeill11", "wins": 3, "losses": 11, "pointsFor": 1538.30, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 12, "owner": "Escuelas", "team": "Loud and Stroud!", "wins": 2, "losses": 12, "pointsFor": 1526.06, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    "2024": {
+      "champion": "MLSchools12",
+      "runnerUp": "SexMachineAndyD",
+      "thirdPlace": "Tubes94",
+      "moodieBowl": null,
+      "regularSeasonWinner": "SexMachineAndyD",
+      "standings": [
+        { "rank": 1, "owner": "SexMachineAndyD", "team": "SexMachineAndyD", "wins": 11, "losses": 3, "pointsFor": 2034.18, "seed": 1, "playoffResult": "Runner-up" },
+        { "rank": 2, "owner": "Tubes94", "team": "Nacua Matata", "wins": 11, "losses": 3, "pointsFor": 1928.36, "seed": 2, "playoffResult": "3rd place" },
+        { "rank": 3, "owner": "MLSchools12", "team": "Schoolcraft Football Team", "wins": 10, "losses": 4, "pointsFor": 1967.20, "seed": 3, "playoffResult": "CHAMPION" },
+        { "rank": 4, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 8, "losses": 6, "pointsFor": 2036.54, "seed": 4, "playoffResult": "Lost semis" },
+        { "rank": 5, "owner": "tdtd19844", "team": "THE Shameful Saggy sack", "wins": 8, "losses": 6, "pointsFor": 1915.58, "seed": 5, "playoffResult": "Lost wild card" },
+        { "rank": 6, "owner": "rbr", "team": "Really Big Rings", "wins": 8, "losses": 6, "pointsFor": 1891.12, "seed": 6, "playoffResult": "Lost wild card" },
+        { "rank": 7, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 7, "losses": 7, "pointsFor": 1941.48, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 8, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 6, "losses": 8, "pointsFor": 1917.28, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "Cmaleski", "team": "Showtyme Boyz", "wins": 4, "losses": 10, "pointsFor": 1718.72, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 10, "owner": "Cogdeill11", "team": "With alvins penix", "wins": 4, "losses": 10, "pointsFor": 1670.02, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 11, "owner": "eldridsm", "team": "eldridsm", "wins": 4, "losses": 10, "pointsFor": 1601.00, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 12, "owner": "Escuelas", "team": "The Young Guns + backups", "wins": 3, "losses": 11, "pointsFor": 1312.36, "seed": null, "playoffResult": "Missed playoffs" }
+      ]
+    },
+    "2025": {
+      "champion": "tdtd19844",
+      "runnerUp": "Tubes94",
+      "thirdPlace": "MLSchools12",
+      "moodieBowl": "Grandes",
+      "regularSeasonWinner": "MLSchools12",
+      "standings": [
+        { "rank": 1, "owner": "MLSchools12", "team": "Schoolcraft Football Team", "wins": 13, "losses": 1, "pointsFor": 2161.42, "seed": 1, "playoffResult": "3rd place" },
+        { "rank": 2, "owner": "Tubes94", "team": "Whale Tails", "wins": 10, "losses": 4, "pointsFor": 1934.66, "seed": 2, "playoffResult": "Runner-up" },
+        { "rank": 3, "owner": "SexMachineAndyD", "team": "SexMachineAndyD", "wins": 9, "losses": 5, "pointsFor": 1996.48, "seed": 3, "playoffResult": "Lost wild card" },
+        { "rank": 4, "owner": "tdtd19844", "team": "THE Shameful Saggy sack", "wins": 8, "losses": 6, "pointsFor": 1934.24, "seed": 4, "playoffResult": "CHAMPION" },
+        { "rank": 5, "owner": "JuicyBussy", "team": "Juicy Bussy", "wins": 7, "losses": 7, "pointsFor": 1845.16, "seed": 5, "playoffResult": "Lost wild card" },
+        { "rank": 6, "owner": "Cmaleski", "team": "Showtyme Boyz", "wins": 6, "losses": 8, "pointsFor": 1990.08, "seed": 6, "playoffResult": "Lost semis" },
+        { "rank": 7, "owner": "eldridm20", "team": "Franks Little Beauties", "wins": 6, "losses": 8, "pointsFor": 1804.50, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 8, "owner": "Escuelas", "team": "Booty Cheeks", "wins": 6, "losses": 8, "pointsFor": 1695.48, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 9, "owner": "rbr", "team": "Really Big Rings", "wins": 5, "losses": 9, "pointsFor": 1698.16, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 10, "owner": "Cogdeill11", "team": "Earn it", "wins": 5, "losses": 9, "pointsFor": 1626.50, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 11, "owner": "eldridsm", "team": "(no name)", "wins": 5, "losses": 9, "pointsFor": 1751.84, "seed": null, "playoffResult": "Missed playoffs" },
+        { "rank": 12, "owner": "Grandes", "team": "El Rioux Grandes", "wins": 4, "losses": 10, "pointsFor": 1548.32, "seed": null, "playoffResult": "Moodie Bowl" }
+      ]
+    }
+  }
+}

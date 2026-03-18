@@ -1,0 +1,195 @@
+{
+  "_meta": {
+    "description": "BMFFFL notable trade history (2020-2025). Covers the 3 best and 3 worst trades in league history plus per-owner trade summaries. Full transaction log available via Sleeper API. Total trade volume: 257 trades across 6 seasons.",
+    "generatedAt": "2026-03-15",
+    "source": "bmfffl-trade-history-analysis.md",
+    "totalTradeCount": 257
+  },
+  "tradeVolumeByseason": [
+    { "season": 2020, "trades": 58, "notes": "Inaugural Sleeper season — high activity as owners positioned rosters" },
+    { "season": 2021, "trades": 48, "notes": "Championship season; new owners (Tubes94, MCSchools) shifted dynamics" },
+    { "season": 2022, "trades": 51, "notes": "Steady market; Escuelas (new owner) generated early activity" },
+    { "season": 2023, "trades": 54, "notes": "Most active season; multiple build/teardown cycles converged" },
+    { "season": 2024, "trades": 21, "notes": "Sharp drop — market matured" },
+    { "season": 2025, "trades": 25, "notes": "Dominated by Grandes fire sale + MLSchools12 win-now moves" }
+  ],
+  "notableTrades": [
+    {
+      "id": "trade-001",
+      "rank": "best-1",
+      "season": 2023,
+      "week": 5,
+      "date": "2023-10-05",
+      "parties": { "buyer": "Tubes94", "seller": "Cogdeill11" },
+      "assetsTraded": {
+        "tubes94Received": ["Puka Nacua (WR)"],
+        "cogdeill11Received": ["2024 1st Round Pick"]
+      },
+      "grade": { "tubes94": "A+", "cogdeill11": "D" },
+      "summary": "Tubes94 acquired the hottest dynasty WR in football for a 1st round pick that — due to Cogdeill11's subsequent standings improvement — landed around pick 9-10, not near the top. Cogdeill11 sold a breakout asset before confirming the breakout.",
+      "impact": "Direct catalyst for Tubes94's transformation from 4-10 (2022) to runner-up (2024-2025). The Puka Nacua acquisition is the single most consequential trade in the Tubes94 dynasty arc.",
+      "teamRenaming": "Tubes94 renamed their team 'Nacua Matata' for 2024 season."
+    },
+    {
+      "id": "trade-002",
+      "rank": "best-2",
+      "season": 2020,
+      "week": 1,
+      "date": "2020-09-01",
+      "parties": { "buyer": "MLSchools12", "seller": "eldridsm" },
+      "assetsTraded": {
+        "mlschools12Received": ["Christian McCaffrey (RB)"],
+        "eldridsm_received": ["Le'Veon Bell (RB)", "2021 1st Round Pick", "2021 2nd Round Pick", "2021 1st Round Pick", "2021 1st Round Pick"]
+      },
+      "grade": { "mlschools12": "A+", "eldridsm": "C-" },
+      "summary": "Three 2021 first-round picks, a second-round pick, and Le'Veon Bell for the consensus #1 dynasty player in the format. All of eldridsm's picks came from the best team in the league — meaning they were late in each round, not near the top. Le'Veon Bell was already washed.",
+      "impact": "CMC remained the #1 dynasty RB for 5 more years. MLSchools12 went 11-3 in 2021 and won the championship. Foundational to their dynasty dominance.",
+      "historicalNote": "McCaffrey would win a Super Bowl in this window. The three late firsts combined were not worth his dynasty value."
+    },
+    {
+      "id": "trade-003",
+      "rank": "best-3",
+      "season": 2020,
+      "week": 6,
+      "date": "2020-10-08",
+      "parties": { "buyer": "Grandes", "seller": "mmoodie12" },
+      "assetsTraded": {
+        "grandesReceived": ["Patrick Mahomes (QB)", "Mike Gesicki (TE)"],
+        "mmoodie12_received": ["Jared Goff (QB)", "Jonathan Taylor (RB)", "2021 1st Round Pick"]
+      },
+      "grade": { "Grandes": "A+", "mmoodie12": "D+" },
+      "summary": "Grandes acquired the best QB in dynasty (Mahomes, age 24, coming off MVP season) plus Gesicki for Goff, an unproven rookie Taylor, and a single 1st round pick. mmoodie12 valued uncertain futures over the best player at the most valuable position in SF.",
+      "impact": "Grandes went 10-4 in 2021 and won the 2022 championship. Mahomes was the engine. mmoodie12 left the league after 2020.",
+      "historicalNote": "Jonathan Taylor became excellent — but the dynasty arithmetic still favored Grandes, who got immediate, certain value in the best SF asset."
+    },
+    {
+      "id": "trade-004",
+      "rank": "worst-1",
+      "season": 2023,
+      "week": 5,
+      "date": "2023-10-05",
+      "parties": { "buyer": "Cogdeill11", "seller": "Tubes94" },
+      "assetsTraded": {
+        "cogdeill11Received": ["2024 1st Round Pick"],
+        "tubes94Received": ["Puka Nacua (WR)"]
+      },
+      "grade": { "cogdeill11": "D", "tubes94": "A+" },
+      "summary": "The Nacua sale from Cogdeill11's perspective. Sold the hottest dynasty asset in football for a single first-round pick that didn't materialize as a top pick. The defining mistake of Cogdeill11's dynasty arc.",
+      "impact": "Cogdeill11 has not made the playoffs since 2021. The Nacua sale directly accelerated their decline window."
+    },
+    {
+      "id": "trade-005",
+      "rank": "worst-2",
+      "season": 2022,
+      "week": 1,
+      "date": "2022-09-01",
+      "parties": { "buyer": "tdtd19844", "seller": "Tubes94" },
+      "assetsTraded": {
+        "tdtd19844Received": ["Jonathan Taylor (RB)"],
+        "tubes94Received": ["2022 2nd Round Pick", "2023 1st Round Pick", "2022 1st Round Pick"]
+      },
+      "grade": { "tdtd19844": "D", "tubes94": "A+" },
+      "summary": "tdtd19844 paid peak price for Taylor coming off his monster 2021 season (1,811 rush yards, 18 TDs), then went 3-11 in 2022 — the worst record in the league. Taylor's Colts situation deteriorated. Tubes94 received three picks from a 3-11 team, which were near the top of each round — and used that capital to rebuild.",
+      "impact": "This is the trade that launched Tubes94's rebuild. Three near-top picks from the worst team is exceptional return. They used those picks to build toward the 2023 Nacua trade and eventual 2024-2025 championship contention.",
+      "historicalNote": "Tubes94 renamed their team 'Burn it all' immediately after this era of selling, signaling an intentional teardown."
+    },
+    {
+      "id": "trade-006",
+      "rank": "worst-3",
+      "season": 2025,
+      "week": 1,
+      "date": "2025-06-15",
+      "parties": { "buyer": "MLSchools12", "seller": "Cmaleski" },
+      "assetsTraded": {
+        "mlschools12Received": ["Bucky Irving (RB)"],
+        "cmaleski_received": ["Tyler Warren (TE)", "Travis Etienne (RB)", "2026 1st Round Pick", "2026 3rd Round Pick"]
+      },
+      "grade": { "mlschools12": "C-", "Cmaleski": "A" },
+      "summary": "MLSchools12 overpaid in win-now mode. Gave two established players plus a 1st-round pick for Bucky Irving. They went 13-1 — dominant — but lost in the semis again. The ring wasn't won. Tyler Warren continued developing as a top TE for Cmaleski.",
+      "impact": "MLSchools12's 2026 1st round pick (from a team that finished 3rd/13-1) is approximately pick 10-11. Still, the cost of two players plus that pick for Bucky Irving without winning a championship is the most costly non-winning trade in the archive.",
+      "historicalNote": "This is MLSchools12's consistent pattern: surgical win-now acquisitions that almost work but don't produce the ring. The Bucky Irving trade is the 2025 version of that pattern."
+    }
+  ],
+  "ownerTradeProfiles": [
+    {
+      "owner": "MLSchools12",
+      "tradePattern": "aggressive-win-now-buyer",
+      "overallGrade": "Positive",
+      "bestTrade": "CMC acquisition 2020 — paid appropriately for the best asset, used it to win 2021 and sustain a 6-year dynasty.",
+      "worstTrade": "Selling DK Metcalf to Escuelas for Cam Akers + picks (2022). Akers was a bust. Metcalf kept producing.",
+      "pattern": "Wins when buying elite players. Loses when moving veterans for depth. The 2025 Bucky Irving overpay fits the established pattern.",
+      "championships": 2
+    },
+    {
+      "owner": "Tubes94",
+      "tradePattern": "disciplined-rebuilder",
+      "overallGrade": "Best in league",
+      "bestTrade": "Puka Nacua acquisition 2023 + selling Jonathan Taylor at peak 2022.",
+      "worstTrade": "None notable — their trade record is the best of any owner in the Sleeper era.",
+      "pattern": "Sell veterans at peak. Buy rising assets. Accumulate picks during rebuild. Execute the dynasty playbook correctly.",
+      "championships": 0,
+      "note": "Best trade record despite 0 championships — all the building blocks are in place."
+    },
+    {
+      "owner": "Grandes",
+      "tradePattern": "oscillating-builder-teardowner",
+      "overallGrade": "Positive on major trades, mixed on volume",
+      "bestTrade": "Mahomes acquisition 2020 + 2025 fire sale (sold Barkley for two first-round picks).",
+      "worstTrade": "2020 acquisition spree of aging veterans (Fitzgerald, Green, etc.) for picks that could have built future rosters.",
+      "pattern": "Oscillates between aggressive acquisition phases and sell-everything teardowns. The 2022 championship validated one cycle. The current rebuild is in early stages.",
+      "championships": 1
+    },
+    {
+      "owner": "JuicyBussy",
+      "tradePattern": "surgical-championship-buyer",
+      "overallGrade": "Positive",
+      "bestTrade": "D'Andre Swift acquisition from Escuelas (Week 11, 2023) — bought a capable RB with a near-top-3 1st, used it during their 2023 championship run.",
+      "worstTrade": "2024-2025 fire sale — sold all future picks to Grandes/MLSchools12 for present assets, leaving zero 2026 picks.",
+      "pattern": "Best trades are surgical championship-window acquisitions. They understand when to push. The 2024-2025 fire sale was the logical conclusion of a championship-window mentality.",
+      "championships": 1
+    },
+    {
+      "owner": "eldridsm",
+      "tradePattern": "regret-archive",
+      "overallGrade": "Negative on major trades",
+      "bestTrade": "Multiple 2022-2023 acquistions that powered playoff runs.",
+      "worstTrade": "Selling CMC for Bell + 3 late firsts (2020). The late firsts (from the best team in the league) were not worth the consensus #1 dynasty player.",
+      "pattern": "Sold prime assets at the wrong price in 2020. Trade activity tapered off completely by 2024-2025. No major acquisitions since 2023.",
+      "championships": 0
+    },
+    {
+      "owner": "Cogdeill11",
+      "tradePattern": "sold-wrong-asset-wrong-time",
+      "overallGrade": "Negative",
+      "bestTrade": "2020-2021 acquisitions that built their championship team.",
+      "worstTrade": "Selling Puka Nacua before confirming the breakout (2023) — the single most defining bad trade in BMFFFL history.",
+      "pattern": "Active trade history but consistently not capturing full value — either selling too early or buying fringe players.",
+      "championships": 1
+    },
+    {
+      "owner": "SexMachineAndyD",
+      "tradePattern": "sharp-market-reader",
+      "overallGrade": "Positive",
+      "bestTrade": "De'Von Achane acquisition 2024 — got a dynamic RB for a late 1st from their own 11-3 season.",
+      "worstTrade": "No clearly catastrophic trades identified.",
+      "pattern": "Tends to buy at the right moments. Solid acquisition history with no major overpays identified.",
+      "championships": 0
+    },
+    {
+      "owner": "rbr",
+      "tradePattern": "hold-and-draft",
+      "overallGrade": "Neutral",
+      "bestTrade": "Derrick Henry acquisition 2021 for 1st + 2nd — Henry delivered another elite season, powered runner-up run.",
+      "worstTrade": "Conservative hold approach may have cost upside opportunities.",
+      "pattern": "Relatively thin trade history — holds and lets the draft work. Conservative approach may explain 0 championships despite two runner-up appearances.",
+      "championships": 0
+    }
+  ],
+  "leagueWidePatterns": [
+    "Selling at peak value consistently outperforms buying at peak (except when buyer has clear championship window)",
+    "Escuelas was systematically undervalued as a trading partner 2022-2024 — their picks had top-3 value in each round",
+    "MLSchools12's championship trades were worth it; their other trades were not",
+    "Trade volume correlates with active rebuilds, not performance",
+    "The best draft capital comes from tanking teams — Escuelas' picks were near the top of each round"
+  ]
+}

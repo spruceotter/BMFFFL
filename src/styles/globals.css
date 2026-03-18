@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── BMFFFL CSS Custom Properties ──────────────────────────────────────── */
+
+:root {
+  /* Brand Palette */
+  --color-primary:        #1a1a2e;   /* dark navy */
+  --color-primary-light:  #16213e;   /* slightly lighter navy */
+  --color-primary-card:   #0f3460;   /* navy blue for cards */
+  --color-accent:         #e94560;   /* signature red */
+  --color-accent-hover:   #c73652;   /* red hover state */
+  --color-gold:           #ffd700;   /* champion gold */
+  --color-gold-dim:       #c9a800;   /* dimmer gold */
+  --color-gold-light:     #fff0a0;   /* light gold tint */
+  --color-silver:         #c0c0c0;   /* runner-up silver */
+  --color-silver-dark:    #9ca3af;   /* darker silver */
+
+  /* Semantic */
+  --color-win:            #22c55e;
+  --color-loss:           #ef4444;
+  --color-tie:            #94a3b8;
+  --color-playoff:        #16a34a;
+  --color-last:           #dc2626;
+
+  /* Surfaces */
+  --color-bg:             #0d1b2a;
+  --color-surface:        #1a2d42;
+  --color-surface-hover:  #1f3550;
+  --color-border:         #2d4a66;
+  --color-border-subtle:  #1e3347;
+
+  /* Text */
+  --color-text-primary:   #f5f0e8;
+  --color-text-secondary: #a0b4c8;
+  --color-text-muted:     #6b7f96;
+
+  /* Typography */
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --font-mono:   'JetBrains Mono', monospace;
+  --font-stats:  'Roboto Mono', monospace;
+
+  /* Spacing scale */
+  --space-xs:   0.25rem;
+  --space-sm:   0.5rem;
+  --space-md:   1rem;
+  --space-lg:   1.5rem;
+  --space-xl:   2rem;
+  --space-2xl:  3rem;
+
+  /* Border radius */
+  --radius-sm:  0.25rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  0.75rem;
+  --radius-xl:  1rem;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Dark mode variables (default — this site is dark-first) */
+.dark {
+  --color-bg:            #0d1b2a;
+  --color-surface:       #1a2d42;
+  --color-border:        #2d4a66;
+  --color-text-primary:  #f5f0e8;
+  --color-text-secondary:#a0b4c8;
+
+  --bg-primary:          #0a0f1e;
+  --text-primary:        #f1f5f9;
+}
+
+/* Light mode overrides — toggled by ThemeToggle via html.dark removal */
+html:not(.dark) {
+  --color-bg:            #f8fafc;
+  --color-surface:       #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-border:        #cbd5e1;
+  --color-border-subtle: #e2e8f0;
+  --color-text-primary:  #0f172a;
+  --color-text-secondary:#475569;
+  --color-text-muted:    #94a3b8;
+
+  --bg-primary:          #f8fafc;
+  --text-primary:        #0f172a;
+}
+
+/* ─── Base Reset & Global Styles ─────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-size: 1rem;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Tabular numbers for stats */
+  .font-stats,
+  .tabular-nums {
+    font-family: var(--font-stats);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ─── Component Utilities ─────────────────────────────────────────────────── */
+
+@layer components {
+  /* Card base */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+
+  .card-hover:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  /* Gold glow for champion elements */
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scrollbar styling for tables */
+  .table-scroll {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .table-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .table-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 2px;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    --tw-ring-color: var(--color-accent);
+    --tw-ring-offset-color: var(--color-bg);
+  }
+}
+
+/* ─── Championship Card Shimmer ─────────────────────────────────────────── */
+
+@keyframes championship-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.championship-shimmer {
+  background: linear-gradient(
+    105deg,
+    rgba(255, 215, 0, 0.08) 0%,
+    rgba(255, 215, 0, 0.22) 30%,
+    rgba(255, 240, 160, 0.35) 50%,
+    rgba(255, 215, 0, 0.22) 70%,
+    rgba(255, 215, 0, 0.08) 100%
+  );
+  background-size: 200% auto;
+  animation: championship-shimmer 3s linear infinite;
+  border-color: rgba(255, 215, 0, 0.5) !important;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.2), inset 0 0 12px rgba(255, 215, 0, 0.05);
+}
+
+/* ─── Utility Overrides ──────────────────────────────────────────────────── */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .nav-link-active {
+    color: var(--color-gold);
+    border-bottom: 2px solid var(--color-gold);
+  }
+}
+
+/* ─── Print Styles ───────────────────────────────────────────────────────── */
+
+@media print {
+  /* Hide navigation, footer, sidebars */
+  nav, footer, .no-print { display: none !important; }
+  /* White background */
+  body { background: white !important; color: black !important; }
+  /* Page title visible */
+  h1, h2 { color: black !important; }
+}

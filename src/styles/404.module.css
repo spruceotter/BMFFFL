@@ -1,0 +1,27 @@
+/* Bounce animation for the football emoji on the 404 page */
+@keyframes footballBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  30% {
+    transform: translateY(-24px) rotate(-15deg);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  }
+  60% {
+    transform: translateY(-12px) rotate(10deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  80% {
+    transform: translateY(-6px) rotate(-5deg);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  }
+}
+
+.footballBounce {
+  display: inline-block;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  animation: footballBounce 2.4s ease-in-out infinite;
+}

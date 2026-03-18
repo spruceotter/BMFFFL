@@ -1,0 +1,58 @@
+{
+  "_meta": "BMFFFL website navigation structure. Derived from bmfffl-master-index.md. Generated 2026-03-15.",
+  "primaryNav": [
+    { "label": "Home",     "path": "/",           "description": "League pulse, latest articles, standings snapshot, upcoming events" },
+    { "label": "History",  "path": "/history",    "description": "All-time champions, records, owner career stats" },
+    { "label": "Seasons",  "path": "/seasons",    "description": "Season archives index (2020-2026)" },
+    { "label": "Owners",   "path": "/owners",     "description": "All 12 owner profiles with career stats" },
+    { "label": "Draft",    "path": "/drafts",     "description": "Rookie draft history and 2026 draft board" },
+    { "label": "Analytics","path": "/analytics",  "description": "Trade analyzer, standings explorer, scoring charts" },
+    { "label": "Articles", "path": "/articles",   "description": "Analysis, rankings, and strategy content" },
+    { "label": "NFL Draft","path": "/nfl-draft",  "description": "2026 NFL Draft tracker and dynasty impact" },
+    { "label": "Calendar", "path": "/calendar",   "description": "2026 season calendar and key dates" },
+    { "label": "Rules",    "path": "/rules",      "description": "League settings and scoring reference" }
+  ],
+  "seasonPages": {
+    "2020": { "path": "/seasons/2020", "article": "content/seasons/2020.mdx", "champion": "Cogdeill11" },
+    "2021": { "path": "/seasons/2021", "article": "content/seasons/2021.mdx", "champion": "MLSchools12" },
+    "2022": { "path": "/seasons/2022", "article": "content/seasons/2022.mdx", "champion": "Grandes" },
+    "2023": { "path": "/seasons/2023", "article": "content/seasons/2023.mdx", "champion": "JuicyBussy" },
+    "2024": { "path": "/seasons/2024", "article": "content/seasons/2024.mdx", "champion": "MLSchools12" },
+    "2025": { "path": "/seasons/2025", "article": "content/seasons/2025.mdx", "champion": "tdtd19844" }
+  },
+  "ownerPages": [
+    { "owner": "MLSchools12",    "slug": "mlschools12",      "path": "/owners/mlschools12" },
+    { "owner": "Tubes94",        "slug": "tubes94",          "path": "/owners/tubes94" },
+    { "owner": "SexMachineAndyD","slug": "sexmachineandy",   "path": "/owners/sexmachineandy" },
+    { "owner": "tdtd19844",      "slug": "tdtd19844",        "path": "/owners/tdtd19844" },
+    { "owner": "JuicyBussy",     "slug": "juicybussy",       "path": "/owners/juicybussy" },
+    { "owner": "Grandes",        "slug": "grandes",          "path": "/owners/grandes" },
+    { "owner": "rbr",            "slug": "rbr",              "path": "/owners/rbr" },
+    { "owner": "eldridsm",       "slug": "eldridsm",         "path": "/owners/eldridsm" },
+    { "owner": "eldridm20",      "slug": "eldridm20",        "path": "/owners/eldridm20" },
+    { "owner": "Cogdeill11",     "slug": "cogdeill11",       "path": "/owners/cogdeill11" },
+    { "owner": "Cmaleski",       "slug": "cmaleski",         "path": "/owners/cmaleski" },
+    { "owner": "Escuelas",       "slug": "escuelas",         "path": "/owners/escuelas" }
+  ],
+  "articleIndex": [
+    { "slug": "champion-timeline-2020-2025",    "category": "analysis", "featured": true,  "file": "content/articles/champion-timeline-2020-2025.mdx" },
+    { "slug": "state-of-the-league-march-2026", "category": "analysis", "featured": true,  "file": "content/articles/state-of-the-league-march-2026.mdx" },
+    { "slug": "2026-offseason-outlook",          "category": "preview",  "featured": true,  "file": "content/articles/2026-offseason-outlook.mdx" },
+    { "slug": "buyers-sellers-2026",             "category": "analysis", "featured": true,  "file": "content/articles/buyers-sellers-2026.mdx" },
+    { "slug": "2026-rookie-draft-preview",       "category": "preview",  "featured": true,  "file": "content/articles/2026-rookie-draft-preview.mdx" },
+    { "slug": "bmfffl-all-time-records",         "category": "analysis", "featured": false, "file": "content/articles/bmfffl-all-time-records.mdx" }
+  ],
+  "dataFiles": {
+    "owners":           "content/data/owners.json",
+    "standings":        "content/data/standings-history.json",
+    "pickInventory":    "content/data/pick-inventory-2026.json",
+    "rosters":          "content/data/rosters-2026.json"
+  },
+  "gaps": [
+    "Seasons 2021, 2023 articles not yet written (2020, 2022, 2024, 2025 done)",
+    "Trade history JSON not yet built (task-564)",
+    "NFL Draft prospect database JSON not yet built (task-555)",
+    "League rules page not yet written (task-568)",
+    "Breakouts/busts articles not yet written (task-557, task-558)"
+  ]
+}

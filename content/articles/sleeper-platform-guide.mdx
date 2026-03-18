@@ -1,0 +1,154 @@
+---
+title: "Sleeper Platform Guide for BMFFFL Owners"
+subtitle: "How to navigate the Sleeper app and get the most out of your BMFFFL experience"
+author: "Flint"
+publishedAt: "2026-03-16"
+category: "strategy"
+tags: ["sleeper", "platform", "guide", "tutorial"]
+featured: false
+validAsOf: "March 2026 — Sleeper platform features current"
+---
+
+## Sleeper Platform Guide for BMFFFL Owners
+
+The BMFFFL moved to Sleeper in 2020 and has been there ever since. Sleeper is built specifically for dynasty leagues — it handles long-term roster management, taxi squads, waiver wire, and trading better than any other platform.
+
+This guide covers the features BMFFFL owners use most.
+
+---
+
+## Getting Started
+
+**Download the Sleeper app** on iOS or Android, or use the web app at sleeper.com. The BMFFFL league ID is `1312123497203376128` — search for it in the app or follow the invite link your commissioner shared.
+
+Your username is your BMFFFL identifier: MLSchools12, Cogdeill11, Tubes94, etc. These are permanent — once set, they don't change.
+
+---
+
+## Roster Management
+
+### Active Roster vs. Taxi Squad
+Your active roster (15 slots) is what you start from each week. Your taxi squad (3 slots) is a separate development pipeline — those players don't take active roster spots and can't be started until you call them up.
+
+**How to move a player to taxi**: In the roster view, tap the player and select "Move to Taxi." Only eligible players (first or second NFL season) can be taxied.
+
+**Calling up a taxi player**: Before the season starts, decide which taxi players are ready to contribute. You'll need to cut an active roster player to make room.
+
+### The Injured Reserve Slot
+Players on the NFL's official IR or PUP lists are eligible for your Sleeper IR slot. Move injured players there immediately — it frees up an active roster spot. To activate a player from IR, you must cut someone to make room.
+
+---
+
+## Waiver Wire and FAAB
+
+### How FAAB Works
+BMFFFL uses **Free Agent Acquisition Budget** (FAAB) bidding. Each team gets $10,000 per season. Waivers process Tuesday nights.
+
+To claim a player:
+1. Go to the "Players" tab
+2. Find the free agent you want
+3. Tap "Add" and enter your bid
+4. All bids are blind — you don't see what others bid
+5. Highest bid wins; ties broken by waiver priority
+
+**Strategy tip**: Most FAAB claims are worth $0 (backup RBs, thin depth). Save your budget for legitimate breakouts and injury replacements. In a dynasty league, you often don't need to spend much on waivers — your young players on taxi are more valuable than most free agents.
+
+### Free Agency During the Offseason
+After the season ends, free agency opens for direct pickups (no bidding). FAAB resets to $10,000 when the new season begins.
+
+---
+
+## Trading
+
+Sleeper makes trading straightforward:
+
+1. Go to the player you want to trade for
+2. Tap "Propose Trade"
+3. Select what you're offering (players, picks, or both)
+4. Send to the other owner
+
+### Trading Draft Picks
+Future draft picks are tradeable in Sleeper. When offering picks, you'll see your current pick inventory — picks you own from trades or your own draft slots.
+
+**Pick notation**: "1.01" = first pick in round 1. "3.07" = 7th pick in round 3. When a pick is traded, the new owner holds it and drafts with it when the time comes.
+
+### Trade Review Period
+After both owners agree, the BMFFFL has no commissioner veto period (unless the commissioner manually blocks it). Trades process immediately once accepted.
+
+---
+
+## Draft Day
+
+### Rookie Draft Setup
+The BMFFFL rookie draft is the first Friday of June each year. It's a **4-round linear draft** on Sleeper.
+
+**Queuing picks**: Before the draft, queue up your preferred players in order. If you're on the clock and don't pick in time, Sleeper will auto-draft from your queue.
+
+**Draft timer**: The BMFFFL uses a standard pick timer (check settings before the draft). Don't let the clock run out.
+
+### Startup Draft (Historical)
+The 2020 startup draft is how most of the current BMFFFL roster was built. Startup drafts use auction or snake format — ours used snake in 2020.
+
+---
+
+## Matchups and Scoring
+
+### Setting Your Lineup
+Lineups lock when a player's game starts. Set your lineup before Thursday night (for Thursday games) and before the 1pm Sunday slate.
+
+**Automated lineup**: Sleeper can auto-set your lineup. Don't rely on this for important weeks — review your choices manually, especially for injuries.
+
+### Viewing Scores
+During game days, the Live Scoring view in Sleeper shows projected scores, real-time points, and position-by-position breakdowns. The app is generally reliable for live scoring.
+
+### Points Per Game vs. Cumulative
+Dynasty decisions should be based on points per game, not cumulative seasonal totals. A player who missed 4 games due to injury isn't necessarily worse than their total suggests.
+
+---
+
+## League Chat and Notifications
+
+Sleeper has a built-in chat for each league. BMFFFL owners use this for trash talk, trade discussions, and breaking news.
+
+**Enable push notifications** for:
+- Trade offers (so you don't miss a deal)
+- Waiver results
+- Lineup lock reminders
+
+Turn off notifications for weekly opponent scores if you find them distracting.
+
+---
+
+## The Sleeper API
+
+For the more technically minded, Sleeper offers a public API at `https://api.sleeper.app/v1`. The BMFFFL website uses this API to power the analytics tools.
+
+Key endpoints:
+- `GET /league/{league_id}` — league info
+- `GET /league/{league_id}/rosters` — all 12 team rosters
+- `GET /league/{league_id}/users` — owner info
+- `GET /league/{league_id}/matchups/{week}` — weekly scores
+
+The API is read-only and requires no authentication for public league data. BMFFFL league ID: `1312123497203376128`.
+
+---
+
+## Common Issues
+
+**Player not showing in my roster**: Verify the player isn't on your taxi squad — they appear separately.
+
+**Can't pick up a free agent**: Check your FAAB balance and ensure the player is actually available (not on another roster's taxi).
+
+**Trade offer stuck in pending**: The other owner needs to accept or decline. Reminder: trades don't process until both sides agree.
+
+**Wrong player scored in my lineup**: Sleeper sometimes has data delays. Check back after the game ends — final scoring usually updates within 30 minutes of game completion.
+
+---
+
+## Need Help?
+
+Check the BMFFFL rules page at [/rules](/rules) for league-specific settings, or the league chat in Sleeper for any questions about the current season.
+
+---
+
+*Guide current as of March 2026. Sleeper platform features subject to change.*

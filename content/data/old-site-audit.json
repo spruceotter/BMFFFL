@@ -1,0 +1,65 @@
+{
+  "_meta": "Old site audit results from bmfffl.vercel.app — captured 2026-03-15",
+  "leagueIds": {
+    "oldSite_2023season": "917929860344004608",
+    "newSite_currentSeason": "1312123497203376128",
+    "previousChain_2022": "784483016662724608",
+    "note": "Sleeper dynasty leagues create new league IDs each season but link via previous_league_id. Both IDs are the same league, different seasons. Need to verify 1312123497203376128 is indeed the 2024/2025 season ID for the same franchise."
+  },
+  "leagueConfig": {
+    "name": "The BMFFFL",
+    "fullName": "The Best Motherfucking Fantasy Football League",
+    "established": 2016,
+    "sleeperSince": 2019,
+    "dues": 100,
+    "dynasty": true,
+    "format": "Full PPR, Superflex, 4pt passing TDs",
+    "rosterSlots": ["QB","RB","RB","WR","WR","WR","TE","FLEX","FLEX","SUPER_FLEX"],
+    "benchSlots": 14,
+    "irSlots": 4,
+    "taxiSlots": 5,
+    "playoffs": {"teams": 6, "startWeek": 15},
+    "awards": {
+      "champion": "BMFFFL CHAMPION",
+      "loserBowl": "MOODIE BOWL"
+    },
+    "divisions": [
+      {"name": "Group of Death"},
+      {"name": "Cleveland"},
+      {"name": "Pig Bottoms"}
+    ]
+  },
+  "managerIdentities": [
+    {"username": "Grandes", "teamName": "El Rioux Grandes", "userId": "99857021587046400", "isCommissioner": true},
+    {"username": "SexMachineAndyD", "teamName": "SexMachineAndyD", "userId": "358130239299125248", "historicalNames": ["Herbert's Heros"]},
+    {"username": "tdtd19844", "teamName": "14kids0wins/teammoodie", "userId": "469736393631854592", "historicalNames": ["WaiverWireWarriors"]},
+    {"username": "Cogdeill11", "teamName": "Cogdeill11", "userId": "471187407190880256"},
+    {"username": "rbr", "teamName": "Really Big Rings", "userId": "512748133667676160"},
+    {"username": "MLSchools12", "teamName": "The Murder Boners", "userId": "512750687308853248"},
+    {"username": "Cmaleski", "teamName": "Showtyme Boyz", "userId": "512760506595000320"},
+    {"username": "eldridm20", "teamName": "Franks Little Beauties", "userId": "513021352610816000"},
+    {"username": "JuicyBussy", "teamName": "Juicy Bussy", "userId": "513030553068933120"},
+    {"username": "eldridsm", "teamName": "eldridsm", "userId": "513750802254958592"},
+    {"username": "Tubes94", "teamName": "Burn it all", "userId": "597661644482478080", "historicalNames": ["Swamp Donkey's"]},
+    {"username": "Escuelas", "teamName": "Loud and Stroud!", "userId": "597933566248157184", "historicalNames": ["Our Lady of the Poor", "Grindin Gere's"]}
+  ],
+  "allTimeRecords": {
+    "highestSingleWeek": {"owner": "MLSchools12", "teamName": "The Murder Boners", "score": 240.64, "season": 2021, "week": 5},
+    "allTimeWinPct": [
+      {"username": "MLSchools12", "wins": 45, "losses": 10, "pct": 0.818},
+      {"username": "eldridsm", "wins": 32, "losses": 23, "pct": 0.582},
+      {"username": "Grandes", "wins": 31, "losses": 24, "pct": 0.564},
+      {"username": "rbr", "wins": 31, "losses": 24, "pct": 0.564},
+      {"username": "JuicyBussy", "wins": 31, "losses": 24, "pct": 0.564},
+      {"username": "SexMachineAndyD", "wins": 30, "losses": 25, "pct": 0.545},
+      {"username": "Cogdeill11", "wins": 29, "losses": 26, "pct": 0.527},
+      {"username": "eldridm20", "wins": 27, "losses": 28, "pct": 0.491},
+      {"username": "Cmaleski", "wins": 26, "losses": 29, "pct": 0.473},
+      {"username": "tdtd19844", "wins": 20, "losses": 35, "pct": 0.364},
+      {"username": "Tubes94", "wins": 17, "losses": 38, "pct": 0.309},
+      {"username": "Escuelas", "wins": 11, "losses": 44, "pct": 0.200}
+    ],
+    "note": "Records through 2023 season only — old site not updated for 2024-2025"
+  },
+  "bimfleText": "Welcome to the BMFFFL Fantasy Football League's AI-Powered Archive and Official Website\n\nHello, esteemed owners and avid fans of the BMFFFL. I am the AI Commissioner Assistant, my name is Bimfle, I have been diligently appointed by the Commissioner of the BMFFFL to curate and present a comprehensive digital archive and platform for this illustrious fantasy football league.\n\nThe BMFFFL stands as a beacon of competitive spirit and camaraderie, having enriched the lives of its members with thrilling seasons, memorable moments, unforgettable disasters, entwined with the sheer joy of the competition. Recognizing the league's rich history and its forward-looking aspirations, the Commissioner envisioned an advanced, AI-powered platform that seamlessly melds tradition with technology.\n\nAs we embark on this digital journey, you'll find individual manager accolades, in-depth rankings, and an exhaustive record of trade and waiver histories, all underpinned by advanced analytics. My upcoming plans are to develop an interactive platform, powered by AI algorithms, to offer a unique perspective, ensuring your every league need is satisfied.\n\nIn the spirit of the BMFFFL's commitment to excellence and innovation, I invite you to explore, engage, and immerse yourself in the BMFFFL experience. May this platform serve as a testament to our league's legacy and its promising future.\n\n~Love, Bimfle.\n\nP.S. I have not yet calculated power rankings, below is just a placeholder for now... all of the other pages are working."
+}

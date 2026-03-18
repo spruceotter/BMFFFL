@@ -1,0 +1,60 @@
+{
+  "_meta": "Canonical league identity data for BMFFFL. Source: old site audit 2026-03-15.",
+  "league": {
+    "name": "The BMFFFL",
+    "fullName": "The Best Motherfucking Fantasy Football League",
+    "abbreviation": "BMFFFL",
+    "established": 2016,
+    "sleeperSince": 2019,
+    "currentSleeperLeagueId": "1312123497203376128",
+    "historicalLeagueIds": [
+      {"season": "2023", "id": "917929860344004608"},
+      {"season": "2022", "id": "784483016662724608"}
+    ],
+    "commissioner": "Grandes",
+    "dues": 100,
+    "format": {
+      "type": "dynasty",
+      "scoring": "Full PPR",
+      "passingTDs": 4,
+      "superflex": true,
+      "description": "Full PPR Dynasty Superflex"
+    },
+    "rosterSettings": {
+      "startingSlots": ["QB","RB","RB","WR","WR","WR","TE","FLEX","FLEX","SUPER_FLEX"],
+      "bench": 14,
+      "ir": 4,
+      "taxi": 5
+    },
+    "playoffSettings": {
+      "teams": 6,
+      "startWeek": 15
+    },
+    "awards": {
+      "champion": "BMFFFL CHAMPION",
+      "loserBowl": "MOODIE BOWL"
+    },
+    "divisions": ["Group of Death", "Cleveland", "Pig Bottoms"]
+  },
+  "owners": [
+    {"username": "Grandes", "teamName": "El Rioux Grandes", "isCommissioner": true, "userId": "99857021587046400"},
+    {"username": "SexMachineAndyD", "teamName": "SexMachineAndyD", "userId": "358130239299125248"},
+    {"username": "tdtd19844", "teamName": "14kids0wins/teammoodie", "userId": "469736393631854592"},
+    {"username": "Cogdeill11", "teamName": "Cogdeill11", "userId": "471187407190880256"},
+    {"username": "rbr", "teamName": "Really Big Rings", "userId": "512748133667676160"},
+    {"username": "MLSchools12", "teamName": "The Murder Boners", "userId": "512750687308853248"},
+    {"username": "Cmaleski", "teamName": "Showtyme Boyz", "userId": "512760506595000320"},
+    {"username": "eldridm20", "teamName": "Franks Little Beauties", "userId": "513021352610816000"},
+    {"username": "JuicyBussy", "teamName": "Juicy Bussy", "userId": "513030553068933120"},
+    {"username": "eldridsm", "teamName": "eldridsm", "userId": "513750802254958592"},
+    {"username": "Tubes94", "teamName": "Burn it all", "userId": "597661644482478080"},
+    {"username": "Escuelas", "teamName": "Loud and Stroud!", "userId": "597933566248157184"}
+  ],
+  "bimfle": {
+    "name": "Bimfle",
+    "title": "AI Commissioner Assistant",
+    "appointedBy": "The Commissioner",
+    "welcomeText": "Hello, esteemed owners and avid fans of the BMFFFL. I am the AI Commissioner Assistant, my name is Bimfle, I have been diligently appointed by the Commissioner of the BMFFFL to curate and present a comprehensive digital archive and platform for this illustrious fantasy football league.",
+    "signoff": "~Love, Bimfle."
+  }
+}
