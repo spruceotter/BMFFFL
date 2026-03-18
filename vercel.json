@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "out",
   "framework": "nextjs",
   "redirects": [
     { "source": "/matchups", "destination": "/season/matchups", "permanent": true },
