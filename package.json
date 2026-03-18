@@ -2,7 +2,7 @@
   "name": "bmfffl-website",
   "version": "0.1.0",
   "private": true,
-  "description": "BMFFFL Dynasty Fantasy Football League Website — built on Sleeper API",
+  "description": "BMFFFL Dynasty Fantasy Football League Website \u2014 built on Sleeper API",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -37,5 +37,8 @@
     "typescript": "^5.4.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
