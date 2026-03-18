@@ -1,6 +1,6 @@
 node_modules/
 .next/
-out/
+# out/ is committed — pre-built static export for Vercel deployment
 .env
 .env.local
 .env*.local
