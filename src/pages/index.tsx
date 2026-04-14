@@ -93,7 +93,7 @@ export default function HomePage() {
         <title>BMFFFL — Best MFing Fantasy Football League</title>
         <meta
           name="description"
-          content="BMFFFL dynasty fantasy football league — 6 seasons of excellence, 12 teams, and counting."
+          content="BMFFFL dynasty fantasy football league — 11 seasons of excellence, 12 teams, and counting."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -142,7 +142,7 @@ export default function HomePage() {
 
           {/* Tagline */}
           <p className="text-lg sm:text-xl text-slate-300 font-medium mb-2">
-            6 seasons of dynasty excellence.
+            Entering 11 seasons of dynasty excellence.
           </p>
           <p className="text-sm text-slate-500 mb-3">
             Best MFing Fantasy Football League &mdash; Full PPR Dynasty &bull; 12 Teams &bull; Sleeper

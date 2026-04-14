@@ -151,7 +151,7 @@ export default function BimflePage() {
               <ObservationCard
                 icon={<Trophy className="w-4 h-4" />}
                 title="Dynasty Standings"
-                body="MLSchools12 — The Murder Boners — remains the standard of excellence in the BMFFFL. Runner-up in 2025, they carry the strongest roster into 2026 and are the consensus dynasty threat to beat."
+                body="MLSchools12 — The Murder Boners — remains the standard of excellence in the BMFFFL. 4x champion (2016, 2019, 2021, 2024), they went 13-1 in 2025 but were eliminated before the finals. The consensus dynasty threat heading into 2026."
               />
               <ObservationCard
                 icon={<Star className="w-4 h-4" />}
