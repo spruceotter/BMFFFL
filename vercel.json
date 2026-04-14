@@ -1,51 +1,93 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "out",
   "framework": "nextjs",
   "redirects": [
-    { "source": "/matchups", "destination": "/season/matchups", "permanent": true },
-    { "source": "/transactions", "destination": "/trades", "permanent": true },
-    { "source": "/records", "destination": "/analytics/all-time-records", "permanent": true },
-    { "source": "/standings", "destination": "/history/standings", "permanent": true }
+    {
+      "source": "/matchups",
+      "destination": "/season/matchups",
+      "permanent": true
+    },
+    {
+      "source": "/transactions",
+      "destination": "/trades",
+      "permanent": true
+    },
+    {
+      "source": "/records",
+      "destination": "/analytics/all-time-records",
+      "permanent": true
+    },
+    {
+      "source": "/standings",
+      "destination": "/history/standings",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/_next/static/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*).js",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*).css",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, s-maxage=86400"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]
