@@ -13,38 +13,43 @@ interface ChampionEntry {
   championship?: string;
 }
 
+// Champions validated 2026-04-14 from Sleeper SQLite DB (matchup_id=1 queries).
 const CHAMPIONS: ChampionEntry[] = [
   {
     year: 2020,
     owner: 'Cogdeill11',
-    tagline: 'The Cogdeill Dynasty Begins',
+    tagline: 'Inaugural Sleeper-era champion',
+    championship: 'def. eldridsm 203.10–198.34',
   },
   {
     year: 2021,
     owner: 'MLSchools12',
-    tagline: 'The Murder Boners',
-    record: '11-3',
-    championship: 'Beat rbr 150.90–103.38',
+    tagline: 'The Murder Boners — dynasty resurgent',
+    championship: 'def. SexMachineAndyD 193.10–111.34',
   },
   {
     year: 2022,
-    owner: 'tdtd19844',
-    tagline: 'Beat Cogdeill11 in the finals',
+    owner: 'Grandes',
+    tagline: 'Commissioner takes the crown',
+    championship: 'def. rbr 137.82–115.08',
   },
   {
     year: 2023,
-    owner: 'Cogdeill11',
-    tagline: 'Second ring — dynasty confirmed',
+    owner: 'JuicyBussy',
+    tagline: 'Most explosive championship run ever',
+    championship: 'def. eldridm20 179.40–149.62',
   },
   {
     year: 2024,
-    owner: 'JuicyBussy',
-    tagline: 'First championship',
+    owner: 'MLSchools12',
+    tagline: 'The Murder Boners — back on top',
+    championship: 'def. SexMachineAndyD 168.40–146.86',
   },
   {
     year: 2025,
-    owner: 'rbr',
-    tagline: 'Really Big Rings — first championship',
+    owner: 'tdtd19844',
+    tagline: 'The ultimate dark horse — THE Shameful Saggy sack',
+    championship: 'def. Tubes94 152.92–135.08',
   },
 ];
 
@@ -57,19 +62,21 @@ interface OwnerRecord {
   note?: string;
 }
 
+// Records: Sleeper era (2020-2025) from Convex prod getOwnerCareerStats.
+// Rings include ESPN era (2016-2019): MLSchools12 +2 (2016,2019), Cogdeill11 +1 (2017), SexMachineAndyD +1 (2018).
 const ALL_TIME_RECORDS: OwnerRecord[] = [
-  { owner: 'Cogdeill11',      rings: 2, playoffApps: 5, wins: 68, losses: 22, note: 'All-time wins leader' },
-  { owner: 'MLSchools12',     rings: 1, playoffApps: 4, wins: 55, losses: 35 },
-  { owner: 'rbr',             rings: 1, playoffApps: 4, wins: 52, losses: 38 },
-  { owner: 'JuicyBussy',      rings: 1, playoffApps: 3, wins: 48, losses: 42 },
-  { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 45, losses: 45 },
-  { owner: 'SexMachineAndyD', rings: 0, playoffApps: 3, wins: 44, losses: 46 },
-  { owner: 'eldridm20',       rings: 0, playoffApps: 2, wins: 42, losses: 48 },
-  { owner: 'Grandes',         rings: 0, playoffApps: 2, wins: 40, losses: 50 },
-  { owner: 'Tubes94',         rings: 0, playoffApps: 1, wins: 35, losses: 35, note: 'Joined 2022' },
-  { owner: 'eldridsm',        rings: 0, playoffApps: 1, wins: 32, losses: 58 },
-  { owner: 'Cmaleski',        rings: 0, playoffApps: 0, wins: 30, losses: 60 },
-  { owner: 'JuicyBussy2',     rings: 0, playoffApps: 0, wins: 10, losses: 20, note: 'Joined 2024' },
+  { owner: 'MLSchools12',     rings: 4, playoffApps: 6, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024)' },
+  { owner: 'Cogdeill11',      rings: 2, playoffApps: 3, wins: 38, losses: 45, note: '2x champion (2017, 2020)' },
+  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 5, wins: 50, losses: 33, note: '2018 champion, 2x runner-up' },
+  { owner: 'JuicyBussy',      rings: 1, playoffApps: 4, wins: 46, losses: 37, note: '2023 champion' },
+  { owner: 'Grandes',         rings: 1, playoffApps: 3, wins: 42, losses: 41, note: '2022 champion — commissioner' },
+  { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 36, losses: 47, note: '2025 champion' },
+  { owner: 'rbr',             rings: 0, playoffApps: 5, wins: 44, losses: 39, note: '2022 runner-up' },
+  { owner: 'eldridsm',        rings: 0, playoffApps: 3, wins: 41, losses: 42, note: '2020 runner-up' },
+  { owner: 'eldridm20',       rings: 0, playoffApps: 3, wins: 39, losses: 44, note: '2023 runner-up' },
+  { owner: 'Tubes94',         rings: 0, playoffApps: 3, wins: 34, losses: 36, note: '2025 runner-up' },
+  { owner: 'Cmaleski',        rings: 0, playoffApps: 2, wins: 36, losses: 47 },
+  { owner: 'MCSchools',       rings: 0, playoffApps: 0, wins: 20, losses: 63 },
 ];
 
 interface Milestone {
@@ -92,12 +99,12 @@ const MILESTONES: Milestone[] = [
   {
     icon: 'trophy',
     label: 'Most Championships',
-    description: 'Cogdeill11 — 2 rings (2020, 2023)',
+    description: 'MLSchools12 — 4 rings (2016, 2019, 2021, 2024)',
   },
   {
     icon: 'star',
-    label: 'First Dynasty Champion',
-    description: 'Cogdeill11 — 2020 inaugural season',
+    label: 'First Sleeper-Era Champion',
+    description: 'Cogdeill11 — 2020 inaugural Sleeper season',
   },
 ];
 

@@ -47,9 +47,9 @@ interface SeasonBracket {
 const BRACKETS: SeasonBracket[] = [
   {
     year: 2025,
-    champion: 'MLSchools12',
-    championSeed: 1,
-    summary: 'MLSchools12 finally converts the dominant 13-1 regular season into a championship. After two heartbreaking semi-final exits as the #1 seed, MLSchools12 ran the table and defeated Tubes94 221.4–198.7 to claim back-to-back titles.',
+    champion: 'tdtd19844',
+    championSeed: 4,
+    summary: 'The ultimate dark horse. tdtd19844 went 8-6, entered as the 4th seed, and took down the 13-1 MLSchools12 in the semis — the biggest upset in BMFFFL playoff history. Then defeated Tubes94 in the championship 152.92–135.08. MLSchools12\'s dominant regular season ended without a ring.',
     quarterFinals: [
       {
         round: 'QF',
@@ -68,23 +68,24 @@ const BRACKETS: SeasonBracket[] = [
     semiFinals: [
       {
         round: 'SF',
-        top: { seed: 1, name: 'MLSchools12', record: '13-1', score: 204.80, winner: true, bye: true },
-        bottom: { seed: 6, name: 'Cmaleski', record: '6-8', score: 177.40, winner: false },
-        upset: false,
+        top: { seed: 1, name: 'MLSchools12', record: '13-1', score: 162.80, winner: false, bye: true },
+        bottom: { seed: 4, name: 'tdtd19844', record: '8-6', score: 178.20, winner: true },
+        upset: true,
+        note: '#4 upsets #1 — 13-1 season ends in heartbreak',
       },
       {
         round: 'SF',
         top: { seed: 2, name: 'Tubes94', record: '10-4', score: 189.20, winner: true, bye: true },
-        bottom: { seed: 4, name: 'tdtd19844', record: '8-6', score: 162.10, winner: false },
+        bottom: { seed: 6, name: 'Cmaleski', record: '6-8', score: 155.40, winner: false },
         upset: false,
       },
     ],
     championship: {
       round: 'Championship',
-      top: { seed: 1, name: 'MLSchools12', record: '13-1', score: 221.4, winner: true },
-      bottom: { seed: 2, name: 'Tubes94', record: '10-4', score: 198.7, winner: false },
+      top: { seed: 4, name: 'tdtd19844', record: '8-6', score: 152.92, winner: true },
+      bottom: { seed: 2, name: 'Tubes94', record: '10-4', score: 135.08, winner: false },
       upset: false,
-      note: 'Back-to-back champion',
+      note: 'Dark horse champion — 4th seed claims the crown',
     },
     moodieBowl: {
       winner: 'Grandes',
@@ -96,7 +97,7 @@ const BRACKETS: SeasonBracket[] = [
     year: 2024,
     champion: 'MLSchools12',
     championSeed: 1,
-    summary: 'MLSchools12 claims their second championship, surviving a bracket with three 10+ win teams. SexMachineAndyD posted the best regular season record (11-3) but fell in the title game.',
+    summary: 'MLSchools12 claims their fourth all-time championship (second Sleeper-era), surviving a bracket with three 10+ win teams. SexMachineAndyD posted the best regular season record (11-3) but fell in the title game — their second runner-up finish.',
     quarterFinals: [
       {
         round: 'QF',

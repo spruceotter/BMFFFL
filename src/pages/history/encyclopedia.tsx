@@ -81,18 +81,18 @@ const CHAMPIONS: ChampionEntry[] = [
   {
     year: 2024,
     champion: 'mlschools12',
-    subtitle: 'Dynasty Begins',
-    finalScore: undefined,
-    opponent: undefined,
-    note: 'First championship for mlschools12. Built on depth, not luck.',
+    subtitle: 'The Comeback',
+    finalScore: '168.40–146.86',
+    opponent: 'sexmachineandy',
+    note: 'Fourth all-time championship for mlschools12 — second Sleeper-era ring. Built on depth, not luck.',
   },
   {
     year: 2025,
-    champion: 'mlschools12',
-    subtitle: 'Back-to-Back',
-    finalScore: '221.4–198.7',
+    champion: 'tdtd19844',
+    subtitle: 'The Dark Horse',
+    finalScore: '152.92–135.08',
     opponent: 'tubes94',
-    note: 'Repeated. The dynasty is no longer a theory.',
+    note: 'The ultimate upset — 8-6, 4th seed tdtd19844 takes down the 13-1 juggernaut and claims the crown.',
   },
 ];
 
@@ -124,8 +124,8 @@ const ALL_TIME_RECORDS: AllTimeRecord[] = [
   {
     category: 'Most Championship Appearances',
     holder: 'mlschools12',
-    value: '2 appearances',
-    context: '2024, 2025',
+    value: '4 all-time',
+    context: '2016, 2019, 2021, 2024 (Sleeper era: 2021, 2024)',
   },
   {
     category: 'Longest Playoff Streak',
@@ -157,7 +157,7 @@ const SEASON_SUMMARIES: SeasonSummary[] = [
   {
     year: 2021,
     champion: 'mlschools12',
-    story: 'The First Ring. MLSchools12 posted an 11-3 regular season and the all-time season scoring record (2,327.06 pts), then won the championship over rbr 150.90–103.38. JuicyBussy set the all-time single-week record (245.80) in a consolation game.',
+    story: 'The First Ring. MLSchools12 posted an 11-3 regular season and the all-time season scoring record (2,327.06 pts), then won the championship over SexMachineAndyD 193.10–111.34. JuicyBussy set the all-time single-week record (245.80) in a consolation game.',
     highlights: ['Record season: 2,327.06 pts', 'JuicyBussy consolation record: 245.80 pts', 'Taxi squad added by vote (10-2)'],
   },
   {
@@ -175,14 +175,14 @@ const SEASON_SUMMARIES: SeasonSummary[] = [
   {
     year: 2024,
     champion: 'mlschools12',
-    story: "Dynasty Begins. mlschools12 took the crown for the first time. Playoff expansion to 6 teams failed in a vote (5-7). The 4-team format held.",
-    highlights: ['First title for mlschools12', 'Playoff expansion fails (vote: 5-7)', 'Six active seasons of clean governance'],
+    story: "The Comeback. mlschools12 reclaimed the championship — fourth all-time, second Sleeper-era ring. Def. SexMachineAndyD 168.40–146.86. Playoff expansion to 6 teams failed in a vote (5-7). The 4-team format held.",
+    highlights: ['4th all-time title for mlschools12 (2016, 2019, 2021, 2024)', 'Playoff expansion fails (vote: 5-7)', 'Six active seasons of clean governance'],
   },
   {
     year: 2025,
     champion: 'mlschools12',
-    story: "Back-to-Back. mlschools12 repeated. 11-3 regular season record. Finals win over tubes94 by 22.7 points. The dynasty conversation is no longer speculation.",
-    highlights: ['11-3 regular season (best ever)', 'Finals: 221.4–198.7 vs tubes94', 'Back-to-back champion confirmed'],
+    story: "The Dark Horse. tdtd19844 went 8-6, entered as the 4th seed, and outlasted the field. MLSchools12 had the best regular season record in league history (13-1) but fell short. Tubes94 made the finals from the 2nd seed.",
+    highlights: ['Champion: tdtd19844 def. Tubes94 152.92–135.08', 'MLSchools12 goes 13-1 and is knocked out before finals', 'tdtd19844 — the ultimate dark horse'],
   },
 ];
 
@@ -190,8 +190,8 @@ const MANAGERS: Manager[] = [
   { name: 'grandes', joined: 2020, note: 'Commissioner & 2022 champion' },
   { name: 'cogdeill11', joined: 2020, note: '2020 champion' },
   { name: 'juicybussy', joined: 2020, note: '2023 champion' },
-  { name: 'tdtd19844', joined: 2020 },
-  { name: 'mlschools12', joined: 2020, note: '2021, 2024 & 2025 champion' },
+  { name: 'tdtd19844', joined: 2020, note: '2025 champion' },
+  { name: 'mlschools12', joined: 2020, note: '4x champion (2016, 2019, 2021, 2024)' },
   { name: 'tubes94', joined: 2020 },
   { name: 'eldridsm', joined: 2020 },
   { name: 'rbr', joined: 2020 },

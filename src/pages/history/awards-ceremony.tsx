@@ -33,7 +33,7 @@ const AWARDS: Award[] = [
     title: 'Most Valuable Manager',
     winner: 'mlschools12',
     acceptanceQuote: '"Just doing what I do."',
-    detail: 'Three championships in five seasons. 13-1 regular season record in 2025 — the best single-season performance in BMFFFL history. The standard everyone else is chasing.',
+    detail: 'Four championships across all eras (2016, 2019, 2021, 2024). 13-1 regular season record in 2025 — the best single-season record in BMFFFL history. The standard everyone else is chasing.',
     icon: 'trophy',
     color: '#ffd700',
     bgColor: 'rgba(255,215,0,0.06)',
@@ -298,7 +298,7 @@ export default function AwardsCeremonyPage() {
               </p>
               <p>
                 mlschools12, what you have done to this league is both inspiring and clinically concerning.
-                Three championships. A 13-1 season. We are all, effectively, playing for second place,
+                Four championships. A 13-1 season that ended in heartbreak. We are all, effectively, playing for second place,
                 and yet: we return. Every year. Because the chase is the point.
               </p>
               <p>
