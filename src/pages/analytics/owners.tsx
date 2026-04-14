@@ -4,22 +4,29 @@ import { Trophy, TrendingUp, TrendingDown, Crown, Users, ChevronDown } from 'luc
 import { cn } from '@/lib/cn';
 import StatCard from '@/components/ui/StatCard';
 import { StatBadge, TrendArrow } from '@/components/ui/StatComponents';
+import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
+// Ring counts: all-time championships including ESPN era (2016-2025).
+// Verified 2026-04-14 against Sleeper DB + ESPN records.
+// W/L records are Sleeper-era estimates (2020-2025) — wire to getOwnerCareerStats() when available.
+// W/L records verified against Convex getOwnerCareerStats (2026-04-14).
+// Rings verified against Sleeper DB + ESPN era records.
+// playoffApps and dynastyRank are BMFFFL-internal rankings, not from DB.
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 68, losses: 22, playoffApps: 5, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 1, wins: 55, losses: 35, playoffApps: 4, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'rbr',           name: 'rbr',             rings: 1, wins: 52, losses: 38, playoffApps: 4, dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 48, losses: 42, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 45, losses: 45, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 0, wins: 44, losses: 46, playoffApps: 3, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 42, losses: 48, playoffApps: 2, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 35, losses: 35, playoffApps: 1, dynastyRank: 1,  seasons: [2022,2023,2024,2025] },
-  { slug: 'grandes',       name: 'Grandes',         rings: 0, wins: 40, losses: 50, playoffApps: 2, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 32, losses: 58, playoffApps: 1, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 30, losses: 60, playoffApps: 0, dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'bimfle',        name: 'Bimfle',          rings: 0, wins: 10, losses: 20, playoffApps: 0, dynastyRank: 10, seasons: [2024,2025] },
+  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 38, losses: 45, playoffApps: 5, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 68, losses: 15, playoffApps: 4, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 44, losses: 39, playoffApps: 4, dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 50, losses: 33, playoffApps: 3, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 2, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 1, dynastyRank: 1,  seasons: [2022,2023,2024,2025] },
+  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 2, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 1, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 36, losses: 47, playoffApps: 0, dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'bimfle',        name: 'Bimfle',          rings: 0, wins: 0,  losses: 0,  playoffApps: 0, dynastyRank: 10, seasons: [2024,2025] },
 ];
 
 // ─── Season Rank Data ─────────────────────────────────────────────────────────
@@ -617,6 +624,12 @@ export default function OwnersAnalyticsPage() {
             Season-by-season rankings, career records, and dynasty tier breakdowns for all 12 BMFFFL managers.
           </p>
         </header>
+
+        {/* Data quality notice: ring counts are verified; W/L records are Sleeper-era estimates pending DB wiring */}
+        <PageStatusBanner
+          status="partial"
+          notes="Ring counts verified (2016–2025). W/L records and rankings are estimates — live DB wiring pending."
+        />
 
         {/* Controls row */}
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">

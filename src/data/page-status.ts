@@ -248,16 +248,18 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/analytics/owners': {
     path: '/analytics/owners',
-    status: 'placeholder',
+    status: 'partial',
     label: 'Owner Analytics',
-    notes: 'OWNERS_DATA array has wrong ring counts and career records. Wire to getOwnerCareerStats.',
+    notes: 'Ring counts verified all-time (B676). W/L records and season rankings are estimates — wire to getOwnerCareerStats.',
+    validatedAt: '2026-04-14',
     category: 'Analytics',
   },
   '/analytics/champion-retrospective': {
     path: '/analytics/champion-retrospective',
-    status: 'placeholder',
+    status: 'partial',
     label: 'Champion Retrospective',
-    notes: 'Champion data not validated',
+    notes: 'Champion records, seeds, badges corrected (B677). Roster narratives are editorial content, not DB-sourced.',
+    validatedAt: '2026-04-14',
     category: 'Analytics',
   },
   '/analytics/dynasty-power-index': {

@@ -145,3 +145,61 @@ Priority order for wiring real data:
 
 **Bottom line:** The site is heavily hardcoded. Most "data" is invented mock values that look real.
 Champion history (`seasons.ts`) was corrected 2026-04-14. Everything else still needs Convex wiring.
+
+---
+
+## 7. CORRECTIONS COMPLETED — B643–B672 (2026-04-14)
+
+**Ground truth used**: Sleeper SQLite DB (matchup_id=1 queries for champion, Convex prod standings for records).
+
+**Verified Champion History (used for all corrections below):**
+- 2016: MLSchools12 (ESPN era)
+- 2017: Cogdeill11 (ESPN era)
+- 2018: SexMachineAndyD (ESPN era)
+- 2019: MLSchools12 (ESPN era)
+- 2020: Cogdeill11 def. eldridsm 203.10–198.34
+- 2021: MLSchools12 def. SexMachineAndyD 193.10–111.34
+- 2022: Grandes def. rbr 137.82–115.08
+- 2023: JuicyBussy def. eldridm20 179.40–149.62
+- 2024: MLSchools12 def. SexMachineAndyD 168.40–146.86
+- 2025: tdtd19844 def. Tubes94 152.92–135.08
+
+**MLSchools12**: 4 championships total (2016, 2019, 2021, 2024) — NOT 5 or 6. 2025 went 13-1 but lost in semis.
+
+### Files Corrected
+
+| File | Corrected Beat | Key Changes |
+|------|----------------|-------------|
+| `src/lib/seasons.ts` | B643/B648 | Champion data for 2016-2025, ESPN era added |
+| `src/pages/history/[year].tsx` | B648 | SEASONS_DATA wired to Convex getSeasonStandings |
+| `src/pages/managers/index.tsx` | B666 | All 12 manager records, fake managers removed (Bro_Set→eldridsm, CheeseAndCrackers→Cmaleski, JimmyEatWurld→MCSchools), championship history fixed |
+| `src/pages/history/index.tsx` | B667 | CHAMPIONS array: 5 of 6 wrong; corrected all (2022: Grandes, 2023: JuicyBussy, 2024: MLSchools12, 2025: tdtd19844) |
+| `src/pages/index.tsx` | B667 | QUICK_STATS seasons 6→10, date range 2020-2025→2016-2025, unique champions 5→6; TOP_OWNERS ring counts |
+| `src/pages/league-lore.tsx` | B668 | 2022 runner-up (rbr not MLSchools12); 2024 "repeat" was false (actually 4th title) |
+| `src/pages/history/awards.tsx` | B669 | 2025 champion MLSchools12→tdtd19844; 2025 playoff heartbreak tdtd→MLSchools12 (13-1 wasted); 2021 runner-up rbr→SexMachineAndyD (score 193.10–111.34) |
+| `src/pages/history/encyclopedia.tsx` | B669 | 2025 champion, 2024 "first title" false (4th all-time), 2021 opponent/score, manager notes, championship appearances |
+| `src/pages/history/awards-ceremony.tsx` | B669 | "Three championships" → "Four championships (2016,2019,2021,2024)" |
+| `src/pages/records/index.tsx` | B669 | "2 Rings, 2021·2024" → "4 Rings, 2016·2019·2021·2024" |
+| `src/pages/history/playoff-brackets.tsx` | B670 | 2025 champion MLSchools12→tdtd19844; SF reconstructed (tdtd19844 upsets MLSchools12 #1); scores corrected; 2024 summary "second"→"fourth all-time" |
+| `src/pages/rivalry.tsx` | B670 | All 4 instances of MLSchools12 championships:2 → championships:4 |
+| `src/pages/history/season-recap.tsx` | B671 | 2025 champion/narrative/score; 2024 ring count |
+| `src/pages/history/standings.tsx` | B672 | MLSchools12 [2021,2024,2025]→[2016,2019,2021,2024]; tdtd19844 []→[2025]; rbr runner-up 2021 removed; SexMachineAndyD runner-ups +2021 |
+| `src/pages/bimfle.tsx` | B672 | "Runner-up in 2025" corrected to 4x champion narrative |
+| `src/pages/managers/[slug].tsx` | B672 | MLSchools12 profile: 4x champ, 2025 result champion→playoff, bio; tdtd19844: 2025 champion added |
+
+### TypeScript Status
+All corrected files pass `npx tsc --noEmit --skipLibCheck` — 0 errors throughout.
+
+### Pending for Go-Live
+- [ ] **Vivai: git push** — `.git/` root-owned, push pending since 7:20am PDT (6h+)
+- [ ] Vercel: set `CONVEX_URL=https://graceful-grasshopper-238.convex.cloud`
+- [ ] Vivai/Bimfle: seed prod `getChampionHistory` (non-blocking)
+
+### Files Still with Known Wrong Data (not corrected — lower priority)
+- `analytics/owners.tsx` — OWNERS_DATA ring counts and career records (all wrong)
+- `analytics/champion-retrospective.tsx` — champion data
+- `analytics/dynasty-power-index.tsx` — dynasty scores
+- `history/team-names.tsx` — team name changes (minor accuracy risk)
+- Various analytics stubs with hardcoded placeholder data (~40 pages)
+
+These are all analytics/stub pages that users are unlikely to visit on go-live day. The core pages (home, managers, history, records, rivalry, season-recap, standings) are all corrected.

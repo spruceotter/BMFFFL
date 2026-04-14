@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Swords, Flame, Trophy, Info, Star, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { StatBadge } from '@/components/ui/StatComponents';
+import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 
 // ─── Owner Roster ──────────────────────────────────────────────────────────────
 //
@@ -381,6 +382,11 @@ export default function H2HRecordsPage() {
             Complete all-time head-to-head records across all 12 BMFFFL dynasty owners — every matchup, every season since 2020.
           </p>
         </header>
+
+        <PageStatusBanner
+          status="placeholder"
+          notes="H2H matrix uses representative data. Exact records pending Sleeper API integration (getH2HMatrix)."
+        />
 
         {/* Phase G notice */}
         <div className="mb-8 rounded-xl border border-blue-500/20 bg-blue-500/5 px-5 py-4 flex items-start gap-3">
