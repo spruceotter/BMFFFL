@@ -94,10 +94,11 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Award,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', value: '2 rings', note: '2021 & 2024 — only two-time champion in league history' },
-      { rank: 2, label: '5-way tie', sublabel: 'JuicyBussy, Grandes, Cogdeill11, tdtd19844, TBD', value: '1 ring each', note: 'JuicyBussy (2023), Grandes (2022), Cogdeill11 (2020), tdtd19844 (2025)' },
+      { rank: 1, label: 'MLSchools12', value: '4 rings', note: '2016, 2019, 2021, 2024 — most championship wins in league history across ESPN and Sleeper eras' },
+      { rank: 2, label: 'Cogdeill11', value: '2 rings', note: '2017 (ESPN era) & 2020 — two-time champion, most decorated non-MLSchools12 franchise' },
+      { rank: 3, label: '4-way tie', sublabel: 'SexMachineAndyD, Grandes, JuicyBussy, tdtd19844', value: '1 ring each', note: 'SexMachineAndyD (2018), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)' },
     ],
-    footnote: 'As of end of 2025 season. 6 championships awarded across 6 seasons.',
+    footnote: 'As of end of 2025 season. 10 championships awarded across 10 seasons (2016–2025). Includes ESPN era (2016–2019) and Sleeper era (2020–2025).',
   },
   {
     id: 'lowest-seed-champion',
@@ -107,7 +108,7 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     entries: [
       { rank: 1, label: 'JuicyBussy', sublabel: '2023 Champion', value: '#6 Seed', note: 'Lowest seed ever to win — Cinderella run through playoffs' },
       { rank: 2, label: 'Grandes', sublabel: '2022 Champion', value: '#4 Seed', note: 'Upset champion — overcame top seeds in bracket' },
-      { rank: 2, label: 'tdtd19844', sublabel: '2025 Champion', value: '#4 Seed', note: 'Back-to-back 4-seed champions in 2022 & 2025' },
+      { rank: 2, label: 'tdtd19844', sublabel: '2025 Champion', value: '#4 Seed', note: 'Two 4-seed champions: Grandes in 2022 and tdtd19844 in 2025 — both Cinderella runs' },
     ],
     footnote: 'Seed at time of playoff bracket seeding (top-4 regular season records earn byes).',
   },
@@ -117,10 +118,10 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Shield,
     iconColor: 'text-slate-400',
     entries: [
-      { rank: 1, label: 'rbr', value: '2 runner-ups', note: '2021 & 2022 — back-to-back championship game appearances, no wins' },
-      { rank: 2, label: '5-way tie', sublabel: 'SexMachineAndyD, eldridm20, Tubes94, eldridsm, TBD', value: '1 each', note: 'SexMachineAndyD (2024), eldridm20 (2023), Tubes94 (2025), eldridsm (2020)' },
+      { rank: 1, label: 'SexMachineAndyD', value: '2 runner-ups', note: '2021 & 2024 — lost to MLSchools12 both times; heartbreak on the biggest stage' },
+      { rank: 2, label: '4-way tie', sublabel: 'rbr, eldridsm, eldridm20, Tubes94', value: '1 each', note: 'rbr (2022), eldridsm (2020), eldridm20 (2023), Tubes94 (2025)' },
     ],
-    footnote: 'Runner-up = championship game appearance, no ring.',
+    footnote: 'Runner-up = championship game appearance, no ring. Sleeper era (2020–2025). ESPN era runner-up data pending.',
   },
   {
     id: 'highest-points',

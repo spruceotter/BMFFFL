@@ -591,7 +591,7 @@ export default function ChampionRetrospectivePage() {
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
             Every BMFFFL title — the rosters that won, the players who delivered,
-            and the dynasty decisions that made it happen. Six seasons. Five owners. One back-to-back.
+            and the dynasty decisions that made it happen. Six Sleeper seasons. Five distinct champions. No back-to-back winners — yet.
           </p>
         </header>
 
@@ -674,13 +674,14 @@ export default function ChampionRetrospectivePage() {
                   The Dynasty: MLSchools12
                 </h2>
                 <p className="text-sm text-slate-300 leading-relaxed max-w-3xl">
-                  MLSchools12 is the only two-time champion in BMFFFL history, winning back-to-back titles
-                  in 2021 and 2024. Across six seasons the Schoolcraft Football Team has never posted a losing
-                  regular-season record, holds the all-time best career win percentage at{' '}
+                  MLSchools12 is the most decorated franchise in BMFFFL history — four all-time championships
+                  spanning the ESPN era (2016, 2019) and Sleeper era (2021, 2024). Across the Sleeper era the Schoolcraft
+                  Football Team has never posted a losing regular-season record, holds the all-time best career win
+                  percentage at{' '}
                   <span className="text-white font-bold">.819 (68-15)</span>, and made the playoffs every single
-                  year. The 2024 championship run at{' '}
+                  year. The 2025 regular season record of{' '}
                   <span className="text-white font-bold">13-1</span> — the best single-season record in league
-                  history — cemented a legacy that no other owner in BMFFFL has come close to matching.
+                  history — set up a playoff run that fell just short of a fifth ring.
                 </p>
               </div>
             </div>

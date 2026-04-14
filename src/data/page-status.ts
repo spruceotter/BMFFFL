@@ -212,7 +212,8 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     path: '/analytics/all-time-records',
     status: 'partial',
     label: 'All-Time Records',
-    notes: 'Sleeper-era records (2020-2025) validated. ESPN era (2016-2019) not yet included.',
+    notes: 'Championship counts and runner-up records corrected B678 (all-time scope, 10 seasons). Runner-up data Sleeper-era only; ESPN era pending.',
+    validatedAt: '2026-04-14',
     category: 'Analytics',
   },
   '/articles/commish-speaks': {
