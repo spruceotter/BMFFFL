@@ -106,30 +106,30 @@ const SEASONS: SeasonRecap[] = [
     keyMoment:
       'SexMachineAndyD posted an 11-3 regular season — the best in the league — but fell in the championship game.',
     notables: [
-      'Tubes94 went 11-3 as the #2 seed but was eliminated in the semis.',
+      'Tubes94 went 10-4 as the #2 seed but was eliminated in the semis.',
       '3 teams with 10+ wins — one of the most competitive regular seasons in league history.',
-      'MLSchools12 claims their 2nd championship, joining the exclusive two-title club.',
+      'MLSchools12 claims their 4th all-time championship (2016, 2019, 2021, 2024).',
     ],
     seasonHighScorer: 'SexMachineAndyD',
-    dynastyNote: 'MLSchools12\'s second title — cementing their dynasty status.',
+    dynastyNote: 'MLSchools12\'s fourth all-time title — dynasty confirmed across both ESPN and Sleeper eras.',
   },
   {
     year: 2025,
-    champion: 'MLSchools12',
-    championRecord: '13-1',
-    championSeed: 1,
+    champion: 'tdtd19844',
+    championRecord: '8-6',
+    championSeed: 4,
     runnerUp: 'Tubes94',
     runnerUpRecord: '10-4',
-    championshipScore: '221.4 – 198.7',
+    championshipScore: '152.92 – 135.08',
     keyMoment:
-      'MLSchools12 finally converts the 13-1 season into a championship, defeating Tubes94 by 22.7 points to claim back-to-back titles.',
+      'tdtd19844 upsets the 13-1 MLSchools12 in the semis and then defeats Tubes94 in the championship. The 4th seed writes the ultimate dark horse story.',
     notables: [
-      'MLSchools12 becomes the first back-to-back champion in BMFFFL history.',
-      'Grandes finished last (Moodie Bowl) — the fastest championship-to-last trajectory in league history.',
-      'Narrowest 3rd-place game in league history: decided by just 0.94 points.',
+      'MLSchools12 goes 13-1 (best regular-season record ever) but is eliminated before the finals.',
+      'Grandes finishes last (Moodie Bowl) — fastest championship-to-last trajectory in league history (2022→2025).',
+      'tdtd19844 entered the playoffs as a 4th seed with an 8-6 record and won 3 straight to claim the title.',
     ],
     seasonHighScorer: 'MLSchools12',
-    dynastyNote: 'MLSchools12\'s second back-to-back ring — the dynasty is official.',
+    dynastyNote: 'tdtd19844 — THE Shameful Saggy Sack claims the crown. The ultimate dark horse.',
   },
 ];
 

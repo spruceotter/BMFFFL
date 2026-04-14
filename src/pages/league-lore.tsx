@@ -41,17 +41,17 @@ const LORE_ENTRIES: LoreEntry[] = [
   {
     id: 'cogdeill-title',
     year: '2020',
-    title: "Cogdeill11's Lone Title",
+    title: "Cogdeill11's Sleeper Title",
     story:
-      "In the first full Sleeper dynasty season, Cogdeill11 claimed the inaugural championship. It remains their only title — they haven't made the playoffs since.",
+      "In the first full Sleeper dynasty season, Cogdeill11 claimed the inaugural championship — defeating eldridsm 203.10–198.34 in a thriller. Their only Sleeper-era title; Cogdeill11 also won the ESPN-era 2017 championship.",
     icon: 'trophy',
   },
   {
     id: 'murder-boners-dynasty',
     year: '2021–2022',
-    title: 'The Murder Boners Dynasty',
+    title: 'Murder Boners Rise, Then Grandes Strikes',
     story:
-      'MLSchools12, operating as The Murder Boners, dominated the early 2020s. Back-to-back finals appearances (won 2021, lost 2022 to Grandes) established them as the league\'s gold standard.',
+      'MLSchools12 (The Murder Boners) won the 2021 championship, dominating the regular season. In 2022, Commissioner Grandes made history — defeating rbr 137.82–115.08 to claim the title and cement the league\'s founding dynasty.',
     icon: 'trophy',
     highlight: true,
   },
@@ -65,11 +65,11 @@ const LORE_ENTRIES: LoreEntry[] = [
     highlight: true,
   },
   {
-    id: 'the-repeat',
+    id: 'the-return',
     year: '2024',
-    title: 'The Repeat',
+    title: 'The Return of The Murder Boners',
     story:
-      'MLSchools12 returned to claim their second title, becoming the first back-to-back champion in BMFFFL history. SexMachineAndyD was the runner-up.',
+      'MLSchools12 returned to dominance — defeating SexMachineAndyD 168.40–146.86 to claim their 4th all-time championship. After winning 2021, sitting out as Grandes (2022) and JuicyBussy (2023) took their turns, The Murder Boners reclaimed the crown.',
     icon: 'trophy',
     highlight: true,
   },

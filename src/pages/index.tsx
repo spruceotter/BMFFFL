@@ -12,10 +12,12 @@ import { cn } from '@/lib/cn';
 
 // ─── Hardcoded league quick stats ──────────────────────────────────────────
 
+// Stats validated 2026-04-14. 10 seasons (2016-2025). 6 unique champions:
+// MLSchools12 (4x), Cogdeill11 (2x), SexMachineAndyD, Grandes, JuicyBussy, tdtd19844.
 const QUICK_STATS = [
-  { label: 'Seasons',    value: '6',    subtext: '2020 – 2025',             icon: Calendar },
+  { label: 'Seasons',    value: '10',   subtext: '2016 – 2025',             icon: Calendar },
   { label: 'Teams',      value: '12',   subtext: 'Dynasty format',           icon: Users },
-  { label: 'Champions',  value: '5',    subtext: '5 unique champions',       icon: Trophy },
+  { label: 'Champions',  value: '6',    subtext: '6 unique champions',       icon: Trophy },
   { label: 'Trades',     value: '257',  subtext: 'All-time trades made',     icon: Repeat2 },
 ] as const;
 
@@ -53,21 +55,23 @@ const RECENT_ARTICLES: ArticleCardData[] = [
 
 // ─── Placeholder all-time top 3 owners ──────────────────────────────────────
 
+// Top owners by Sleeper-era W-L (2020-2025). Championship counts include ESPN era.
+// MLSchools12: 4x (2016, 2019, 2021, 2024). SexMachineAndyD: 1x (2018). JuicyBussy: 1x (2023).
 const TOP_OWNERS: OwnerCardData[] = [
   {
     name:               'MLSchools12',
-    teamName:           'Schoolcraft Football Team',
+    teamName:           'The Murder Boners',
     allTimeRecord:      { wins: 68, losses: 15, ties: 0, winPct: 0.819 },
-    championships:      2,
+    championships:      4,
     playoffAppearances: 6,
     winPct:             0.819,
   },
   {
     name:               'SexMachineAndyD',
-    teamName:           'SexMachineAndyD',
+    teamName:           'Stand Against Trade Rape',
     allTimeRecord:      { wins: 50, losses: 33, ties: 0, winPct: 0.602 },
-    championships:      0,
-    playoffAppearances: 4,
+    championships:      1,
+    playoffAppearances: 5,
     winPct:             0.602,
   },
   {
@@ -75,7 +79,7 @@ const TOP_OWNERS: OwnerCardData[] = [
     teamName:           'Juicy Bussy',
     allTimeRecord:      { wins: 46, losses: 37, ties: 0, winPct: 0.554 },
     championships:      1,
-    playoffAppearances: 5,
+    playoffAppearances: 4,
     winPct:             0.554,
   },
 ];

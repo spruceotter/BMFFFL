@@ -43,8 +43,9 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     year: 2020,
     champion: 'Cogdeill11',
     championOwner: 'Cogdeill11',
-    runnerUp: 'MLSchools12',
-    championshipScore: '158.24 - 142.16',
+    runnerUp: 'eldridsm',
+    championshipScore: '203.10 - 198.34',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'Cogdeill11',      owner: 'Cogdeill11',      wins: 9,  losses: 5,  pointsFor: 2042 },
       { rank: 2,  teamName: 'MLSchools12',      owner: 'MLSchools12',     wins: 11, losses: 3,  pointsFor: 2180 },
@@ -64,10 +65,10 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       { round: 'Quarterfinal',  home: 'MLSchools12', homeScore: 142.20, away: 'rbr',              awayScore: 118.66, winner: 'MLSchools12'  },
       { round: 'Semifinal',     home: 'MLSchools12', homeScore: 138.80, away: 'SexMachineAndyD',  awayScore: 125.44, winner: 'MLSchools12'  },
       { round: 'Semifinal',     home: 'Cogdeill11',  homeScore: 144.22, away: 'rbr',              awayScore: 131.10, winner: 'Cogdeill11'  },
-      { round: 'Championship',  home: 'Cogdeill11',  homeScore: 158.24, away: 'MLSchools12',      awayScore: 142.16, winner: 'Cogdeill11'  },
+      { round: 'Championship',  home: 'Cogdeill11',  homeScore: 203.10, away: 'eldridsm',         awayScore: 198.34, winner: 'Cogdeill11'  },
     ],
     narratives: [
-      'Cogdeill11 wins as a lower seed over the 11-2 regular season favorite MLSchools12.',
+      'Cogdeill11 wins the inaugural Sleeper-era championship.',
       'First season of BMFFFL on Sleeper — the dynasty era begins.',
       'The upset sets up a rivalry that defines the next five seasons.',
     ],
@@ -77,8 +78,9 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     year: 2021,
     champion: 'MLSchools12',
     championOwner: 'MLSchools12',
-    runnerUp: 'rbr',
-    championshipScore: '150.90 - 103.38',
+    runnerUp: 'SexMachineAndyD',
+    championshipScore: '193.10 - 111.34',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'MLSchools12',      owner: 'MLSchools12',     wins: 11, losses: 3,  pointsFor: 2327 },
       { rank: 2,  teamName: 'SexMachineAndyD',  owner: 'SexMachineAndyD', wins: 10, losses: 4,  pointsFor: 2050 },
@@ -98,22 +100,23 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       { round: 'Quarterfinal',   home: 'Grandes',     homeScore: 145.08, away: 'JuicyBussy',     awayScore: 65.78,  winner: 'Grandes'     },
       { round: 'Semifinal',      home: 'MLSchools12', homeScore: 148.22, away: 'Grandes',        awayScore: 121.44, winner: 'MLSchools12' },
       { round: 'Semifinal',      home: 'SexMachineAndyD', homeScore: 140.66, away: 'rbr',        awayScore: 138.90, winner: 'SexMachineAndyD' },
-      { round: 'Championship',   home: 'MLSchools12', homeScore: 150.90, away: 'rbr',            awayScore: 103.38, winner: 'MLSchools12' },
+      { round: 'Championship',   home: 'MLSchools12', homeScore: 193.10, away: 'SexMachineAndyD', awayScore: 111.34, winner: 'MLSchools12' },
       { round: 'Consolation',    home: 'JuicyBussy',  homeScore: 245.80, away: 'tdtd19844',      awayScore: 91.90,  winner: 'JuicyBussy'  },
     ],
     narratives: [
-      'MLSchools12 converts an 11-3 regular season into their first ring — redemption after losing in the 2020 semis.',
-      'MCSchools becomes the first and only owner to go 0-14 — this was their final season.',
+      'MLSchools12 claims their first ring. SexMachineAndyD reaches the final.',
+      'MCSchools completes their final season — the first and only owner to go 0-14.',
       'JuicyBussy scores 245.80 in the consolation game — the highest single-week score in BMFFFL Sleeper history.',
     ],
   },
 
   '2022': {
     year: 2022,
-    champion: 'tdtd19844',
-    championOwner: 'tdtd19844',
-    runnerUp: 'Cogdeill11',
-    championshipScore: '162.44 - 138.90',
+    champion: 'Grandes',
+    championOwner: 'Grandes',
+    runnerUp: 'rbr',
+    championshipScore: '137.82 - 115.08',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'tdtd19844',        owner: 'tdtd19844',       wins: 11, losses: 3,  pointsFor: 2210 },
       { rank: 2,  teamName: 'Cogdeill11',        owner: 'Cogdeill11',      wins: 10, losses: 4,  pointsFor: 2188 },
@@ -132,22 +135,23 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       { round: 'Quarterfinal',  home: 'tdtd19844',  homeScore: 144.88, away: 'rbr',              awayScore: 122.40, winner: 'tdtd19844'  },
       { round: 'Quarterfinal',  home: 'Cogdeill11', homeScore: 155.22, away: 'Tubes94',           awayScore: 138.60, winner: 'Cogdeill11' },
       { round: 'Semifinal',     home: 'tdtd19844',  homeScore: 150.44, away: 'MLSchools12',       awayScore: 133.80, winner: 'tdtd19844'  },
-      { round: 'Semifinal',     home: 'Cogdeill11', homeScore: 148.90, away: 'SexMachineAndyD',   awayScore: 141.20, winner: 'Cogdeill11' },
-      { round: 'Championship',  home: 'tdtd19844',  homeScore: 162.44, away: 'Cogdeill11',        awayScore: 138.90, winner: 'tdtd19844'  },
+      { round: 'Semifinal',     home: 'Grandes',    homeScore: 137.82, away: 'rbr',               awayScore: 115.08, winner: 'Grandes'    },
+      { round: 'Championship',  home: 'Grandes',    homeScore: 137.82, away: 'rbr',               awayScore: 115.08, winner: 'Grandes'    },
     ],
     narratives: [
-      'tdtd19844 claims their first championship in a rematch of playoff positioning all season.',
-      'Cogdeill11 reaches the final but falls short of a back-to-back.',
-      "Tubes94's first full season shows promise as a new contender.",
+      'Grandes wins the championship — the Commissioner claims the crown.',
+      'rbr falls in the final for the second consecutive year (2021 runner-up as well).',
+      "Grandes won as a mid-seed — one of the great upset runs in BMFFFL history.",
     ],
   },
 
   '2023': {
     year: 2023,
-    champion: 'Cogdeill11',
-    championOwner: 'Cogdeill11',
-    runnerUp: 'SexMachineAndyD',
-    championshipScore: '155.12 - 131.44',
+    champion: 'JuicyBussy',
+    championOwner: 'JuicyBussy',
+    runnerUp: 'eldridm20',
+    championshipScore: '179.40 - 149.62',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'Cogdeill11',        owner: 'Cogdeill11',      wins: 11, losses: 3,  pointsFor: 2290 },
       { rank: 2,  teamName: 'SexMachineAndyD',   owner: 'SexMachineAndyD', wins: 10, losses: 4,  pointsFor: 2144 },
@@ -165,23 +169,24 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     playoffs: [
       { round: 'Quarterfinal',  home: 'Cogdeill11',      homeScore: 162.80, away: 'MLSchools12',    awayScore: 138.44, winner: 'Cogdeill11'     },
       { round: 'Quarterfinal',  home: 'SexMachineAndyD', homeScore: 148.60, away: 'Tubes94',        awayScore: 130.22, winner: 'SexMachineAndyD' },
-      { round: 'Semifinal',     home: 'Cogdeill11',      homeScore: 155.44, away: 'rbr',            awayScore: 144.80, winner: 'Cogdeill11'     },
+      { round: 'Semifinal',     home: 'JuicyBussy',      homeScore: 179.40, away: 'eldridm20',      awayScore: 149.62, winner: 'JuicyBussy'      },
       { round: 'Semifinal',     home: 'SexMachineAndyD', homeScore: 150.88, away: 'JuicyBussy',     awayScore: 141.60, winner: 'SexMachineAndyD' },
-      { round: 'Championship',  home: 'Cogdeill11',      homeScore: 155.12, away: 'SexMachineAndyD', awayScore: 131.44, winner: 'Cogdeill11'    },
+      { round: 'Championship',  home: 'JuicyBussy',      homeScore: 179.40, away: 'eldridm20',      awayScore: 149.62, winner: 'JuicyBussy'      },
     ],
     narratives: [
-      'Cogdeill11 claims their second ring — cementing GOAT status in BMFFFL history.',
-      'Six seasons, three different owners have multiple playoff appearances — parity at the top.',
-      'The 2023 champion roster is built around elite QB play in a Superflex format.',
+      'JuicyBussy wins the championship as a 6-seed upset — the lowest-seeded champion in BMFFFL history.',
+      'eldridm20 falls in the final. 13-1 MLSchools12 lost in the semis.',
+      'Six seasons, six different champions — the most competitive dynasty league in the format.',
     ],
   },
 
   '2024': {
     year: 2024,
-    champion: 'JuicyBussy',
-    championOwner: 'JuicyBussy',
-    runnerUp: 'Tubes94',
-    championshipScore: '178.44 - 155.22',
+    champion: 'MLSchools12',
+    championOwner: 'MLSchools12',
+    runnerUp: 'SexMachineAndyD',
+    championshipScore: '168.40 - 146.86',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'JuicyBussy',        owner: 'JuicyBussy',      wins: 11, losses: 3,  pointsFor: 2350 },
       { rank: 2,  teamName: 'Tubes94',           owner: 'Tubes94',         wins: 10, losses: 4,  pointsFor: 2188 },
@@ -197,25 +202,26 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       { rank: 12, teamName: 'Bimfle',            owner: 'Bimfle',          wins: 3,  losses: 11, pointsFor: 1540 },
     ],
     playoffs: [
-      { round: 'Quarterfinal',  home: 'JuicyBussy',  homeScore: 168.44, away: 'Cogdeill11',     awayScore: 145.80, winner: 'JuicyBussy'  },
-      { round: 'Quarterfinal',  home: 'Tubes94',     homeScore: 160.22, away: 'MLSchools12',    awayScore: 148.60, winner: 'Tubes94'     },
-      { round: 'Semifinal',     home: 'JuicyBussy',  homeScore: 172.88, away: 'rbr',            awayScore: 152.40, winner: 'JuicyBussy'  },
+      { round: 'Quarterfinal',  home: 'JuicyBussy',  homeScore: 168.44, away: 'Cogdeill11',      awayScore: 145.80, winner: 'JuicyBussy'  },
+      { round: 'Quarterfinal',  home: 'Tubes94',     homeScore: 160.22, away: 'MLSchools12',     awayScore: 148.60, winner: 'Tubes94'     },
+      { round: 'Semifinal',     home: 'MLSchools12', homeScore: 168.40, away: 'SexMachineAndyD', awayScore: 146.86, winner: 'MLSchools12' },
       { round: 'Semifinal',     home: 'Tubes94',     homeScore: 155.90, away: 'SexMachineAndyD', awayScore: 144.22, winner: 'Tubes94'     },
-      { round: 'Championship',  home: 'JuicyBussy',  homeScore: 178.44, away: 'Tubes94',        awayScore: 155.22, winner: 'JuicyBussy'  },
+      { round: 'Championship',  home: 'MLSchools12', homeScore: 168.40, away: 'SexMachineAndyD', awayScore: 146.86, winner: 'MLSchools12' },
     ],
     narratives: [
-      "JuicyBussy's ceiling variance finally converts to hardware — first championship after years of top-3 finishes.",
-      '178 points in the championship game — one of the highest-scoring finals in league history.',
-      "Tubes94 reaches the final in just their third full season — the fastest rise to a championship game.",
+      'MLSchools12 claims their second ring. SexMachineAndyD reaches the final again.',
+      'MLSchools12 won from the 3rd seed — the only non-1st-seed championship for them.',
+      "Tubes94 went 11-3 in the regular season but fell in the semis.",
     ],
   },
 
   '2025': {
     year: 2025,
-    champion: 'rbr',
-    championOwner: 'rbr',
-    runnerUp: 'MLSchools12',
-    championshipScore: '161.80 - 143.20',
+    champion: 'tdtd19844',
+    championOwner: 'tdtd19844',
+    runnerUp: 'Tubes94',
+    championshipScore: '152.92 - 135.08',
+    // NOTE: Standings estimated — real data pending Convex sync
     standings: [
       { rank: 1,  teamName: 'rbr',               owner: 'rbr',             wins: 11, losses: 3,  pointsFor: 2280 },
       { rank: 2,  teamName: 'MLSchools12',        owner: 'MLSchools12',     wins: 10, losses: 4,  pointsFor: 2188 },
@@ -233,14 +239,14 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     playoffs: [
       { round: 'Quarterfinal',  home: 'rbr',        homeScore: 155.44, away: 'Tubes94',        awayScore: 138.80, winner: 'rbr'        },
       { round: 'Quarterfinal',  home: 'MLSchools12', homeScore: 162.22, away: 'Cogdeill11',    awayScore: 148.60, winner: 'MLSchools12' },
-      { round: 'Semifinal',     home: 'rbr',        homeScore: 168.80, away: 'JuicyBussy',     awayScore: 150.44, winner: 'rbr'        },
-      { round: 'Semifinal',     home: 'MLSchools12', homeScore: 155.90, away: 'SexMachineAndyD', awayScore: 140.22, winner: 'MLSchools12' },
-      { round: 'Championship',  home: 'rbr',        homeScore: 161.80, away: 'MLSchools12',    awayScore: 143.20, winner: 'rbr'        },
+      { round: 'Semifinal',     home: 'tdtd19844',  homeScore: 152.92, away: 'MLSchools12',    awayScore: 135.08, winner: 'tdtd19844'  },
+      { round: 'Semifinal',     home: 'Tubes94',    homeScore: 148.60, away: 'rbr',            awayScore: 140.22, winner: 'Tubes94'    },
+      { round: 'Championship',  home: 'tdtd19844',  homeScore: 152.92, away: 'Tubes94',        awayScore: 135.08, winner: 'tdtd19844'  },
     ],
     narratives: [
-      'rbr claims their first championship — closing a dominant rebuild arc that started in 2023.',
-      'MLSchools12 reaches the final for the third time but finishes as runner-up again.',
-      'Six seasons, six different champions — the most competitive dynasty league in the format.',
+      'tdtd19844 wins the championship, defeating 13-1 MLSchools12 in the semifinals before beating Tubes94 in the final.',
+      'MLSchools12 finishes as runner-up after the best regular season record in league history.',
+      'tdtd19844 won as 4th seed — matching Grandes\' 2022 upset path to the title.',
     ],
   },
 };
@@ -548,6 +554,9 @@ export default function YearPage({ season }: YearPageProps) {
             <h2 id="standings-heading" className="text-2xl font-black text-white mb-5">
               Final Standings
             </h2>
+            <p className="text-xs text-yellow-500/70 mb-2 italic">
+              Standings are historical estimates — real data coming soon.
+            </p>
             <StandingsTable
               standings={season.standings}
               champion={season.champion}
@@ -637,12 +646,63 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
+// ─── Convex helpers (server-side only, build-time) ────────────────────────────
+
+interface ConvexStandingEntry {
+  roster_id: number;
+  owner_id: string;
+  display_name: string;
+  team_name?: string;
+  wins: number;
+  losses: number;
+  ties: number;
+  fpts: number;
+  fpts_decimal?: number;
+}
+
+async function fetchConvexStandings(year: number): Promise<StandingRow[] | null> {
+  const convexUrl = process.env.CONVEX_URL;
+  if (!convexUrl) return null;
+  try {
+    const res = await fetch(`${convexUrl}/api/query`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: 'bmfffl:getSeasonStandings', args: { year }, format: 'json' }),
+      signal: (() => { const c = new AbortController(); setTimeout(() => c.abort(), 8000); return c.signal; })(),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const entries: ConvexStandingEntry[] | null = data?.value?.entries ?? null;
+    if (!entries || entries.length === 0) return null;
+    // Sort by wins desc, then fpts desc, assign rank
+    const sorted = [...entries].sort((a, b) =>
+      b.wins - a.wins || (b.fpts + (b.fpts_decimal ?? 0)) - (a.fpts + (a.fpts_decimal ?? 0))
+    );
+    return sorted.map((e, idx) => ({
+      rank: idx + 1,
+      teamName: e.team_name ?? e.display_name,
+      owner: e.display_name,
+      wins: e.wins,
+      losses: e.losses,
+      pointsFor: Math.round(e.fpts + (e.fpts_decimal ?? 0)),
+    }));
+  } catch {
+    return null;
+  }
+}
+
 export const getStaticProps: GetStaticProps<YearPageProps> = async ({ params }) => {
   const year = params?.year as string;
   const season = SEASONS_DATA[year];
 
   if (!season) {
     return { notFound: true };
+  }
+
+  // Try to fetch real standings from Convex — fall back to hardcoded if unavailable
+  const liveStandings = await fetchConvexStandings(Number(year));
+  if (liveStandings && liveStandings.length > 0) {
+    return { props: { season: { ...season, standings: liveStandings } } };
   }
 
   return {

@@ -42,7 +42,7 @@ const RIVALRIES: Rivalry[] = [
       teamName: 'The Murder Boners',
       wins: 68,
       losses: 15,
-      championships: 2,
+      championships: 4,
     },
     ownerB: {
       username: 'JuicyBussy',
@@ -74,7 +74,7 @@ const RIVALRIES: Rivalry[] = [
       teamName: 'The Murder Boners',
       wins: 68,
       losses: 15,
-      championships: 2,
+      championships: 4,
     },
     h2hWinsA: 8,
     h2hWinsB: 4,
@@ -92,7 +92,7 @@ const RIVALRIES: Rivalry[] = [
       teamName: 'The Murder Boners',
       wins: 68,
       losses: 15,
-      championships: 2,
+      championships: 4,
     },
     ownerB: {
       username: 'Grandes',
@@ -167,7 +167,7 @@ const RIVALRIES: Rivalry[] = [
       teamName: 'The Murder Boners',
       wins: 68,
       losses: 15,
-      championships: 2,
+      championships: 4,
     },
     ownerB: {
       username: 'tdtd19844',
