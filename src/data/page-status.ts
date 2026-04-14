@@ -138,6 +138,14 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     validatedAt: '2026-04-14',
     category: 'Core',
   },
+  '/join': {
+    path: '/join',
+    status: 'partial',
+    label: 'Join BMFFFL',
+    notes: 'Champion history verified (all 10 seasons). Commissioner contact email is placeholder.',
+    validatedAt: '2026-04-14',
+    category: 'Core',
+  },
 
   // ─── PARTIAL (some data validated, some still hardcoded) ───────────────────
 

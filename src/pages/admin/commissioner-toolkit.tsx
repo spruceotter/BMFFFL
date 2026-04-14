@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { PAGE_STATUS, getStatusSummary, type PageStatus } from '@/data/page-status';
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
@@ -334,6 +335,16 @@ export default function CommissionerToolkitPage() {
             </div>
           </section>
 
+          {/* ── Page Status Overview ───────────────────────────────────────── */}
+          <section aria-labelledby="page-status-heading" className="pt-8">
+            <SectionHeader
+              icon="🗄️"
+              title="Page Status"
+              subtitle="Data quality and validation status across all site pages"
+            />
+            <PageStatusOverview />
+          </section>
+
           {/* ── Back link ─────────────────────────────────────────────────────── */}
           <div className="pt-4">
             <Link
@@ -360,6 +371,63 @@ function SectionHeader({ icon, title, subtitle }: { icon: string; title: string;
         <h2 className="text-xl font-bold text-slate-100 tracking-wide">{title}</h2>
         <p className="text-sm text-slate-500 mt-0.5">{subtitle}</p>
       </div>
+    </div>
+  );
+}
+
+const STATUS_META: Record<PageStatus, { label: string; color: string; dot: string }> = {
+  validated:      { label: 'Validated',    color: 'text-emerald-400', dot: 'bg-emerald-500' },
+  partial:        { label: 'Partial',      color: 'text-yellow-400',  dot: 'bg-yellow-500' },
+  placeholder:    { label: 'Placeholder',  color: 'text-orange-400',  dot: 'bg-orange-500' },
+  'coming-soon':  { label: 'Coming Soon',  color: 'text-slate-400',   dot: 'bg-slate-600' },
+};
+
+function PageStatusOverview() {
+  const summary = getStatusSummary();
+  const needsAttention = Object.values(PAGE_STATUS).filter(
+    p => p.status === 'placeholder'
+  );
+
+  return (
+    <div className="mt-4 space-y-4">
+      {/* Summary row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {(Object.keys(STATUS_META) as PageStatus[]).map(status => {
+          const meta = STATUS_META[status];
+          return (
+            <div key={status} className="flex flex-col gap-1 rounded-lg border border-[#2d4a66] bg-[#111827] px-3 py-2">
+              <div className="flex items-center gap-1.5">
+                <span className={`inline-block h-2 w-2 rounded-full ${meta.dot}`} />
+                <span className={`text-xs font-semibold ${meta.color}`}>{meta.label}</span>
+              </div>
+              <span className="text-2xl font-black text-white">{summary[status]}</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest">pages</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Needs attention */}
+      {needsAttention.length > 0 && (
+        <div>
+          <p className="text-xs font-semibold text-orange-400 uppercase tracking-widest mb-2">
+            ⚠ Placeholder pages — data not validated
+          </p>
+          <div className="space-y-1">
+            {needsAttention.map(page => (
+              <div key={page.path} className="flex items-start gap-2 text-xs text-slate-400 py-0.5">
+                <span className="text-orange-500 flex-shrink-0 mt-0.5">•</span>
+                <span className="font-mono text-slate-300">{page.path}</span>
+                {page.notes && <span className="text-slate-500"> — {page.notes}</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <p className="text-[10px] text-slate-600">
+        Last updated 2026-04-14 by Flint. Edit <code>src/data/page-status.ts</code> to update.
+      </p>
     </div>
   );
 }
