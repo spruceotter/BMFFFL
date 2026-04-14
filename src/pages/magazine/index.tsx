@@ -50,7 +50,7 @@ const LONG_FORM = [
   {
     slug:        'owner-evolution-bmfffl',
     title:       'How Every BMFFFL Owner Has Evolved Over Six Seasons',
-    subtitle:    'From Cogdeill11\'s 2020 dynasty to MLSchools12\'s back-to-back titles — six years of adaptation, decline, and resurgence.',
+    subtitle:    'From Cogdeill11\'s 2020 dynasty to MLSchools12\'s four all-time championships — six years of adaptation, decline, and resurgence.',
     readTime:    '12 min',
     tag:         'Long Read',
   },

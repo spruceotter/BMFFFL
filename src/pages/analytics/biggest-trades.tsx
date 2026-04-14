@@ -103,7 +103,7 @@ const BIGGEST_TRADES: BigTrade[] = [
       sends: ['Bijan Robinson'],
     },
     outcome:
-      'Bijan Robinson became a dynasty cornerstone in Atlanta, emerging as the bellcow RB JuicyBussy needed. His production was instrumental in JuicyBussy\'s 2023 championship run — a 6-seed Cinderella story for the ages. MLSchools12 used the first-round pick to bolster a roster that would go on to win back-to-back titles in 2024.',
+      'Bijan Robinson became a dynasty cornerstone in Atlanta, emerging as the bellcow RB JuicyBussy needed. His production was instrumental in JuicyBussy\'s 2023 championship run — a 6-seed Cinderella story for the ages. MLSchools12 used the first-round pick to bolster a roster that would go on to claim a 4th all-time championship in 2024.',
     verdict:
       '"Winner: JuicyBussy. A trade of such architectural boldness that your Commissioner required a brief lie-down upon hearing its terms. To surrender a 1.03 pick AND Travis Kelce — the greatest dynasty TE of his era — for a single running back requires either genius or madness. In this case, it appears to have been both. ~Love, Bimfle."',
     impactCategory: 'Championship Impact',
@@ -141,7 +141,7 @@ const BIGGEST_TRADES: BigTrade[] = [
       sends: ['2023 1.01 pick', '2023 1.04 pick', '2024 1st-round pick'],
     },
     outcome:
-      'tdtd19844 collected three premium picks and executed what is now called "the greatest dynasty rebuild of the BMFFFL era." The capital was converted into a championship roster that won the 2025 title — three years after surrendering two of the best WRs in dynasty fantasy. MLSchools12 used Adams and Jefferson as WR pillars in their back-to-back 2024 title.',
+      'tdtd19844 collected three premium picks and executed what is now called "the greatest dynasty rebuild of the BMFFFL era." The capital was converted into a championship roster that won the 2025 title — three years after surrendering two of the best WRs in dynasty fantasy. MLSchools12 used Adams and Jefferson as part of the WR depth that fueled their 4th all-time championship in 2024.',
     verdict:
       '"Winner: tdtd19844, eventually. At the time, this looked like surrender. In retrospect, it was chess. To sell Adams AND Jefferson in the same transaction — two WR1-caliber talents — and walk away with three first-rounders is the kind of move that takes three years to appreciate. Your Commissioner tipped his hat. Retroactively. ~Love, Bimfle."',
     impactCategory: 'Dynasty Defining',

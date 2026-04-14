@@ -592,7 +592,7 @@ export default function WinPercentageTrendsPage() {
                 color: 'text-[#ffd700]',
                 border: 'border-[#ffd700]/30',
                 bg: 'bg-[#ffd700]/5',
-                summary: 'Never had a losing season. Two championships (2021, 2024). Back-to-back 13-1 campaigns in 2023 and 2025.',
+                summary: 'Never had a losing season. 4x all-time champion (2016, 2019, 2021, 2024). Two 13-1 regular seasons (2023, 2025) — neither converted to a ring.',
               },
               {
                 title: 'The Rise',

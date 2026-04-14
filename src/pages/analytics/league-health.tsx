@@ -423,7 +423,7 @@ export default function LeagueHealthPage() {
                   ))}
                 </div>
                 <p className="text-xs text-slate-400">
-                  4 distinct champions in 6 seasons. No dynasty has won back-to-back titles.
+                  5 distinct champions in 6 seasons. No dynasty has won back-to-back titles.
                 </p>
               </div>
 
@@ -432,13 +432,13 @@ export default function LeagueHealthPage() {
                 <h3 className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-4">Championship Appearances</h3>
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-slate-400 text-sm">Unique managers in title game</p>
-                  <span className="text-2xl font-black text-[#ffd700]">8 / 12</span>
+                  <span className="text-2xl font-black text-[#ffd700]">10 / 12</span>
                 </div>
                 <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden mb-3">
-                  <div className="h-full bg-[#ffd700] rounded-full" style={{ width: '66.7%' }} />
+                  <div className="h-full bg-[#ffd700] rounded-full" style={{ width: '83.3%' }} />
                 </div>
                 <p className="text-xs text-slate-400">
-                  8 different managers have appeared in the championship game across 6 seasons. Two-thirds of
+                  10 different managers have appeared in the championship game across 6 seasons. Over 80% of
                   the league has had a shot at the title.
                 </p>
               </div>

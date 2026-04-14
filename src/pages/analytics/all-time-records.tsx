@@ -59,9 +59,9 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: TrendingUp,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', sublabel: '2024 Season', value: '13-1 (.929)', note: 'Championship season — went wire-to-wire dominant' },
-      { rank: 1, label: 'MLSchools12', sublabel: '2023 Season', value: '13-1 (.929)', note: 'Back-to-back 13-win seasons' },
-      { rank: 3, label: 'MLSchools12 / Tubes94', sublabel: '2021 / 2024', value: '11-3 (.786)', note: 'MLSchools12 2021 champ; Tubes94 2024 runner-up season' },
+      { rank: 1, label: 'MLSchools12', sublabel: '2023 Season', value: '13-1 (.929)', note: 'Dominated regular season; JuicyBussy won championship as #6 seed' },
+      { rank: 1, label: 'MLSchools12', sublabel: '2025 Season', value: '13-1 (.929)', note: 'Best record in league history (tied); eliminated in playoffs by tdtd19844' },
+      { rank: 3, label: 'MLSchools12 / Tubes94', sublabel: '2021 / 2024', value: '11-3 (.786)', note: 'MLSchools12 won 2021 championship; Tubes94 went 11-3 in 2024 regular season' },
     ],
     footnote: 'Regular season only (14-game schedule). Ties broken by points scored.',
   },
