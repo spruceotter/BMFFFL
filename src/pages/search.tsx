@@ -17,7 +17,7 @@ const SEARCH_INDEX: SearchItem[] = [
   // Pages
   { title: 'Home',             url: '/',                           description: 'BMFFFL dynasty fantasy football league home page',                            category: 'Pages' },
   { title: 'Owners',           url: '/owners',                     description: 'All 12 BMFFFL owners and career records',                                     category: 'Pages' },
-  { title: 'MLSchools12',      url: '/owners/mlschools12',         description: 'MLSchools12 owner profile two-time champion Murder Boners',                   category: 'Pages' },
+  { title: 'MLSchools12',      url: '/owners/mlschools12',         description: 'MLSchools12 owner profile four-time champion 2016 2019 2021 2024 Murder Boners',  category: 'Pages' },
   { title: 'tdtd19844',        url: '/owners/tdtd19844',           description: 'tdtd19844 owner profile 2025 champion reigning',                              category: 'Pages' },
   { title: 'JuicyBussy',       url: '/owners/juicybussy',          description: 'JuicyBussy owner profile 2023 champion all-time scoring record',              category: 'Pages' },
   { title: 'Records',          url: '/records',                    description: 'All-time BMFFFL records scoring championship history',                        category: 'Pages' },

@@ -265,11 +265,11 @@ const SEASON_STANDINGS: Record<number, SeasonEntry[]> = {
 
 const SEASON_CHAMPIONS: Record<number, { champion: string; runnerUp: string }> = {
   2020: { champion: 'cogdeill11',    runnerUp: 'eldridsm'      },
-  2021: { champion: 'mlschools12',   runnerUp: 'rbr'           },
+  2021: { champion: 'mlschools12',   runnerUp: 'sexmachineandy'},
   2022: { champion: 'grandes',       runnerUp: 'rbr'           },
   2023: { champion: 'juicybussy',    runnerUp: 'eldridm20'     },
   2024: { champion: 'mlschools12',   runnerUp: 'sexmachineandy'},
-  2025: { champion: 'mlschools12',   runnerUp: 'tubes94'       },
+  2025: { champion: 'tdtd19844',     runnerUp: 'tubes94'       },
 };
 
 const ALL_YEARS = [2020, 2021, 2022, 2023, 2024, 2025];

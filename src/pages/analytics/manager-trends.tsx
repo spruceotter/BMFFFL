@@ -32,14 +32,14 @@ const MANAGERS: Manager[] = [
     name: 'MLSchools12',
     trend: 'STABLE',
     color: '#ffd700',
-    blurb: 'The undisputed dynasty anchor. 2 titles, 6 seasons of elite-level play. 13-1 in 2023 remains the single-season record.',
+    blurb: '4 titles (2016, 2019, 2021, 2024) spanning all 10 seasons. 13-1 in both 2023 and 2025 — the all-time single-season record — yet neither converted to a ring.',
     records: [
       { season: 2020, wins: 11, losses: 2,  champion: false },
-      { season: 2021, wins: 12, losses: 1,  champion: true  },
+      { season: 2021, wins: 11, losses: 3,  champion: true  },
       { season: 2022, wins: 10, losses: 3,  champion: false },
       { season: 2023, wins: 13, losses: 1,  champion: false },
-      { season: 2024, wins: 11, losses: 3,  champion: true  },
-      { season: 2025, wins: 11, losses: 3,  champion: false },
+      { season: 2024, wins: 10, losses: 4,  champion: true  },
+      { season: 2025, wins: 13, losses: 1,  champion: false },
     ],
   },
   {
@@ -200,7 +200,7 @@ const NARRATIVE_ARCS = [
     title: 'The Dynasty Peak',
     manager: 'MLSchools12',
     accent: '#ffd700',
-    body: 'MLSchools12 went 13-1 in 2023 — the single-season record — then came back the following year to win the championship again in 2024. Back-to-back elite finishes may be the most dominant two-year stretch in BMFFFL history.',
+    body: 'MLSchools12 went 13-1 in 2023 — the single-season record — yet JuicyBussy won the championship that year as the 6-seed. MLSchools12 came back in 2024 to win their 4th all-time championship from the 3-seed. The most decorated franchise in BMFFFL history, now with rings in 2016, 2019, 2021, and 2024.',
   },
   {
     title: 'The Great Collapse',

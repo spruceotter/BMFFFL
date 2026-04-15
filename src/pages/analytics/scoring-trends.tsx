@@ -229,7 +229,7 @@ export default function ScoringTrendsPage() {
             {[
               {
                 title: 'Scoring ≠ Championships',
-                body:  'MLSchools12 leads in career scoring but has won "only" 2 of 6 championships. SexMachineAndyD is #2 in scoring with 0 rings. Points in the regular season don\'t guarantee playoff success.',
+                body:  'MLSchools12 leads in career scoring and has won 4 of 10 championships. SexMachineAndyD is #2 in scoring with 0 rings. Points in the regular season don\'t guarantee playoff success — MLSchools12\'s two 13-1 seasons both ended without a ring.',
                 accent: '#ffd700',
               },
               {

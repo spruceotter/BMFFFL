@@ -58,7 +58,7 @@ const ACTIVITY_FEED: ActivityItem[] = [
   {
     date: 'Feb 2026',
     icon: '🏆',
-    text: 'mlschools12 claimed a 3rd BMFFFL championship — 221.4 pts in the title game.',
+    text: 'tdtd19844 (THE Shameful Saggy Sack) claimed the 2025 BMFFFL championship — defeated Tubes94 152.92–135.08 as the 4-seed dark horse.',
   },
   {
     date: 'Jan 2026',

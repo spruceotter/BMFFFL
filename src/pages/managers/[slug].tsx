@@ -122,7 +122,7 @@ const MANAGERS: ManagerProfile[] = [
     playoffApps: 3,
     dynastyRank: 2,
     avgPointsPerGame: 119.1,
-    bio: "The most dramatic rebuild arc in the dynasty. Went 2-12 in 2021 debut, then methodically accumulated assets. Reached the 2025 championship game with a 221.4-point performance — only to run into MLSchools12's 3-peat. The heir apparent.",
+    bio: "The most dramatic rebuild arc in the dynasty. Went 2-12 in 2021 debut, then methodically accumulated assets. Reached the 2025 championship game as the 2-seed — only to run into tdtd19844's dark-horse run. Lost 135.08–152.92. The title was right there.",
     seasons: [
       { year: 2021, wins: 2, losses: 12, pointsFor: 1310, pointsAgainst: 1720, finish: 11, result: 'miss' },
       { year: 2022, wins: 4, losses: 10, pointsFor: 1450, pointsAgainst: 1680, finish: 10, result: 'miss' },
@@ -153,7 +153,7 @@ const MANAGERS: ManagerProfile[] = [
       bestSeasonRecord: '11-3',
     },
     rivalries: [
-      { opponent: 'MLSchools12', record: '2-8', description: 'The 2025 championship. Tubes94 put up a career-high 221.4 but MLSchools12 answered with 198.7 in a game that wasn\'t as close as the score.' },
+      { opponent: 'tdtd19844', record: '1-1', description: 'The 2025 championship — Tubes94 reached the finals as the 2-seed but fell to tdtd19844 135.08–152.92. The dark horse beat the heir apparent.' },
       { opponent: 'SexMachineAndyD', record: '5-5', description: 'Perfectly even rivalry. Both teams rose together as the league\'s top two non-champion contenders in 2024-25.' },
       { opponent: 'JuicyBussy', record: '4-6', description: 'JuicyBussy\'s explosive weeks have burned Tubes94 more than once. Tubes94 leads since 2024.' },
     ],

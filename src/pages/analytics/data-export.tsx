@@ -16,7 +16,7 @@ interface RecentDownload {
 
 // 1. All-Time Standings
 const STANDINGS_DATA = [
-  { owner: 'MLSchools12',     wins: 68, losses: 15, ties: 0, winPct: 0.819, championships: 2, playoffAppearances: 6, seasons: 6 },
+  { owner: 'MLSchools12',     wins: 68, losses: 15, ties: 0, winPct: 0.819, championships: 4, playoffAppearances: 6, seasons: 6 },
   { owner: 'SexMachineAndyD', wins: 50, losses: 33, ties: 0, winPct: 0.602, championships: 0, playoffAppearances: 4, seasons: 6 },
   { owner: 'JuicyBussy',      wins: 46, losses: 37, ties: 0, winPct: 0.554, championships: 1, playoffAppearances: 5, seasons: 6 },
   { owner: 'Grandes',         wins: 45, losses: 38, ties: 0, winPct: 0.542, championships: 1, playoffAppearances: 4, seasons: 6 },
@@ -33,11 +33,11 @@ const STANDINGS_DATA = [
 // 2. Season Champions
 const CHAMPIONS_DATA = [
   { year: 2020, champion: 'Cogdeill11',      teamName: "Cogdeill's Squad",          record: '11-3', seedEntered: 3 },
-  { year: 2021, champion: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '12-2', seedEntered: 1 },
+  { year: 2021, champion: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '11-3', seedEntered: 1 },
   { year: 2022, champion: 'Grandes',         teamName: 'Grandes',                   record: '10-4', seedEntered: 2 },
   { year: 2023, champion: 'JuicyBussy',      teamName: 'Juicy Bussy',               record: '8-6',  seedEntered: 6 },
-  { year: 2024, champion: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '11-3', seedEntered: 1 },
-  { year: 2025, champion: 'tdtd19844',       teamName: 'tdtd19844',                 record: '9-5',  seedEntered: 4 },
+  { year: 2024, champion: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '10-4', seedEntered: 3 },
+  { year: 2025, champion: 'tdtd19844',       teamName: 'THE Shameful Saggy Sack',   record: '8-6',  seedEntered: 4 },
 ];
 
 // 3. All-Time H2H Records

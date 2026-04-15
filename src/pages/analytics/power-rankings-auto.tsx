@@ -495,7 +495,7 @@ export default function PowerRankingsAutoPage() {
               <Trophy className="w-5 h-5 text-[#ffd700] shrink-0 mt-0.5" aria-hidden="true" />
               <div>
                 <p className="text-sm font-black text-white">Power Rankings Leader at Week 6: MLSchools12</p>
-                <p className="text-xs text-slate-400 mt-0.5">Actual 2025 Champion: <span className="text-[#ffd700] font-bold">mlschools12</span></p>
+                <p className="text-xs text-slate-400 mt-0.5">Actual 2025 Champion: <span className="text-[#ffd700] font-bold">tdtd19844</span></p>
               </div>
             </div>
             <div className="text-right">
