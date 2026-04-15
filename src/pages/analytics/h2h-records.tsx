@@ -295,8 +295,8 @@ const NOTABLE_RIVALRIES: Rivalry[] = [
     ownerB: 'Cogdeill11',
     aRecord: 'tdtd19844 leads 7-5',
     icon: 'trophy',
-    title: '2022 Finals Rematch Series',
-    description: 'tdtd19844 dethroned Cogdeill11 in the 2022 championship game — and has maintained a 7-5 head-to-head edge overall. This series has an unusual dynamic: Cogdeill11 is 38-45 all-time but was a two-time champion; tdtd19844 owns the better H2H record. The 2022 finals remains the defining moment.',
+    title: 'Dark Horse vs. Founding Champion',
+    description: 'tdtd19844 claimed the 2025 championship as the 4-seed dark horse — defeating Tubes94 152.92–135.08 in the title game. Cogdeill11 was the 2020 inaugural champion. Two ring-holders in this series, different eras: one who opened the league\'s history, one who upended the 2025 favorites. tdtd19844 leads H2H 7-5.',
   },
 ];
 

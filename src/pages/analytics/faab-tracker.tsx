@@ -70,7 +70,7 @@ const FAAB_MOVES: FaabMove[] = [
   {
     id: 6, season: 2021, week: 8, owner: 'rbr', player: 'Hunter Renfrow', pos: 'WR',
     faabSpent: 1800,
-    result: 'Good', resultDetail: 'Solid WR flex option for the stretch run. Helped rbr reach the 2021 championship game.',
+    result: 'Good', resultDetail: 'Solid WR flex option for the stretch run. Helped rbr reach the 2021 playoffs.',
     pointsScored: 142, highlight: 'neutral',
   },
   {
