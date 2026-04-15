@@ -50,9 +50,11 @@ const SEASONS: SeasonRecap[] = [
     champion: 'MLSchools12',
     championRecord: '11-3',
     championSeed: 1,
-    runnerUp: 'rbr',
+    runnerUp: 'SexMachineAndyD',
+    runnerUpRecord: '10-4',
+    championshipScore: '193.10 – 111.34',
     keyMoment:
-      'Christian McCaffrey anchored MLSchools12\'s dominant run to the championship from the top seed.',
+      'MLSchools12 dominated wire-to-wire — top regular season seed (11-3) and decisive championship win over SexMachineAndyD 193.10–111.34.',
     notables: [
       'Tubes94 joined the league and went 2-12 — worst debut in BMFFFL history.',
       'MCSchools (original team) retired after a 0-14 season — the worst record ever.',

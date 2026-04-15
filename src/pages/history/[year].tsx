@@ -140,7 +140,7 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     ],
     narratives: [
       'Grandes wins the championship — the Commissioner claims the crown.',
-      'rbr falls in the final for the second consecutive year (2021 runner-up as well).',
+      'rbr falls in the final — their only championship game appearance. The 2021 runner-up was SexMachineAndyD (not rbr).',
       "Grandes won as a mid-seed — one of the great upset runs in BMFFFL history.",
     ],
   },
