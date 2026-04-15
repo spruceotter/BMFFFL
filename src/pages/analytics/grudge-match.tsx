@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 // ─── Owner Metadata ────────────────────────────────────────────────────────────
 
 const OWNERS = [
-  { slug: 'mlschools12',   name: 'MLSchools12',     teamName: 'The Murder Boners',         championships: 2, since: 2020 },
+  { slug: 'mlschools12',   name: 'MLSchools12',     teamName: 'The Murder Boners',         championships: 4, since: 2020 },
   { slug: 'juicybussy',    name: 'JuicyBussy',      teamName: 'Juicy Bussy',               championships: 1, since: 2020 },
   { slug: 'rbr',           name: 'rbr',             teamName: 'Really Big Rings',          championships: 0, since: 2020 },
   { slug: 'cogdeill11',    name: 'Cogdeill11',      teamName: 'Cogdeill11',                championships: 1, since: 2020 },

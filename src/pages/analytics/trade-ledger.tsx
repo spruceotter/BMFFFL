@@ -236,7 +236,7 @@ const NOTABLE_TRADES: TradeEntry[] = [
     teamB: 'tdtd19844',
     aGives: ['Elic Ayomanor (2025 pick)', '2026 1st'],
     bGives: ['Tetairoa McMillan (2025 pick)', '2026 2nd', '2026 3rd'],
-    context: "rbr added McMillan ahead of his rookie season — the WR anchored rbr's championship run.",
+    context: "rbr added McMillan ahead of his rookie season — the WR was a key piece in rbr's 2025 playoff run.",
   },
   {
     id: 't022',
