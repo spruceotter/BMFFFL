@@ -520,7 +520,7 @@ export default function AwardsPage() {
         <title>Annual Awards — BMFFFL</title>
         <meta
           name="description"
-          content="The BMFFFL official awards archive — champions, best regular seasons, heartbreak, and story of the year for every season from 2020 to present."
+          content="The BMFFFL official awards archive — Sleeper era champions, best regular seasons, heartbreak, and story of the year for every season from 2020 to 2025."
         />
       </Head>
 
@@ -547,7 +547,7 @@ export default function AwardsPage() {
             Annual Awards
           </h1>
           <p className="text-slate-400 text-lg">
-            BMFFFL &bull; 2020 &ndash; 2025
+            BMFFFL &bull; Sleeper Era &bull; 2020 &ndash; 2025
           </p>
         </header>
 

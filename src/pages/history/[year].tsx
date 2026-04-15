@@ -309,7 +309,7 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       { round: 'Championship', home: 'Stand Against Trade Rape', homeScore: 138.66, away: 'The Murder Boners', awayScore: 106.80, winner: 'SexMachineAndyD' },
     ],
     narratives: [
-      'Stand Against Trade Rape (franchise now owned by SexMachineAndyD) wins despite finishing 9-4, behind the 11-2 Murder Boners in the regular season.',
+      'Stand Against Trade Rape — Mike Vieyra (SexMachineAndyD on Sleeper) wins despite finishing 9-4, behind the 11-2 Murder Boners in the regular season.',
       'MLSchools12 posts the best regular-season record (11-2) but falls in the championship — the dynasty\'s only ESPN-era championship loss.',
       'Cogdeill11 finishes 3rd with 9-4 in an extremely competitive field: three teams at 9-4.',
     ],
