@@ -58,16 +58,16 @@ const CHAMPIONS: ChampionEntry[] = [
     year: 2021,
     champion: 'mlschools12',
     subtitle: 'The First Ring',
-    finalScore: '150.90–103.38',
-    opponent: 'rbr',
+    finalScore: '193.10–111.34',
+    opponent: 'sexmachineandy',
     note: 'MLSchools12 dominates with an 11-3 record and the all-time season scoring record (2,327.06 pts).',
   },
   {
     year: 2022,
     champion: 'grandes',
     subtitle: "Commissioner's Crown",
-    finalScore: undefined,
-    opponent: undefined,
+    finalScore: '137.82–115.08',
+    opponent: 'rbr',
     note: 'The commissioner won his own league. No protests filed. Rules clearly permitted it.',
   },
   {
@@ -112,8 +112,8 @@ const ALL_TIME_RECORDS: AllTimeRecord[] = [
   {
     category: 'Most Regular Season Wins (Single Year)',
     holder: 'mlschools12',
-    value: '11-3',
-    context: '2025 season',
+    value: '13-1',
+    context: '2023 and 2025 seasons (twice)',
   },
   {
     category: 'Most Career Wins',

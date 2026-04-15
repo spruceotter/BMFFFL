@@ -130,7 +130,7 @@ const RIVALRIES: Rivalry[] = [
     h2hWinsB: 5,
     leader: 'A',
     narrative:
-      "Two teams who've fought the bottom of the standings since Day 1. Tubes94 holds a 7–5 H2H edge but neither owner has sniffed the championship conversation. These matchups carry a desperation energy — every win matters when you're fighting just to finish .500. The Doormat Derby may be unglamorous, but it's never boring.",
+      "Tubes94 holds a 7–5 H2H edge and went all the way to the 2025 championship game — finishing as runner-up before falling to tdtd19844 152.92–135.08. Escuelas has yet to break through. Once a mid-table stalemate, this rivalry has been reframed: one side found their ceiling, the other is still searching.",
     categories: ['all', 'historical'],
   },
   {

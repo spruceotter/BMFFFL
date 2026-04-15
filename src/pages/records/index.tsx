@@ -68,7 +68,7 @@ const SEASON_RECORDS: RecordEntry[] = [
     context: 'Two 13-1 seasons: 2023 and 2025',
     icon: 'trophy',
     highlight: true,
-    note: 'MLSchools12 went 13-1 in both 2023 and 2025 — the only team to achieve this in back-to-back seasons.',
+    note: 'MLSchools12 went 13-1 in both 2023 and 2025 — the only team to achieve this record in two separate seasons.',
   },
   {
     id: 'highest-season-points',
