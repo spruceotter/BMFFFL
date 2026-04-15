@@ -249,9 +249,134 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
       'tdtd19844 won as 4th seed — matching Grandes\' 2022 upset path to the title.',
     ],
   },
+
+  // ─── ESPN Era (2016–2019) ─────────────────────────────────────────────────
+  // Standings retrieved 2026-04-15 via ESPN leagueHistory API (league 945797).
+  // Championship scores confirmed from API. Full playoff bracket unavailable.
+  // Owner mapping: ESPN names used for former members; Sleeper usernames for current members.
+
+  '2019': {
+    year: 2019,
+    champion: 'MLSchools12',
+    championOwner: 'MLSchools12',
+    runnerUp: 'rbr',
+    championshipScore: '197.98 - 164.24',
+    standings: [
+      { rank: 1,  teamName: 'The Murder Boners',        owner: 'MLSchools12',     wins: 11, losses: 2, pointsFor: 2019.80 },
+      { rank: 2,  teamName: 'Really Big Rings',         owner: 'rbr',             wins: 7,  losses: 6, pointsFor: 1815.58 },
+      { rank: 3,  teamName: 'El Rioux Grandes',         owner: 'Grandes',         wins: 6,  losses: 7, pointsFor: 1687.52 },
+      { rank: 4,  teamName: 'Team No Fly Zone',         owner: 'Cmaleski',        wins: 7,  losses: 6, pointsFor: 1769.24 },
+      { rank: 5,  teamName: 'Stand Against Trade Rape', owner: 'SexMachineAndyD', wins: 7,  losses: 6, pointsFor: 1672.04 },
+      { rank: 6,  teamName: 'Arnie\'s Army',            owner: 'eldridsm',        wins: 7,  losses: 6, pointsFor: 1626.34 },
+      { rank: 7,  teamName: 'Alvin and the Chipmunks',  owner: 'Cogdeill11',      wins: 7,  losses: 6, pointsFor: 1601.40 },
+      { rank: 8,  teamName: 'Role Players',             owner: 'eldridm20',       wins: 6,  losses: 7, pointsFor: 1575.82 },
+      { rank: 9,  teamName: 'Trust the Process',        owner: 'Matt Moodie',     wins: 5,  losses: 8, pointsFor: 1602.80 },
+      { rank: 10, teamName: 'No Name',                  owner: 'Dan Gaudy',       wins: 5,  losses: 8, pointsFor: 1508.88 },
+      { rank: 11, teamName: 'Lost hope',                owner: 'tyler drysdale',  wins: 3,  losses: 10, pointsFor: 1437.00 },
+      { rank: 12, teamName: 'Juicy Bussy',              owner: 'Matt DeLaura',    wins: 2,  losses: 11, pointsFor: 1373.98 },
+    ],
+    playoffs: [
+      { round: 'Championship', home: 'The Murder Boners', homeScore: 197.98, away: 'Really Big Rings', awayScore: 164.24, winner: 'MLSchools12' },
+    ],
+    narratives: [
+      'MLSchools12 claims their second ESPN-era championship — 197.98 points in the final, the highest championship score in ESPN-era BMFFFL history.',
+      'Final ESPN season before the league migrated to Sleeper in 2020.',
+      'Several founding members (DeLaura, Moodie, drysdale) depart after this season; new owners join for the Sleeper era.',
+    ],
+  },
+
+  '2018': {
+    year: 2018,
+    champion: 'SexMachineAndyD',
+    championOwner: 'SexMachineAndyD',
+    runnerUp: 'MLSchools12',
+    championshipScore: '138.66 - 106.80',
+    standings: [
+      { rank: 1,  teamName: 'Stand Against Trade Rape', owner: 'SexMachineAndyD', wins: 9,  losses: 4, pointsFor: 1899.14 },
+      { rank: 2,  teamName: 'The Murder Boners',        owner: 'MLSchools12',     wins: 11, losses: 2, pointsFor: 1956.74 },
+      { rank: 3,  teamName: 'Alvin and the Chipmunks',  owner: 'Cogdeill11',      wins: 9,  losses: 4, pointsFor: 1941.02 },
+      { rank: 4,  teamName: 'Trust the Process',        owner: 'Matt Moodie',     wins: 9,  losses: 4, pointsFor: 1657.94 },
+      { rank: 5,  teamName: 'Really Big Rings',         owner: 'rbr',             wins: 8,  losses: 5, pointsFor: 1836.88 },
+      { rank: 6,  teamName: 'Arnie\'s Army',            owner: 'eldridsm',        wins: 7,  losses: 6, pointsFor: 1635.90 },
+      { rank: 7,  teamName: 'Role Players',             owner: 'eldridm20',       wins: 6,  losses: 7, pointsFor: 1509.02 },
+      { rank: 8,  teamName: 'El Rioux Grandes',         owner: 'Grandes',         wins: 7,  losses: 6, pointsFor: 1629.60 },
+      { rank: 9,  teamName: 'Team No Fly Zone',         owner: 'Cmaleski',        wins: 2,  losses: 11, pointsFor: 1409.08 },
+      { rank: 10, teamName: 'Lost hope Needdraft picks', owner: 'tyler drysdale', wins: 5,  losses: 8, pointsFor: 1447.06 },
+      { rank: 11, teamName: 'Juicy Bussy',              owner: 'Matt DeLaura',    wins: 2,  losses: 11, pointsFor: 1392.06 },
+      { rank: 12, teamName: 'Terrence Pegula',          owner: 'Dan Gaudy',       wins: 3,  losses: 10, pointsFor: 1343.34 },
+    ],
+    playoffs: [
+      { round: 'Championship', home: 'Stand Against Trade Rape', homeScore: 138.66, away: 'The Murder Boners', awayScore: 106.80, winner: 'SexMachineAndyD' },
+    ],
+    narratives: [
+      'Stand Against Trade Rape (franchise now owned by SexMachineAndyD) wins despite finishing 9-4, behind the 11-2 Murder Boners in the regular season.',
+      'MLSchools12 posts the best regular-season record (11-2) but falls in the championship — the dynasty\'s only ESPN-era championship loss.',
+      'Cogdeill11 finishes 3rd with 9-4 in an extremely competitive field: three teams at 9-4.',
+    ],
+  },
+
+  '2017': {
+    year: 2017,
+    champion: 'Cogdeill11',
+    championOwner: 'Cogdeill11',
+    runnerUp: 'eldridsm',
+    championshipScore: '109.32 - 89.54',
+    standings: [
+      { rank: 1,  teamName: 'The Murder Boners',        owner: 'MLSchools12',     wins: 10, losses: 3, pointsFor: 1786.58 },
+      { rank: 2,  teamName: 'Team Cogdeill',            owner: 'Cogdeill11',      wins: 8,  losses: 5, pointsFor: 1640.10 },
+      { rank: 3,  teamName: 'El Rioux Grandes',         owner: 'Grandes',         wins: 9,  losses: 4, pointsFor: 1701.60 },
+      { rank: 4,  teamName: 'Really Big Rings',         owner: 'rbr',             wins: 6,  losses: 7, pointsFor: 1644.58 },
+      { rank: 5,  teamName: 'Arnie\'s Army',            owner: 'eldridsm',        wins: 7,  losses: 6, pointsFor: 1531.14 },
+      { rank: 6,  teamName: 'Gordon Bongbay',           owner: 'SexMachineAndyD', wins: 6,  losses: 7, pointsFor: 1520.52 },
+      { rank: 7,  teamName: 'Team Maleski',             owner: 'Cmaleski',        wins: 6,  losses: 7, pointsFor: 1568.82 },
+      { rank: 8,  teamName: 'Team Eldridge',            owner: 'eldridm20',       wins: 5,  losses: 8, pointsFor: 1479.20 },
+      { rank: 9,  teamName: 'DeLaura\'s Team',         owner: 'Matt DeLaura',    wins: 5,  losses: 8, pointsFor: 1379.66 },
+      { rank: 10, teamName: 'Drysdale\'s Team',        owner: 'tyler drysdale',  wins: 4,  losses: 9, pointsFor: 1469.24 },
+      { rank: 11, teamName: 'Moodie\'s Team',          owner: 'Matt Moodie',     wins: 4,  losses: 9, pointsFor: 1456.82 },
+      { rank: 12, teamName: 'Team Gaudy',              owner: 'Dan Gaudy',       wins: 3,  losses: 10, pointsFor: 1413.40 },
+    ],
+    playoffs: [
+      { round: 'Championship', home: 'Team Cogdeill', homeScore: 109.32, away: "Arnie's Army", awayScore: 89.54, winner: 'Cogdeill11' },
+    ],
+    narratives: [
+      'Cogdeill11 upsets the field to claim the 2017 title — their first of two championships (paired with 2020).',
+      'MLSchools12 posts the best regular-season record (10-3) but does not repeat as champion — the first of several regular-season dominance vs. playoff variance stories.',
+      'Lowest-scoring championship game in BMFFFL history: 109.32 - 89.54.',
+    ],
+  },
+
+  '2016': {
+    year: 2016,
+    champion: 'MLSchools12',
+    championOwner: 'MLSchools12',
+    runnerUp: 'Grandes',
+    championshipScore: '155.98 - 136.56',
+    standings: [
+      { rank: 1,  teamName: 'The Murder Boners',  owner: 'MLSchools12',     wins: 11, losses: 2, pointsFor: 1759.80 },
+      { rank: 2,  teamName: 'El Rioux Grandes',   owner: 'Grandes',         wins: 8,  losses: 5, pointsFor: 1742.00 },
+      { rank: 3,  teamName: 'Really Big Rings',   owner: 'rbr',             wins: 7,  losses: 6, pointsFor: 1732.82 },
+      { rank: 4,  teamName: 'Team Maleski',        owner: 'Cmaleski',        wins: 8,  losses: 5, pointsFor: 1593.30 },
+      { rank: 5,  teamName: 'Team drysdale',       owner: 'tyler drysdale',  wins: 7,  losses: 6, pointsFor: 1584.08 },
+      { rank: 6,  teamName: 'Hitler Youths',       owner: 'Matt DeLaura',    wins: 9,  losses: 4, pointsFor: 1687.40 },
+      { rank: 7,  teamName: 'Terrence Pegula',     owner: 'Dan Gaudy',       wins: 5,  losses: 8, pointsFor: 1416.50 },
+      { rank: 8,  teamName: 'Team Eldridge',       owner: 'eldridm20',       wins: 3,  losses: 10, pointsFor: 1467.36 },
+      { rank: 9,  teamName: "Arnie's Army",        owner: 'eldridsm',        wins: 6,  losses: 7, pointsFor: 1549.54 },
+      { rank: 10, teamName: 'Los Angeles TBD',     owner: 'SexMachineAndyD', wins: 3,  losses: 10, pointsFor: 1589.52 },
+      { rank: 11, teamName: 'Team Moodie',         owner: 'Matt Moodie',     wins: 6,  losses: 7, pointsFor: 1712.76 },
+      { rank: 12, teamName: 'Team Cogdeill',       owner: 'Cogdeill11',      wins: 5,  losses: 8, pointsFor: 1623.94 },
+    ],
+    playoffs: [
+      { round: 'Championship', home: 'The Murder Boners', homeScore: 155.98, away: 'El Rioux Grandes', awayScore: 136.56, winner: 'MLSchools12' },
+    ],
+    narratives: [
+      'The inaugural BMFFFL season — MLSchools12 wins the first-ever championship, setting the tone for a decade of dominance.',
+      'DeLaura\'s Hitler Youths post a 9-4 regular season (best record among non-champion contenders) but fall short in the playoffs.',
+      'An auction draft format — Antonio Brown goes for $314, the most expensive player in ESPN-era BMFFFL history.',
+    ],
+  },
 };
 
-const ALL_YEARS = [2020, 2021, 2022, 2023, 2024, 2025];
+const ALL_YEARS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 

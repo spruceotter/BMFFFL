@@ -337,7 +337,7 @@ export default function SeasonRecapPage() {
         <title>Season Recaps | BMFFFL Dynasty</title>
         <meta
           name="description"
-          content="Interactive timeline of all 6 BMFFFL seasons — champions, key moments, and unforgettable storylines from 2020 to 2025."
+          content="Interactive timeline of BMFFFL Sleeper era seasons (2020–2025) — champions, key moments, and storylines. ESPN era (2016–2019) at History."
         />
       </Head>
 
@@ -359,14 +359,15 @@ export default function SeasonRecapPage() {
           {/* ── Header ── */}
           <div className="mb-10 text-center">
             <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#e94560]">
-              BMFFFL · 2020–2025
+              BMFFFL · Sleeper Era · 2020–2025
             </p>
             <h1 className="mb-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
               Season Recaps
             </h1>
             <p className="mx-auto max-w-xl text-slate-400">
-              Six seasons of fantasy football history — champions crowned, dynasties built, and
-              Cinderella stories written. Explore every season in the BMFFFL dynasty.
+              Six Sleeper-era seasons of fantasy football history — champions crowned, dynasties
+              built, and Cinderella stories written. ESPN era (2016–2019) in the{' '}
+              <a href="/history" className="text-[#e94560] hover:underline">History archive</a>.
             </p>
           </div>
 
@@ -406,8 +407,8 @@ export default function SeasonRecapPage() {
           {/* ── Footer note ── */}
           <div className="mt-12 border-t border-[#2d4a66] pt-8 text-center text-xs text-slate-500">
             <p>
-              6 seasons · 6 champions · 1 dynasty —{' '}
-              <span className="text-slate-400">BMFFFL est. 2020</span>
+              6 Sleeper seasons · 10 total · 1 dynasty —{' '}
+              <span className="text-slate-400">BMFFFL est. 2016</span>
             </p>
           </div>
         </div>

@@ -662,7 +662,7 @@ export default function HistoricalStandingsPage() {
         <title>Historical Standings — BMFFFL</title>
         <meta
           name="description"
-          content="BMFFFL all-time standings and season-by-season records. Six seasons of dynasty fantasy football history, 2020–2025."
+          content="BMFFFL all-time standings and season-by-season records. Sleeper era (2020–2025) — ESPN era (2016–2019) in History."
         />
       </Head>
 
@@ -685,7 +685,7 @@ export default function HistoricalStandingsPage() {
           </h1>
           <div className="flex items-center gap-3 flex-wrap">
             <p className="text-slate-400 text-lg">
-              BMFFFL &bull; 2020&ndash;2025
+              BMFFFL &bull; 2020&ndash;2025 &bull; <a href="/history" className="text-[#ffd700] hover:underline">2016–2019 ESPN era ↗</a>
             </p>
             <ShareButton />
           </div>
