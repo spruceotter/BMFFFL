@@ -15,7 +15,7 @@ interface ChampionEntry {
 
 // Champions validated 2026-04-14 (Sleeper era 2020-2025) and 2026-04-15 (ESPN era 2016-2019).
 // ESPN era: validated via ESPN leagueHistory API (league 945797, rankCalculatedFinal=1).
-// Runner-up mappings: chrisrioux=Grandes, mrio19=rbr, drc1183=Cogdeill11, vieyramf@sbu.edu=SexMachineAndyD.
+// Runner-up mappings: chrisrioux=Grandes, mrio19=rbr, drc1183=Cogdeill11, vieyramf@sbu.edu=vieyramf (ESPN-era only, left before Sleeper migration).
 const CHAMPIONS: ChampionEntry[] = [
   {
     year: 2016,
@@ -31,8 +31,8 @@ const CHAMPIONS: ChampionEntry[] = [
   },
   {
     year: 2018,
-    owner: 'SexMachineAndyD',
-    tagline: 'The one and only ring — nobody saw it coming',
+    owner: 'vieyramf',
+    tagline: 'Mike Vieyra dominates — ESPN-era champion who left before Sleeper',
     championship: 'def. MLSchools12 138.66–106.80',
   },
   {
@@ -89,11 +89,13 @@ interface OwnerRecord {
 }
 
 // Records: Sleeper era (2020-2025) from Convex prod getOwnerCareerStats.
-// Rings include ESPN era (2016-2019): MLSchools12 +2 (2016,2019), Cogdeill11 +1 (2017), SexMachineAndyD +1 (2018).
+// Rings include ESPN era (2016-2019): MLSchools12 +2 (2016,2019), Cogdeill11 +1 (2017), vieyramf +1 (2018).
+// vieyramf (Mike Vieyra) is ESPN-era only — left before Sleeper migration; not in Sleeper DB.
 const ALL_TIME_RECORDS: OwnerRecord[] = [
   { owner: 'MLSchools12',     rings: 4, playoffApps: 6, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024)' },
   { owner: 'Cogdeill11',      rings: 2, playoffApps: 3, wins: 38, losses: 45, note: '2x champion (2017, 2020)' },
-  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 5, wins: 50, losses: 33, note: '2018 champion, 2x runner-up' },
+  { owner: 'vieyramf',        rings: 1, playoffApps: 0, wins: 0,  losses: 0,  note: '2018 champion (ESPN era only, left before Sleeper)' },
+  { owner: 'SexMachineAndyD', rings: 0, playoffApps: 5, wins: 50, losses: 33, note: '2x runner-up (2021, 2024)' },
   { owner: 'JuicyBussy',      rings: 1, playoffApps: 4, wins: 46, losses: 37, note: '2023 champion' },
   { owner: 'Grandes',         rings: 1, playoffApps: 3, wins: 42, losses: 41, note: '2022 champion — commissioner' },
   { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 36, losses: 47, note: '2025 champion' },
