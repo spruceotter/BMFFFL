@@ -13,8 +13,34 @@ interface ChampionEntry {
   championship?: string;
 }
 
-// Champions validated 2026-04-14 from Sleeper SQLite DB (matchup_id=1 queries).
+// Champions validated 2026-04-14 (Sleeper era 2020-2025) and 2026-04-15 (ESPN era 2016-2019).
+// ESPN era: validated via ESPN leagueHistory API (league 945797, rankCalculatedFinal=1).
+// Runner-up mappings: chrisrioux=Grandes, mrio19=rbr, drc1183=Cogdeill11, vieyramf@sbu.edu=SexMachineAndyD.
 const CHAMPIONS: ChampionEntry[] = [
+  {
+    year: 2016,
+    owner: 'MLSchools12',
+    tagline: 'Dynasty begins — the inaugural ESPN-era champion',
+    championship: 'def. Grandes 155.98–136.56',
+  },
+  {
+    year: 2017,
+    owner: 'Cogdeill11',
+    tagline: 'The 5-seed Cinderella — biggest upset in league history',
+    championship: 'def. eldge19 109.32–89.54',
+  },
+  {
+    year: 2018,
+    owner: 'SexMachineAndyD',
+    tagline: 'The one and only ring — nobody saw it coming',
+    championship: 'def. MLSchools12 138.66–106.80',
+  },
+  {
+    year: 2019,
+    owner: 'MLSchools12',
+    tagline: '197.98 championship points — dynasty dominates',
+    championship: 'def. rbr 197.98–164.24',
+  },
   {
     year: 2020,
     owner: 'Cogdeill11',
@@ -135,7 +161,7 @@ export default function HistoryPage() {
         <title>League History — BMFFFL</title>
         <meta
           name="description"
-          content="BMFFFL dynasty fantasy football league history — champions, all-time records, and key milestones from 2020 to present."
+          content="BMFFFL dynasty fantasy football league history — champions, all-time records, and key milestones from 2016 to present."
         />
       </Head>
 
@@ -151,7 +177,7 @@ export default function HistoryPage() {
             League History
           </h1>
           <p className="text-slate-400 text-lg">
-            BMFFFL &bull; 2020 &ndash; Present
+            BMFFFL &bull; 2016 &ndash; Present
           </p>
         </header>
 
