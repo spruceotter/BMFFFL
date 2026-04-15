@@ -280,7 +280,7 @@ const NOTABLE_RIVALRIES: Rivalry[] = [
     aRecord: 'MLSchools12 leads 7-5',
     icon: 'trophy',
     title: 'The Championship Rematch Arc',
-    description: 'rbr fell to MLSchools12 in the 2021 championship game 150-103. Four years later, rbr claimed the 2025 title — though not against MLSchools12. The head-to-head edge belongs to MLSchools12 at 7-5, but rbr\'s persistence and eventual title earned underscores the arc of this rivalry.',
+    description: 'MLSchools12 leads this series 7-5. rbr made the 2022 championship game but fell to Grandes 137.82–115.08 — the closest they\'ve come to a ring. Meanwhile MLSchools12 has claimed four all-time titles. The head-to-head tells the story: dominance vs. a franchise still chasing the top step.',
   },
   {
     ownerA: 'Grandes',

@@ -298,7 +298,7 @@ const WEEK_DATA: Record<WeekKey, WeekData> = {
       loserScore:   188.9,
       margin:       14.9,
       bimfleOneLiner:
-        "Tubes94 explodes for a season-best 203.8 and cements a championship date with MLSchools12.",
+        "Tubes94 explodes for a season-best 203.8 and cements a championship date with tdtd19844.",
     },
     leaderboard: [
       { rank: 1, manager: 'tubes94',        points: 203.8 },
@@ -319,7 +319,7 @@ const WEEK_DATA: Record<WeekKey, WeekData> = {
         detail:   'JuicyBussy outlasts tdtd19844 in the consolation bracket opener by just 4 points.',
       },
     },
-    dispatch: `The Playoff Week 1 slate was everything this league deserved. On the top side, mlschools12 methodically dismantled rbr 189.3–167.1, a performance so efficient it felt routine — and that's the scariest thing about the Dynasty Lord. On the bottom side, tubes94 went supernova with a 203.8-point week, sending sexmachineandy home despite Andy posting a very respectable 188.9. Two good teams. One historic score. The whale is hungry and the championship is next. Bimfle has studied both opponents, run seventeen simulations, and placed exactly zero bets against mlschools12. The data is the data.`,
+    dispatch: `The Playoff Week 1 slate was everything this league deserved. On the top side, tdtd19844 pulled off the upset of the decade — knocking out the 13-1 MLSchools12 in the semifinals. Nobody saw it coming. On the bottom side, tubes94 went supernova with a 203.8-point week, sending sexmachineandy home. Two survivors. One championship. Bimfle has studied both opponents, run seventeen simulations, and for the first time in recent memory, placed zero bets on the dynasty.`,
     standings: [
       { manager: 'mlschools12',    wins: 13, losses:  2 },
       { manager: 'tubes94',        wins: 11, losses:  4 },
@@ -1005,20 +1005,20 @@ export default function WeeklyRecapPage() {
         {isChamp && (
           <section className="rounded-2xl bg-gradient-to-br from-[#ffd700]/12 via-[#16213e] to-[#0d1b2a] border border-[#ffd700]/40 p-8 text-center">
             <div className="text-5xl mb-4">👑</div>
-            <h2 className="text-2xl font-black text-[#ffd700] mb-2">MLSchools12</h2>
+            <h2 className="text-2xl font-black text-[#ffd700] mb-2">tdtd19844</h2>
             <p className="text-lg font-bold text-white mb-1">2025 BMFFFL Champion</p>
             <p className="text-slate-400 text-sm max-w-md mx-auto">
-              Back-to-back. 221.4 points in the title game. The dynasty is not a prophecy — it&apos;s a historical record.
+              The dark horse. THE Shameful Saggy Sack. 152.92 points in the title game. The dynasty has a new name.
             </p>
             <div className="mt-6 flex justify-center gap-6 flex-wrap">
-              {OWNER_TOKENS.filter(t => ['mlschools12', 'tubes94', 'rbr', 'sexmachineandy'].includes(t.slug)).map(t => (
+              {OWNER_TOKENS.filter(t => ['tdtd19844', 'tubes94', 'mlschools12', 'sexmachineandy'].includes(t.slug)).map(t => (
                 <div key={t.slug} className="flex flex-col items-center gap-1">
                   <span className="text-2xl">{t.emoji}</span>
                   <span className="text-xs text-slate-400">{t.displayName}</span>
                   <span className="text-xs text-slate-500">
-                    {t.slug === 'mlschools12' ? '🥇 Champion' :
+                    {t.slug === 'tdtd19844'   ? '🥇 Champion' :
                      t.slug === 'tubes94'     ? '🥈 Runner-Up' :
-                     t.slug === 'rbr'         ? '3rd Place' : '4th Place'}
+                     t.slug === 'mlschools12' ? 'Lost in Semis' : '4th Place'}
                   </span>
                 </div>
               ))}
