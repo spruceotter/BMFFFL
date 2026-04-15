@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import {
   Trophy, Users, Star, Zap, Shield, ChevronDown, ChevronUp,
-  Calendar, TrendingUp, Crown, ArrowRight, ExternalLink,
+  TrendingUp, Crown, ArrowRight, CheckCircle, AlertCircle, Loader2,
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
+
+const CONVEX_SITE_URL = 'https://graceful-grasshopper-238.convex.site';
 
 // ─── FAQ Data ─────────────────────────────────────────────────────────────────
 // Source: BMFFFL owner-invite brochure questions. Updated April 2026.
@@ -178,6 +180,194 @@ function FeatureCard({ icon, title, body }: Feature) {
       </div>
       <p className="text-slate-300 text-sm leading-relaxed">{body}</p>
     </div>
+  );
+}
+
+// ─── Apply Form ───────────────────────────────────────────────────────────────
+
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+function ApplyForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [experience, setExperience] = useState('');
+  const [message, setMessage] = useState('');
+  const [referral, setReferral] = useState('');
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch(`${CONVEX_SITE_URL}/submitOwnerInterest`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, experience, message, referral }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Submission failed');
+      }
+
+      setStatus('success');
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong. Try again.');
+    }
+  }
+
+  const inputClass = cn(
+    'w-full rounded-xl px-4 py-3 text-sm bg-[#0d1b2a] border text-white placeholder-slate-500',
+    'focus:outline-none focus:ring-2 focus:ring-[#f0a500]/40 focus:border-[#f0a500]/60',
+    'border-[#2d4a66] transition-colors'
+  );
+
+  if (status === 'success') {
+    return (
+      <section className="rounded-2xl p-10 bg-gradient-to-br from-[#1a2d42] to-[#0d1b2a] border border-emerald-500/30 text-center space-y-4">
+        <div className="w-14 h-14 rounded-full bg-emerald-500/10 border-2 border-emerald-500/40 flex items-center justify-center mx-auto">
+          <CheckCircle className="w-7 h-7 text-emerald-400" />
+        </div>
+        <h2 className="text-2xl font-bold text-white">Application received</h2>
+        <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+          The Commissioner will review your application and be in touch. Thanks for your interest in BMFFFL.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="space-y-5">
+      <div>
+        <h2 className="text-2xl font-bold text-white">Apply for the Waitlist</h2>
+        <p className="text-slate-400 text-sm mt-1">
+          Spots are rare. The Commissioner reviews every application personally.
+        </p>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-2xl p-6 bg-gradient-to-br from-[#1a2d42] to-[#0d1b2a] border border-[#2d4a66] space-y-5"
+      >
+        {/* Name + Email */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1.5">
+            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+              Name <span className="text-[#f0a500]">*</span>
+            </label>
+            <input
+              type="text"
+              required
+              className={inputClass}
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+              Email <span className="text-[#f0a500]">*</span>
+            </label>
+            <input
+              type="email"
+              required
+              className={inputClass}
+              placeholder="your@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        {/* Experience */}
+        <div className="space-y-1.5">
+          <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+            Fantasy football experience <span className="text-[#f0a500]">*</span>
+          </label>
+          <select
+            required
+            className={cn(inputClass, 'appearance-none cursor-pointer')}
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+          >
+            <option value="" disabled>Select your experience level</option>
+            <option value="redraft-only">Redraft only — new to dynasty</option>
+            <option value="dynasty-beginner">Dynasty beginner (1–2 seasons)</option>
+            <option value="dynasty-veteran">Dynasty veteran (3+ seasons)</option>
+          </select>
+        </div>
+
+        {/* Why join */}
+        <div className="space-y-1.5">
+          <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+            Why do you want to join BMFFFL?
+          </label>
+          <textarea
+            rows={3}
+            className={cn(inputClass, 'resize-none')}
+            placeholder="Tell us about yourself and why you'd be a good fit..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+
+        {/* Referral */}
+        <div className="space-y-1.5">
+          <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+            How did you hear about us?
+          </label>
+          <input
+            type="text"
+            className={inputClass}
+            placeholder="From a friend, social media, etc."
+            value={referral}
+            onChange={(e) => setReferral(e.target.value)}
+          />
+        </div>
+
+        {/* Error */}
+        {status === 'error' && (
+          <div className="flex items-center gap-2 rounded-xl px-4 py-3 bg-red-500/10 border border-red-500/30">
+            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+            <p className="text-red-400 text-sm">{errorMessage}</p>
+          </div>
+        )}
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className={cn(
+            'w-full inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-bold text-sm',
+            'bg-[#f0a500] text-[#0d1b2a] transition-all',
+            status === 'submitting'
+              ? 'opacity-70 cursor-not-allowed'
+              : 'hover:bg-[#f7c948] active:scale-[0.99]'
+          )}
+        >
+          {status === 'submitting' ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Submitting…
+            </>
+          ) : (
+            <>
+              Submit Application
+              <ArrowRight className="w-4 h-4" />
+            </>
+          )}
+        </button>
+
+        <p className="text-xs text-slate-500 text-center">
+          We don't share your information. Applications are reviewed by the Commissioner only.
+        </p>
+      </form>
+    </section>
   );
 }
 
@@ -391,40 +581,8 @@ export default function JoinPage() {
             <FaqAccordion items={FAQ_ITEMS} />
           </section>
 
-          {/* ── CTA ───────────────────────────────────────────────────────── */}
-          <section className="rounded-2xl p-8 bg-gradient-to-br from-[#1a2d42] to-[#0d1b2a] border border-[#f0a500]/20 text-center space-y-5">
-            <div className="w-14 h-14 rounded-full bg-[#f0a500]/10 border-2 border-[#f0a500]/40 flex items-center justify-center mx-auto">
-              <Crown className="w-7 h-7 text-[#f0a500]" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">Ready to compete?</h2>
-            <p className="text-slate-300 text-sm max-w-lg mx-auto leading-relaxed">
-              Spots in BMFFFL are rare. We've had the same core group since 2016 and we take
-              additions seriously. If you think you belong here, reach out. The Commissioner
-              will review your application personally.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <a
-                href="mailto:commissioner@bmfffl.com"
-                className={cn(
-                  'inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold text-sm',
-                  'bg-[#f0a500] text-[#0d1b2a] hover:bg-[#f7c948] transition-colors'
-                )}
-              >
-                Apply for the Waitlist
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <Link
-                href="/about"
-                className={cn(
-                  'inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium text-sm',
-                  'border border-[#2d4a66] text-slate-300 hover:border-[#f0a500]/40 hover:text-white transition-colors'
-                )}
-              >
-                Learn more about BMFFFL
-                <ExternalLink className="w-4 h-4" />
-              </Link>
-            </div>
-          </section>
+          {/* ── Apply Form ────────────────────────────────────────────────── */}
+          <ApplyForm />
 
           {/* ── League Links ──────────────────────────────────────────────── */}
           <section className="border-t border-[#2d4a66] pt-6">
