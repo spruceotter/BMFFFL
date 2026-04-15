@@ -79,17 +79,17 @@ const OWNERS: OwnerCardData[] = [
   },
   {
     name: 'MLSchools12',
-    teamName: 'Dynasty Rank #2',
+    teamName: 'Dynasty Leader — 4x Champion',
     allTimeRecord: { wins: 55, losses: 35, ties: 0, winPct: 0.611 },
-    championships: 1,
+    championships: 4,
     playoffAppearances: 4,
     winPct: 0.611,
   },
   {
     name: 'rbr',
-    teamName: 'Really Big Rings — 2025 Champion',
+    teamName: 'Really Big Rings — 2022 Runner-Up',
     allTimeRecord: { wins: 52, losses: 38, ties: 0, winPct: 0.578 },
-    championships: 1,
+    championships: 0,
     playoffAppearances: 4,
     winPct: 0.578,
   },
@@ -103,7 +103,7 @@ const OWNERS: OwnerCardData[] = [
   },
   {
     name: 'JuicyBussy',
-    teamName: '2024 Champion',
+    teamName: '2023 Champion',
     allTimeRecord: { wins: 48, losses: 42, ties: 0, winPct: 0.533 },
     championships: 1,
     playoffAppearances: 3,
@@ -111,7 +111,7 @@ const OWNERS: OwnerCardData[] = [
   },
   {
     name: 'tdtd19844',
-    teamName: '2022 Champion',
+    teamName: '2025 Champion — Dark Horse',
     allTimeRecord: { wins: 45, losses: 45, ties: 0, winPct: 0.5 },
     championships: 1,
     playoffAppearances: 3,
@@ -253,7 +253,7 @@ export default function SeasonIndexPage() {
         <title>2026 Season — BMFFFL</title>
         <meta
           name="description"
-          content="BMFFFL 2026 offseason hub. 2025 champion: rbr (Really Big Rings). Offseason timeline, roster status, and key links."
+          content="BMFFFL 2026 offseason hub. 2025 champion: tdtd19844 (THE Shameful Saggy Sack). Offseason timeline, roster status, and key links."
         />
       </Head>
 
@@ -284,7 +284,7 @@ export default function SeasonIndexPage() {
                 Reigning Champion
               </p>
               <p className="text-xl font-black text-[#ffd700]">
-                rbr — Really Big Rings
+                tdtd19844 — THE Shameful Saggy Sack
               </p>
             </div>
           </div>
