@@ -184,16 +184,26 @@ export default function NflDraft2026Page() {
           </div>
 
           {/* ── Draft Game CTA ────────────────────────────────────────────── */}
-          <div className="my-6">
+          <div className="my-6 flex flex-col sm:flex-row gap-3">
             <Link
               href="/nfl-draft/draft-game-2026"
-              className="flex items-center justify-between bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] rounded-xl px-5 py-4 group transition-colors duration-150"
+              className="flex-1 flex items-center justify-between bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] rounded-xl px-5 py-4 group transition-colors duration-150"
             >
               <div>
                 <p className="text-[#ffd700] font-black text-sm uppercase tracking-widest">🏆 Draft Game 2026</p>
-                <p className="text-slate-400 text-xs mt-0.5">Lock in your picks before April 24 — Bimflé scores everything after the draft</p>
+                <p className="text-slate-400 text-xs mt-0.5">Lock in your picks before April 24</p>
               </div>
               <span className="text-[#ffd700] text-lg group-hover:translate-x-1 transition-transform duration-150">→</span>
+            </Link>
+            <Link
+              href="/nfl-draft/draft-game-leaderboard-2026"
+              className="sm:w-48 flex items-center justify-between bg-slate-800/60 border border-slate-700/50 hover:border-slate-500 rounded-xl px-5 py-4 group transition-colors duration-150"
+            >
+              <div>
+                <p className="text-slate-300 font-bold text-sm">📊 Leaderboard</p>
+                <p className="text-slate-500 text-xs mt-0.5">See who&apos;s in</p>
+              </div>
+              <span className="text-slate-400 text-lg group-hover:translate-x-1 transition-transform duration-150">→</span>
             </Link>
           </div>
 

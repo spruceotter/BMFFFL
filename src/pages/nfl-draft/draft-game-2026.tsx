@@ -360,12 +360,20 @@ export default function DraftGame2026Page() {
                 );
               })}
             </div>
-            <button
-              onClick={() => { setSubmitState('idle'); }}
-              className="text-sm text-slate-400 hover:text-slate-200 underline"
-            >
-              Edit picks (re-submit to update)
-            </button>
+            <div className="flex flex-col items-center gap-3">
+              <Link
+                href="/nfl-draft/draft-game-leaderboard-2026"
+                className="inline-block bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] text-[#ffd700] font-bold px-5 py-2 rounded-lg transition-colors text-sm"
+              >
+                See who else has submitted →
+              </Link>
+              <button
+                onClick={() => { setSubmitState('idle'); }}
+                className="text-sm text-slate-400 hover:text-slate-200 underline"
+              >
+                Edit picks (re-submit to update)
+              </button>
+            </div>
           </div>
         </div>
       </>
