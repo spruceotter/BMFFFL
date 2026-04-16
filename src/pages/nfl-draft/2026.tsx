@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
 import { cn } from '@/lib/cn';
 
@@ -180,6 +181,20 @@ export default function NflDraft2026Page() {
             <p className="text-slate-500 text-xs">
               Dynasty prospect rankings and BMFFFL team needs. Draft order TBD — picks update as NFL selections are made.
             </p>
+          </div>
+
+          {/* ── Draft Game CTA ────────────────────────────────────────────── */}
+          <div className="my-6">
+            <Link
+              href="/nfl-draft/draft-game-2026"
+              className="flex items-center justify-between bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] rounded-xl px-5 py-4 group transition-colors duration-150"
+            >
+              <div>
+                <p className="text-[#ffd700] font-black text-sm uppercase tracking-widest">🏆 Draft Game 2026</p>
+                <p className="text-slate-400 text-xs mt-0.5">Lock in your picks before April 24 — Bimflé scores everything after the draft</p>
+              </div>
+              <span className="text-[#ffd700] text-lg group-hover:translate-x-1 transition-transform duration-150">→</span>
+            </Link>
           </div>
 
           {/* ── Quick Context Bar ────────────────────────────────────────── */}
