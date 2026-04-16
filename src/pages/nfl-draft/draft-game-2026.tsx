@@ -37,6 +37,7 @@ interface Question {
   question_id: string;
   section: string;
   question_text: string;
+  question_type?: 'multiple_choice' | 'open_response';
   options: Option[];
   order: number;
 }
@@ -47,210 +48,351 @@ const SECTIONS: Record<string, { label: string; emoji: string }> = {
   over_under: { label: 'Player O/U Lines',            emoji: '📊' },
   counts:     { label: 'Category Counts',             emoji: '🔢' },
   teams:      { label: 'Team Moves',                  emoji: '🏟️' },
+  trades:     { label: 'NFL Draft Trades',            emoji: '🔄' },
   bmfffl:     { label: 'BMFFFL Inside',              emoji: '💰' },
+  tiebreaker: { label: 'Tiebreaker',                  emoji: '⏱️' },
 };
 
 const QUESTIONS: Question[] = [
-  // Section 1: Moments
+  // Section 1: The Moment
   {
     question_id: 'q01', section: 'moments', order: 1,
-    question_text: 'Who does Fernando Mendoza (expected #1 pick) hug FIRST after being drafted?',
+    question_text: 'Who does Fernando Mendoza hug FIRST when picked #1 overall?',
     options: [
       { id: 'A', label: 'Mom', points: 200 },
-      { id: 'B', label: 'Dad', points: 300 },
-      { id: 'C', label: 'Girlfriend/partner', points: 300 },
-      { id: 'D', label: 'Agent/coach', points: 500 },
+      { id: 'B', label: 'Dad', points: 200 },
+      { id: 'C', label: 'Girlfriend/Wife', points: 500 },
+      { id: 'D', label: 'Agent', points: 600 },
+      { id: 'E', label: 'Other', points: 600 },
     ],
   },
   {
     question_id: 'q02', section: 'moments', order: 2,
-    question_text: 'What is Mendoza wearing on his head when he walks up to the podium?',
+    question_text: 'After pick 1 is on the clock, which highlight does ESPN show FIRST?',
     options: [
-      { id: 'A', label: 'Raiders hat (puts it on immediately)', points: 200 },
-      { id: 'B', label: 'No hat / bare-headed', points: 300 },
-      { id: 'C', label: 'His own fitted hat he brought', points: 400 },
+      { id: 'A', label: 'Mendoza Heisman moment', points: 300 },
+      { id: 'B', label: 'Mendoza national championship game', points: 300 },
+      { id: 'C', label: 'Indiana Big Ten championship celebration', points: 400 },
+      { id: 'D', label: 'Other Mendoza highlight', points: 400 },
+      { id: 'E', label: 'None / cut to Raiders war room', points: 600 },
     ],
   },
   {
     question_id: 'q03', section: 'moments', order: 3,
-    question_text: 'After pick 1 is on the clock — which highlight plays FIRST on ESPN?',
+    question_text: "Will Fernando Mendoza be wearing a hat when he walks to the commissioner's podium?",
     options: [
-      { id: 'A', label: "Mendoza's Heisman acceptance speech", points: 300 },
-      { id: 'B', label: "Mendoza's national championship highlights", points: 400 },
-      { id: 'C', label: "Mendoza's college touchdown reel", points: 300 },
-      { id: 'D', label: 'A player NOT named Mendoza', points: 500 },
+      { id: 'A', label: 'Yes (Raiders hat)', points: 300 },
+      { id: 'B', label: 'No hat', points: 400 },
+      { id: 'C', label: "Different team's hat or no NFL hat", points: 700 },
     ],
   },
-  // Section 2: Top Picks
+  // Section 2: Specific Picks
   {
     question_id: 'q04', section: 'top_picks', order: 4,
-    question_text: 'Who is the #2 overall pick? (Jets pick)',
+    question_text: 'Who goes #2 overall?',
     options: [
-      { id: 'A', label: 'Defensive player (edge/LB/CB)', points: 250 },
-      { id: 'B', label: 'WR or TE', points: 300 },
-      { id: 'C', label: 'OL', points: 350 },
-      { id: 'D', label: 'QB', points: 400 },
+      { id: 'A', label: 'David Bailey (DE, Texas Tech)', points: 300 },
+      { id: 'B', label: 'Jeremiyah Love (RB, Notre Dame)', points: 400 },
+      { id: 'C', label: 'Arvell Reese (LB, Ohio State)', points: 500 },
+      { id: 'D', label: 'Caleb Downs (S, Ohio State)', points: 600 },
+      { id: 'E', label: 'Other', points: 600 },
     ],
   },
   {
     question_id: 'q05', section: 'top_picks', order: 5,
-    question_text: 'Who is the #3 overall pick? (Cardinals pick)',
+    question_text: 'Who goes #3 overall?',
     options: [
-      { id: 'A', label: 'Defensive player', points: 250 },
-      { id: 'B', label: 'WR', points: 300 },
-      { id: 'C', label: 'OL', points: 350 },
-      { id: 'D', label: 'QB', points: 400 },
+      { id: 'A', label: 'Arvell Reese (LB, Ohio State)', points: 300 },
+      { id: 'B', label: 'Jeremiyah Love (RB, Notre Dame)', points: 300 },
+      { id: 'C', label: 'David Bailey (DE, Texas Tech)', points: 400 },
+      { id: 'D', label: 'Caleb Downs (S, Ohio State)', points: 500 },
+      { id: 'E', label: 'Other', points: 500 },
     ],
   },
   {
     question_id: 'q06', section: 'top_picks', order: 6,
-    question_text: 'Will a trade occur for picks 2 through 6?',
+    question_text: 'Will a Running Back be taken in the top 5?',
     options: [
-      { id: 'A', label: 'Yes — at least one of picks 2-6 is traded', points: 300 },
-      { id: 'B', label: 'No trades in picks 2-6', points: 200 },
+      { id: 'A', label: 'Yes', points: 300 },
+      { id: 'B', label: 'No', points: 500 },
     ],
   },
   {
     question_id: 'q07', section: 'top_picks', order: 7,
-    question_text: 'What is the first non-QB position drafted?',
+    question_text: 'Who drafts Jeremiyah Love (RB, Notre Dame)?',
     options: [
-      { id: 'A', label: 'WR', points: 250 },
-      { id: 'B', label: 'Edge Rusher', points: 250 },
-      { id: 'C', label: 'Linebacker', points: 300 },
-      { id: 'D', label: 'Cornerback', points: 350 },
-      { id: 'E', label: 'OL', points: 400 },
-      { id: 'F', label: 'TE', points: 500 },
-    ],
-  },
-  // Section 3: O/U
-  {
-    question_id: 'q08', section: 'over_under', order: 8,
-    question_text: 'O/U Arvell Reese (LB, Alabama) pick number: 8.5',
-    options: [
-      { id: 'A', label: 'Over — picked 9th or later', points: 250 },
-      { id: 'B', label: 'Under — picked 8th or earlier', points: 300 },
+      { id: 'A', label: 'Tennessee Titans (pick 4)', points: 250 },
+      { id: 'B', label: 'New York Giants (pick 5)', points: 400 },
+      { id: 'C', label: 'New York Jets (picks 2 or 16)', points: 500 },
+      { id: 'D', label: 'Arizona Cardinals (pick 3)', points: 600 },
+      { id: 'E', label: 'Other', points: 500 },
     ],
   },
   {
-    question_id: 'q09', section: 'over_under', order: 9,
-    question_text: 'O/U Jeremiyah Love (RB, Notre Dame) pick number: 16.5',
+    question_id: 'q08', section: 'top_picks', order: 8,
+    question_text: 'Who drafts Kenyon Sadiq (TE, Oregon)?',
     options: [
-      { id: 'A', label: 'Over — picked 17th or later', points: 250 },
-      { id: 'B', label: 'Under — picked 16th or earlier', points: 300 },
+      { id: 'A', label: 'New Orleans Saints (pick 8)', points: 300 },
+      { id: 'B', label: 'Cincinnati Bengals (pick 10)', points: 450 },
+      { id: 'C', label: 'Baltimore Ravens (pick 14)', points: 400 },
+      { id: 'D', label: 'Other', points: 500 },
     ],
   },
   {
-    question_id: 'q10', section: 'over_under', order: 10,
-    question_text: 'O/U Tetairoa McMillan (WR, Arizona) pick number: 12.5',
+    question_id: 'q09', section: 'top_picks', order: 9,
+    question_text: 'Who drafts Makai Lemon (WR, USC)?',
     options: [
-      { id: 'A', label: 'Over — picked 13th or later', points: 250 },
-      { id: 'B', label: 'Under — picked 12th or earlier', points: 300 },
+      { id: 'A', label: 'LA Rams (pick 13)', points: 300 },
+      { id: 'B', label: 'New York Jets (pick 16)', points: 400 },
+      { id: 'C', label: 'Cleveland Browns (pick 6)', points: 600 },
+      { id: 'D', label: 'Other', points: 500 },
     ],
   },
   {
-    question_id: 'q11', section: 'over_under', order: 11,
-    question_text: 'O/U Ty Simpson (QB, Alabama) pick number: 38.5',
+    question_id: 'q10', section: 'top_picks', order: 10,
+    question_text: 'Who drafts Sonny Styles (LB, Ohio State)?',
     options: [
-      { id: 'A', label: 'Over — 2nd round or later (pick 33+)', points: 250 },
-      { id: 'B', label: 'Under — 1st round (top 32)', points: 300 },
-    ],
-  },
-  // Section 4: Counts
-  {
-    question_id: 'q12', section: 'counts', order: 12,
-    question_text: 'How many QBs are drafted in Round 1?',
-    options: [
-      { id: 'A', label: '1', points: 200 },
-      { id: 'B', label: '2', points: 300 },
-      { id: 'C', label: '3 or more', points: 500 },
-      { id: 'D', label: '0', points: 600 },
+      { id: 'A', label: 'Washington Commanders (pick 7)', points: 300 },
+      { id: 'B', label: 'New York Giants (pick 5)', points: 400 },
+      { id: 'C', label: 'Tampa Bay Buccaneers (pick 15)', points: 450 },
+      { id: 'D', label: 'Other', points: 400 },
     ],
   },
   {
-    question_id: 'q13', section: 'counts', order: 13,
-    question_text: 'How many WRs are drafted in Round 1?',
+    question_id: 'q11', section: 'top_picks', order: 11,
+    question_text: 'Will a TE be taken in the top 10?',
     options: [
-      { id: 'A', label: '4 or fewer', points: 300 },
+      { id: 'A', label: 'Yes', points: 400 },
+      { id: 'B', label: 'No', points: 300 },
+    ],
+  },
+  // Section 3: Over / Unders
+  {
+    question_id: 'q12', section: 'over_under', order: 12,
+    question_text: 'O/U Jeremiyah Love pick (4.5)',
+    options: [
+      { id: 'A', label: 'Under / at pick 4 or earlier', points: 300 },
+      { id: 'B', label: 'Over / pick 5 or later', points: 400 },
+    ],
+  },
+  {
+    question_id: 'q13', section: 'over_under', order: 13,
+    question_text: 'O/U Sonny Styles pick (9.5)',
+    options: [
+      { id: 'A', label: 'Under (picks 1–9)', points: 350 },
+      { id: 'B', label: 'Over (picks 10+)', points: 350 },
+    ],
+  },
+  {
+    question_id: 'q14', section: 'over_under', order: 14,
+    question_text: 'O/U Makai Lemon pick (14.5)',
+    options: [
+      { id: 'A', label: 'Under (picks 1–14)', points: 400 },
+      { id: 'B', label: 'Over (picks 15+)', points: 300 },
+    ],
+  },
+  {
+    question_id: 'q15', section: 'over_under', order: 15,
+    question_text: 'O/U Kenyon Sadiq pick (9.5)',
+    options: [
+      { id: 'A', label: 'Under (picks 1–9)', points: 400 },
+      { id: 'B', label: 'Over (picks 10+)', points: 300 },
+    ],
+  },
+  {
+    question_id: 'q16', section: 'over_under', order: 16,
+    question_text: 'O/U Rueben Bain Jr. pick (16.5)',
+    options: [
+      { id: 'A', label: 'Under (picks 1–16)', points: 350 },
+      { id: 'B', label: 'Over (picks 17+)', points: 350 },
+    ],
+  },
+  {
+    question_id: 'q17', section: 'over_under', order: 17,
+    question_text: 'O/U Ty Simpson (QB, Alabama) pick (26.5)',
+    options: [
+      { id: 'A', label: 'Under / drafted in Round 1 (picks 1–26)', points: 400 },
+      { id: 'B', label: 'Over / picks 27–32 or not Round 1', points: 400 },
+    ],
+  },
+  // Section 4: Positional Counts
+  {
+    question_id: 'q18', section: 'counts', order: 18,
+    question_text: 'How many QBs will be taken in Round 1?',
+    options: [
+      { id: 'A', label: '1', points: 300 },
+      { id: 'B', label: '2', points: 400 },
+      { id: 'C', label: '3 or more', points: 600 },
+    ],
+  },
+  {
+    question_id: 'q19', section: 'counts', order: 19,
+    question_text: 'How many WRs will be taken in Round 1?',
+    options: [
+      { id: 'A', label: '4 or fewer', points: 500 },
       { id: 'B', label: '5', points: 400 },
-      { id: 'C', label: '6', points: 400 },
-      { id: 'D', label: '7 or more', points: 350 },
+      { id: 'C', label: '6', points: 300 },
+      { id: 'D', label: '7 or more', points: 400 },
     ],
   },
   {
-    question_id: 'q14', section: 'counts', order: 14,
-    question_text: 'How many defensive players in the top 10?',
+    question_id: 'q20', section: 'counts', order: 20,
+    question_text: 'How many RBs will be taken in Round 1?',
     options: [
-      { id: 'A', label: '0', points: 500 },
+      { id: 'A', label: '0', points: 700 },
       { id: 'B', label: '1', points: 300 },
-      { id: 'C', label: '2', points: 300 },
-      { id: 'D', label: '3', points: 350 },
-      { id: 'E', label: '4 or more', points: 400 },
+      { id: 'C', label: '2', points: 400 },
+      { id: 'D', label: '3 or more', points: 700 },
     ],
   },
-  // Section 5: Teams
   {
-    question_id: 'q15', section: 'teams', order: 15,
-    question_text: 'What position does the Raiders select with their SECOND pick?',
+    question_id: 'q21', section: 'counts', order: 21,
+    question_text: 'How many Edge Rushers / DEs will be taken in Round 1?',
     options: [
-      { id: 'A', label: 'WR', points: 250 },
-      { id: 'B', label: 'OL', points: 250 },
-      { id: 'C', label: 'Defensive player', points: 300 },
-      { id: 'D', label: 'RB', points: 350 },
-      { id: 'E', label: 'TE', points: 400 },
+      { id: 'A', label: '2 or fewer', points: 500 },
+      { id: 'B', label: '3', points: 300 },
+      { id: 'C', label: '4', points: 300 },
+      { id: 'D', label: '5 or more', points: 500 },
     ],
   },
   {
-    question_id: 'q16', section: 'teams', order: 16,
-    question_text: 'Will any team trade up into the top 5?',
+    question_id: 'q22', section: 'counts', order: 22,
+    question_text: 'How many LBs will be taken in Round 1?',
     options: [
-      { id: 'A', label: 'Yes', points: 350 },
-      { id: 'B', label: 'No', points: 200 },
+      { id: 'A', label: '0 or 1', points: 400 },
+      { id: 'B', label: '2', points: 300 },
+      { id: 'C', label: '3', points: 350 },
+      { id: 'D', label: '4 or more', points: 600 },
     ],
   },
   {
-    question_id: 'q17', section: 'teams', order: 17,
-    question_text: 'Which team drafts the first Running Back?',
+    question_id: 'q23', section: 'counts', order: 23,
+    question_text: 'How many players from Ohio State will be taken in Round 1?',
     options: [
-      { id: 'A', label: 'Chiefs', points: 300 },
-      { id: 'B', label: 'Eagles', points: 350 },
-      { id: 'C', label: 'Cowboys', points: 300 },
-      { id: 'D', label: 'Bengals', points: 350 },
-      { id: 'E', label: 'Other team', points: 250 },
+      { id: 'A', label: '1', points: 500 },
+      { id: 'B', label: '2', points: 300 },
+      { id: 'C', label: '3', points: 300 },
+      { id: 'D', label: '4 or more', points: 400 },
     ],
   },
-  // Section 6: BMFFFL
+  // Section 5: Team Decisions
   {
-    question_id: 'q18', section: 'bmfffl', order: 18,
-    question_text: 'How many BMFFFL trades accepted from pick 1 on clock until pick 32?',
+    question_id: 'q24', section: 'teams', order: 24,
+    question_text: 'What position will the New York Jets select at pick 2?',
+    options: [
+      { id: 'A', label: 'Edge Rusher / DE', points: 300 },
+      { id: 'B', label: 'Linebacker', points: 400 },
+      { id: 'C', label: 'Running Back', points: 500 },
+      { id: 'D', label: 'Offensive Lineman', points: 500 },
+      { id: 'E', label: 'Other', points: 500 },
+    ],
+  },
+  {
+    question_id: 'q25', section: 'teams', order: 25,
+    question_text: 'Will the New York Jets select a QB in Round 1 (either pick)?',
+    options: [
+      { id: 'A', label: 'Yes', points: 600 },
+      { id: 'B', label: 'No', points: 300 },
+    ],
+  },
+  {
+    question_id: 'q26', section: 'teams', order: 26,
+    question_text: 'What position will Cleveland Browns (pick 6) select?',
+    options: [
+      { id: 'A', label: 'Wide Receiver', points: 300 },
+      { id: 'B', label: 'Edge Rusher / DE', points: 400 },
+      { id: 'C', label: 'Defensive Back', points: 500 },
+      { id: 'D', label: 'Other', points: 500 },
+    ],
+  },
+  {
+    question_id: 'q27', section: 'teams', order: 27,
+    question_text: 'What position will Kansas City Chiefs (pick 9) select?',
+    options: [
+      { id: 'A', label: 'Edge Rusher / DE', points: 300 },
+      { id: 'B', label: 'Offensive Lineman', points: 400 },
+      { id: 'C', label: 'Wide Receiver', points: 500 },
+      { id: 'D', label: 'Other', points: 500 },
+    ],
+  },
+  {
+    question_id: 'q28', section: 'teams', order: 28,
+    question_text: 'Will Jim Harbaugh (Chargers) draft an Indiana player in Round 1?',
+    options: [
+      { id: 'A', label: 'Yes', points: 500 },
+      { id: 'B', label: 'No', points: 300 },
+    ],
+  },
+  // Section 6: NFL Draft Trades
+  {
+    question_id: 'q29', section: 'trades', order: 29,
+    question_text: 'How many trades will occur in Round 1 of the NFL Draft (picks 1–32)?',
+    options: [
+      { id: 'A', label: '3 or fewer', points: 500 },
+      { id: 'B', label: '4', points: 400 },
+      { id: 'C', label: '5', points: 350 },
+      { id: 'D', label: '6', points: 350 },
+      { id: 'E', label: '7', points: 400 },
+      { id: 'F', label: '8 or more', points: 500 },
+    ],
+  },
+  {
+    question_id: 'q30', section: 'trades', order: 30,
+    question_text: 'Who will be the first NFL player TRADED during the 2026 Draft?',
+    options: [
+      { id: 'A', label: 'No NFL player traded during Round 1', points: 300 },
+      { id: 'B', label: 'A Wide Receiver', points: 500 },
+      { id: 'C', label: 'A Quarterback', points: 600 },
+      { id: 'D', label: 'Other', points: 600 },
+    ],
+  },
+  {
+    question_id: 'q31', section: 'trades', order: 31,
+    question_text: 'Will any of picks 2–6 be traded away during Round 1?',
+    options: [
+      { id: 'A', label: 'Yes', points: 400 },
+      { id: 'B', label: 'No', points: 300 },
+    ],
+  },
+  {
+    question_id: 'q32', section: 'trades', order: 32,
+    question_text: 'Will there be an NFL trade AFTER pick 20 is selected in Round 1?',
+    options: [
+      { id: 'A', label: 'Yes', points: 300 },
+      { id: 'B', label: 'No', points: 300 },
+    ],
+  },
+  // Section 7: BMFFFL Inside
+  {
+    question_id: 'q33', section: 'bmfffl', order: 33,
+    question_text: 'How many trades will be accepted in the BMFFFL from pick 1 through pick 32?',
     options: [
       { id: 'A', label: '0', points: 200 },
-      { id: 'B', label: '1', points: 250 },
+      { id: 'B', label: '1', points: 200 },
       { id: 'C', label: '2', points: 300 },
-      { id: 'D', label: '3', points: 350 },
-      { id: 'E', label: '4 or more', points: 400 },
+      { id: 'D', label: '3', points: 400 },
+      { id: 'E', label: '4 or more', points: 500 },
     ],
   },
   {
-    question_id: 'q19', section: 'bmfffl', order: 19,
-    question_text: 'Will anyone in the BMFFFL trade away a 2026 first-round pick during the NFL Draft?',
+    question_id: 'q34', section: 'bmfffl', order: 34,
+    question_text: 'Will anyone in the BMFFFL trade away a 2026 BMFFFL first round pick during the NFL Draft?',
     options: [
       { id: 'A', label: 'Yes', points: 500 },
       { id: 'B', label: 'No', points: 200 },
     ],
   },
+  // Tiebreaker
   {
-    question_id: 'q20', section: 'bmfffl', order: 20,
-    question_text: 'TIEBREAKER: What pick number is Fernando Mendoza selected at?',
-    options: [
-      { id: 'A', label: '1st overall (exactly)', points: 1000 },
-      { id: 'B', label: 'Top 3 (not #1)', points: 500 },
-      { id: 'C', label: 'Top 10 (not top 3)', points: 400 },
-    ],
+    question_id: 'q35', section: 'tiebreaker', order: 35,
+    question_type: 'open_response',
+    question_text: 'What is the exact time that David Bailey is selected? (Draft begins 8:00pm ET, Thursday April 24)',
+    options: [],
   },
 ];
 
 // Group questions by section, preserving section order
-const SECTION_ORDER = ['moments', 'top_picks', 'over_under', 'counts', 'teams', 'bmfffl'];
+const SECTION_ORDER = ['moments', 'top_picks', 'over_under', 'counts', 'teams', 'trades', 'bmfffl', 'tiebreaker'];
 
 function getQuestionsBySection(): Array<{ section: string; questions: Question[] }> {
   const map = new Map<string, Question[]>();
@@ -355,7 +497,11 @@ export default function DraftGame2026Page() {
                     <span className="text-xs text-[#ffd700] font-mono mt-0.5">{q.question_id.toUpperCase()}</span>
                     <div>
                       <p className="text-xs text-slate-400 leading-snug">{q.question_text}</p>
-                      <p className="text-xs text-white font-bold">{opt?.label} <span className="text-[#ffd700]">(+{opt?.points})</span></p>
+                      {q.question_type === 'open_response' ? (
+                        <p className="text-xs text-white font-bold">{chosen}</p>
+                      ) : (
+                        <p className="text-xs text-white font-bold">{opt?.label} <span className="text-[#ffd700]">(+{opt?.points})</span></p>
+                      )}
                     </div>
                   </div>
                 );
@@ -402,7 +548,7 @@ export default function DraftGame2026Page() {
               Draft Game 2026
             </h1>
             <p className="text-slate-400 text-sm">
-              20 questions. Lock in your picks before the draft. Bimflé scores everything after.
+              34 questions + tiebreaker. Lock in your picks before the draft. Bimflé scores everything after.
               Highest total points wins.
             </p>
           </div>
@@ -475,39 +621,55 @@ export default function DraftGame2026Page() {
                         </div>
 
                         {/* Options */}
-                        <div className="space-y-2">
-                          {q.options.map((opt) => {
-                            const isSelected = chosen === opt.id;
-                            return (
-                              <button
-                                key={opt.id}
-                                onClick={() => handleSelect(q.question_id, opt.id)}
-                                className={cn(
-                                  'w-full flex items-center justify-between px-4 py-3 rounded-lg border text-sm font-medium transition-all duration-150 text-left',
-                                  isSelected
-                                    ? 'bg-[#ffd700]/10 border-[#ffd700] text-white'
-                                    : 'bg-[#0d1b2a] border-[#2d4a66] text-slate-300 hover:border-slate-400 hover:text-white'
-                                )}
-                              >
-                                <div className="flex items-center gap-3">
+                        {q.question_type === 'open_response' ? (
+                          <div>
+                            <input
+                              type="text"
+                              placeholder="e.g. 8:47 PM ET"
+                              value={chosen ?? ''}
+                              onChange={(e) => handleSelect(q.question_id, e.target.value)}
+                              className={cn(
+                                'w-full bg-[#0d1b2a] border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors',
+                                chosen ? 'border-[#ffd700]/60' : 'border-[#2d4a66] focus:border-slate-400'
+                              )}
+                            />
+                            <p className="text-xs text-slate-600 mt-1.5">Enter your best guess for the exact time (24-hour Eastern format or "8:47 PM ET").</p>
+                          </div>
+                        ) : (
+                          <div className="space-y-2">
+                            {q.options.map((opt) => {
+                              const isSelected = chosen === opt.id;
+                              return (
+                                <button
+                                  key={opt.id}
+                                  onClick={() => handleSelect(q.question_id, opt.id)}
+                                  className={cn(
+                                    'w-full flex items-center justify-between px-4 py-3 rounded-lg border text-sm font-medium transition-all duration-150 text-left',
+                                    isSelected
+                                      ? 'bg-[#ffd700]/10 border-[#ffd700] text-white'
+                                      : 'bg-[#0d1b2a] border-[#2d4a66] text-slate-300 hover:border-slate-400 hover:text-white'
+                                  )}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <span className={cn(
+                                      'w-5 h-5 rounded-full border flex items-center justify-center text-xs font-bold shrink-0',
+                                      isSelected ? 'border-[#ffd700] text-[#ffd700]' : 'border-slate-600 text-slate-500'
+                                    )}>
+                                      {opt.id}
+                                    </span>
+                                    <span>{opt.label}</span>
+                                  </div>
                                   <span className={cn(
-                                    'w-5 h-5 rounded-full border flex items-center justify-center text-xs font-bold shrink-0',
-                                    isSelected ? 'border-[#ffd700] text-[#ffd700]' : 'border-slate-600 text-slate-500'
+                                    'text-xs font-black shrink-0',
+                                    isSelected ? 'text-[#ffd700]' : 'text-slate-500'
                                   )}>
-                                    {opt.id}
+                                    +{opt.points}
                                   </span>
-                                  <span>{opt.label}</span>
-                                </div>
-                                <span className={cn(
-                                  'text-xs font-black shrink-0',
-                                  isSelected ? 'text-[#ffd700]' : 'text-slate-500'
-                                )}>
-                                  +{opt.points}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
