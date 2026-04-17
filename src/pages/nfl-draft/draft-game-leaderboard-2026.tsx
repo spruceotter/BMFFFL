@@ -77,6 +77,13 @@ export default function DraftGameLeaderboard2026() {
     error: null,
   });
   const [nextRefresh, setNextRefresh] = useState(30);
+  const [myName, setMyName] = useState<string | null>(null);
+
+  // Detect which owner is viewing (from localStorage, set when they submitted)
+  useEffect(() => {
+    const stored = localStorage.getItem('bmfffl-draft-game-owner');
+    if (stored) setMyName(stored);
+  }, []);
 
   const countdown = useCountdown(DRAFT_DATE);
   const isPastDeadline = Date.now() >= SUBMISSION_DEADLINE.getTime();
@@ -129,9 +136,19 @@ export default function DraftGameLeaderboard2026() {
 
           {/* Header */}
           <div className="mb-6">
-            <Link href="/nfl-draft/2026" className="text-slate-500 hover:text-slate-300 text-sm mb-3 inline-block">
-              ← NFL Draft 2026
-            </Link>
+            <div className="flex items-center justify-between mb-3">
+              <Link href="/nfl-draft/2026" className="text-slate-500 hover:text-slate-300 text-sm">
+                ← NFL Draft 2026
+              </Link>
+              {myName && (
+                <Link
+                  href="/nfl-draft/draft-game-2026"
+                  className="text-[#ffd700]/70 hover:text-[#ffd700] text-xs font-semibold"
+                >
+                  My Picks →
+                </Link>
+              )}
+            </div>
             <h1 className="text-3xl font-black text-white mb-1">
               🏆 Draft Game 2026
             </h1>
@@ -141,6 +158,21 @@ export default function DraftGameLeaderboard2026() {
                 : 'Track who has locked in their picks before April 23'}
             </p>
           </div>
+
+          {/* "You're in" banner when owner is identified and scoring is live */}
+          {myName && isScored && (() => {
+            const myEntry = state.leaderboard.find((e) => e.owner_name === myName);
+            const myRank = myEntry ? state.leaderboard.findIndex((e) => e.owner_name === myName) + 1 : null;
+            return myEntry ? (
+              <div className="bg-[#ffd700]/10 border border-[#ffd700]/50 rounded-xl px-4 py-3 mb-5 flex items-center justify-between">
+                <div>
+                  <p className="text-[#ffd700] font-bold text-sm">You — {myName}</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Rank #{myRank} of {state.leaderboard.length}</p>
+                </div>
+                <span className="text-[#ffd700] font-black text-2xl tabular-nums">{myEntry.total_score.toLocaleString()}</span>
+              </div>
+            ) : null;
+          })()}
 
           {/* Scoring note */}
           <div className="bg-amber-900/20 border border-amber-500/40 rounded-xl p-3 mb-6 flex items-center gap-2">
@@ -202,21 +234,31 @@ export default function DraftGameLeaderboard2026() {
                       const isFirst = idx === 0;
                       const isTied = idx > 0 && entry.total_score === state.leaderboard[idx - 1].total_score;
                       const rank = isTied ? '—' : String(idx + 1);
+                      const isMe = myName && entry.owner_name === myName;
                       return (
                         <tr
                           key={entry.owner_name}
-                          className={`border-t border-slate-700/40 ${isFirst ? 'bg-[#ffd700]/5' : 'bg-slate-900/30'}`}
+                          className={`border-t border-slate-700/40 ${
+                            isMe
+                              ? 'bg-[#ffd700]/10 ring-1 ring-inset ring-[#ffd700]/30'
+                              : isFirst ? 'bg-[#ffd700]/5' : 'bg-slate-900/30'
+                          }`}
                         >
                           <td className="px-4 py-3 text-slate-500 font-mono text-sm">
                             {isFirst ? '🥇' : rank}
                           </td>
                           <td className="px-4 py-3 font-semibold text-white">
-                            <div>{entry.owner_name}</div>
+                            <div className="flex items-center gap-2">
+                              {entry.owner_name}
+                              {isMe && (
+                                <span className="text-[10px] font-bold bg-[#ffd700] text-[#0d1b2a] px-1.5 py-0.5 rounded uppercase tracking-wide leading-none">you</span>
+                              )}
+                            </div>
                             {OWNER_NOTES[entry.owner_name] && (
                               <div className="text-xs text-amber-400/80 font-normal mt-0.5">{OWNER_NOTES[entry.owner_name]}</div>
                             )}
                           </td>
-                          <td className={`px-4 py-3 text-right font-black tabular-nums text-lg ${isFirst ? 'text-[#ffd700]' : 'text-white'}`}>
+                          <td className={`px-4 py-3 text-right font-black tabular-nums text-lg ${isFirst || isMe ? 'text-[#ffd700]' : 'text-white'}`}>
                             {entry.total_score.toLocaleString()}
                           </td>
                         </tr>
@@ -266,15 +308,23 @@ export default function DraftGameLeaderboard2026() {
                 {ALL_OWNERS.map((owner, idx) => {
                   const sub = state.submissions.find((s) => s.owner_name === owner);
                   const hasSubmitted = !!sub;
+                  const isMe = myName && owner === myName;
                   return (
                     <div
                       key={owner}
-                      className={`flex items-center justify-between px-4 py-3 ${idx > 0 ? 'border-t border-slate-700/40' : ''} ${hasSubmitted ? 'bg-slate-900/30' : 'bg-slate-900/10'}`}
+                      className={`flex items-center justify-between px-4 py-3 ${idx > 0 ? 'border-t border-slate-700/40' : ''} ${
+                        isMe ? 'bg-[#ffd700]/10' : hasSubmitted ? 'bg-slate-900/30' : 'bg-slate-900/10'
+                      }`}
                     >
                       <div>
-                        <span className={`font-medium ${hasSubmitted ? 'text-white' : 'text-slate-500'}`}>
-                          {owner}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className={`font-medium ${hasSubmitted ? 'text-white' : 'text-slate-500'}`}>
+                            {owner}
+                          </span>
+                          {isMe && (
+                            <span className="text-[10px] font-bold bg-[#ffd700] text-[#0d1b2a] px-1.5 py-0.5 rounded uppercase tracking-wide leading-none">you</span>
+                          )}
+                        </div>
                         {OWNER_NOTES[owner] && (
                           <div className="text-xs text-amber-400/70 mt-0.5">{OWNER_NOTES[owner]}</div>
                         )}
