@@ -5,7 +5,7 @@ import { cn } from '@/lib/cn';
 
 // ─── Config ────────────────────────────────────────────────────────────────────
 
-const CONVEX_SITE_URL = 'https://graceful-grasshopper-238.convex.site';
+const CONVEX_SITE_URL = 'https://resolute-setter-416.convex.site';
 const YEAR = '2026';
 
 // ─── BMFFFL Owners ────────────────────────────────────────────────────────────

@@ -10,7 +10,7 @@ import { useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const CONVEX_SITE = 'https://graceful-grasshopper-238.convex.site';
+const CONVEX_SITE = 'https://resolute-setter-416.convex.site';
 const YEAR = '2026';
 const DRAFT_DATE = new Date('2026-04-24T20:00:00-04:00'); // 8pm ET draft start
 const SUBMISSION_DEADLINE = new Date('2026-04-24T18:00:00-04:00'); // lock 2h before
