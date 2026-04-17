@@ -463,7 +463,7 @@ export default function SleeperGuidePage() {
                   note="Sleeper push notifications fire 48 hrs and 24 hrs before draft start, plus a day-of reminder at the scheduled hour."
                 />
                 <CalendarItem
-                  date="April 24–26, 2026"
+                  date="April 23–25, 2026"
                   event="NFL Draft"
                   note="Monitor Sleeper for player news and rapid free-agent activity as rookies land on depth charts."
                 />

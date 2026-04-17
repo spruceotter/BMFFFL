@@ -133,7 +133,15 @@ export default function DraftGameLeaderboard2026() {
             <p className="text-slate-400 text-sm">
               {isScored
                 ? 'Live leaderboard — scores update as Bimflé marks correct answers'
-                : 'Track who has locked in their picks before April 24'}
+                : 'Track who has locked in their picks before April 23'}
+            </p>
+          </div>
+
+          {/* Scoring note */}
+          <div className="bg-amber-900/20 border border-amber-500/40 rounded-xl p-3 mb-6 flex items-center gap-2">
+            <span className="text-amber-400 text-sm">⚠️</span>
+            <p className="text-amber-200/70 text-xs">
+              Scoring: correct = full points · <span className="text-red-400 font-semibold">wrong = −100 pts</span> · unanswered = 0 (skip freely)
             </p>
           </div>
 

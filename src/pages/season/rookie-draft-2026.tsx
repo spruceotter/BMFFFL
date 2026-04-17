@@ -421,7 +421,7 @@ export default function RookieDraft2026Page() {
         {/* Footer note */}
         <p className="text-xs text-slate-600 leading-relaxed">
           Draft information is estimated as of March 2026. Pick ownership reflects known trades as of this date —
-          additional trades may occur before June 5. Prospect rankings are pre-NFL Draft (April 24&ndash;26, 2026)
+          additional trades may occur before June 5. Prospect rankings are pre-NFL Draft (April 23&ndash;25, 2026)
           and will shift based on landing spots and combine results.
         </p>
 

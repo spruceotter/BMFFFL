@@ -664,7 +664,7 @@ export default function MockDraftPage() {
         </section>
 
         <p className="mt-8 text-xs text-center text-slate-600">
-          Prospect ADP values are pre-draft estimates as of March 2026. Rankings will shift through the NFL draft (April 24–26, 2026).
+          Prospect ADP values are pre-draft estimates as of March 2026. Rankings will shift through the NFL draft (April 23–25, 2026).
           This simulator is for entertainment — it does not represent official BMFFFL picks.
         </p>
 

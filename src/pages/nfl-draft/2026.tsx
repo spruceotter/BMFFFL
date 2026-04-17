@@ -176,7 +176,7 @@ export default function NflDraft2026Page() {
               2026 NFL Draft
             </h1>
             <p className="text-slate-400 text-sm mb-1">
-              April 24–26, 2026 &bull; Lambeau Field, Green Bay, WI
+              April 23–25, 2026 &bull; Acrisure Stadium, Pittsburgh, PA
             </p>
             <p className="text-slate-500 text-xs">
               Dynasty prospect rankings and BMFFFL team needs. Draft order TBD — picks update as NFL selections are made.
@@ -191,7 +191,7 @@ export default function NflDraft2026Page() {
             >
               <div>
                 <p className="text-[#ffd700] font-black text-sm uppercase tracking-widest">🏆 Draft Game 2026</p>
-                <p className="text-slate-400 text-xs mt-0.5">Lock in your picks before April 24</p>
+                <p className="text-slate-400 text-xs mt-0.5">Lock in your picks before April 23</p>
               </div>
               <span className="text-[#ffd700] text-lg group-hover:translate-x-1 transition-transform duration-150">→</span>
             </Link>

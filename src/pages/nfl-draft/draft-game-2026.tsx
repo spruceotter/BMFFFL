@@ -386,7 +386,7 @@ const QUESTIONS: Question[] = [
   {
     question_id: 'q35', section: 'tiebreaker', order: 35,
     question_type: 'open_response',
-    question_text: 'What is the exact time that David Bailey is selected? (Draft begins 8:00pm ET, Thursday April 24)',
+    question_text: 'What is the exact time that David Bailey is selected? (Draft begins 8:00pm ET, Thursday April 23)',
     options: [],
   },
 ];
@@ -485,7 +485,7 @@ export default function DraftGame2026Page() {
               <span className="text-[#ffd700] font-bold">{savedOwner}</span> — your picks are in Convex.
             </p>
             <p className="text-slate-500 text-sm mb-8">
-              Bimflé will score all entries after the draft on April 24. Good luck.
+              Bimflé will score all entries after the draft on April 23. Good luck.
             </p>
             <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 text-left mb-6">
               <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-3">Your {total} picks</p>
@@ -542,7 +542,7 @@ export default function DraftGame2026Page() {
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffd700]/10 border border-[#ffd700]/30 text-[#ffd700] text-xs font-semibold uppercase tracking-widest mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffd700] animate-pulse" />
-              2026 NFL Draft — April 24
+              2026 NFL Draft — April 23
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
               Draft Game 2026
@@ -551,6 +551,20 @@ export default function DraftGame2026Page() {
               34 questions + tiebreaker. Lock in your picks before the draft. Bimflé scores everything after.
               Highest total points wins.
             </p>
+          </div>
+
+          {/* ── Scoring Warning ──────────────────────────────────────────────── */}
+          <div className="bg-amber-900/20 border border-amber-500/40 rounded-xl p-4 mb-8 flex items-start gap-3">
+            <span className="text-amber-400 text-lg mt-0.5">⚠️</span>
+            <div>
+              <p className="text-amber-300 font-bold text-sm mb-1">Scoring: Wrong answers cost points</p>
+              <p className="text-amber-200/70 text-xs leading-relaxed">
+                Correct answer: <span className="text-white font-semibold">full points</span> ·
+                Wrong answer: <span className="text-red-400 font-semibold">−100 points</span> ·
+                Unanswered: <span className="text-slate-300 font-semibold">0 points</span> (no penalty for skipping).
+                Only lock in answers you&apos;re confident about.
+              </p>
+            </div>
           </div>
 
           {/* ── Owner picker ─────────────────────────────────────────────────── */}

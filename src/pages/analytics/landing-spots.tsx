@@ -193,7 +193,7 @@ export default function LandingSpotsPage() {
               </p>
               <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
                 All landing spots are projections based on current mock drafts and team needs.
-                This page will update after the 2026 NFL Draft concludes April 24&ndash;26, 2026.
+                This page will update after the 2026 NFL Draft concludes April 23&ndash;25, 2026.
               </p>
             </div>
           </div>

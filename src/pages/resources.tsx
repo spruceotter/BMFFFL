@@ -118,7 +118,7 @@ const CALENDAR_EVENTS: CalendarEvent[] = [
   },
   {
     title: 'NFL Draft',
-    date: 'April 24–26, 2026',
+    date: 'April 23–25, 2026',
   },
   {
     title: 'Annual Owners Meeting',

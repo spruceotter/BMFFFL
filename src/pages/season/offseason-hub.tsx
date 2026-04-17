@@ -135,7 +135,7 @@ const ROSTER_WATCH: RosterWatch[] = [
 
 const UPCOMING_EVENTS: UpcomingEvent[] = [
   {
-    date: 'April 24–26, 2026',
+    date: 'April 23–25, 2026',
     label: 'NFL Draft',
     description: 'Landing spots will reshape rookie rankings. Watch for RBs in lead-back roles and rookie WRs in high-target offenses.',
     href: '/nfl-draft/2026',
@@ -531,7 +531,7 @@ export default function OffseasonHubPage() {
           </div>
 
           <p className="mt-2 text-[11px] text-slate-600">
-            Rankings based on current roster + pick inventory. Subject to change after 2026 NFL Draft (April 24–26).
+            Rankings based on current roster + pick inventory. Subject to change after 2026 NFL Draft (April 23–25).
             <Link
               href="/analytics/dynasty-rankings"
               className="ml-2 text-slate-500 hover:text-slate-400 transition-colors"

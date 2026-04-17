@@ -26,7 +26,7 @@ const DISPATCHES: Dispatch[] = [
     number: '002',
     date: 'March 10, 2026',
     subject: '2026 Rookie Draft Preparations Underway',
-    body: 'I write to inform all esteemed proprietors that the 2026 NFL Draft (April 24–26) will commence in approximately six weeks. I encourage all managers to review the draft board pages I have prepared. The analytics suggest this class is of considerable depth at the wide receiver position. I am, as always, monitoring developments diligently. The power rankings will be prepared following the rookie draft.',
+    body: 'I write to inform all esteemed proprietors that the 2026 NFL Draft (April 23–25) will commence in approximately six weeks. I encourage all managers to review the draft board pages I have prepared. The analytics suggest this class is of considerable depth at the wide receiver position. I am, as always, monitoring developments diligently. The power rankings will be prepared following the rookie draft.',
     includesSignoff: false,
   },
   {
