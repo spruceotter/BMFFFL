@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { cn } from '@/lib/cn';
 
 // ─── Config ────────────────────────────────────────────────────────────────────
@@ -417,6 +418,7 @@ type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 type LoadState  = 'idle' | 'loading' | 'loaded' | 'none';
 
 export default function DraftGame2026Page() {
+  const router = useRouter();
   const [ownerName, setOwnerName]   = useState('');
   const [answers, setAnswers]       = useState<Record<string, string>>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
@@ -424,15 +426,17 @@ export default function DraftGame2026Page() {
   const [savedOwner, setSavedOwner] = useState('');
   const [loadState, setLoadState]   = useState<LoadState>('idle');
   const [existingSubmittedAt, setExistingSubmittedAt] = useState<string | null>(null);
+  const [viewMode, setViewMode]     = useState(false); // true = read-only "You're In" view
+  const [participantCount, setParticipantCount] = useState<number | null>(null);
 
   const sections = getQuestionsBySection();
   const answered = countAnswered(answers);
   const total    = QUESTIONS.length;
   const allAnswered = answered === total && ownerName.trim().length > 0;
-  const isEditing = loadState === 'loaded' && existingSubmittedAt !== null;
+  const isEditing = loadState === 'loaded' && existingSubmittedAt !== null && !viewMode;
 
   // Fetch existing entry for owner (if any) and pre-populate answers
-  async function fetchExistingEntry(name: string) {
+  async function fetchExistingEntry(name: string, showViewMode = false) {
     if (!name) return;
     setLoadState('loading');
     try {
@@ -444,34 +448,55 @@ export default function DraftGame2026Page() {
         setAnswers(data.answers);
         setExistingSubmittedAt(data.submitted_at);
         setLoadState('loaded');
+        // Auto-enter view mode when returning (existing entry found)
+        if (showViewMode) setViewMode(true);
       } else {
         setAnswers({});
         setExistingSubmittedAt(null);
         setLoadState('none');
+        setViewMode(false);
       }
     } catch {
       setLoadState('none');
     }
   }
 
-  // Persist owner selection across reload (convenience)
+  // Fetch participant count (used in success + view screens)
+  async function fetchParticipantCount() {
+    try {
+      const res = await fetch(`${CONVEX_SITE_URL}/getDraftGameSubmissions?year=${YEAR}`);
+      const subs = await res.json() as { owner_name: string }[];
+      setParticipantCount(subs.length);
+    } catch { /* silent */ }
+  }
+
+  // On mount: check localStorage and URL ?owner= param
   useEffect(() => {
+    const ownerParam = router.query.owner as string | undefined;
+    if (ownerParam && OWNERS.includes(ownerParam)) {
+      setOwnerName(ownerParam);
+      fetchExistingEntry(ownerParam, true);
+      fetchParticipantCount();
+      return;
+    }
     const stored = localStorage.getItem('bmfffl-draft-game-owner');
     if (stored) {
       setOwnerName(stored);
-      fetchExistingEntry(stored);
+      fetchExistingEntry(stored, true);
+      fetchParticipantCount();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.query.owner]);
 
   function handleOwnerChange(name: string) {
     setOwnerName(name);
     setAnswers({});
     setExistingSubmittedAt(null);
     setLoadState('idle');
+    setViewMode(false);
     if (name) {
       localStorage.setItem('bmfffl-draft-game-owner', name);
-      fetchExistingEntry(name);
+      fetchExistingEntry(name, false);
     }
   }
 
@@ -501,11 +526,76 @@ export default function DraftGame2026Page() {
       } else {
         setSavedOwner(ownerName);
         setSubmitState('success');
+        fetchParticipantCount();
       }
     } catch {
       setErrorMsg('Network error. Check your connection and try again.');
       setSubmitState('error');
     }
+  }
+
+  // ── Read-only "You're In" view (returned to the page with existing entry) ──
+  if (viewMode && loadState === 'loaded' && existingSubmittedAt) {
+    return (
+      <>
+        <Head><title>Your Picks — 2026 Draft Game — BMFFFL</title></Head>
+        <div className="min-h-screen bg-[#0d1b2a] px-4 py-10">
+          <div className="max-w-lg mx-auto">
+            <Link href="/nfl-draft/draft-game-leaderboard-2026" className="text-slate-500 hover:text-slate-300 text-sm mb-6 inline-block">
+              ← Leaderboard
+            </Link>
+            <div className="text-center mb-8">
+              <div className="text-5xl mb-4">✅</div>
+              <h1 className="text-3xl font-black text-white mb-2">You&apos;re In!</h1>
+              <p className="text-slate-400 text-sm mb-1">
+                <span className="text-[#ffd700] font-bold">{ownerName}</span> — your picks are locked.
+              </p>
+              {participantCount !== null && (
+                <p className="text-slate-500 text-xs">
+                  {participantCount} {participantCount === 1 ? 'manager has' : 'managers have'} entered · Draft is April 23
+                </p>
+              )}
+            </div>
+
+            <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-6">
+              <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-4">Your {total} picks</p>
+              {QUESTIONS.map((q) => {
+                const chosen = answers[q.question_id];
+                const opt = q.options.find((o) => o.id === chosen);
+                return (
+                  <div key={q.question_id} className="flex items-start gap-2.5 mb-3 pb-3 border-b border-[#1e2d40] last:border-0 last:mb-0 last:pb-0">
+                    <span className="text-xs text-[#ffd700] font-mono font-bold mt-0.5 shrink-0 w-8">{q.question_id.toUpperCase()}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-slate-400 leading-snug mb-0.5">{q.question_text}</p>
+                      {q.question_type === 'open_response' ? (
+                        <p className="text-sm text-white font-bold">{chosen}</p>
+                      ) : (
+                        <p className="text-sm text-white font-semibold">{opt?.label ?? '—'} <span className="text-[#ffd700] text-xs font-normal">(+{opt?.points})</span></p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
+              <button
+                onClick={() => setViewMode(false)}
+                className="w-full py-3 rounded-xl bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] text-[#ffd700] font-bold transition-colors text-sm"
+              >
+                ✏️ Edit My Picks
+              </button>
+              <Link
+                href="/nfl-draft/draft-game-leaderboard-2026"
+                className="text-sm text-slate-400 hover:text-slate-200 underline"
+              >
+                View leaderboard →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </>
+    );
   }
 
   if (submitState === 'success') {
@@ -514,24 +604,28 @@ export default function DraftGame2026Page() {
         <Head>
           <title>2026 Draft Game — BMFFFL</title>
         </Head>
-        <div className="min-h-screen bg-[#0d1b2a] flex items-center justify-center px-4">
-          <div className="max-w-lg text-center">
-            <div className="text-6xl mb-6">🏆</div>
-            <h1 className="text-3xl font-black text-white mb-3">Entry Locked In!</h1>
-            <p className="text-slate-400 mb-2">
-              <span className="text-[#ffd700] font-bold">{savedOwner}</span> — your picks are in Convex.
+        <div className="min-h-screen bg-[#0d1b2a] flex items-center justify-center px-4 py-10">
+          <div className="max-w-lg w-full text-center">
+            <div className="text-6xl mb-5 animate-bounce" style={{ animationIterationCount: 3 }}>🏆</div>
+            <h1 className="text-3xl font-black text-white mb-2">Entry Locked In!</h1>
+            <p className="text-slate-400 mb-1">
+              <span className="text-[#ffd700] font-bold">{savedOwner}</span> — you&apos;re in the competition.
             </p>
-            <p className="text-slate-500 text-sm mb-8">
-              Bimflé will score all entries after the draft on April 23. Good luck.
-            </p>
-            <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 text-left mb-6">
+            {participantCount !== null ? (
+              <p className="text-slate-500 text-sm mb-2">
+                🏆 {participantCount} {participantCount === 1 ? 'manager' : 'managers'} entered · Draft is April 23
+              </p>
+            ) : (
+              <p className="text-slate-500 text-sm mb-2">Bimflé will score all entries after April 23. Good luck.</p>
+            )}
+            <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 text-left mb-6 mt-6">
               <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-3">Your {total} picks</p>
               {QUESTIONS.map((q) => {
                 const chosen = answers[q.question_id];
                 const opt = q.options.find((o) => o.id === chosen);
                 return (
-                  <div key={q.question_id} className="flex items-start gap-2 mb-2">
-                    <span className="text-xs text-[#ffd700] font-mono mt-0.5">{q.question_id.toUpperCase()}</span>
+                  <div key={q.question_id} className="flex items-start gap-2 mb-2.5 pb-2.5 border-b border-[#1e2d40] last:border-0 last:mb-0 last:pb-0">
+                    <span className="text-xs text-[#ffd700] font-mono mt-0.5 shrink-0 w-8">{q.question_id.toUpperCase()}</span>
                     <div>
                       <p className="text-xs text-slate-400 leading-snug">{q.question_text}</p>
                       {q.question_type === 'open_response' ? (
@@ -547,7 +641,7 @@ export default function DraftGame2026Page() {
             <div className="flex flex-col items-center gap-3">
               <Link
                 href="/nfl-draft/draft-game-leaderboard-2026"
-                className="inline-block bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] text-[#ffd700] font-bold px-5 py-2 rounded-lg transition-colors text-sm"
+                className="inline-block w-full bg-[#ffd700]/10 border border-[#ffd700]/40 hover:border-[#ffd700] text-[#ffd700] font-bold px-5 py-3 rounded-xl transition-colors text-sm"
               >
                 See who else has submitted →
               </Link>
@@ -652,19 +746,22 @@ export default function DraftGame2026Page() {
             </div>
           )}
 
-          {/* ── Progress bar ─────────────────────────────────────────────────── */}
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-xs text-slate-400">
+          {/* ── Progress bar (sticky while scrolling) ───────────────────────── */}
+          <div className="sticky top-16 z-10 bg-[#0d1b2a]/95 backdrop-blur-sm pt-3 pb-4 mb-5 -mx-4 px-4 sm:-mx-6 sm:px-6 border-b border-[#2d4a66]/50">
+            <div className="flex justify-between items-center mb-1.5">
+              <span className={cn('text-xs font-bold tabular-nums', answered === total ? 'text-[#ffd700]' : 'text-slate-400')}>
                 {answered} / {total} answered
               </span>
-              <span className={cn('text-xs font-bold', answered === total ? 'text-[#ffd700]' : 'text-slate-500')}>
-                {answered === total ? 'All answered — ready to submit!' : `${total - answered} remaining`}
+              <span className={cn('text-xs font-semibold', answered === total ? 'text-[#ffd700]' : 'text-slate-500')}>
+                {answered === total ? '✓ All answered — ready to submit!' : `${total - answered} left`}
               </span>
             </div>
-            <div className="h-1.5 bg-[#16213e] rounded-full overflow-hidden">
+            <div className="h-2 bg-[#16213e] rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#ffd700] rounded-full transition-all duration-300"
+                className={cn(
+                  'h-full rounded-full transition-all duration-300',
+                  answered === total ? 'bg-[#ffd700]' : 'bg-[#ffd700]/70'
+                )}
                 style={{ width: `${(answered / total) * 100}%` }}
               />
             </div>
@@ -726,7 +823,7 @@ export default function DraftGame2026Page() {
                                   key={opt.id}
                                   onClick={() => handleSelect(q.question_id, opt.id)}
                                   className={cn(
-                                    'w-full flex items-center justify-between px-4 py-3 rounded-lg border text-sm font-medium transition-all duration-150 text-left',
+                                    'w-full flex items-center justify-between px-4 py-3.5 rounded-lg border text-sm font-medium transition-all duration-150 text-left',
                                     isSelected
                                       ? 'bg-[#ffd700]/10 border-[#ffd700] text-white'
                                       : 'bg-[#0d1b2a] border-[#2d4a66] text-slate-300 hover:border-slate-400 hover:text-white'
