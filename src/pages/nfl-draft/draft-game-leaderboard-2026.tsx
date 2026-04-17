@@ -46,6 +46,15 @@ interface LeaderboardEntry {
   scored_at?: string;
 }
 
+interface AnsweredQuestion {
+  question_id: string;
+  question_text: string;
+  section: string;
+  order: number;
+  correct_option_id: string;
+  options: { id: string; label: string; points: number }[];
+}
+
 interface DraftGameState {
   submissions: Submission[];
   leaderboard: LeaderboardEntry[];
@@ -78,12 +87,38 @@ export default function DraftGameLeaderboard2026() {
   });
   const [nextRefresh, setNextRefresh] = useState(30);
   const [myName, setMyName] = useState<string | null>(null);
+  const [myPicks, setMyPicks] = useState<Record<string, string> | null>(null);
+  const [answeredQuestions, setAnsweredQuestions] = useState<AnsweredQuestion[]>([]);
 
   // Detect which owner is viewing (from localStorage, set when they submitted)
   useEffect(() => {
     const stored = localStorage.getItem('bmfffl-draft-game-owner');
     if (stored) setMyName(stored);
   }, []);
+
+  // Fetch this owner's own picks (for scorecard)
+  useEffect(() => {
+    if (!myName) return;
+    fetch(`${CONVEX_SITE}/getMyDraftGameEntry?year=${YEAR}&owner_name=${encodeURIComponent(myName)}`)
+      .then((r) => r.json())
+      .then((data: { answers?: Record<string, string> } | null) => {
+        if (data?.answers) setMyPicks(data.answers);
+      })
+      .catch(() => {});
+  }, [myName]);
+
+  // Fetch answered questions for scorecard (public endpoint, safe post-draft)
+  const fetchAnsweredQuestions = useCallback(async () => {
+    try {
+      const r = await fetch(`${CONVEX_SITE}/getDraftGameAnsweredQuestions?year=${YEAR}`);
+      const data = await r.json() as AnsweredQuestion[];
+      setAnsweredQuestions(data);
+    } catch { /* silent */ }
+  }, []);
+
+  useEffect(() => {
+    fetchAnsweredQuestions();
+  }, [fetchAnsweredQuestions]);
 
   const countdown = useCountdown(DRAFT_DATE);
   const isPastDeadline = Date.now() >= SUBMISSION_DEADLINE.getTime();
@@ -98,6 +133,8 @@ export default function DraftGameLeaderboard2026() {
       const submissions: Submission[] = await subRes.json();
       const leaderboard: LeaderboardEntry[] = await lbRes.json();
       setState({ submissions, leaderboard, lastFetched: new Date(), loading: false, error: null });
+      // Also refresh answered questions for the scorecard
+      fetchAnsweredQuestions();
     } catch (err) {
       setState((prev) => ({
         ...prev,
@@ -106,7 +143,7 @@ export default function DraftGameLeaderboard2026() {
       }));
     }
     setNextRefresh(30);
-  }, []);
+  }, [fetchAnsweredQuestions]);
 
   useEffect(() => {
     fetchData();
@@ -289,6 +326,51 @@ export default function DraftGameLeaderboard2026() {
                   Last scored: {new Date(state.leaderboard[0].scored_at).toLocaleString()}
                 </p>
               )}
+            </div>
+          )}
+
+          {/* ── MY SCORECARD (when owner detected + answers flowing in) ── */}
+          {myName && myPicks && answeredQuestions.length > 0 && (
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-[#ffd700] font-black text-sm uppercase tracking-widest">
+                  My Scorecard
+                </h2>
+                <span className="text-slate-400 text-sm font-semibold">
+                  {answeredQuestions.filter((q) => myPicks[q.question_id] === q.correct_option_id).length}
+                  <span className="text-slate-500"> / {answeredQuestions.length} correct</span>
+                </span>
+              </div>
+              <div className="rounded-xl overflow-hidden border border-slate-700/50 divide-y divide-slate-700/40">
+                {answeredQuestions.map((q) => {
+                  const myPick = myPicks[q.question_id];
+                  const isCorrect = myPick === q.correct_option_id;
+                  const correctOpt = q.options.find((o) => o.id === q.correct_option_id);
+                  const myPickOpt = q.options.find((o) => o.id === myPick);
+                  const pts = isCorrect ? (correctOpt?.points ?? 0) : (myPick ? -100 : 0);
+                  return (
+                    <div key={q.question_id} className={`px-4 py-3 flex items-start gap-3 ${isCorrect ? 'bg-green-900/10' : myPick ? 'bg-red-900/10' : 'bg-slate-900/20'}`}>
+                      <span className="text-lg shrink-0 mt-0.5">
+                        {isCorrect ? '✅' : myPick ? '❌' : '⏭️'}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-sm leading-snug">{q.question_text}</p>
+                        <div className="mt-1 flex flex-wrap gap-2 text-xs">
+                          {myPickOpt && !isCorrect && (
+                            <span className="text-red-400">Your pick: {myPickOpt.label}</span>
+                          )}
+                          <span className={isCorrect ? 'text-green-400' : 'text-slate-400'}>
+                            {isCorrect ? `Correct: ${correctOpt?.label}` : `Correct: ${correctOpt?.label ?? '—'}`}
+                          </span>
+                        </div>
+                      </div>
+                      <span className={`text-sm font-bold shrink-0 tabular-nums ${isCorrect ? 'text-green-400' : myPick ? 'text-red-400' : 'text-slate-500'}`}>
+                        {pts > 0 ? `+${pts}` : pts === 0 ? '0' : pts}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 
