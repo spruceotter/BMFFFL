@@ -6,14 +6,35 @@
  * Auto-refreshes every 30 seconds.
  */
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const CONVEX_SITE = 'https://resolute-setter-416.convex.site';
 const YEAR = '2026';
 const DRAFT_DATE = new Date('2026-04-24T20:00:00-04:00'); // 8pm ET draft start
 const SUBMISSION_DEADLINE = new Date('2026-04-24T18:00:00-04:00'); // lock 2h before
+
+// Distinct color per owner for the bump chart
+const OWNER_COLORS: Record<string, string> = {
+  'Grandes':        '#f59e0b',
+  'SexMachineAndyD':'#3b82f6',
+  'tdtd19844':      '#10b981',
+  'Cogdeill11':     '#ef4444',
+  'rbr':            '#8b5cf6',
+  'MLSchools12':    '#f97316',
+  'Cmaleski':       '#14b8a6',
+  'eldridm20':      '#ec4899',
+  'JuicyBussy':     '#6366f1',
+  'eldridsm':       '#84cc16',
+  'Tubes94':        '#06b6d4',
+  'Bimflé':         '#ffd700',
+};
+
+// Snapshot type for bump chart history
+type RankSnapshot = { n: number } & Record<string, number>;
+const HISTORY_KEY = 'bmfffl-lb-history-2026';
 
 const ALL_OWNERS = [
   'Grandes',
@@ -89,11 +110,20 @@ export default function DraftGameLeaderboard2026() {
   const [myName, setMyName] = useState<string | null>(null);
   const [myPicks, setMyPicks] = useState<Record<string, string> | null>(null);
   const [answeredQuestions, setAnsweredQuestions] = useState<AnsweredQuestion[]>([]);
+  const [chartHistory, setChartHistory] = useState<RankSnapshot[]>([]);
+  // rankMovements: diff since last scoring change (positive = moved up the leaderboard)
+  const [rankMovements, setRankMovements] = useState<Record<string, number>>({});
+  const prevRanksRef = useRef<Record<string, number>>({});
 
   // Detect which owner is viewing (from localStorage, set when they submitted)
   useEffect(() => {
     const stored = localStorage.getItem('bmfffl-draft-game-owner');
     if (stored) setMyName(stored);
+    // Load bump chart history from localStorage
+    try {
+      const hist = localStorage.getItem(HISTORY_KEY);
+      if (hist) setChartHistory(JSON.parse(hist) as RankSnapshot[]);
+    } catch { /* ignore */ }
   }, []);
 
   // Fetch this owner's own picks (for scorecard)
@@ -126,24 +156,57 @@ export default function DraftGameLeaderboard2026() {
 
   const fetchData = useCallback(async () => {
     try {
-      const [subRes, lbRes] = await Promise.all([
+      const [subRes, lbRes, aqRes] = await Promise.all([
         fetch(`${CONVEX_SITE}/getDraftGameSubmissions?year=${YEAR}`),
         fetch(`${CONVEX_SITE}/getDraftGameLeaderboard?year=${YEAR}`),
+        fetch(`${CONVEX_SITE}/getDraftGameAnsweredQuestions?year=${YEAR}`),
       ]);
       const submissions: Submission[] = await subRes.json();
       const leaderboard: LeaderboardEntry[] = await lbRes.json();
+      const answered: AnsweredQuestion[] = await aqRes.json();
       setState({ submissions, leaderboard, lastFetched: new Date(), loading: false, error: null });
-      // Also refresh answered questions for the scorecard
-      fetchAnsweredQuestions();
-    } catch (err) {
-      setState((prev) => ({
-        ...prev,
-        loading: false,
-        error: 'Failed to load data. Will retry.',
-      }));
+      setAnsweredQuestions(answered);
+
+      // Initialize prevRanks ref on very first leaderboard load
+      if (Object.keys(prevRanksRef.current).length === 0 && leaderboard.length > 0) {
+        const init: Record<string, number> = {};
+        leaderboard.forEach((e, i) => { init[e.owner_name] = i + 1; });
+        prevRanksRef.current = init;
+      }
+
+      // Push bump chart snapshot when pick count changes
+      if (leaderboard.length > 0 && answered.length > 0) {
+        setChartHistory((prev) => {
+          const lastN = prev.length > 0 ? prev[prev.length - 1].n : -1;
+          if (answered.length === lastN) return prev; // no change — no movement update either
+          // Compute movement arrows BEFORE updating the ref (so we capture old→new diff)
+          if (Object.keys(prevRanksRef.current).length > 0) {
+            const movements: Record<string, number> = {};
+            leaderboard.forEach((e, i) => {
+              const old = prevRanksRef.current[e.owner_name];
+              if (old !== undefined) movements[e.owner_name] = old - (i + 1); // positive = moved up
+            });
+            setRankMovements(movements);
+          }
+          // Update ref to reflect new order
+          const newRanks: Record<string, number> = {};
+          leaderboard.forEach((e, i) => { newRanks[e.owner_name] = i + 1; });
+          prevRanksRef.current = newRanks;
+          // Build chart snapshot (inverted: 13 - rank so rank1 displays at top)
+          const snapshot: RankSnapshot = { n: answered.length };
+          leaderboard.forEach((e, i) => {
+            snapshot[e.owner_name] = 13 - (i + 1);
+          });
+          const next = [...prev, snapshot].slice(-40);
+          try { localStorage.setItem(HISTORY_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+          return next;
+        });
+      }
+    } catch {
+      setState((prev) => ({ ...prev, loading: false, error: 'Failed to load data. Will retry.' }));
     }
     setNextRefresh(30);
-  }, [fetchAnsweredQuestions]);
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -314,6 +377,7 @@ export default function DraftGameLeaderboard2026() {
                       const isTied = idx > 0 && entry.total_score === state.leaderboard[idx - 1].total_score;
                       const rank = isTied ? '—' : String(idx + 1);
                       const isMe = myName && entry.owner_name === myName;
+                      const moved = rankMovements[entry.owner_name] ?? 0;
                       return (
                         <tr
                           key={entry.owner_name}
@@ -323,8 +387,12 @@ export default function DraftGameLeaderboard2026() {
                               : isFirst ? 'bg-[#ffd700]/5' : 'bg-slate-900/30'
                           }`}
                         >
-                          <td className="px-4 py-3 text-slate-500 font-mono text-sm">
-                            {isFirst ? '🥇' : rank}
+                          <td className="px-4 py-3 font-mono text-sm">
+                            <div className="flex items-center gap-1">
+                              <span className="text-slate-500">{isFirst ? '🥇' : rank}</span>
+                              {moved > 0 && <span className="text-green-400 text-xs leading-none">↑</span>}
+                              {moved < 0 && <span className="text-red-400 text-xs leading-none">↓</span>}
+                            </div>
                           </td>
                           <td className="px-4 py-3 font-semibold text-white">
                             <div className="flex items-center gap-2">
@@ -368,6 +436,64 @@ export default function DraftGameLeaderboard2026() {
                   Last scored: {new Date(state.leaderboard[0].scored_at).toLocaleString()}
                 </p>
               )}
+            </div>
+          )}
+
+          {/* ── THE RACE — Bump chart (ranking over time) ── */}
+          {chartHistory.length >= 2 && (
+            <div className="mb-6 bg-[#0f2133] rounded-xl border border-[#1e3a55] overflow-hidden">
+              <div className="px-4 py-2.5 border-b border-[#1e3a55] flex items-center justify-between">
+                <h2 className="text-white font-bold text-sm">📈 The Race</h2>
+                <span className="text-xs text-slate-500">
+                  {chartHistory[chartHistory.length - 1]?.n ?? 0} of 34 picks scored
+                </span>
+              </div>
+              <div className="px-2 pt-3 pb-1">
+                <ResponsiveContainer width="100%" height={220}>
+                  <LineChart data={chartHistory} margin={{ top: 5, right: 12, bottom: 22, left: 0 }}>
+                    <XAxis
+                      dataKey="n"
+                      tick={{ fill: '#64748b', fontSize: 10 }}
+                      label={{ value: 'picks scored', position: 'insideBottom', offset: -10, fill: '#475569', fontSize: 10 }}
+                    />
+                    <YAxis
+                      domain={[1, 12]}
+                      ticks={[1, 4, 7, 10, 12]}
+                      tickFormatter={(v: number) => `#${13 - v}`}
+                      tick={{ fill: '#64748b', fontSize: 10 }}
+                      width={26}
+                    />
+                    <Tooltip
+                      contentStyle={{ background: '#0f2133', border: '1px solid #1e3a55', borderRadius: 8, fontSize: 11, padding: '6px 10px' }}
+                      labelFormatter={(label: number) => `After pick ${label}`}
+                      formatter={(val: unknown, name: string) => [`#${13 - (val as number)}`, name]}
+                      itemSorter={(item) => -(item.value as number)}
+                    />
+                    {ALL_OWNERS.map((owner) => (
+                      <Line
+                        key={owner}
+                        type="monotone"
+                        dataKey={owner}
+                        stroke={OWNER_COLORS[owner] ?? '#888888'}
+                        strokeWidth={myName === owner ? 3 : 1.5}
+                        dot={false}
+                        activeDot={{ r: 3 }}
+                        opacity={myName ? (myName === owner ? 1 : 0.4) : 0.8}
+                        connectNulls
+                      />
+                    ))}
+                  </LineChart>
+                </ResponsiveContainer>
+                {myName && OWNER_COLORS[myName] && (
+                  <div className="flex items-center gap-1.5 px-2 pb-2">
+                    <div
+                      className="w-5 h-0.5 rounded-full"
+                      style={{ background: OWNER_COLORS[myName] }}
+                    />
+                    <span className="text-xs text-slate-400">{myName} (you)</span>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
