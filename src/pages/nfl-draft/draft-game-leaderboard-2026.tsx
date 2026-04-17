@@ -196,6 +196,48 @@ export default function DraftGameLeaderboard2026() {
             </p>
           </div>
 
+          {/* ── LIVE FEED (public — recently answered picks + remaining count) ── */}
+          {answeredQuestions.length > 0 && (() => {
+            const TOTAL_QUESTIONS = 34; // 35 questions minus tiebreaker
+            const remaining = Math.max(0, TOTAL_QUESTIONS - answeredQuestions.length);
+            const recentPicks = [...answeredQuestions].reverse().slice(0, 5);
+            return (
+              <div className="mb-6 bg-[#0f2133] rounded-xl border border-[#1e3a55] overflow-hidden">
+                <div className="px-4 py-2.5 border-b border-[#1e3a55] flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-white font-bold text-sm">Live</span>
+                  </div>
+                  <span className="text-xs text-slate-400">
+                    <span className="text-white font-semibold">{answeredQuestions.length}</span>
+                    <span className="text-slate-500"> / {TOTAL_QUESTIONS} scored</span>
+                    {remaining > 0 && <span className="ml-2 text-slate-500">· {remaining} open</span>}
+                    {remaining === 0 && <span className="ml-2 text-green-400 font-semibold">· Complete</span>}
+                  </span>
+                </div>
+                <div className="divide-y divide-[#1e3a55]">
+                  {recentPicks.map((q) => {
+                    const correctOpt = q.options.find((o) => o.id === q.correct_option_id);
+                    return (
+                      <div key={q.question_id} className="px-4 py-2.5 flex items-center gap-3">
+                        <span className="text-xs font-mono text-slate-600 shrink-0 w-7">{q.question_id}</span>
+                        <p className="text-slate-300 text-xs flex-1 leading-snug line-clamp-1">{q.question_text}</p>
+                        <span className="text-green-400 text-xs font-semibold shrink-0 text-right max-w-[120px] truncate">
+                          {correctOpt?.label ?? q.correct_option_id}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+                {answeredQuestions.length > 5 && (
+                  <div className="px-4 py-2 text-xs text-slate-600 border-t border-[#1e3a55]">
+                    + {answeredQuestions.length - 5} more answered
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
           {/* "You're in" banner when owner is identified and scoring is live */}
           {myName && isScored && (() => {
             const myEntry = state.leaderboard.find((e) => e.owner_name === myName);
