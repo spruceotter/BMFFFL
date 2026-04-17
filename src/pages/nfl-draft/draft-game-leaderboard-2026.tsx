@@ -27,8 +27,13 @@ const ALL_OWNERS = [
   'JuicyBussy',
   'eldridsm',
   'Tubes94',
-  'Escuelas',
+  'Bimflé',
 ];
+
+// Special prize conditions per owner (displayed alongside their entry)
+const OWNER_NOTES: Record<string, string> = {
+  'Bimflé': '⚠️ If wins: 3.13 pick → Dispersal Draft',
+};
 
 interface Submission {
   owner_name: string;
@@ -206,7 +211,10 @@ export default function DraftGameLeaderboard2026() {
                             {isFirst ? '🥇' : rank}
                           </td>
                           <td className="px-4 py-3 font-semibold text-white">
-                            {entry.owner_name}
+                            <div>{entry.owner_name}</div>
+                            {OWNER_NOTES[entry.owner_name] && (
+                              <div className="text-xs text-amber-400/80 font-normal mt-0.5">{OWNER_NOTES[entry.owner_name]}</div>
+                            )}
                           </td>
                           <td className={`px-4 py-3 text-right font-black tabular-nums text-lg ${isFirst ? 'text-[#ffd700]' : 'text-white'}`}>
                             {entry.total_score.toLocaleString()}
@@ -221,7 +229,12 @@ export default function DraftGameLeaderboard2026() {
                       .map((s) => (
                         <tr key={s.owner_name} className="border-t border-slate-700/40 bg-slate-900/20">
                           <td className="px-4 py-3 text-slate-600 text-sm">—</td>
-                          <td className="px-4 py-3 text-slate-400">{s.owner_name}</td>
+                          <td className="px-4 py-3 text-slate-400">
+                            <div>{s.owner_name}</div>
+                            {OWNER_NOTES[s.owner_name] && (
+                              <div className="text-xs text-amber-400/80 font-normal mt-0.5">{OWNER_NOTES[s.owner_name]}</div>
+                            )}
+                          </td>
                           <td className="px-4 py-3 text-right text-slate-500 text-sm">pending</td>
                         </tr>
                       ))}
@@ -258,9 +271,14 @@ export default function DraftGameLeaderboard2026() {
                       key={owner}
                       className={`flex items-center justify-between px-4 py-3 ${idx > 0 ? 'border-t border-slate-700/40' : ''} ${hasSubmitted ? 'bg-slate-900/30' : 'bg-slate-900/10'}`}
                     >
-                      <span className={`font-medium ${hasSubmitted ? 'text-white' : 'text-slate-500'}`}>
-                        {owner}
-                      </span>
+                      <div>
+                        <span className={`font-medium ${hasSubmitted ? 'text-white' : 'text-slate-500'}`}>
+                          {owner}
+                        </span>
+                        {OWNER_NOTES[owner] && (
+                          <div className="text-xs text-amber-400/70 mt-0.5">{OWNER_NOTES[owner]}</div>
+                        )}
+                      </div>
                       <span>
                         {hasSubmitted ? (
                           <span className="text-green-400 font-bold text-sm">✓ Locked</span>

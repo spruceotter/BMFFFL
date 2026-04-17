@@ -22,7 +22,7 @@ const OWNERS = [
   'JuicyBussy',
   'eldridsm',
   'Tubes94',
-  'Escuelas',
+  'Bimflé',
 ];
 
 // ─── Question Data (matches Convex seed) ──────────────────────────────────────

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Trophy, Users, ArrowRight, TrendingUp, Repeat2, Calendar, Bot } from 'lucide-react';
+import { Trophy, Users, ArrowRight, TrendingUp, Repeat2, Calendar, Bot, BarChart2, BookOpen, Gavel, Newspaper } from 'lucide-react';
 import StatCard from '@/components/ui/StatCard';
 import ArticleCard from '@/components/articles/ArticleCard';
 import OwnerCard from '@/components/owners/OwnerCard';
@@ -156,18 +156,18 @@ export default function HomePage() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/history"
+              href="/nfl-draft/draft-game-2026"
               className={cn(
                 'inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm',
-                'bg-[#e94560] text-white hover:bg-[#c73652]',
-                'transition-colors duration-150 shadow-lg shadow-[#e94560]/20'
+                'bg-[#ffd700] text-[#0d1b2a] hover:bg-[#ffed4a]',
+                'transition-colors duration-150 shadow-lg shadow-[#ffd700]/20'
               )}
             >
               <Trophy className="w-4 h-4" aria-hidden="true" />
-              League History
+              2026 Draft Game
             </Link>
             <Link
-              href="/season"
+              href="/history"
               className={cn(
                 'inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm',
                 'bg-[#1a2d42] text-white border border-[#2d4a66]',
@@ -175,7 +175,7 @@ export default function HomePage() {
                 'transition-colors duration-150'
               )}
             >
-              This Season
+              League History
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
@@ -199,6 +199,78 @@ export default function HomePage() {
                 subtext={subtext}
                 className="text-center items-center"
               />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 🏈 Draft Game Spotlight ──────────────────────────────────────── */}
+      <section
+        className="bg-[#0d1b2a] border-b border-[#ffd700]/20"
+        aria-labelledby="draft-spotlight-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="rounded-2xl bg-gradient-to-r from-[#16213e] to-[#0d1b2a] border border-[#ffd700]/30 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffd700]/10 border border-[#ffd700]/30 text-[#ffd700] text-xs font-semibold uppercase tracking-widest mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffd700] animate-pulse" />
+                NFL Draft — April 23
+              </div>
+              <h2 id="draft-spotlight-heading" className="text-2xl sm:text-3xl font-black text-white mb-1">
+                2026 Draft Game
+              </h2>
+              <p className="text-slate-400 text-sm max-w-md">
+                35 questions. Pick your answers before the NFL Draft kicks off. Bimflé scores everything after. Highest points wins.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <Link
+                href="/nfl-draft/draft-game-2026"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#ffd700] text-[#0d1b2a] font-black text-sm hover:bg-[#ffed4a] transition-colors shadow-lg shadow-[#ffd700]/20"
+              >
+                <Trophy className="w-4 h-4" />
+                Enter Picks
+              </Link>
+              <Link
+                href="/nfl-draft/draft-game-leaderboard-2026"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2d4a66] text-slate-300 font-semibold text-sm hover:border-[#ffd700] hover:text-[#ffd700] transition-colors"
+              >
+                Who&apos;s In →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Site Domains ─────────────────────────────────────────────────── */}
+      <section
+        className="bg-[#0d1b2a] border-b border-[#2d4a66]"
+        aria-labelledby="domains-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 id="domains-heading" className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-5">Explore by Domain</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { label: 'Season',    href: '/season/offseason-hub',  icon: Calendar,   desc: 'Current news & matchups' },
+              { label: 'Draft',     href: '/nfl-draft/2026',         icon: Trophy,     desc: 'NFL Draft & rookie picks' },
+              { label: 'Analytics', href: '/analytics/dashboard-widget', icon: BarChart2,  desc: 'Stats, tools & rankings' },
+              { label: 'History',   href: '/history',                icon: BookOpen,   desc: 'Past seasons & awards' },
+              { label: 'League',    href: '/about',                  icon: Gavel,      desc: 'Rules, owners & lore' },
+              { label: 'Magazine',  href: '/magazine',               icon: Newspaper,  desc: 'Analysis & strategy' },
+            ].map(({ label, href, icon: Icon, desc }) => (
+              <Link
+                key={label}
+                href={href}
+                className="flex flex-col gap-2 p-4 rounded-xl bg-[#16213e] border border-[#2d4a66] hover:border-[#ffd700]/50 hover:bg-[#1a2d42] transition-all duration-150 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] flex items-center justify-center group-hover:border-[#ffd700]/30 transition-colors">
+                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#ffd700] transition-colors" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm group-hover:text-[#ffd700] transition-colors">{label}</p>
+                  <p className="text-slate-500 text-xs leading-snug mt-0.5">{desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
