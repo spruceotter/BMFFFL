@@ -414,6 +414,7 @@ function countAnswered(answers: Record<string, string>): number {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
+type LoadState  = 'idle' | 'loading' | 'loaded' | 'none';
 
 export default function DraftGame2026Page() {
   const [ownerName, setOwnerName]   = useState('');
@@ -421,21 +422,57 @@ export default function DraftGame2026Page() {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [errorMsg, setErrorMsg]     = useState('');
   const [savedOwner, setSavedOwner] = useState('');
+  const [loadState, setLoadState]   = useState<LoadState>('idle');
+  const [existingSubmittedAt, setExistingSubmittedAt] = useState<string | null>(null);
 
   const sections = getQuestionsBySection();
   const answered = countAnswered(answers);
   const total    = QUESTIONS.length;
   const allAnswered = answered === total && ownerName.trim().length > 0;
+  const isEditing = loadState === 'loaded' && existingSubmittedAt !== null;
+
+  // Fetch existing entry for owner (if any) and pre-populate answers
+  async function fetchExistingEntry(name: string) {
+    if (!name) return;
+    setLoadState('loading');
+    try {
+      const res = await fetch(
+        `${CONVEX_SITE_URL}/getMyDraftGameEntry?year=${YEAR}&owner_name=${encodeURIComponent(name)}`
+      );
+      const data = await res.json() as { answers?: Record<string, string>; submitted_at?: string } | null;
+      if (data && data.answers && data.submitted_at) {
+        setAnswers(data.answers);
+        setExistingSubmittedAt(data.submitted_at);
+        setLoadState('loaded');
+      } else {
+        setAnswers({});
+        setExistingSubmittedAt(null);
+        setLoadState('none');
+      }
+    } catch {
+      setLoadState('none');
+    }
+  }
 
   // Persist owner selection across reload (convenience)
   useEffect(() => {
     const stored = localStorage.getItem('bmfffl-draft-game-owner');
-    if (stored) setOwnerName(stored);
+    if (stored) {
+      setOwnerName(stored);
+      fetchExistingEntry(stored);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleOwnerChange(name: string) {
     setOwnerName(name);
-    if (name) localStorage.setItem('bmfffl-draft-game-owner', name);
+    setAnswers({});
+    setExistingSubmittedAt(null);
+    setLoadState('idle');
+    if (name) {
+      localStorage.setItem('bmfffl-draft-game-owner', name);
+      fetchExistingEntry(name);
+    }
   }
 
   function handleSelect(questionId: string, optionId: string) {
@@ -551,6 +588,14 @@ export default function DraftGame2026Page() {
               34 questions + tiebreaker. Lock in your picks before the draft. Bimflé scores everything after.
               Highest total points wins.
             </p>
+            <div className="mt-3">
+              <Link
+                href="/nfl-draft/draft-game-leaderboard-2026"
+                className="text-xs text-slate-500 hover:text-slate-300 underline"
+              >
+                See who&apos;s submitted →
+              </Link>
+            </div>
           </div>
 
           {/* ── Scoring Warning ──────────────────────────────────────────────── */}
@@ -568,7 +613,7 @@ export default function DraftGame2026Page() {
           </div>
 
           {/* ── Owner picker ─────────────────────────────────────────────────── */}
-          <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-8">
+          <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-4">
             <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
               Who are you?
             </label>
@@ -583,6 +628,29 @@ export default function DraftGame2026Page() {
               ))}
             </select>
           </div>
+
+          {/* ── Existing picks banner ────────────────────────────────────────── */}
+          {loadState === 'loading' && ownerName && (
+            <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl px-5 py-3 mb-8 text-slate-400 text-sm">
+              Loading your picks…
+            </div>
+          )}
+          {isEditing && (
+            <div className="bg-green-900/20 border border-green-500/40 rounded-xl px-5 py-3 mb-8 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <span className="text-green-400">✓</span>
+                <p className="text-green-300 text-sm font-semibold">
+                  Your picks are loaded. Make changes below and re-submit to update.
+                </p>
+              </div>
+              <Link
+                href="/nfl-draft/draft-game-leaderboard-2026"
+                className="text-xs text-slate-400 hover:text-slate-200 whitespace-nowrap shrink-0"
+              >
+                Who&apos;s in →
+              </Link>
+            </div>
+          )}
 
           {/* ── Progress bar ─────────────────────────────────────────────────── */}
           <div className="mb-8">
