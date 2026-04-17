@@ -6,7 +6,7 @@
  * Auto-refreshes every 30 seconds.
  */
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, type ReactElement } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
@@ -76,6 +76,19 @@ interface AnsweredQuestion {
   options: { id: string; label: string; points: number }[];
 }
 
+interface PublicQuestion {
+  question_id: string;
+  question_text: string;
+  section: string;
+  order: number;
+  options: { id: string; label: string; points: number }[];
+}
+
+interface OwnerPicks {
+  owner_name: string;
+  answers: Record<string, string>;
+}
+
 interface DraftGameState {
   submissions: Submission[];
   leaderboard: LeaderboardEntry[];
@@ -114,6 +127,9 @@ export default function DraftGameLeaderboard2026() {
   // rankMovements: diff since last scoring change (positive = moved up the leaderboard)
   const [rankMovements, setRankMovements] = useState<Record<string, number>>({});
   const prevRanksRef = useRef<Record<string, number>>({});
+  // All picks (revealed only once scoring starts) + all question definitions
+  const [allPicks, setAllPicks] = useState<OwnerPicks[]>([]);
+  const [allQuestions, setAllQuestions] = useState<PublicQuestion[]>([]);
 
   // Detect which owner is viewing (from localStorage, set when they submitted)
   useEffect(() => {
@@ -156,16 +172,22 @@ export default function DraftGameLeaderboard2026() {
 
   const fetchData = useCallback(async () => {
     try {
-      const [subRes, lbRes, aqRes] = await Promise.all([
+      const [subRes, lbRes, aqRes, picksRes, qRes] = await Promise.all([
         fetch(`${CONVEX_SITE}/getDraftGameSubmissions?year=${YEAR}`),
         fetch(`${CONVEX_SITE}/getDraftGameLeaderboard?year=${YEAR}`),
         fetch(`${CONVEX_SITE}/getDraftGameAnsweredQuestions?year=${YEAR}`),
+        fetch(`${CONVEX_SITE}/getDraftGameAllPicks?year=${YEAR}`),
+        fetch(`${CONVEX_SITE}/getDraftGameQuestionsPublic?year=${YEAR}`),
       ]);
       const submissions: Submission[] = await subRes.json();
       const leaderboard: LeaderboardEntry[] = await lbRes.json();
       const answered: AnsweredQuestion[] = await aqRes.json();
+      const picks: OwnerPicks[] = await picksRes.json();
+      const questions: PublicQuestion[] = await qRes.json();
       setState({ submissions, leaderboard, lastFetched: new Date(), loading: false, error: null });
       setAnsweredQuestions(answered);
+      setAllPicks(picks);
+      setAllQuestions(questions);
 
       // Initialize prevRanks ref on very first leaderboard load
       if (Object.keys(prevRanksRef.current).length === 0 && leaderboard.length > 0) {
@@ -224,6 +246,34 @@ export default function DraftGameLeaderboard2026() {
   }, [fetchData]);
 
   const submittedSet = new Set(state.submissions.map((s) => s.owner_name));
+
+  // Compute max-possible scores when allPicks + allQuestions are available
+  // Max possible = current score + sum of points for remaining unanswered picks
+  const answeredIds = new Set(answeredQuestions.map((q) => q.question_id));
+  const unansweredQuestions = allQuestions.filter((q) => !answeredIds.has(q.question_id));
+  const maxPossible: Record<string, number> = {};
+  if (allPicks.length > 0 && isScored) {
+    for (const ownerPicks of allPicks) {
+      const lb = state.leaderboard.find((e) => e.owner_name === ownerPicks.owner_name);
+      let current = lb?.total_score ?? 0;
+      for (const q of unansweredQuestions) {
+        const optId = ownerPicks.answers[q.question_id];
+        if (!optId) continue; // skipped — no upside
+        const opt = q.options.find((o) => o.id === optId);
+        if (opt) current += opt.points;
+      }
+      maxPossible[ownerPicks.owner_name] = current;
+    }
+  }
+
+  // Build per-question picks map: { question_id → { owner_name → option_id } }
+  const picksMap: Record<string, Record<string, string>> = {};
+  for (const op of allPicks) {
+    for (const [qid, optId] of Object.entries(op.answers)) {
+      if (!picksMap[qid]) picksMap[qid] = {};
+      picksMap[qid][op.owner_name] = optId;
+    }
+  }
 
   return (
     <>
@@ -369,6 +419,9 @@ export default function DraftGameLeaderboard2026() {
                       <th className="px-4 py-3 text-slate-400 text-xs uppercase tracking-wider w-10">#</th>
                       <th className="px-4 py-3 text-slate-400 text-xs uppercase tracking-wider">Owner</th>
                       <th className="px-4 py-3 text-slate-400 text-xs uppercase tracking-wider text-right">Score</th>
+                      {Object.keys(maxPossible).length > 0 && (
+                        <th className="px-3 py-3 text-slate-500 text-xs uppercase tracking-wider text-right">Max</th>
+                      )}
                     </tr>
                   </thead>
                   <tbody>
@@ -408,6 +461,13 @@ export default function DraftGameLeaderboard2026() {
                           <td className={`px-4 py-3 text-right font-black tabular-nums text-lg ${isFirst || isMe ? 'text-[#ffd700]' : 'text-white'}`}>
                             {entry.total_score.toLocaleString()}
                           </td>
+                          {Object.keys(maxPossible).length > 0 && (
+                            <td className="px-3 py-3 text-right text-slate-400 text-sm tabular-nums font-medium">
+                              {maxPossible[entry.owner_name] !== undefined
+                                ? maxPossible[entry.owner_name].toLocaleString()
+                                : '—'}
+                            </td>
+                          )}
                         </tr>
                       );
                     })}
@@ -496,6 +556,90 @@ export default function DraftGameLeaderboard2026() {
               </div>
             </div>
           )}
+
+          {/* ── FIELD PICKS — who picked what per question (revealed once scoring starts) ── */}
+          {allPicks.length > 0 && allQuestions.length > 0 && (() => {
+            // Group questions by section
+            const sections: Record<string, PublicQuestion[]> = {};
+            for (const q of allQuestions) {
+              if (!sections[q.section]) sections[q.section] = [];
+              sections[q.section].push(q);
+            }
+            // Build answered lookup for quick access
+            const answeredMap: Record<string, AnsweredQuestion> = {};
+            for (const aq of answeredQuestions) answeredMap[aq.question_id] = aq;
+
+            return (
+              <div className="mb-6">
+                <h2 className="text-[#ffd700] font-black text-sm uppercase tracking-widest mb-3">
+                  Field Picks
+                </h2>
+                <div className="space-y-3">
+                  {Object.entries(sections).map(([section, sectionQs]) => (
+                    <div key={section}>
+                      <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2 px-1">{section}</div>
+                      <div className="space-y-2">
+                        {sectionQs.map((q) => {
+                          const answered = answeredMap[q.question_id];
+                          const qPicks = picksMap[q.question_id] ?? {};
+                          return (
+                            <div key={q.question_id} className="bg-[#0f2133] rounded-xl border border-[#1e3a55] overflow-hidden">
+                              <div className="px-4 py-2 border-b border-[#1e3a55] flex items-center gap-2">
+                                <span className="text-slate-600 text-xs font-mono">{q.question_id}</span>
+                                <p className="text-white text-xs font-medium leading-snug flex-1">{q.question_text}</p>
+                                {answered && (
+                                  <span className="text-green-400 text-xs font-semibold shrink-0">
+                                    ✓ {q.options.find((o) => o.id === answered.correct_option_id)?.label ?? answered.correct_option_id}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="px-3 py-2 flex flex-wrap gap-1.5">
+                                {ALL_OWNERS.map((owner) => {
+                                  const optId = qPicks[owner];
+                                  const opt = q.options.find((o) => o.id === optId);
+                                  const isCorrect = answered && optId === answered.correct_option_id;
+                                  const isWrong = answered && optId && optId !== answered.correct_option_id;
+                                  const isSkipped = !optId;
+                                  const isMe = owner === myName;
+                                  return (
+                                    <div
+                                      key={owner}
+                                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs border ${
+                                        isSkipped
+                                          ? 'border-slate-700 text-slate-600 bg-transparent'
+                                          : isCorrect
+                                            ? 'border-green-500/50 bg-green-900/20 text-green-300'
+                                            : isWrong
+                                              ? 'border-red-500/40 bg-red-900/20 text-red-300'
+                                              : 'border-slate-600 bg-slate-800/50 text-slate-300'
+                                      } ${isMe ? 'ring-1 ring-[#ffd700]/50' : ''}`}
+                                    >
+                                      <span
+                                        className="w-1.5 h-1.5 rounded-full shrink-0"
+                                        style={{ background: OWNER_COLORS[owner] ?? '#888' }}
+                                      />
+                                      <span className="font-medium">{owner}</span>
+                                      {!isSkipped && (
+                                        <span className={`${isCorrect ? 'text-green-400' : isWrong ? 'text-red-400' : 'text-slate-400'}`}>
+                                          {opt?.label ?? optId}
+                                          {isCorrect && ' ✅'}
+                                          {isWrong && ' ❌'}
+                                        </span>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* ── MY SCORECARD (when owner detected + answers flowing in) ── */}
           {myName && myPicks && answeredQuestions.length > 0 && (
@@ -617,3 +761,7 @@ export default function DraftGameLeaderboard2026() {
     </>
   );
 }
+
+// Standalone shell — suppress BMFFFL navigation and footer for the live game experience.
+// The page has its own minimal back link and is self-contained.
+DraftGameLeaderboard2026.getLayout = (page: ReactElement) => page;

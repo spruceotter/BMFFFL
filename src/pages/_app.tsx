@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import type { NextPage } from 'next';
+import type { ReactElement, ReactNode } from 'react';
 import Head from 'next/head';
 import Layout from '@/components/layout/Layout';
 import NotificationBanner from '@/components/ui/NotificationBanner';
 import KeyboardShortcuts from '@/components/ui/KeyboardShortcuts';
 import '@/styles/globals.css';
+
+// Per-page layout opt-out: set `Component.getLayout` to return the bare page
+// without the BMFFFL navigation shell (e.g. for the draft game live view).
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bmfffl.com';
 
@@ -87,7 +95,9 @@ function PageProgressBar({ loading }: { loading: boolean }) {
  * PageProgressBar listens to Next.js router events to show a thin gold
  * progress bar at the top of the viewport during page transitions.
  */
-export default function App({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & { Component: NextPageWithLayout };
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
   const [navLoading, setNavLoading] = useState(false);
 
@@ -119,14 +129,29 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
-  return (
+  // Pages can define `getLayout` to opt out of the default nav/footer shell.
+  // Used by standalone experiences like the draft game live view.
+  const getLayout = Component.getLayout;
+
+  const pageContent = <Component {...pageProps} />;
+
+  const shell = getLayout ? (
+    getLayout(pageContent)
+  ) : (
     <>
-      <PageProgressBar loading={navLoading} />
       <NotificationBanner
         message="🏈 Season 7 starts September 2026 — 2026 Rookie Draft coming soon!"
         type="info"
         href="/season/preview-2026"
       />
+      <Layout>{pageContent}</Layout>
+      <KeyboardShortcuts />
+    </>
+  );
+
+  return (
+    <>
+      <PageProgressBar loading={navLoading} />
       <Head>
         {/* Default title — individual pages override via their own <Head> */}
         <title>BMFFFL — Dynasty Fantasy Football League</title>
@@ -143,10 +168,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content="The official analytics hub for BMFFFL, a 12-team dynasty fantasy football league since 2020."
         />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <KeyboardShortcuts />
+      {shell}
     </>
   );
 }
