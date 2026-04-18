@@ -379,72 +379,79 @@ function EntryPhase() {
             </div>
           )}
 
-          {/* Scoring warning */}
-          <div className="bg-amber-900/20 border border-amber-500/40 rounded-xl p-4 mb-6 flex gap-3">
-            <span className="text-amber-400 text-lg mt-0.5">⚠️</span>
-            <div>
-              <p className="text-amber-300 font-bold text-sm mb-1">Wrong answers cost points</p>
-              <p className="text-amber-200/70 text-xs leading-relaxed">
-                Correct: <span className="text-white font-semibold">full points</span> ·
-                Wrong: <span className="text-red-400 font-semibold">−100 pts</span> ·
-                Skip: <span className="text-slate-300 font-semibold">0 pts</span>. Skip freely.
-              </p>
-            </div>
+          {/* How it works */}
+          <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">🎯 How it works</p>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li className="flex gap-2"><span className="text-[#ffd700] shrink-0">1.</span><span>Answer 35 questions predicting the 2026 NFL Draft — viral moments, top picks, team moves, BMFFFL trades, and more.</span></li>
+              <li className="flex gap-2"><span className="text-[#ffd700] shrink-0">2.</span><span>Each question has multiple choice answers with different point values. Riskier picks pay more.</span></li>
+              <li className="flex gap-2"><span className="text-[#ffd700] shrink-0">3.</span><span><span className="text-emerald-400 font-semibold">Correct</span> = full points · <span className="text-red-400 font-semibold">Wrong</span> = −100 pts · <span className="text-slate-300 font-semibold">Skip</span> = 0 pts. Skip freely.</span></li>
+              <li className="flex gap-2"><span className="text-[#ffd700] shrink-0">4.</span><span>Picks lock at 8pm ET on April 23. Bimflé scores everything after Round 1. Highest score wins the <span className="text-[#ffd700] font-semibold">3.13 BMFFFL Rookie Draft pick</span>.</span></li>
+            </ul>
           </div>
 
-          {/* Submission list */}
+          {/* Owner claim grid */}
           <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-6">
             <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
-              {submissions.length} of 12 submitted
+              {submissions.length} of 12 submitted — claim your team
             </p>
-            <div className="grid grid-cols-2 gap-1.5">
-              {[...OWNERS, 'Bimflé'].map((name) => {
-                const done = submissions.includes(name);
+            <div className="grid grid-cols-2 gap-2">
+              {OWNERS.map((name) => {
+                const done     = submissions.includes(name);
+                const selected = ownerName === name;
                 return (
-                  <div key={name} className={cn(
-                    'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium',
-                    done ? 'bg-emerald-900/30 text-emerald-300' : 'bg-[#0d1b2a] text-slate-500'
-                  )}>
-                    <span>{done ? '✅' : '○'}</span>
-                    <span className="truncate">{name}</span>
-                  </div>
+                  <button
+                    key={name}
+                    disabled={done && !selected}
+                    onClick={() => handleOwnerChange(selected ? '' : name)}
+                    className={cn(
+                      'flex flex-col items-center gap-1 px-3 py-3 rounded-xl border text-sm font-semibold transition-all',
+                      selected
+                        ? 'border-[#ffd700] bg-yellow-900/20 text-white'
+                        : done
+                          ? 'border-emerald-700/40 bg-emerald-900/20 text-emerald-400 cursor-not-allowed'
+                          : 'border-[#2d4a66] bg-[#0d1b2a] text-slate-300 hover:border-[#4a7a9b] hover:text-white'
+                    )}
+                  >
+                    <span className="truncate w-full text-center">{name}</span>
+                    <span className={cn(
+                      'text-xs font-normal',
+                      selected ? 'text-[#ffd700]' : done ? 'text-emerald-500' : 'text-slate-500'
+                    )}>
+                      {done ? '✅ Submitted' : selected ? '✓ Claimed' : 'Claim your Team'}
+                    </span>
+                  </button>
                 );
               })}
             </div>
           </div>
 
-          {/* CTA */}
-          <button
-            onClick={() => {
-              if (!ownerName) return;
-              setView('QUIZ');
-              setCurrentIdx(0);
-            }}
-            disabled={!ownerName}
-            className={cn(
-              'w-full py-4 rounded-2xl text-lg font-black tracking-wide transition-all',
-              ownerName
-                ? 'bg-[#ffd700] text-[#0d1b2a] hover:bg-yellow-300 shadow-lg shadow-yellow-900/30'
-                : 'bg-[#1e3a5f] text-slate-500 cursor-not-allowed'
-            )}
-          >
-            {ownerName ? `Enter Picks — ${ownerName} →` : 'Select your name below first'}
-          </button>
-
-          {/* Owner picker */}
-          <div className="mt-4">
-            <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-              Who are you?
-            </label>
-            <select
-              value={ownerName}
-              onChange={(e) => handleOwnerChange(e.target.value)}
-              className="w-full bg-[#16213e] border border-[#2d4a66] text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#ffd700]"
+          {/* CTA — shows Edit if already submitted (this session or prior) */}
+          {ownerName && (submissions.includes(ownerName) || submitState === 'success') ? (
+            <button
+              onClick={() => { setCurrentIdx(0); setView('QUIZ'); }}
+              className="w-full py-4 rounded-2xl text-lg font-black tracking-wide bg-[#ffd700] text-[#0d1b2a] hover:bg-yellow-300 shadow-lg shadow-yellow-900/30 transition-all"
             >
-              <option value="">— pick your name —</option>
-              {OWNERS.map((o) => <option key={o} value={o}>{o}</option>)}
-            </select>
-          </div>
+              ✏️ Edit Picks — {ownerName}
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                if (!ownerName) return;
+                setView('QUIZ');
+                setCurrentIdx(0);
+              }}
+              disabled={!ownerName}
+              className={cn(
+                'w-full py-4 rounded-2xl text-lg font-black tracking-wide transition-all',
+                ownerName
+                  ? 'bg-[#ffd700] text-[#0d1b2a] hover:bg-yellow-300 shadow-lg shadow-yellow-900/30'
+                  : 'bg-[#1e3a5f] text-slate-500 cursor-not-allowed'
+              )}
+            >
+              {ownerName ? `Enter Picks — ${ownerName} →` : 'Claim your team above to begin'}
+            </button>
+          )}
 
           {/* Prize note */}
           <p className="text-center text-xs text-slate-500 mt-6">
@@ -635,12 +642,20 @@ function EntryPhase() {
             })}
           </div>
         </div>
-        {/* Deadline */}
-        {deadline && (
-          <p className="text-center text-xs text-slate-500 mt-4">
-            Picks lock in {deadline.d}d {deadline.h}h {deadline.m}m
-          </p>
-        )}
+        {/* Edit + deadline row */}
+        <div className="flex flex-col items-center gap-3 mt-4">
+          <button
+            onClick={() => { setCurrentIdx(0); setView('QUIZ'); }}
+            className="w-full py-3 rounded-xl border border-[#2d4a66] text-slate-300 font-semibold text-sm hover:border-[#ffd700] hover:text-[#ffd700] transition-all"
+          >
+            ✏️ Edit My Picks
+          </button>
+          {deadline && (
+            <p className="text-center text-xs text-slate-500">
+              Picks lock in {deadline.d}d {deadline.h}h {deadline.m}m
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
