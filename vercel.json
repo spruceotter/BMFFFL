@@ -4,7 +4,7 @@
   "redirects": [
     {
       "source": "/nfl-draft/draft-game-2026",
-      "destination": "/nfl-draft-game",
+      "destination": "/nfl-draft-game/entry",
       "permanent": true
     },
     {
