@@ -419,6 +419,15 @@ type LoadState  = 'idle' | 'loading' | 'loaded' | 'none';
 
 export default function DraftGame2026Page() {
   const router = useRouter();
+
+  // Redirect to unified /nfl-draft-game route
+  useEffect(() => {
+    if (!router.isReady) return;
+    const name = router.query.name as string | undefined;
+    const qs = name ? `?name=${encodeURIComponent(name)}` : '';
+    router.replace(`/nfl-draft-game${qs}`);
+  }, [router, router.isReady]);
+
   const [ownerName, setOwnerName]   = useState('');
   const [answers, setAnswers]       = useState<Record<string, string>>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
