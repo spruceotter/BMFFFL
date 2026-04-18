@@ -13,8 +13,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 const CONVEX_SITE = 'https://resolute-setter-416.convex.site';
 const YEAR = '2026';
-const DRAFT_DATE = new Date('2026-04-24T20:00:00-04:00'); // 8pm ET draft start
-const SUBMISSION_DEADLINE = new Date('2026-04-24T18:00:00-04:00'); // lock 2h before
+const DRAFT_DATE = new Date('2026-04-23T20:00:00-04:00'); // 8pm ET draft start — April 23 (Round 1)
+const SUBMISSION_DEADLINE = new Date('2026-04-23T20:00:00-04:00'); // lock at kickoff
 
 // Distinct color per owner for the bump chart
 const OWNER_COLORS: Record<string, string> = {

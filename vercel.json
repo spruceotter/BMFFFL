@@ -3,6 +3,21 @@
   "framework": "nextjs",
   "redirects": [
     {
+      "source": "/nfl-draft/draft-game-2026",
+      "destination": "/nfl-draft-game",
+      "permanent": true
+    },
+    {
+      "source": "/nfl-draft/draft-game-leaderboard-2026",
+      "destination": "/nfl-draft-game",
+      "permanent": true
+    },
+    {
+      "source": "/nfl-draft/draft-game-scoring-2026",
+      "destination": "/nfl-draft-game/admin",
+      "permanent": true
+    },
+    {
       "source": "/matchups",
       "destination": "/season/matchups",
       "permanent": true
