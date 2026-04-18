@@ -44,11 +44,20 @@ type Phase = 'ENTRY' | 'LOBBY' | 'LIVE' | 'FINAL';
  * FINAL  → all questions scored (data-based)
  */
 function useGamePhase(): Phase {
+  // ?preview=lobby|live|final overrides phase detection (dev preview only)
+  const preview =
+    typeof window !== 'undefined'
+      ? (new URLSearchParams(window.location.search).get('preview') as Phase | null)
+      : null;
+  const validPreviews: Phase[] = ['ENTRY', 'LOBBY', 'LIVE', 'FINAL'];
+  const previewPhase = preview && validPreviews.includes(preview) ? preview : null;
+
   const [phase, setPhase] = useState<Phase>(() =>
-    Date.now() < SUBMISSION_DEADLINE.getTime() ? 'ENTRY' : 'LOBBY'
+    previewPhase ?? (Date.now() < SUBMISSION_DEADLINE.getTime() ? 'ENTRY' : 'LOBBY')
   );
 
   useEffect(() => {
+    if (previewPhase) { setPhase(previewPhase); return; }
     async function detectPhase() {
       if (Date.now() < SUBMISSION_DEADLINE.getTime()) {
         setPhase('ENTRY');
