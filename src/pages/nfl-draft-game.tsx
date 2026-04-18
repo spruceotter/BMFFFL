@@ -34,22 +34,44 @@ const DRAFT_END           = new Date('2026-04-24T01:00:00-04:00'); // ~end of Ro
 
 // ─── Phase detection ─────────────────────────────────────────────────────────
 
-type Phase = 'ENTRY' | 'LIVE' | 'FINAL';
+type Phase = 'ENTRY' | 'LOBBY' | 'LIVE' | 'FINAL';
 
-function usePhase(): Phase {
-  const [phase, setPhase] = useState<Phase>(() => getPhase());
+/**
+ * Data-aware phase detection.
+ * ENTRY  → before deadline (time-based)
+ * LOBBY  → after deadline, zero questions scored (data-based)
+ * LIVE   → 1+ questions scored, not all done (data-based)
+ * FINAL  → all questions scored (data-based)
+ */
+function useGamePhase(): Phase {
+  const [phase, setPhase] = useState<Phase>(() =>
+    Date.now() < SUBMISSION_DEADLINE.getTime() ? 'ENTRY' : 'LOBBY'
+  );
+
   useEffect(() => {
-    const id = setInterval(() => setPhase(getPhase()), 10_000);
+    async function detectPhase() {
+      if (Date.now() < SUBMISSION_DEADLINE.getTime()) {
+        setPhase('ENTRY');
+        return;
+      }
+      try {
+        const r = await fetch(`${CONVEX_SITE}/getDraftGameLeaderboard?year=${YEAR}`);
+        const lb: LeaderboardEntry[] = await r.json();
+        if (!Array.isArray(lb) || lb.length === 0) {
+          setPhase('LOBBY');
+        } else {
+          const aqR = await fetch(`${CONVEX_SITE}/getDraftGameAnsweredQuestions?year=${YEAR}`);
+          const aq: AnsweredQuestion[] = await aqR.json();
+          setPhase(aq.length >= ENTRY_QUESTIONS.length ? 'FINAL' : 'LIVE');
+        }
+      } catch { /* keep current phase on error */ }
+    }
+    detectPhase();
+    const id = setInterval(detectPhase, 15_000);
     return () => clearInterval(id);
   }, []);
-  return phase;
-}
 
-function getPhase(): Phase {
-  const now = Date.now();
-  if (now < SUBMISSION_DEADLINE.getTime()) return 'ENTRY';
-  if (now < DRAFT_END.getTime())           return 'LIVE';
-  return 'FINAL';
+  return phase;
 }
 
 // ─── Countdown ───────────────────────────────────────────────────────────────
@@ -615,6 +637,89 @@ function EntryPhase() {
   );
 }
 
+// ─── LOBBY phase ─────────────────────────────────────────────────────────────
+
+function LobbyPhase() {
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const countdown = useCountdown(SUBMISSION_DEADLINE);
+
+  useEffect(() => {
+    fetch(`${CONVEX_SITE}/getDraftGameSubmissions?year=${YEAR}`)
+      .then((r) => r.json())
+      .then((data: Submission[]) => setSubmissions(data))
+      .catch(() => {});
+  }, []);
+
+  const totalOwners = OWNERS.length + 1; // +1 for Bimflé
+  const submitted   = submissions.map((s) => s.owner_name);
+
+  return (
+    <div className="min-h-screen bg-[#0d1b2a] px-4 py-10">
+      <div className="max-w-lg mx-auto">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <div className="text-5xl mb-3">🔒</div>
+          <h1 className="text-3xl font-black text-white tracking-tight mb-2">All Picks Locked</h1>
+          <p className="text-slate-400 text-sm">Waiting for the draft to begin…</p>
+        </div>
+
+        {/* Countdown — shown if draft hasn't started yet */}
+        {countdown ? (
+          <div className="bg-[#16213e] border border-[#2d4a66] rounded-2xl p-6 mb-6 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+              Draft starts in
+            </p>
+            <div className="flex justify-center gap-4">
+              {([['d', 'days'], ['h', 'hrs'], ['m', 'min'], ['s', 'sec']] as const).map(([k, label]) => (
+                <div key={k} className="flex flex-col items-center">
+                  <span className="text-3xl font-black text-[#ffd700] tabular-nums">
+                    {String(countdown[k]).padStart(2, '0')}
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="bg-amber-900/20 border border-amber-500/40 rounded-2xl p-5 mb-6 text-center">
+            <p className="text-amber-300 font-bold text-lg">🏈 Draft Night is Here</p>
+            <p className="text-amber-200/70 text-sm mt-1">First pick coming soon — this page auto-updates.</p>
+          </div>
+        )}
+
+        {/* Participant list */}
+        <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-5 mb-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+            {submitted.length} of {totalOwners} in the game
+          </p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {[...OWNERS, 'Bimflé'].map((name) => {
+              const done = submitted.includes(name);
+              return (
+                <div key={name} className={cn(
+                  'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium',
+                  done ? 'bg-emerald-900/30 text-emerald-300' : 'bg-[#0d1b2a] text-slate-500'
+                )}>
+                  <span>{done ? '✅' : '○'}</span>
+                  <span className="truncate">{name}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Stakes */}
+        <div className="bg-[#16213e] border border-[#2d4a66] rounded-xl p-4 text-center">
+          <p className="text-slate-400 text-sm">
+            🏆 <span className="text-white font-semibold">Prize:</span> pick 3.13 — end of 3rd round BMFFFL Rookie Draft
+          </p>
+          <p className="text-slate-500 text-xs mt-1">Leaderboard goes live when scoring begins.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── LIVE phase ───────────────────────────────────────────────────────────────
 
 type LiveTab = 'leaderboard' | 'my_picks' | 'field_picks';
@@ -719,6 +824,10 @@ function LivePhase() {
   const answeredIds    = new Set(answeredQuestions.map((q) => q.question_id));
   const unansweredQs   = allQuestions.filter((q) => !answeredIds.has(q.question_id));
   const isScored       = leaderboard.length > 0;
+  const isFinal        = isScored && allQuestions.length > 0 && unansweredQs.length === 0;
+  const lastScored     = answeredQuestions.length > 0
+    ? [...answeredQuestions].sort((a, b) => a.order - b.order).at(-1)
+    : null;
 
   // Max possible scores
   const maxPossible: Record<string, number> = {};
@@ -763,17 +872,28 @@ function LivePhase() {
   return (
     <div className="min-h-screen bg-[#0d1b2a]">
       {/* Sticky header */}
-      <div className="sticky top-0 z-10 bg-[#0d1b2a] border-b border-[#2d4a66] px-4 py-3">
-        <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="font-black text-white text-sm">BMFFFL Draft Game</span>
-            <span className="text-xs font-bold text-red-400 bg-red-900/30 px-2 py-0.5 rounded-full">🔴 LIVE</span>
+      <div className="sticky top-0 z-10 bg-[#0d1b2a] border-b border-[#2d4a66] px-4 py-2">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="font-black text-white text-sm">BMFFFL Draft Game</span>
+              {isFinal
+                ? <span className="text-xs font-bold text-[#ffd700] bg-yellow-900/30 px-2 py-0.5 rounded-full">🏆 FINAL</span>
+                : <span className="text-xs font-bold text-red-400 bg-red-900/30 px-2 py-0.5 rounded-full">🔴 LIVE</span>
+              }
+            </div>
+            <div className="flex items-center gap-2">
+              {error && <span className="text-red-400 text-xs">{error}</span>}
+              {!isFinal && <span className="text-xs text-slate-500">↻ {nextRefresh}s</span>}
+              <button onClick={fetchAll} className="text-xs text-[#ffd700] font-semibold hover:text-yellow-300">Refresh</button>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            {error && <span className="text-red-400 text-xs">{error}</span>}
-            <span className="text-xs text-slate-500">↻ {nextRefresh}s</span>
-            <button onClick={fetchAll} className="text-xs text-[#ffd700] font-semibold hover:text-yellow-300">Refresh</button>
-          </div>
+          {/* Last-scored banner */}
+          {lastScored && !isFinal && (
+            <p className="text-xs text-slate-400 mt-1 truncate">
+              Last scored: <span className="text-white font-medium">{lastScored.question_text}</span>
+            </p>
+          )}
         </div>
       </div>
 
@@ -801,6 +921,18 @@ function LivePhase() {
         {/* ── Leaderboard tab ── */}
         {tab === 'leaderboard' && (
           <div>
+            {/* FINAL winner banner */}
+            {isFinal && leaderboard.length > 0 && (
+              <div className="bg-yellow-900/20 border-2 border-[#ffd700] rounded-2xl p-6 mb-6 text-center">
+                <div className="text-4xl mb-2">🎉</div>
+                <h2 className="text-2xl font-black text-[#ffd700]">
+                  {leaderboard[0].owner_name} wins!
+                </h2>
+                <p className="text-slate-300 text-sm mt-1">2026 BMFFFL Draft Game Champion</p>
+                <p className="text-slate-400 text-xs mt-1">Prize: pick 3.13 → BMFFFL 3rd round rookie draft</p>
+              </div>
+            )}
+
             {!isScored ? (
               <div className="text-center py-12">
                 <p className="text-slate-400">Scoring starts when the first pick is made.</p>
@@ -809,30 +941,30 @@ function LivePhase() {
             ) : (
               <div className="space-y-2">
                 {leaderboard.map((entry, i) => {
-                  const mov  = rankMovements[entry.owner_name] ?? 0;
-                  const elim = eliminated.has(entry.owner_name);
-                  const max  = maxPossible[entry.owner_name];
+                  const mov    = rankMovements[entry.owner_name] ?? 0;
+                  const elim   = eliminated.has(entry.owner_name);
+                  const max    = maxPossible[entry.owner_name];
+                  const status = elim ? '💀' : i === 0 ? '🏆' : i < 3 ? '🔥' : '';
                   return (
                     <div key={entry.owner_name} className={cn(
                       'flex items-center gap-3 px-4 py-3 rounded-xl border transition-all',
                       i === 0 ? 'border-[#ffd700] bg-yellow-900/10' : 'border-[#2d4a66] bg-[#16213e]',
                       elim && 'opacity-40'
                     )}>
-                      <span className={cn('text-lg font-black w-7 shrink-0', i === 0 ? 'text-[#ffd700]' : 'text-slate-400')}>
-                        {i === 0 ? '🏆' : `${i + 1}`}
+                      <span className="text-base w-7 shrink-0 text-center">
+                        {status || <span className="text-slate-400 font-black text-sm">{i + 1}</span>}
                       </span>
                       <div className="flex-1 min-w-0">
                         <p className={cn('font-bold text-sm truncate', elim ? 'text-slate-500' : 'text-white')}>
                           {entry.owner_name}
-                          {elim && <span className="ml-1.5 text-xs text-red-500">💀 eliminated</span>}
                           {entry.owner_name === myName && <span className="ml-1.5 text-xs text-[#ffd700]">← you</span>}
                         </p>
-                        {max !== undefined && (
+                        {max !== undefined && !isFinal && (
                           <p className="text-xs text-slate-500">max {max.toLocaleString()}</p>
                         )}
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
-                        {mov !== 0 && (
+                        {mov !== 0 && !isFinal && (
                           <span className={cn('text-xs font-bold', mov > 0 ? 'text-emerald-400' : 'text-red-400')}>
                             {mov > 0 ? `↑${mov}` : `↓${Math.abs(mov)}`}
                           </span>
@@ -979,6 +1111,26 @@ function LivePhase() {
                 {answeredQuestions.length === 0 && (
                   <p className="text-slate-500 text-sm text-center py-8">Field picks revealed when first question is scored.</p>
                 )}
+
+                {/* Questions remaining */}
+                {unansweredQs.length > 0 && (
+                  <div className="mt-4">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
+                      {unansweredQs.length} Questions Remaining
+                    </p>
+                    <div className="space-y-1.5">
+                      {unansweredQs.sort((a, b) => a.order - b.order).map((q) => {
+                        const maxPts = Math.max(...q.options.map((o) => o.points));
+                        return (
+                          <div key={q.question_id} className="flex items-center justify-between px-3 py-2 bg-[#0d1b2a] rounded-lg text-xs text-slate-400">
+                            <span className="flex-1 truncate">{q.question_text}</span>
+                            <span className="shrink-0 ml-2 text-slate-500">up to {maxPts.toLocaleString()}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -989,16 +1141,16 @@ function LivePhase() {
 }
 
 // ─── FINAL phase ──────────────────────────────────────────────────────────────
+// LivePhase detects isFinal internally and renders winner banner + 🏆 FINAL header.
 
 function FinalPhase() {
-  // Reuse LivePhase but locked — no countdown, full reveal, winner banner
   return <LivePhase />;
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function NflDraftGamePage() {
-  const phase = usePhase();
+  const phase = useGamePhase();
 
   return (
     <>
@@ -1008,6 +1160,7 @@ export default function NflDraftGamePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       {phase === 'ENTRY' && <EntryPhase />}
+      {phase === 'LOBBY' && <LobbyPhase />}
       {phase === 'LIVE'  && <LivePhase />}
       {phase === 'FINAL' && <FinalPhase />}
     </>
