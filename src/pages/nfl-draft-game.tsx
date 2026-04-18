@@ -19,7 +19,7 @@
  */
 
 import Head from 'next/head';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, type ReactElement } from 'react';
 import { cn } from '@/lib/cn';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -1013,3 +1013,6 @@ export default function NflDraftGamePage() {
     </>
   );
 }
+
+// Opt out of the BMFFFL nav/footer shell — standalone game experience.
+NflDraftGamePage.getLayout = (page: ReactElement) => page;
