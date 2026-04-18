@@ -276,9 +276,14 @@ function EntryPhase() {
   const [answers,     setAnswers]     = useState<Record<string, string>>({});
   const [tiebreaker,  setTiebreaker]  = useState('');
   const [currentIdx,  setCurrentIdx]  = useState(0);
-  const [submitState, setSubmitState] = useState<SubmitState>('idle');
-  const [errorMsg,    setErrorMsg]    = useState('');
-  const [submissions, setSubmissions] = useState<string[]>([]);
+  const [submitState,   setSubmitState]   = useState<SubmitState>('idle');
+  const [errorMsg,      setErrorMsg]      = useState('');
+  const [submissions,   setSubmissions]   = useState<string[]>([]);
+  const [secretWord,    setSecretWord]    = useState('');      // set on first submit
+  const [secretPending, setSecretPending] = useState('');      // name awaiting secret check
+  const [secretInput,   setSecretInput]   = useState('');      // secret being typed for verify
+  const [secretError,   setSecretError]   = useState('');
+  const [secretLoading, setSecretLoading] = useState(false);
 
   const deadline = useCountdown(SUBMISSION_DEADLINE);
 
@@ -326,6 +331,10 @@ function EntryPhase() {
     setErrorMsg('');
     const allAnswers: Record<string, string> = { ...answers };
     if (tiebreaker.trim()) allAnswers['q35'] = tiebreaker.trim();
+    if (secretWord.trim()) {
+      allAnswers['_secret_word'] = secretWord.trim();
+      localStorage.setItem(`bmfffl-draft-game-secret-${ownerName}`, secretWord.trim());
+    }
     try {
       const res = await fetch(`${CONVEX_SITE}/submitDraftGameEntry`, {
         method: 'POST',
@@ -402,7 +411,24 @@ function EntryPhase() {
                 return (
                   <button
                     key={name}
-                    onClick={() => handleOwnerChange(selected ? '' : name)}
+                    onClick={() => {
+                      if (done && !selected) {
+                        // Check localStorage for saved secret (same device)
+                        const saved = localStorage.getItem(`bmfffl-draft-game-secret-${name}`);
+                        if (saved !== null) {
+                          // Auto-claim without prompting (same device)
+                          handleOwnerChange(name);
+                          setSecretPending('');
+                        } else {
+                          setSecretPending(secretPending === name ? '' : name);
+                          setSecretInput('');
+                          setSecretError('');
+                        }
+                      } else {
+                        handleOwnerChange(selected ? '' : name);
+                        setSecretPending('');
+                      }
+                    }}
                     className={cn(
                       'flex flex-col items-center gap-1 px-3 py-3 rounded-xl border text-sm font-semibold transition-all',
                       selected
@@ -424,6 +450,57 @@ function EntryPhase() {
               })}
             </div>
           </div>
+
+          {/* Inline secret word verification (shown when clicking a submitted name from new device) */}
+          {secretPending && (
+            <div className="bg-[#16213e] border border-[#ffd700]/40 rounded-xl p-4 mb-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
+                🔑 Enter secret word for <span className="text-white">{secretPending}</span>
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={secretInput}
+                  autoFocus
+                  onChange={(e) => { setSecretInput(e.target.value); setSecretError(''); }}
+                  onKeyDown={(e) => e.key === 'Enter' && secretInput.trim() && document.getElementById('secret-verify-btn')?.click()}
+                  placeholder="Your secret word"
+                  className="flex-1 bg-[#0d1b2a] border border-[#2d4a66] text-white rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#ffd700]"
+                />
+                <button
+                  id="secret-verify-btn"
+                  disabled={!secretInput.trim() || secretLoading}
+                  onClick={async () => {
+                    setSecretLoading(true);
+                    setSecretError('');
+                    try {
+                      const r = await fetch(
+                        `${CONVEX_SITE}/verifyDraftGameSecret?year=${YEAR}&owner_name=${encodeURIComponent(secretPending)}&secret=${encodeURIComponent(secretInput.trim())}`
+                      );
+                      const data = await r.json() as { valid: boolean; reason: string };
+                      if (data.valid) {
+                        localStorage.setItem(`bmfffl-draft-game-secret-${secretPending}`, secretInput.trim());
+                        handleOwnerChange(secretPending);
+                        setSecretPending('');
+                        setSecretInput('');
+                      } else {
+                        setSecretError('Wrong secret word — try again.');
+                      }
+                    } catch {
+                      setSecretError('Verification failed. Try again.');
+                    } finally {
+                      setSecretLoading(false);
+                    }
+                  }}
+                  className="px-4 py-2 rounded-xl bg-[#ffd700] text-[#0d1b2a] font-bold text-sm disabled:opacity-40 transition-all"
+                >
+                  {secretLoading ? '…' : 'Verify'}
+                </button>
+              </div>
+              {secretError && <p className="text-red-400 text-xs mt-2">{secretError}</p>}
+              <p className="text-slate-500 text-xs mt-2">Forgot your word? Ask a league manager to reset your entry.</p>
+            </div>
+          )}
 
           {/* CTA — shows Edit if already submitted (this session or prior) */}
           {ownerName && (submissions.includes(ownerName) || submitState === 'success') ? (
@@ -507,15 +584,29 @@ function EntryPhase() {
 
           {/* Options */}
           {isTiebreaker ? (
-            <div className="space-y-3">
-              <p className="text-xs text-slate-400">Enter a time (e.g. 9:47pm). Closest wins. No penalty for being wrong.</p>
-              <input
-                type="text"
-                value={tiebreaker}
-                onChange={(e) => setTiebreaker(e.target.value)}
-                placeholder="e.g. 9:47pm"
-                className="w-full bg-[#16213e] border border-[#2d4a66] text-white rounded-xl px-4 py-4 text-lg focus:outline-none focus:border-[#ffd700]"
-              />
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <p className="text-xs text-slate-400">Enter a time (e.g. 9:47pm). Closest wins. No penalty for being wrong.</p>
+                <input
+                  type="text"
+                  value={tiebreaker}
+                  onChange={(e) => setTiebreaker(e.target.value)}
+                  placeholder="e.g. 9:47pm"
+                  className="w-full bg-[#16213e] border border-[#2d4a66] text-white rounded-xl px-4 py-4 text-lg focus:outline-none focus:border-[#ffd700]"
+                />
+              </div>
+              {/* Secret word — for edit authorization later */}
+              <div className="space-y-1.5 pt-2 border-t border-[#2d4a66]">
+                <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">🔑 Set a secret word</p>
+                <p className="text-xs text-slate-500">Required to edit your picks later from a different device.</p>
+                <input
+                  type="text"
+                  value={secretWord}
+                  onChange={(e) => setSecretWord(e.target.value)}
+                  placeholder="e.g. BlueTiger42"
+                  className="w-full bg-[#16213e] border border-[#2d4a66] text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#ffd700]"
+                />
+              </div>
             </div>
           ) : (
             <div className="space-y-3">
