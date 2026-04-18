@@ -402,14 +402,13 @@ function EntryPhase() {
                 return (
                   <button
                     key={name}
-                    disabled={done && !selected}
                     onClick={() => handleOwnerChange(selected ? '' : name)}
                     className={cn(
                       'flex flex-col items-center gap-1 px-3 py-3 rounded-xl border text-sm font-semibold transition-all',
                       selected
                         ? 'border-[#ffd700] bg-yellow-900/20 text-white'
                         : done
-                          ? 'border-emerald-700/40 bg-emerald-900/20 text-emerald-400 cursor-not-allowed'
+                          ? 'border-emerald-700/40 bg-emerald-900/20 text-emerald-400 hover:border-emerald-500'
                           : 'border-[#2d4a66] bg-[#0d1b2a] text-slate-300 hover:border-[#4a7a9b] hover:text-white'
                     )}
                   >
@@ -418,7 +417,7 @@ function EntryPhase() {
                       'text-xs font-normal',
                       selected ? 'text-[#ffd700]' : done ? 'text-emerald-500' : 'text-slate-500'
                     )}>
-                      {done ? '✅ Submitted' : selected ? '✓ Claimed' : 'Claim your Team'}
+                      {selected && done ? '✏️ Edit Picks' : selected ? '✓ Claimed' : done ? '✅ Submitted' : 'Claim your Team'}
                     </span>
                   </button>
                 );
