@@ -111,7 +111,7 @@ function useCountdown(target: Date) {
   return { d, h, m, s };
 }
 
-export default function DraftGameLeaderboard2026() {
+export default function NflDraftGame() {
   const [state, setState] = useState<DraftGameState>({
     submissions: [],
     leaderboard: [],
@@ -278,7 +278,7 @@ export default function DraftGameLeaderboard2026() {
   return (
     <>
       <Head>
-        <title>Draft Game 2026 — Leaderboard | BMFFFL</title>
+        <title>BMFFFL Draft Game 2026</title>
       </Head>
 
       <div className="min-h-screen bg-[#0d1b2a] text-white font-sans px-4 py-8">
@@ -287,16 +287,9 @@ export default function DraftGameLeaderboard2026() {
           {/* Header */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
-              <Link href="/nfl-draft/2026" className="text-slate-500 hover:text-slate-300 text-sm">
-                ← NFL Draft 2026
-              </Link>
+              <span className="text-slate-600 text-xs">bmfffl.vercel.app</span>
               {myName && (
-                <Link
-                  href="/nfl-draft/draft-game-2026"
-                  className="text-[#ffd700]/70 hover:text-[#ffd700] text-xs font-semibold"
-                >
-                  My Picks →
-                </Link>
+                <span className="text-[#ffd700]/70 text-xs font-semibold">{myName}</span>
               )}
             </div>
             <h1 className="text-3xl font-black text-white mb-1">
@@ -743,6 +736,7 @@ export default function DraftGameLeaderboard2026() {
                   >
                     Submit Your Picks →
                   </Link>
+                  <p className="text-slate-600 text-xs mt-2">Closes April 24 at 6pm ET</p>
                 </div>
               )}
             </div>
@@ -762,19 +756,5 @@ export default function DraftGameLeaderboard2026() {
   );
 }
 
-// Standalone shell — suppress BMFFFL navigation and footer for the live game experience.
-// The page has its own minimal back link and is self-contained.
-DraftGameLeaderboard2026.getLayout = (page: ReactElement) => page;
-
-export async function getServerSideProps(context: { query: Record<string, string> }) {
-  const { name, ...rest } = context.query;
-  const params = new URLSearchParams();
-  if (name) params.set('name', name);
-  const qs = params.toString() ? `?${params.toString()}` : '';
-  return {
-    redirect: {
-      destination: `/nfl-draft-game${qs}`,
-      permanent: true,
-    },
-  };
-}
+// Standalone shell — no BMFFFL nav, no footer. The game is its own world.
+NflDraftGame.getLayout = (page: ReactElement) => page;
