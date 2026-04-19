@@ -107,7 +107,7 @@ function useCountdown(target: Date): Countdown {
 const OWNERS = [
   'Grandes', 'SexMachineAndyD', 'tdtd19844', 'Cogdeill11',
   'rbr', 'MLSchools12', 'Cmaleski', 'eldridm20',
-  'JuicyBussy', 'eldridsm', 'Tubes94', 'Escuelas',
+  'JuicyBussy', 'eldridsm', 'Tubes94', 'Bimflé',
 ];
 
 const OWNER_COLORS: Record<string, string> = {
@@ -122,7 +122,6 @@ const OWNER_COLORS: Record<string, string> = {
   'JuicyBussy':      '#6366f1',
   'eldridsm':        '#84cc16',
   'Tubes94':         '#06b6d4',
-  'Escuelas':        '#d97706',
   'Bimflé':          '#ffd700',
 };
 
@@ -764,7 +763,7 @@ function LobbyPhase() {
       .catch(() => {});
   }, []);
 
-  const totalOwners = OWNERS.length + 1; // +1 for Bimflé
+  const totalOwners = OWNERS.length;
   const submitted   = submissions.map((s) => s.owner_name);
 
   return (
@@ -807,7 +806,7 @@ function LobbyPhase() {
             {submitted.length} of {totalOwners} in the game
           </p>
           <div className="grid grid-cols-2 gap-1.5">
-            {[...OWNERS, 'Bimflé'].map((name) => {
+            {OWNERS.map((name) => {
               const done = submitted.includes(name);
               return (
                 <div key={name} className={cn(
