@@ -169,7 +169,7 @@ const QUESTIONS: Question[] = [
     options: [{ id: 'A', label: 'New Orleans Saints (pick 8)', points: 300 },{ id: 'B', label: 'New York Giants (pick 10)', points: 450 },{ id: 'C', label: 'Baltimore Ravens (pick 14)', points: 400 },{ id: 'D', label: 'Other', points: 500 }] },
   { question_id: 'q09', section: 'top_picks', order: 9,
     question_text: 'Who drafts Makai Lemon (WR, USC)?',
-    options: [{ id: 'A', label: 'LA Rams (pick 13)', points: 300 },{ id: 'B', label: 'New York Jets (pick 16)', points: 400 },{ id: 'C', label: 'Cleveland Browns (pick 6)', points: 600 },{ id: 'D', label: 'Other', points: 500 }] },
+    options: [{ id: 'A', label: 'LA Rams (pick 13)', points: 300 },{ id: 'B', label: 'New York Jets (pick 16)', points: 400 },{ id: 'C', label: 'Miami Dolphins (Broncos pick)', points: 450 },{ id: 'D', label: 'Other', points: 500 }] },
   { question_id: 'q10', section: 'top_picks', order: 10,
     question_text: 'Who drafts Sonny Styles (LB, Ohio State)?',
     options: [{ id: 'A', label: 'Washington Commanders (pick 7)', points: 300 },{ id: 'B', label: 'New York Giants (pick 5 or 10)', points: 400 },{ id: 'C', label: 'Tampa Bay Buccaneers (pick 15)', points: 450 },{ id: 'D', label: 'Other', points: 400 }] },
