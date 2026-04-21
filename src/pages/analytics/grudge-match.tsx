@@ -17,7 +17,7 @@ const OWNERS = [
   { slug: 'eldridm20',     name: 'eldridm20',       teamName: 'Franks Little Beauties',    championships: 0, since: 2020 },
   { slug: 'cmaleski',      name: 'Cmaleski',        teamName: 'Showtyme Boyz',             championships: 0, since: 2020 },
   { slug: 'tubes94',       name: 'Tubes94',         teamName: 'Whale Tails',               championships: 0, since: 2021 },
-  { slug: 'escuelas',      name: 'Escuelas',        teamName: 'Booty Cheeks',              championships: 0, since: 2022 },
+  { slug: 'escuelas',      name: 'Escuelas',        teamName: 'Booty Cheeks',              championships: 0, since: 2020 },
 ] as const;
 
 type OwnerSlug = typeof OWNERS[number]['slug'];
