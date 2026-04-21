@@ -67,9 +67,9 @@ interface Rivalry {
 const NOTABLE_RIVALRIES: Rivalry[] = [
   {
     ownerA: 'Cogdeill11',
-    ownerB: 'MLSchools12',
-    title: 'The GOAT Debate',
-    description: '2020 championship matchup, multiple playoff crossings across six seasons. The two most decorated managers in BMFFFL history trading blows at the top.',
+    ownerB: 'eldridsm',
+    title: '2020 Championship — The Founding Final',
+    description: 'Cogdeill11 defeated eldridsm in the inaugural Sleeper-era championship (2020), claiming the first ring in league history. Cogdeill11 holds the most playoff wins all-time (7), built on this founding championship.',
     icon: 'trophy',
   },
   {
