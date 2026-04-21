@@ -28,7 +28,7 @@ const WINDOW_TEAMS: WindowTeam[] = [
     windowStart: 2024,
     windowEnd: 2027,
     note: 'Currently open — aging core means ~3 more peak years.',
-    championships: 4,
+    championships: 3,
   },
   {
     owner: 'SexMachineAndyD',
@@ -118,7 +118,7 @@ const WINDOW_TEAMS: WindowTeam[] = [
     windowStart: null,
     windowEnd: null,
     note: 'Rebuild needed — no active window.',
-    championships: 2,
+    championships: 3,
   },
   {
     owner: 'Escuelas',
@@ -525,7 +525,7 @@ export default function ChampionshipWindowPage() {
                 </p>
                 <p>
                   MLSchools12&rsquo;s window extends through 2027, though I note with professional concern that
-                  they have won twice already. A third championship would represent a dynasty of genuinely
+                  they have won three times already. A fourth championship would represent a dynasty of genuinely
                   uncomfortable proportions.
                 </p>
                 <p>

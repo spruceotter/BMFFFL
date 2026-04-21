@@ -8,19 +8,20 @@ import { getOwnerToken, ARCHETYPE_LABELS } from '@/lib/owner-tokens';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Verified correct data — champions: Cogdeill11 (2020), MLSchools12 (2021, 2024),
-// Grandes (2022), JuicyBussy (2023), tdtd19844 (2025). Source: content/data/owners.json
+// Verified correct data — DB confirmed Sleeper era champions:
+// 2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
+// ESPN era: 2016=Cogdeill11, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     teamName: 'The Murder Boners',
-    championships: [2021, 2024],
+    championships: [2019, 2021, 2024],
     runnerUps: [],
     playoffApps: 6,
     wins: 68, losses: 15,
     dynastyRank: 1,
-    status: 'Two-time champion (2021, 2024). All-time wins leader (.820 win%). Six consecutive playoff appearances. The defining dynasty of the BMFFFL era.',
+    status: 'Three-time champion (2019, 2021, 2024). All-time wins leader (.820 win%). Six consecutive playoff appearances. The defining dynasty of the BMFFFL era.',
   },
   {
     slug: 'tubes94',
@@ -37,12 +38,12 @@ const OWNERS = [
     slug: 'sexmachineandy',
     displayName: 'SexMachineAndyD',
     teamName: 'SexMachineAndyD',
-    championships: [],
-    runnerUps: [2024],
+    championships: [2018],
+    runnerUps: [2021, 2024],
     playoffApps: 4,
     wins: 50, losses: 33,
     dynastyRank: 3,
-    status: 'Runner-up 2024 after an 11-3 regular season. Four playoff appearances. Consistent elite-tier performer without a title.',
+    status: '2018 ESPN champion. Runner-up in 2021 and 2024. Four Sleeper playoff appearances. The league\'s most consistent multi-era performer.',
   },
   {
     slug: 'juicybussy',
@@ -60,22 +61,22 @@ const OWNERS = [
     displayName: 'rbr',
     teamName: 'Really Big Rings',
     championships: [],
-    runnerUps: [2021, 2022],
+    runnerUps: [2022],
     playoffApps: 4,
     wins: 44, losses: 39,
     dynastyRank: 5,
-    status: 'Two-time runner-up (2021, 2022). Consistently competitive without the championship breakthrough. Best lineup IQ in the league (89.78%).',
+    status: '2022 runner-up (lost to Grandes in finals). Reached the 2021 semis. Consistently competitive without the championship breakthrough.',
   },
   {
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
     teamName: 'Cogdeill11',
-    championships: [2020],
+    championships: [2016, 2017, 2020],
     runnerUps: [],
     playoffApps: 2,
     wins: 38, losses: 45,
     dynastyRank: 6,
-    status: '2020 founding champion. Won the tightest championship game on record (203.10–198.34). Has not made the playoffs since 2021.',
+    status: 'Three-time champion (2016 & 2017 ESPN, 2020 Sleeper). Won the tightest 2020 championship on record (203.10–198.34). Has not made the playoffs since 2021.',
   },
   {
     slug: 'grandes',

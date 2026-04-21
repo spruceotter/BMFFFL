@@ -42,9 +42,9 @@ const DPI_TEAMS: DpiTeam[] = [
     momentumScore: 95,
     draftCapitalScore: 88,
     ageUpsideScore: 91,
-    note: 'Four-time champion (2016, 2019, 2024, plus prior wins) with elite roster depth and unmatched all-time win percentage. The benchmark every team is measured against.',
+    note: 'Three-time champion (2019, 2021, 2024) with elite roster depth and unmatched all-time win percentage. The benchmark every team is measured against.',
     record: '68–15',
-    championships: 4,
+    championships: 3,
     playoffApps: 6,
   },
   {
@@ -192,9 +192,9 @@ const DPI_TEAMS: DpiTeam[] = [
     momentumScore: 28,
     draftCapitalScore: 52,
     ageUpsideScore: 44,
-    note: 'Founding league champion (2020) who has not returned to the playoffs since 2021. Holds young assets in Ja\'Marr Chase and Omarion Hampton — a rebuild worth watching.',
+    note: 'Three-time champion all-time (2016, 2017 ESPN; 2020 Sleeper). Has not returned to the playoffs since 2021. Holds young assets in Ja\'Marr Chase and Omarion Hampton — a rebuild worth watching.',
     record: '38–45',
-    championships: 1,
+    championships: 3,
     playoffApps: 2,
   },
   {

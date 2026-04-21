@@ -9,22 +9,22 @@ import PlayerCard from '@/components/players/PlayerCard';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Verified correct data — champions: Cogdeill11 (2020), MLSchools12 (2021, 2024),
-// Grandes (2022), JuicyBussy (2023), tdtd19844 (2025). Source: content/data/owners.json
+// Verified correct data — ESPN era: Cogdeill11 (2016, 2017), SexMachineAndyD (2018), MLSchools12 (2019)
+// Sleeper era (DB confirmed): Cogdeill11 (2020), MLSchools12 (2021, 2024), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     teamName: 'The Murder Boners',
-    championships: [2016, 2019, 2021, 2024],
+    championships: [2019, 2021, 2024],
     runnerUps: [] as number[],
     playoffApps: 10,
     wins: 114, losses: 21,
     dynastyRank: 1,
-    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader. Dominant across both ESPN and Sleeper eras.',
+    status: 'Three-time champion (2019, 2021, 2024). All-time wins leader. Dominant across both ESPN and Sleeper eras.',
     currentRoster: ['CeeDee Lamb (WR)', 'Tyreek Hill (WR)', 'Garrett Wilson (WR)', 'Brock Purdy (QB)', 'Breece Hall (RB)'],
     seasons: [
-      { year: 2016, rank: 1, wins: 11, losses: 2, champion: true },
+      { year: 2016, rank: 2, wins: 11, losses: 2, champion: false },
       { year: 2017, rank: 4, wins: 12, losses: 1, champion: false },
       { year: 2018, rank: 2, wins: 11, losses: 2, champion: false },
       { year: 2019, rank: 1, wins: 12, losses: 1, champion: true },
@@ -60,11 +60,11 @@ const OWNERS = [
     displayName: 'SexMachineAndyD',
     teamName: 'SexMachineAndyD',
     championships: [2018] as number[],
-    runnerUps: [2024],
+    runnerUps: [2021, 2024],
     playoffApps: 4,
     wins: 78, losses: 57,
     dynastyRank: 3,
-    status: '2018 ESPN champion. Runner-up 2024 after an 11-3 regular season. Four playoff appearances. Consistent elite-tier performer.',
+    status: '2018 ESPN champion. Runner-up in 2021 (lost to MLSchools12) and 2024 (lost to MLSchools12). Four Sleeper playoff appearances.',
     currentRoster: ['Josh Allen (QB)', 'Jonathan Taylor (RB)', 'Davante Adams (WR)', 'Cooper Kupp (WR)', 'Tony Pollard (RB)'],
     seasons: [
       { year: 2016, rank: 10, wins: 3, losses: 10, champion: false },
@@ -75,7 +75,7 @@ const OWNERS = [
       { year: 2021, rank: 2, wins: 10, losses: 4, champion: false },
       { year: 2022, rank: 7, wins: 6, losses: 8, champion: false },
       { year: 2023, rank: 8, wins: 5, losses: 9, champion: false },
-      { year: 2024, rank: 1, wins: 11, losses: 3, champion: false },
+      { year: 2024, rank: 2, wins: 11, losses: 3, champion: false },
       { year: 2025, rank: 3, wins: 9, losses: 5, champion: false },
     ],
   },
@@ -108,11 +108,11 @@ const OWNERS = [
     displayName: 'rbr',
     teamName: 'Really Big Rings',
     championships: [] as number[],
-    runnerUps: [2019, 2021, 2022],
+    runnerUps: [2019, 2022],
     playoffApps: 4,
     wins: 73, losses: 62,
     dynastyRank: 5,
-    status: 'Three-time runner-up (2019, 2021, 2022). Consistently competitive without the championship breakthrough. Best lineup IQ in the league (89.78%).',
+    status: 'Two-time runner-up (2019 ESPN, 2022 Sleeper — lost to Grandes). Consistently competitive without the championship breakthrough.',
     currentRoster: ['Patrick Mahomes (QB)', 'Stefon Diggs (WR)', 'Marvin Harrison Jr. (WR)', 'Travis Kelce (TE)', 'Quinshon Judkins (RB)'],
     seasons: [
       { year: 2016, rank: 3, wins: 7, losses: 6, champion: false },
@@ -131,15 +131,15 @@ const OWNERS = [
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
     teamName: 'Cogdeill11',
-    championships: [2017, 2020],
+    championships: [2016, 2017, 2020],
     runnerUps: [] as number[],
     playoffApps: 2,
     wins: 67, losses: 68,
     dynastyRank: 6,
-    status: 'Two-time champion (2017 ESPN, 2020 Sleeper). Won the tightest championship game on record (203.10–198.34). Has not made the playoffs since 2021.',
+    status: 'Three-time champion (2016 & 2017 ESPN, 2020 Sleeper). Won the tightest 2020 championship on record (203.10–198.34). Has not made the playoffs since 2021.',
     currentRoster: ['Omarion Hampton (RB)', "Ja'Marr Chase (WR)", 'Saquon Barkley (RB)', 'Brock Purdy (QB)', 'Colston Loveland (TE)'],
     seasons: [
-      { year: 2016, rank: 12, wins: 5, losses: 8, champion: false },
+      { year: 2016, rank: 1, wins: 5, losses: 8, champion: true },
       { year: 2017, rank: 1, wins: 7, losses: 6, champion: true },
       { year: 2018, rank: 3, wins: 9, losses: 4, champion: false },
       { year: 2019, rank: 5, wins: 8, losses: 5, champion: false },

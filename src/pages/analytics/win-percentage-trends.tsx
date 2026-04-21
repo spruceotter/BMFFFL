@@ -35,7 +35,7 @@ const OWNER_TRENDS: OwnerTrend[] = [
     bgColor: 'bg-[#ffd700]/8',
     borderColor: 'border-[#ffd700]/50',
     firstSeason: 2020,
-    narrative: 'Four-time all-time champion. Two Sleeper titles (2021, 2024). Best record in league history at 13-1 twice.',
+    narrative: 'Three-time all-time champion (2019, 2021, 2024). Two Sleeper titles. Best record in league history at 13-1 twice.',
     seasons: {
       2020: { wins: 11, losses: 2 },
       2021: { wins: 11, losses: 3, champion: true },
@@ -99,10 +99,10 @@ const OWNER_TRENDS: OwnerTrend[] = [
     bgColor: 'bg-orange-400/8',
     borderColor: 'border-orange-400/50',
     firstSeason: 2020,
-    narrative: 'Two runner-up finishes (2021, 2022) — led the league at 10-4 in 2022 but couldn\'t close.',
+    narrative: '2022 runner-up (lost to Grandes in finals). Reached the 2021 semis. Led the league at 10-4 in 2022 but couldn\'t close.',
     seasons: {
       2020: { wins: 6,  losses: 7 },
-      2021: { wins: 9,  losses: 5, runnerUp: true },
+      2021: { wins: 9,  losses: 5 },
       2022: { wins: 10, losses: 4, runnerUp: true },
       2023: { wins: 6,  losses: 8, missedPlayoffs: true },
       2024: { wins: 8,  losses: 6 },
@@ -163,7 +163,7 @@ const OWNER_TRENDS: OwnerTrend[] = [
     bgColor: 'bg-[#e94560]/8',
     borderColor: 'border-[#e94560]/50',
     firstSeason: 2020,
-    narrative: 'Won in 2020 (2017 ESPN champion too). Dramatic decline — 9-5 champion to consistent rebuilder.',
+    narrative: 'Three-time champion (2016 & 2017 ESPN, 2020 Sleeper). Dramatic decline — 9-5 champion to consistent rebuilder.',
     seasons: {
       2020: { wins: 10, losses: 3, champion: true },
       2021: { wins: 9,  losses: 5, missedPlayoffs: true, note: 'Missed playoffs despite 9 wins — deep field' },
@@ -592,7 +592,7 @@ export default function WinPercentageTrendsPage() {
                 color: 'text-[#ffd700]',
                 border: 'border-[#ffd700]/30',
                 bg: 'bg-[#ffd700]/5',
-                summary: 'Never had a losing season. 4x all-time champion (2016, 2019, 2021, 2024). Two 13-1 regular seasons (2023, 2025) — neither converted to a ring.',
+                summary: 'Never had a losing season. 3x all-time champion (2019, 2021, 2024). Two 13-1 regular seasons (2023, 2025) — neither converted to a ring.',
               },
               {
                 title: 'The Rise',

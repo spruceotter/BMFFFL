@@ -94,9 +94,8 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Award,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', value: '4 rings', note: '2016, 2019, 2021, 2024 — most championship wins in league history across all 10 seasons' },
-      { rank: 2, label: 'Cogdeill11', value: '2 rings', note: '2017 (ESPN era) & 2020 — two-time champion; the steepest fall: 5 consecutive playoff misses after 2020' },
-      { rank: 3, label: '4-way tie', sublabel: 'SexMachineAndyD, Grandes, JuicyBussy, tdtd19844', value: '1 ring each', note: 'SexMachineAndyD (2018 ESPN), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)' },
+      { rank: 1, label: '2-way tie', sublabel: 'MLSchools12, Cogdeill11', value: '3 rings each', note: 'MLSchools12: 2019, 2021, 2024 | Cogdeill11: 2016 & 2017 (ESPN era) + 2020 (Sleeper) — most decorated franchises in league history' },
+      { rank: 2, label: '4-way tie', sublabel: 'SexMachineAndyD, Grandes, JuicyBussy, tdtd19844', value: '1 ring each', note: 'SexMachineAndyD (2018 ESPN), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)' },
     ],
     footnote: 'As of end of 2025 season. 10 championships awarded across 10 seasons (2016–2025). Includes ESPN era (2016–2019) and Sleeper era (2020–2025).',
   },

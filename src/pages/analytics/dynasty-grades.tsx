@@ -93,7 +93,7 @@ const REPORT_CARDS: ReportCard[] = [
     lineupDecisions: 'A',
     dynastyVision: 'A',
     gpa: 3.7,
-    comment: 'Four-time champion all-time. Two Sleeper rings and still ascending.',
+    comment: 'Three-time all-time champion. Two Sleeper rings (2021, 2024) and still ascending.',
     championships: [2021, 2024],
   },
   {

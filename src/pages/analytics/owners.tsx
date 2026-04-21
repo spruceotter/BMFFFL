@@ -15,36 +15,38 @@ import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 // Rings verified against Sleeper DB + ESPN era records.
 // playoffApps and dynastyRank are BMFFFL-internal rankings, not from DB.
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 38, losses: 45, playoffApps: 5, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 68, losses: 15, playoffApps: 4, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 3, wins: 38, losses: 45, playoffApps: 2, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 3, wins: 68, losses: 15, playoffApps: 6, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 44, losses: 39, playoffApps: 4, dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 50, losses: 33, playoffApps: 3, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 2, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 1, dynastyRank: 1,  seasons: [2022,2023,2024,2025] },
-  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 2, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 1, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 36, losses: 47, playoffApps: 0, dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'bimfle',        name: 'Bimfle',          rings: 0, wins: 0,  losses: 0,  playoffApps: 0, dynastyRank: 10, seasons: [2024,2025] },
+  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 50, losses: 33, playoffApps: 4, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 3, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 2, dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
+  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 3, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 2, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 36, losses: 47, playoffApps: 1, dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'escuelas',      name: 'Escuelas',        rings: 0, wins: 15, losses: 41, playoffApps: 0, dynastyRank: 10, seasons: [2022,2023,2024,2025] },
 ];
 
 // ─── Season Rank Data ─────────────────────────────────────────────────────────
 
 // Index order: [2020, 2021, 2022, 2023, 2024, 2025]. 0 = not in league that year.
+// Champions: 2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
+// Runner-ups: 2020=eldridsm, 2021=SexMachineAndyD, 2022=rbr, 2023=eldridm20, 2024=SexMachineAndyD, 2025=Tubes94
 const SEASON_RANKS: Record<string, number[]> = {
-  'Cogdeill11':      [1,  4,  2,  1,  3,  4],
-  'MLSchools12':     [2,  1,  5,  5,  4,  2],
-  'rbr':             [3,  5,  8,  6,  3,  1],
-  'JuicyBussy':      [4,  6,  4,  3,  1,  6],
-  'tdtd19844':       [11, 9,  3,  4,  5,  5],
-  'SexMachineAndyD': [5,  2,  6,  2,  7,  7],
-  'eldridm20':       [6,  7,  7,  7,  6,  8],
-  'Tubes94':         [0,  0,  9,  8,  2,  3],
-  'Grandes':         [8,  3,  10, 9,  8,  9],
-  'eldridsm':        [7,  8,  11, 10, 10, 11],
-  'Cmaleski':        [10, 10, 12, 12, 11, 12],
-  'Bimfle':          [0,  0,  0,  0,  9,  10],
+  'Cogdeill11':      [1,  5,  8,  9,  8,  10],
+  'MLSchools12':     [3,  1,  3,  3,  1,  3],
+  'rbr':             [6,  4,  2,  5,  6,  7],
+  'JuicyBussy':      [7,  9,  4,  1,  4,  6],
+  'tdtd19844':       [4,  6,  5,  7,  5,  1],
+  'SexMachineAndyD': [5,  2,  6,  6,  2,  5],
+  'eldridm20':       [8,  7,  7,  2,  7,  8],
+  'Tubes94':         [0,  11, 9,  8,  3,  2],
+  'Grandes':         [9,  3,  1,  4,  9,  9],
+  'eldridsm':        [2,  8,  10, 10, 10, 11],
+  'Cmaleski':        [10, 10, 11, 11, 11, 4],
+  'Escuelas':        [0,  0,  12, 12, 12, 12],
 };
 
 const SEASONS = [2020, 2021, 2022, 2023, 2024, 2025];
@@ -677,23 +679,23 @@ export default function OwnersAnalyticsPage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Most Rings</span>
-                  <span className="text-[#ffd700] font-bold">Cogdeill11 (2)</span>
+                  <span className="text-[#ffd700] font-bold">MLSchools12 / Cogdeill11 (3)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Best Win %</span>
-                  <span className="text-emerald-400 font-bold">Cogdeill11 (.756)</span>
+                  <span className="text-emerald-400 font-bold">MLSchools12 (.819)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Most Playoff Apps</span>
-                  <span className="text-blue-400 font-bold">Cogdeill11 (5)</span>
+                  <span className="text-blue-400 font-bold">MLSchools12 (6)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Most Wins</span>
-                  <span className="text-slate-300 font-bold">Cogdeill11 (68)</span>
+                  <span className="text-slate-300 font-bold">MLSchools12 (68)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">2025 Champion</span>
-                  <span className="text-[#ffd700] font-bold">rbr</span>
+                  <span className="text-[#ffd700] font-bold">tdtd19844</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Reigning Rank #1</span>

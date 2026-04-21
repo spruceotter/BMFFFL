@@ -73,7 +73,7 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Justin Herbert', position: 'SF', note: 'SF2 usage — Herbert emerging as a starter-grade fantasy option' },
     ],
     narrative:
-      "The 2021 Schoolcraft Football Team had arguably the most dominant collection of talent in BMFFFL history at the time. Cooper Kupp entered one of the greatest individual seasons ever recorded in dynasty fantasy — a full Triple Crown performance that produced elite weekly scoring floors regardless of matchup. But this wasn't a one-man show. Jonathan Taylor broke out in historic fashion as a complementary RB1, Davante Adams provided WR2 production that would be WR1 elsewhere, and Travis Kelce gave MLSchools12 the positional advantage at TE every week. This was the first Sleeper-era ring for MLSchools12 — the third all-time, following ESPN-era titles in 2016 and 2019. But looking at this roster, it almost feels like they should have won more. The blueprint: collect elite talent at WR, surround with a top RB, and ride the wave of a generational season.",
+      "The 2021 Schoolcraft Football Team had arguably the most dominant collection of talent in BMFFFL history at the time. Cooper Kupp entered one of the greatest individual seasons ever recorded in dynasty fantasy — a full Triple Crown performance that produced elite weekly scoring floors regardless of matchup. But this wasn't a one-man show. Jonathan Taylor broke out in historic fashion as a complementary RB1, Davante Adams provided WR2 production that would be WR1 elsewhere, and Travis Kelce gave MLSchools12 the positional advantage at TE every week. This was the first Sleeper-era ring for MLSchools12 — the second all-time, following an ESPN-era title in 2019. But looking at this roster, it almost feels like they should have won more. The blueprint: collect elite talent at WR, surround with a top RB, and ride the wave of a generational season.",
     accentColor: 'text-emerald-400',
     accentBg: 'bg-emerald-400/10',
     accentBorder: 'border-emerald-400/40',
@@ -143,11 +143,11 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Kyren Williams', position: 'RB', note: 'LA Rams bellcow — 12 rushing TDs backed up the RB corps' },
     ],
     narrative:
-      "The 2024 Schoolcraft Football Team assembled a complete dynasty roster and ran through the playoff bracket as a 3-seed. CeeDee Lamb operated as a locked-in WR1 with one of the finest WR seasons in dynasty history, and Ja'Marr Chase gave the team an unreal WR1-WR1 tandem. Lamar Jackson's unanimous MVP campaign meant the superflex position was a weekly 30-35 point floor. Bijan Robinson emerged as a true RB1, Kyren Williams added TD upside, and Sam LaPorta's year two development held the TE slot. This was the fourth all-time championship for MLSchools12 — cementing their legacy as the most decorated franchise in BMFFFL history, with rings spanning the ESPN era (2016, 2019) and the Sleeper era (2021, 2024).",
+      "The 2024 Schoolcraft Football Team assembled a complete dynasty roster and ran through the playoff bracket as a 3-seed. CeeDee Lamb operated as a locked-in WR1 with one of the finest WR seasons in dynasty history, and Ja'Marr Chase gave the team an unreal WR1-WR1 tandem. Lamar Jackson's unanimous MVP campaign meant the superflex position was a weekly 30-35 point floor. Bijan Robinson emerged as a true RB1, Kyren Williams added TD upside, and Sam LaPorta's year two development held the TE slot. This was the third all-time championship for MLSchools12 — cementing their legacy as the most decorated franchise in BMFFFL history, with rings spanning the ESPN era (2019) and the Sleeper era (2021, 2024).",
     accentColor: 'text-[#ffd700]',
     accentBg: 'bg-[#ffd700]/10',
     accentBorder: 'border-[#ffd700]/40',
-    badge: '4th All-Time Championship',
+    badge: '3rd All-Time Championship',
   },
   {
     year: 2025,
@@ -674,14 +674,14 @@ export default function ChampionRetrospectivePage() {
                   The Dynasty: MLSchools12
                 </h2>
                 <p className="text-sm text-slate-300 leading-relaxed max-w-3xl">
-                  MLSchools12 is the most decorated franchise in BMFFFL history — four all-time championships
-                  spanning the ESPN era (2016, 2019) and Sleeper era (2021, 2024). Across the Sleeper era the Schoolcraft
+                  MLSchools12 is the most decorated franchise in BMFFFL history — three all-time championships
+                  spanning the ESPN era (2019) and Sleeper era (2021, 2024). Across the Sleeper era the Schoolcraft
                   Football Team has never posted a losing regular-season record, holds the all-time best career win
                   percentage at{' '}
                   <span className="text-white font-bold">.819 (68-15)</span>, and made the playoffs every single
                   year. The 2025 regular season record of{' '}
                   <span className="text-white font-bold">13-1</span> — the best single-season record in league
-                  history — set up a playoff run that fell just short of a fifth ring.
+                  history — set up a playoff run that fell just short of a fourth ring.
                 </p>
               </div>
             </div>
