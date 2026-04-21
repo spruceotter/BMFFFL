@@ -68,6 +68,42 @@ const SEASONS: SeasonSummary[] = [
     runnerUp:      'eldridsm',
     historyAnchor: 'season-2020',
   },
+  {
+    year: 2019,
+    champion:      'MLSchools12',
+    teamName:      'The Murder Boners',
+    record:        '12-1',
+    seed:          1,
+    runnerUp:      'rbr',
+    historyAnchor: 'season-2019',
+  },
+  {
+    year: 2018,
+    champion:      'SexMachineAndyD',
+    teamName:      'Stand Against Trade Rape',
+    record:        '9-4',
+    seed:          3,
+    runnerUp:      'MLSchools12',
+    historyAnchor: 'season-2018',
+  },
+  {
+    year: 2017,
+    champion:      'Cogdeill11',
+    teamName:      'Team Cogdeill',
+    record:        '7-6',
+    seed:          5,
+    runnerUp:      'eldridsm',
+    historyAnchor: 'season-2017',
+  },
+  {
+    year: 2016,
+    champion:      'MLSchools12',
+    teamName:      'The Murder Boners',
+    record:        '11-2',
+    seed:          1,
+    runnerUp:      'Grandes',
+    historyAnchor: 'season-2016',
+  },
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
