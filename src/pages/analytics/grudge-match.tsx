@@ -120,9 +120,9 @@ interface PlayoffMatchup {
 }
 
 const PLAYOFF_MATCHUPS: PlayoffMatchup[] = [
-  { year: 2020, round: 'Semifinals',    winner: 'eldridsm',      loser: 'mlschools12',    note: 'eldridsm eliminated the eventual runner-up' },
+  { year: 2020, round: 'Semifinals',    winner: 'eldridsm',      loser: 'mlschools12',    note: 'eldridsm eliminates the #1 seed MLSchools12 to reach the final' },
   { year: 2020, round: 'Championship',  winner: 'cogdeill11',    loser: 'eldridsm',       note: 'Cogdeill11 claims the inaugural championship' },
-  { year: 2021, round: 'Championship',  winner: 'mlschools12',   loser: 'rbr',            note: 'MLSchools12 wins the title 150-103' },
+  { year: 2021, round: 'Championship',  winner: 'mlschools12',   loser: 'sexmachineandy', note: 'MLSchools12 wins the title — MilwaukeeBrowns was runner-up' },
   { year: 2022, round: 'Semifinals',    winner: 'grandes',       loser: 'mlschools12',    note: 'Grandes wins by 2.80 pts — a near miss for MLSchools12' },
   { year: 2022, round: 'Championship',  winner: 'grandes',       loser: 'rbr',            note: 'Grandes claims back-to-back championship games' },
   { year: 2023, round: 'Semifinals',    winner: 'eldridm20',     loser: 'mlschools12',    note: 'MLSchools12 eliminated again in the semis' },

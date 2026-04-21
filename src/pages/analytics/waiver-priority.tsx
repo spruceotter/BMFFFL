@@ -213,7 +213,7 @@ export default function WaiverPriorityPage() {
     {
       label: 'Most Conservative Playoff Qualifier',
       value: '$29 total spent',
-      detail: 'rbr 2021 — reached the finals',
+      detail: 'rbr 2021 — reached the semifinals',
       icon: <Shield className="w-5 h-5 text-emerald-400" aria-hidden="true" />,
     },
   ];

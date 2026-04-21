@@ -85,7 +85,7 @@ const WAIVER_HISTORY: WaiverMove[] = [
     pos: 'WR', faabSpent: 1800,
     impactTier: 'Playoff Impact',
     contributed: true,
-    notes: 'Renfrow exploded as Derek Carr\'s security blanket, posting 7+ targets per game from week 6 onward. Valuable WR3/flex piece in rbr\'s run to the 2021 championship game.',
+    notes: 'Renfrow exploded as Derek Carr\'s security blanket, posting 7+ targets per game from week 6 onward. Valuable WR3/flex piece in rbr\'s 2021 playoff run (reached the semifinals).',
     approximate: true,
   },
   {

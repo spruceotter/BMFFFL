@@ -88,7 +88,7 @@ const ALL_TIME_RECORDS: AllTimeRecord[] = [
   {
     label: 'Least Spent, Made Playoffs',
     value: '$29 spent',
-    detail: 'rbr, 2021 — reached the finals',
+    detail: 'rbr, 2021 — reached the semifinals',
     color: 'blue',
   },
   {
