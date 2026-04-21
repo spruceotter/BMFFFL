@@ -28,16 +28,16 @@ const WINDOW_TEAMS: WindowTeam[] = [
     windowStart: 2024,
     windowEnd: 2027,
     note: 'Currently open — aging core means ~3 more peak years.',
-    championships: 2,
+    championships: 4,
   },
   {
     owner: 'SexMachineAndyD',
-    teamName: 'SexMachineAndyD',
+    teamName: 'MilwaukeeBrowns',
     status: 'OPEN',
     windowStart: 2025,
     windowEnd: 2028,
-    note: 'Open now — 3–4 years before core ages out.',
-    championships: 0,
+    note: 'Open now — 2018 ESPN champion. 3–4 years before core ages out.',
+    championships: 1,
   },
   {
     owner: 'JuicyBussy',
@@ -45,7 +45,7 @@ const WINDOW_TEAMS: WindowTeam[] = [
     status: 'OPEN',
     windowStart: 2025,
     windowEnd: 2029,
-    note: 'Open — Bijan Robinson anchors a 4-year window.',
+    note: 'Open — Joe Burrow and elite WR depth anchor a 4-year window.',
     championships: 1,
   },
   {
@@ -77,11 +77,11 @@ const WINDOW_TEAMS: WindowTeam[] = [
   },
   {
     owner: 'tdtd19844',
-    teamName: '14kids0wins / teammoodie',
+    teamName: 'THE Shameful Saggy sack',
     status: 'OPENING',
     windowStart: 2026,
     windowEnd: 2031,
-    note: 'Just won, young roster means long window ahead.',
+    note: '2025 champion. Young roster means a long window ahead.',
     championships: 1,
   },
   {
@@ -118,7 +118,7 @@ const WINDOW_TEAMS: WindowTeam[] = [
     windowStart: null,
     windowEnd: null,
     note: 'Rebuild needed — no active window.',
-    championships: 1,
+    championships: 2,
   },
   {
     owner: 'Escuelas',

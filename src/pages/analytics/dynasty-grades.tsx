@@ -86,18 +86,18 @@ function gpaColor(gpa: number): string {
 
 const REPORT_CARDS: ReportCard[] = [
   {
-    manager: 'mlschools12',
+    manager: 'MLSchools12',
     rosterConstruction: 'B+',
     tradeActivity: 'A',
     faabStrategy: 'B',
     lineupDecisions: 'A',
     dynastyVision: 'A',
     gpa: 3.7,
-    comment: 'Two rings. The process works.',
+    comment: 'Four-time champion all-time. Two Sleeper rings and still ascending.',
     championships: [2021, 2024],
   },
   {
-    manager: 'tubes94',
+    manager: 'Tubes94',
     rosterConstruction: 'A',
     tradeActivity: 'B+',
     faabStrategy: 'A-',
@@ -119,7 +119,7 @@ const REPORT_CARDS: ReportCard[] = [
     championships: [],
   },
   {
-    manager: 'juicybussy',
+    manager: 'JuicyBussy',
     rosterConstruction: 'B',
     tradeActivity: 'A+',
     faabStrategy: 'C',
@@ -130,18 +130,18 @@ const REPORT_CARDS: ReportCard[] = [
     championships: [2023],
   },
   {
-    manager: 'sexmachineandy',
+    manager: 'SexMachineAndyD',
     rosterConstruction: 'B+',
     tradeActivity: 'B',
     faabStrategy: 'B+',
     lineupDecisions: 'B',
     dynastyVision: 'B+',
     gpa: 3.3,
-    comment: 'Consistent. The playoff runs prove it.',
+    comment: '2018 ESPN champion. Consistent contender across both eras.',
     championships: [],
   },
   {
-    manager: 'cogdeill11',
+    manager: 'Cogdeill11',
     rosterConstruction: 'C',
     tradeActivity: 'D+',
     faabStrategy: 'C-',
@@ -152,7 +152,7 @@ const REPORT_CARDS: ReportCard[] = [
     championships: [2020],
   },
   {
-    manager: 'grandes',
+    manager: 'Grandes',
     rosterConstruction: 'B',
     tradeActivity: 'C',
     faabStrategy: 'C+',
@@ -196,7 +196,7 @@ const REPORT_CARDS: ReportCard[] = [
     championships: [],
   },
   {
-    manager: 'cmaleski',
+    manager: 'Cmaleski',
     rosterConstruction: 'B+',
     tradeActivity: 'B',
     faabStrategy: 'B',
@@ -207,7 +207,7 @@ const REPORT_CARDS: ReportCard[] = [
     championships: [],
   },
   {
-    manager: 'escuelas',
+    manager: 'Escuelas',
     rosterConstruction: 'D+',
     tradeActivity: 'C-',
     faabStrategy: 'D',

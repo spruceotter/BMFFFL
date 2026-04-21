@@ -72,9 +72,9 @@ const DPI_TEAMS: DpiTeam[] = [
     momentumScore: 80,
     draftCapitalScore: 72,
     ageUpsideScore: 78,
-    note: 'Four playoff appearances and a 2024 runner-up finish. Consistent elite contention without a ring — the perpetual threat.',
+    note: '2018 ESPN champion. Four playoff appearances across both platform eras — consistent elite contender who has proven they can win it all.',
     record: '50–33',
-    championships: 0,
+    championships: 1,
     playoffApps: 4,
   },
   {

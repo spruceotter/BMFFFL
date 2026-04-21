@@ -27,11 +27,11 @@ const OWNERS: OwnerData[] = [
   { owner: 'Tubes94',         seasons: { 2020: 130, 2021: 138, 2022: 145, 2023: 140, 2024: 148, 2025: 155 }, careerAvg: 142.7 },
   { owner: 'Cogdeill11',      seasons: { 2020: 152, 2021: 135, 2022: 130, 2023: 128, 2024: 125, 2025: 130 }, careerAvg: 133.3 },
   { owner: 'tdtd19844',       seasons: { 2020: 125, 2021: 130, 2022: 138, 2023: 142, 2024: 158, 2025: 172 }, careerAvg: 144.2 },
-  { owner: 'BigBoardSteve',   seasons: { 2020: 128, 2021: 142, 2022: 135, 2023: 138, 2024: 130, 2025: 125 }, careerAvg: 133.0 },
-  { owner: 'Rondell',         seasons: { 2020: 120, 2021: 125, 2022: 130, 2023: 128, 2024: 135, 2025: 140 }, careerAvg: 129.7 },
+  { owner: 'eldridm20',       seasons: { 2020: 128, 2021: 142, 2022: 135, 2023: 138, 2024: 130, 2025: 125 }, careerAvg: 133.0 },
+  { owner: 'eldridsm',        seasons: { 2020: 120, 2021: 125, 2022: 130, 2023: 128, 2024: 135, 2025: 140 }, careerAvg: 129.7 },
   { owner: 'Escuelas',        seasons: { 2020: 118, 2021: 122, 2022: 118, 2023: 125, 2024: 120, 2025: 118 }, careerAvg: 120.2 },
-  { owner: 'Voss',            seasons: { 2020: 130, 2021: 135, 2022: 125, 2023: 130, 2024: 128, 2025: 132 }, careerAvg: 130.0 },
-  { owner: 'RBR',             seasons: { 2020: 135, 2021: 128, 2022: 140, 2023: 135, 2024: 142, 2025: 145 }, careerAvg: 137.5 },
+  { owner: 'Cmaleski',        seasons: { 2020: 130, 2021: 135, 2022: 125, 2023: 130, 2024: 128, 2025: 132 }, careerAvg: 130.0 },
+  { owner: 'rbr',             seasons: { 2020: 135, 2021: 128, 2022: 140, 2023: 135, 2024: 142, 2025: 145 }, careerAvg: 137.5 },
 ];
 
 // Pre-compute league averages per season
