@@ -32,7 +32,7 @@ const RANKINGS: TeamRanking[] = [
     allTimeWinPct: 0.820,
     allTimeRecord: '68-15',
     recentRecord: '23-5',
-    championships: 2,
+    championships: 4,
     trend: 'stable',
     bimfleNote: 'The historical record remains unambiguous.',
   },

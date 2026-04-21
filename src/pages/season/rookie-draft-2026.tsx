@@ -24,18 +24,18 @@ interface PickInventoryRow {
 // ─── Draft Order ──────────────────────────────────────────────────────────────
 
 const DRAFT_ORDER: { owner: string; pick: string; isChamp?: boolean }[] = [
-  { owner: 'Cmaleski',        pick: '1.01' },
-  { owner: 'eldridsm',        pick: '1.02' },
-  { owner: 'Bimfle',          pick: '1.03' },
-  { owner: 'Grandes',         pick: '1.04' },
-  { owner: 'SexMachineAndyD', pick: '1.05' },
-  { owner: 'eldridm20',       pick: '1.06' },
-  { owner: 'tdtd19844',       pick: '1.07' },
-  { owner: 'JuicyBussy',      pick: '1.08' },
-  { owner: 'Cogdeill11',      pick: '1.09' },
+  { owner: 'Escuelas',        pick: '1.01' },
+  { owner: 'Cogdeill11',      pick: '1.02' },
+  { owner: 'Grandes',         pick: '1.03' },
+  { owner: 'eldridsm',        pick: '1.04' },
+  { owner: 'eldridm20',       pick: '1.05' },
+  { owner: 'rbr',             pick: '1.06' },
+  { owner: 'Cmaleski',        pick: '1.07' },
+  { owner: 'SexMachineAndyD', pick: '1.08' },
+  { owner: 'JuicyBussy',      pick: '1.09' },
   { owner: 'MLSchools12',     pick: '1.10' },
   { owner: 'Tubes94',         pick: '1.11' },
-  { owner: 'rbr',             pick: '1.12', isChamp: true },
+  { owner: 'tdtd19844',       pick: '1.12', isChamp: true },
 ];
 
 // ─── Top Prospects ────────────────────────────────────────────────────────────
@@ -88,18 +88,18 @@ const TOP_PROSPECTS: Prospect[] = [
 // ─── Pick Inventory ───────────────────────────────────────────────────────────
 
 const PICK_INVENTORY: PickInventoryRow[] = [
-  { owner: 'Cmaleski',        picks: ['1.01', '2.01', '3.01', '4.01'] },
-  { owner: 'eldridsm',        picks: ['1.02', '2.02', '3.02', '4.02'] },
-  { owner: 'Bimfle',          picks: ['1.03', '2.03', '3.03', '4.03'] },
-  { owner: 'Grandes',         picks: ['1.04', '2.04', '3.04', '4.04'] },
-  { owner: 'SexMachineAndyD', picks: ['1.05', '2.05', '3.05', '4.05'] },
-  { owner: 'eldridm20',       picks: ['1.06', '2.06', null,   '4.06'] },
-  { owner: 'tdtd19844',       picks: ['1.07', '2.07', '3.07', '4.07'] },
-  { owner: 'JuicyBussy',      picks: ['1.08', '2.08', '3.08', '4.08'] },
-  { owner: 'Cogdeill11',      picks: ['1.09', '2.09', '3.06†', '4.09'] },
+  { owner: 'Escuelas',        picks: ['1.01', '2.01', '3.01', '4.01'] },
+  { owner: 'Cogdeill11',      picks: ['1.02', '2.02', '3.02', '4.02'] },
+  { owner: 'Grandes',         picks: ['1.03', '2.03', '3.03', '4.03'] },
+  { owner: 'eldridsm',        picks: ['1.04', '2.04', '3.04', '4.04'] },
+  { owner: 'eldridm20',       picks: ['1.05', '2.05', '3.05', '4.05'] },
+  { owner: 'rbr',             picks: ['1.06', '2.06', '3.06', '4.06'] },
+  { owner: 'Cmaleski',        picks: ['1.07', '2.07', '3.07', '4.07'] },
+  { owner: 'SexMachineAndyD', picks: ['1.08', '2.08', '3.08', '4.08'] },
+  { owner: 'JuicyBussy',      picks: ['1.09', '2.09', '3.09', '4.09'] },
   { owner: 'MLSchools12',     picks: ['1.10', '2.10', '3.10', '4.10'] },
   { owner: 'Tubes94',         picks: ['1.11', '2.11', '3.11', '4.11'] },
-  { owner: 'rbr',             picks: ['1.12', '2.12', '3.12', '4.12'] },
+  { owner: 'tdtd19844',       picks: ['1.12', '2.12', '3.12', '4.12'] },
 ];
 
 // ─── Strategy Notes ───────────────────────────────────────────────────────────
@@ -232,7 +232,7 @@ export default function RookieDraft2026Page() {
                 <Trophy className="w-3.5 h-3.5 text-[#ffd700]" aria-hidden="true" />
                 <p className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Champion Picks</p>
               </div>
-              <p className="text-sm font-bold text-white">rbr picks last</p>
+              <p className="text-sm font-bold text-white">tdtd19844 picks last</p>
               <p className="text-xs text-slate-400 mt-0.5">2025 BMFFFL Champion</p>
             </div>
           </div>
@@ -345,7 +345,7 @@ export default function RookieDraft2026Page() {
                 </thead>
                 <tbody className="divide-y divide-[#1e3347]">
                   {PICK_INVENTORY.map((row, idx) => {
-                    const isChamp = row.owner === 'rbr';
+                    const isChamp = row.owner === 'tdtd19844';
                     return (
                       <tr
                         key={row.owner}

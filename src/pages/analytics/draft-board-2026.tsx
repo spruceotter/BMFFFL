@@ -29,18 +29,18 @@ interface DraftSlotEntry {
 }
 
 const DRAFT_ORDER: DraftSlotEntry[] = [
-  { pick: '1.01', owner: 'escuelas',       note: 'Worst regular-season record 2025' },
-  { pick: '1.02', owner: 'cogdeill11',     note: '2nd worst record 2025' },
-  { pick: '1.03', owner: 'grandes',        note: '3rd worst record 2025' },
-  { pick: '1.04', owner: 'eldridsm',       note: '4th worst record 2025' },
-  { pick: '1.05', owner: 'cmaleski',       note: '5th worst record 2025' },
-  { pick: '1.06', owner: 'eldridm20',      note: '6th — missed playoffs' },
-  { pick: '1.07', owner: 'tdtd19844',      note: '7th — missed playoffs' },
-  { pick: '1.08', owner: 'sexmachineandy', note: 'Playoff exit — 1st round' },
-  { pick: '1.09', owner: 'juicybussy',     note: 'Playoff exit — quarterfinal' },
-  { pick: '1.10', owner: 'rbr',            note: '3rd place — loser bracket champion' },
-  { pick: '1.11', owner: 'tubes94',        note: 'Runner-up 2025' },
-  { pick: '1.12', owner: 'mlschools12',    note: '2025 Champion — last pick' },
+  { pick: '1.01', owner: 'Escuelas',        note: 'Worst regular-season record 2025' },
+  { pick: '1.02', owner: 'Cogdeill11',      note: '2nd worst record 2025' },
+  { pick: '1.03', owner: 'Grandes',         note: '3rd worst record 2025' },
+  { pick: '1.04', owner: 'eldridsm',        note: '4th worst record 2025' },
+  { pick: '1.05', owner: 'eldridm20',       note: '5th — missed playoffs' },
+  { pick: '1.06', owner: 'rbr',             note: '6th — missed playoffs' },
+  { pick: '1.07', owner: 'Cmaleski',        note: 'Playoff exit — 1st round' },
+  { pick: '1.08', owner: 'SexMachineAndyD', note: 'Playoff exit — quarterfinal' },
+  { pick: '1.09', owner: 'JuicyBussy',      note: '3rd place finish 2025' },
+  { pick: '1.10', owner: 'MLSchools12',     note: 'Semifinal exit 2025' },
+  { pick: '1.11', owner: 'Tubes94',         note: 'Runner-up 2025' },
+  { pick: '1.12', owner: 'tdtd19844',       note: '2025 Champion — last pick' },
 ];
 
 // ─── Big Board Data ───────────────────────────────────────────────────────────

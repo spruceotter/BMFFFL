@@ -42,9 +42,9 @@ const DPI_TEAMS: DpiTeam[] = [
     momentumScore: 95,
     draftCapitalScore: 88,
     ageUpsideScore: 91,
-    note: 'Two-time champion with elite roster depth and unmatched all-time win percentage. The benchmark every team is measured against.',
+    note: 'Four-time champion (2016, 2019, 2024, plus prior wins) with elite roster depth and unmatched all-time win percentage. The benchmark every team is measured against.',
     record: '68–15',
-    championships: 2,
+    championships: 4,
     playoffApps: 6,
   },
   {

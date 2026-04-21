@@ -97,32 +97,32 @@ const NOTABLE_TRADES: NotableTrade[] = [
 
 const ROSTER_WATCH: RosterWatch[] = [
   {
-    owner: 'Cmaleski',
+    owner: 'Escuelas',
     tier: 'Rebuild',
     headline: 'Full Dynasty Rebuild',
-    detail: 'Holds 1.01 in 2026 rookie draft. Best asset collection of any rebuilding team — patient and well-positioned.',
-    picks: '1.01, 2.01, 3.01, 4.01',
+    detail: 'Holds 1.01 in 2026 rookie draft — first overall pick. Best asset collection of any rebuilding team.',
+    picks: '1.01, 3.01, 4.01',
   },
   {
-    owner: 'eldridsm',
+    owner: 'Cogdeill11',
     tier: 'Rebuild',
     headline: 'Youth Movement',
-    detail: 'Holds 1.02. Roster built around ascending young WRs. If landing spots cooperate, breakout contender by 2027.',
-    picks: '1.02, 2.02, 3.02, 4.02',
+    detail: 'Holds 1.02. Roster built around ascending young talent. Breakout contender by 2027 if picks hit.',
+    picks: '1.02, 2.02, 4.02',
   },
   {
     owner: 'Tubes94',
     tier: 'Rising',
     headline: 'Capital Loaded',
-    detail: 'Traded Tee Higgins for two 1sts. Now owns one of the deepest pick portfolios in the league heading into 2026 draft.',
-    picks: '1.11, 2.11, 2026 1st (via JuicyBussy), 2027 1st',
+    detail: 'Runner-up in 2025. Holds picks acquired through offseason deals. Deep portfolio heading into 2026 draft.',
+    picks: '1.11, 2.01, 2.11, 3.11, 4.11',
   },
   {
-    owner: 'rbr',
+    owner: 'tdtd19844',
     tier: 'Contender',
     headline: 'Defending Champion',
-    detail: 'Added Brock Bowers in a major offseason trade. Window is open now — roster built to win in 2026.',
-    picks: '1.12 (champ), 2.12',
+    detail: '2025 BMFFFL Champion. Picks last in the 2026 rookie draft (1.12). Window is open — championship roster intact.',
+    picks: '1.12 (champ), 2.12, 3.12, 4.12',
   },
   {
     owner: 'SexMachineAndyD',
@@ -149,7 +149,7 @@ const UPCOMING_EVENTS: UpcomingEvent[] = [
   {
     date: 'June 5, 2026 (est.)',
     label: '2026 BMFFFL Rookie Draft',
-    description: 'Linear format, 4 rounds, 48 picks. Cmaleski holds 1.01. Draft order finalized after owners meeting.',
+    description: 'Linear format, 4 rounds, 48 picks. Escuelas holds 1.01. tdtd19844 (2025 champ) picks last at 1.12.',
     href: '/season/rookie-draft-2026',
   },
   {
@@ -176,10 +176,10 @@ const DYNASTY_RANKINGS_PREVIEW: DynastyRankPreview[] = [
   },
   {
     rank: 3,
-    owner: 'rbr',
-    tag: 'Defending Champ',
-    keyPlayers: [{ name: 'Ja\'Marr Chase', pos: 'WR' }, { name: 'Brock Bowers', pos: 'TE' }],
-    trend: 'up',
+    owner: 'tdtd19844',
+    tag: '2025 Champion',
+    keyPlayers: [{ name: 'Ja\'Marr Chase', pos: 'WR' }, { name: 'Travis Kelce', pos: 'TE' }],
+    trend: 'flat',
   },
   {
     rank: 4,
@@ -304,6 +304,9 @@ export default function OffseasonHubPage() {
             href="/trades"
             linkLabel="All trades"
           />
+          <p className="text-xs text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2 mb-4">
+            ⚠️ Trade scenarios below are illustrative projections, not confirmed Sleeper transactions.
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {NOTABLE_TRADES.map((trade) => (
               <div

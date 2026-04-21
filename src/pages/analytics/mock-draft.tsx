@@ -17,20 +17,20 @@ interface DraftSlot {
 const ROUNDS = 4;
 const TEAMS = 12;
 
-// Round 1 order: reverse 2025 standings (last place picks first)
+// Round 1 order: reverse 2025 standings (last place picks first, champion picks last)
 const ROUND1_ORDER: { ownerName: string; ownerSlug: string }[] = [
-  { ownerName: 'Cmaleski',        ownerSlug: 'cmaleski'       }, // 1.01 — 12th place 2025
-  { ownerName: 'eldridsm',        ownerSlug: 'eldridsm'       }, // 1.02 — 11th place
-  { ownerName: 'Bimfle',          ownerSlug: 'bimfle'         }, // 1.03 — 10th place
-  { ownerName: 'Grandes',         ownerSlug: 'grandes'        }, // 1.04 — 9th place
-  { ownerName: 'SexMachineAndyD', ownerSlug: 'sexmachineandy' }, // 1.05 — 8th place, non-playoff
-  { ownerName: 'eldridm20',       ownerSlug: 'eldridm20'      }, // 1.06 — 7th place, non-playoff
-  { ownerName: 'tdtd19844',       ownerSlug: 'tdtd19844'      }, // 1.07 — 5th place 2025
-  { ownerName: 'JuicyBussy',      ownerSlug: 'juicybussy'     }, // 1.08 — 6th place 2025
-  { ownerName: 'Cogdeill11',      ownerSlug: 'cogdeill11'     }, // 1.09 — 4th place 2025
-  { ownerName: 'MLSchools12',     ownerSlug: 'mlschools12'    }, // 1.10 — runner-up 2025
-  { ownerName: 'Tubes94',         ownerSlug: 'tubes94'        }, // 1.11 — 3rd place 2025
-  { ownerName: 'rbr',             ownerSlug: 'rbr'            }, // 1.12 — 2025 champion
+  { ownerName: 'Escuelas',        ownerSlug: 'escuelas'       }, // 1.01 — worst record 2025
+  { ownerName: 'Cogdeill11',      ownerSlug: 'cogdeill11'     }, // 1.02 — 2nd worst 2025
+  { ownerName: 'Grandes',         ownerSlug: 'grandes'        }, // 1.03 — 3rd worst 2025
+  { ownerName: 'eldridsm',        ownerSlug: 'eldridsm'       }, // 1.04 — 4th worst 2025
+  { ownerName: 'eldridm20',       ownerSlug: 'eldridm20'      }, // 1.05 — missed playoffs
+  { ownerName: 'rbr',             ownerSlug: 'rbr'            }, // 1.06 — missed playoffs
+  { ownerName: 'Cmaleski',        ownerSlug: 'cmaleski'       }, // 1.07 — playoff exit R1
+  { ownerName: 'SexMachineAndyD', ownerSlug: 'sexmachineandy' }, // 1.08 — playoff exit QF
+  { ownerName: 'JuicyBussy',      ownerSlug: 'juicybussy'     }, // 1.09 — 3rd place 2025
+  { ownerName: 'MLSchools12',     ownerSlug: 'mlschools12'    }, // 1.10 — semifinal exit 2025
+  { ownerName: 'Tubes94',         ownerSlug: 'tubes94'        }, // 1.11 — runner-up 2025
+  { ownerName: 'tdtd19844',       ownerSlug: 'tdtd19844'      }, // 1.12 — 2025 champion
 ];
 
 // Build all 48 draft slots (snake draft: odd rounds go 1→12, even rounds go 12→1)

@@ -38,10 +38,10 @@ interface KeyDate {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const POWER_RANKINGS: PowerRankingEntry[] = [
-  { rank: 1,  emoji: '👑', owner: 'mlschools12',    note: 'Back-to-back window still open. Deepest roster in the league.' },
-  { rank: 2,  emoji: '🐋', owner: 'tubes94',         note: '2025 runner-up hungry for revenge. Loaded at WR.' },
-  { rank: 3,  emoji: '🔵', owner: 'rbr',             note: 'Quietly dominant. Best lineup IQ. Needs RB help.' },
-  { rank: 4,  emoji: '🔥', owner: 'tdtd19844',       note: 'The resurrection is complete. Standing pat and winning.' },
+  { rank: 1,  emoji: '👑', owner: 'mlschools12',    note: 'Four-time champion. All-time win pct .820. The most dominant franchise in BMFFFL history.' },
+  { rank: 2,  emoji: '🏆', owner: 'tdtd19844',       note: '2025 defending champion. Founding member who closed a decade-long arc by winning it all.' },
+  { rank: 3,  emoji: '🐋', owner: 'tubes94',         note: '2025 runner-up hungry for revenge. Loaded at WR.' },
+  { rank: 4,  emoji: '🔵', owner: 'rbr',             note: 'Quietly dominant. Best lineup IQ. Needs RB help.' },
   { rank: 5,  emoji: '⚡', owner: 'sexmachineandy',  note: 'Perennial contender. WR corps upgraded.' },
   { rank: 6,  emoji: '💥', owner: 'juicybussy',      note: 'RB-heavy and dangerous. Always the chaos factor.' },
   { rank: 7,  emoji: '🗡️', owner: 'eldridsm',        note: 'Giant slayer mode activated. Roster quietly solid.' },
@@ -53,7 +53,7 @@ const POWER_RANKINGS: PowerRankingEntry[] = [
 ];
 
 const OFFSEASON_QUESTIONS: OffseasonQuestion[] = [
-  { question: 'Can mlschools12 three-peat? Only 2 teams in history have done it.' },
+  { question: 'Can tdtd19844 defend the 2025 title? Repeat champions are rare in BMFFFL.' },
   { question: "Is tubes94's RB situation fixable before September?" },
   { question: "Will cogdeill11's rebuild finally produce a playoff team?" },
   { question: 'Which 2025 rookie breaks out in their sophomore year?' },
