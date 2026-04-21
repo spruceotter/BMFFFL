@@ -40,52 +40,55 @@ const SEED_BG: Record<number, string> = {
   6: 'bg-indigo-400/10 border-indigo-400/30',
 };
 
-// The 6 playoff participants, seeded
+// The 6 playoff participants, seeded by 2025 regular-season record
 const SEEDINGS: Record<number, Competitor> = {
-  1: { seed: 1, name: 'Tubes94',          record: '11-3' },
-  2: { seed: 2, name: 'MLSchools12',       record: '11-3' },
-  3: { seed: 3, name: 'JuicyBussy',        record: '9-5' },
-  4: { seed: 4, name: 'SexMachineAndyD',   record: '9-5' },
-  5: { seed: 5, name: 'tdtd19844',         record: '8-6' },
-  6: { seed: 6, name: 'Cmaleski',          record: '7-7' },
+  1: { seed: 1, name: 'MLSchools12',       record: '13-1' },
+  2: { seed: 2, name: 'Tubes94',           record: '10-4' },
+  3: { seed: 3, name: 'SexMachineAndyD',   record: '9-5' },
+  4: { seed: 4, name: 'tdtd19844',         record: '8-6' },
+  5: { seed: 5, name: 'JuicyBussy',        record: '7-7' },
+  6: { seed: 6, name: 'Cmaleski',          record: '6-8' },
 };
 
 // Actual matchup results — used as the "real" bracket
+// 2025 playoffs used reseeding after QFs (best vs worst remaining).
+// QF1 produces the team that will face seed 1 in SF1 (tdtd19844).
+// QF2 produces the team that will face seed 2 in SF2 (SexMachineAndyD).
 const ACTUAL_MATCHUPS: Matchup[] = [
   {
     id: 'qf1',
     week: 'Week 15',
-    home: { ...SEEDINGS[3], score: 178.40 },
-    away: { ...SEEDINGS[6], score: 143.20 },
-    actualWinner: 3,
+    home: { ...SEEDINGS[4], score: 144.62 },
+    away: { ...SEEDINGS[5], score: 119.30 },
+    actualWinner: 4,  // tdtd19844 wins
   },
   {
     id: 'qf2',
     week: 'Week 15',
-    home: { ...SEEDINGS[4], score: 152.30 },
-    away: { ...SEEDINGS[5], score: 168.50 },
-    actualWinner: 5,
+    home: { ...SEEDINGS[3], score: 128.44 },
+    away: { ...SEEDINGS[6], score: 101.18 },
+    actualWinner: 3,  // SexMachineAndyD wins
   },
   {
     id: 'sf1',
     week: 'Week 16',
-    home: { ...SEEDINGS[1], score: 181.20 },
-    away: { ...SEEDINGS[3], score: 164.80 }, // qf1 winner
-    actualWinner: 1,
+    home: { ...SEEDINGS[1], score: 131.88 },
+    away: { ...SEEDINGS[4], score: 156.72 }, // qf1 winner — UPSET
+    actualWinner: 4,  // tdtd19844 upsets MLSchools12
   },
   {
     id: 'sf2',
     week: 'Week 16',
-    home: { ...SEEDINGS[2], score: 158.60 },
-    away: { ...SEEDINGS[5], score: 171.40 }, // qf2 winner
-    actualWinner: 5,
+    home: { ...SEEDINGS[2], score: 148.20 },
+    away: { ...SEEDINGS[3], score: 122.54 }, // qf2 winner
+    actualWinner: 2,  // Tubes94 wins
   },
   {
     id: 'championship',
     week: 'Week 17',
-    home: { ...SEEDINGS[1], score: 165.80 },
-    away: { ...SEEDINGS[5], score: 174.20 }, // sf winners
-    actualWinner: 5,
+    home: { ...SEEDINGS[4], score: 162.48 }, // sf1 winner
+    away: { ...SEEDINGS[2], score: 139.14 }, // sf2 winner
+    actualWinner: 4,  // tdtd19844 wins championship
   },
 ];
 
