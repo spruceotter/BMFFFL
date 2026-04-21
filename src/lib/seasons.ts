@@ -13,10 +13,10 @@ export interface SeasonSummary {
 
 // Champion history validated 2026-04-14. ESPN era (2016-2019) confirmed by Commissioner. Sleeper era (2020-2025) verified from SQLite DB.
 export const SEASON_SUMMARIES: SeasonSummary[] = [
-  { year: 2016, champion: 'The Murder Boners',           championOwner: 'MLSchools12',     runnerUp: '', championshipScore: '' },
-  { year: 2017, champion: 'Alvin and the Chipmunks',     championOwner: 'Cogdeill11',      runnerUp: '', championshipScore: '' },
-  { year: 2018, champion: 'Stand Against Trade Rape',    championOwner: 'SexMachineAndyD', runnerUp: '', championshipScore: '' },
-  { year: 2019, champion: 'The Murder Boners',           championOwner: 'MLSchools12',     runnerUp: '', championshipScore: '' },
+  { year: 2016, champion: 'The Murder Boners',           championOwner: 'MLSchools12',     runnerUp: 'Grandes',          championshipScore: '155.98 - 136.56' },
+  { year: 2017, champion: 'Alvin and the Chipmunks',     championOwner: 'Cogdeill11',      runnerUp: 'eldridsm',         championshipScore: '109.32 - 89.54'  },
+  { year: 2018, champion: 'Stand Against Trade Rape',    championOwner: 'SexMachineAndyD', runnerUp: 'MLSchools12',      championshipScore: '138.66 - 106.80' },
+  { year: 2019, champion: 'The Murder Boners',           championOwner: 'MLSchools12',     runnerUp: 'rbr',              championshipScore: '197.98 - 164.24' },
   { year: 2020, champion: 'Alvin and the Chipmunks', championOwner: 'Cogdeill11',  runnerUp: 'eldridsm',        championshipScore: '203.10 - 198.34' },
   { year: 2021, champion: 'The Murder Boners',        championOwner: 'MLSchools12', runnerUp: 'SexMachineAndyD', championshipScore: '193.10 - 111.34' },
   { year: 2022, champion: 'El Rioux Grandes',         championOwner: 'Grandes',     runnerUp: 'rbr',             championshipScore: '137.82 - 115.08' },

@@ -71,9 +71,9 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Trophy,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', value: '68 wins', note: '6 seasons — has never had a losing record' },
-      { rank: 2, label: 'SexMachineAndyD', value: '50 wins', note: 'Consistent contender, elusive championship' },
-      { rank: 3, label: 'rbr', value: '44 wins', note: '2× runner-up (2021, 2022) — close but no rings' },
+      { rank: 1, label: 'MLSchools12', value: '114 wins', note: '10 seasons (2016–2025), ESPN + Sleeper era — has never had a losing record' },
+      { rank: 2, label: 'SexMachineAndyD', value: '78 wins', note: '10 seasons — 2018 champion, 2× runner-up, consistent contender all-time' },
+      { rank: 3, label: 'eldridsm', value: '75 wins', note: '10 seasons — 2× runner-up (2017, 2020); quietly one of the most durable franchises in league history' },
     ],
   },
   {
@@ -82,11 +82,11 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Star,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', value: '.819 (68-15)', note: 'Most dominant career record in BMFFFL history' },
-      { rank: 2, label: 'SexMachineAndyD', value: '.602 (50-33)', note: 'Well above .500 across full career' },
-      { rank: 3, label: 'JuicyBussy', value: '.554 (46-37)', note: '2023 champion — winning record every active season' },
+      { rank: 1, label: 'MLSchools12', value: '.844 (114-21)', note: 'Most dominant career record in BMFFFL history — 10 seasons, never a losing record' },
+      { rank: 2, label: 'SexMachineAndyD', value: '.578 (78-57)', note: '2018 champion — well above .500 across entire 10-season career' },
+      { rank: 3, label: 'eldridsm', value: '.556 (75-60)', note: 'All-time top-3 career win% — 10 seasons of consistent performance' },
     ],
-    footnote: 'Minimum 30 games played. Career totals through 2025 season.',
+    footnote: 'Minimum 30 games played. Career totals through 2025 season. Includes ESPN era (2016–2019) and Sleeper era (2020–2025) regular season.',
   },
   {
     id: 'most-championships',
@@ -94,9 +94,9 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Award,
     iconColor: 'text-[#ffd700]',
     entries: [
-      { rank: 1, label: 'MLSchools12', value: '4 rings', note: '2016, 2019, 2021, 2024 — most championship wins in league history across ESPN and Sleeper eras' },
-      { rank: 2, label: 'Cogdeill11', value: '2 rings', note: '2017 (ESPN era) & 2020 — two-time champion, most decorated non-MLSchools12 franchise' },
-      { rank: 3, label: '4-way tie', sublabel: 'SexMachineAndyD, Grandes, JuicyBussy, tdtd19844', value: '1 ring each', note: 'SexMachineAndyD (2018), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)' },
+      { rank: 1, label: 'MLSchools12', value: '4 rings', note: '2016, 2019, 2021, 2024 — most championship wins in league history across all 10 seasons' },
+      { rank: 2, label: 'Cogdeill11', value: '2 rings', note: '2017 (ESPN era) & 2020 — two-time champion; the steepest fall: 5 consecutive playoff misses after 2020' },
+      { rank: 3, label: '4-way tie', sublabel: 'SexMachineAndyD, Grandes, JuicyBussy, tdtd19844', value: '1 ring each', note: 'SexMachineAndyD (2018 ESPN), Grandes (2022), JuicyBussy (2023), tdtd19844 (2025)' },
     ],
     footnote: 'As of end of 2025 season. 10 championships awarded across 10 seasons (2016–2025). Includes ESPN era (2016–2019) and Sleeper era (2020–2025).',
   },
@@ -118,10 +118,10 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Shield,
     iconColor: 'text-slate-400',
     entries: [
-      { rank: 1, label: 'SexMachineAndyD', value: '2 runner-ups', note: '2021 & 2024 — lost to MLSchools12 both times; heartbreak on the biggest stage' },
-      { rank: 2, label: '4-way tie', sublabel: 'rbr, eldridsm, eldridm20, Tubes94', value: '1 each', note: 'rbr (2022), eldridsm (2020), eldridm20 (2023), Tubes94 (2025)' },
+      { rank: 1, label: '3-way tie', sublabel: 'eldridsm, SexMachineAndyD, rbr', value: '2 runner-ups each', note: 'eldridsm: 2017 (ESPN) & 2020 | SexMachineAndyD: 2021 & 2024 | rbr: 2019 (ESPN) & 2022 — all three have been bridesmaids twice' },
+      { rank: 2, label: '4-way tie', sublabel: 'MLSchools12, Grandes, eldridm20, Tubes94', value: '1 each', note: 'MLSchools12 (2018 ESPN), Grandes (2016 ESPN), eldridm20 (2023), Tubes94 (2025)' },
     ],
-    footnote: 'Runner-up = championship game appearance, no ring. Sleeper era (2020–2025). ESPN era runner-up data pending.',
+    footnote: 'Runner-up = championship game appearance, no ring. Full all-time record including ESPN era (2016–2019) and Sleeper era (2020–2025). ESPN era data from bmfffl-espn-combined.json. Updated 2026-04-21.',
   },
   {
     id: 'highest-points',

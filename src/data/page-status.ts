@@ -54,8 +54,8 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     path: '/history/standings',
     status: 'validated',
     label: 'All-Time Standings',
-    notes: 'Career records, championship lists — DB-verified',
-    validatedAt: '2026-04-14',
+    notes: 'Career records updated 2026-04-21: ESPN era W/L added to all-time totals; Cogdeill11 2017 championship added; SexMachineAndyD 2018 championship added; ESPN era runner-ups added (Grandes 2016, eldridsm 2017, MLSchools12 2018, rbr 2019). Fixed critical error: 2025 playoff results (tdtd19844 was CHAMPION not MLSchools12).',
+    validatedAt: '2026-04-21',
     category: 'History',
   },
   '/history/awards': {
@@ -210,10 +210,10 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/analytics/all-time-records': {
     path: '/analytics/all-time-records',
-    status: 'partial',
+    status: 'validated',
     label: 'All-Time Records',
-    notes: 'Championship counts and runner-up records corrected B678 (all-time scope, 10 seasons). Runner-up data Sleeper-era only; ESPN era pending.',
-    validatedAt: '2026-04-14',
+    notes: 'Full all-time records updated 2026-04-21 with ESPN era (2016-2019) runner-up data and career W/L. Runner-up section now shows 3-way tie (eldridsm/SexMachineAndyD/rbr at 2 each). Career wins/pct updated to include all 10 seasons.',
+    validatedAt: '2026-04-21',
     category: 'Analytics',
   },
   '/articles/commish-speaks': {
