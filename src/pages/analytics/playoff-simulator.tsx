@@ -41,54 +41,53 @@ const SEED_BG: Record<number, string> = {
 };
 
 // The 6 playoff participants, seeded by 2025 regular-season record
+// Source: Sleeper DB — 2025 league (1180109269263917056)
 const SEEDINGS: Record<number, Competitor> = {
-  1: { seed: 1, name: 'MLSchools12',       record: '13-1' },
-  2: { seed: 2, name: 'Tubes94',           record: '10-4' },
-  3: { seed: 3, name: 'SexMachineAndyD',   record: '9-5' },
-  4: { seed: 4, name: 'tdtd19844',         record: '8-6' },
-  5: { seed: 5, name: 'JuicyBussy',        record: '7-7' },
-  6: { seed: 6, name: 'Cmaleski',          record: '6-8' },
+  1: { seed: 1, name: 'MLSchools12',       record: '13-1' },  // #1 overall
+  2: { seed: 2, name: 'Tubes94',           record: '10-4' },  // #2 — bye
+  3: { seed: 3, name: 'SexMachineAndyD',   record: '9-5'  },  // #3
+  4: { seed: 4, name: 'tdtd19844',         record: '8-6'  },  // #4
+  5: { seed: 5, name: 'JuicyBussy',        record: '7-7'  },  // #5
+  6: { seed: 6, name: 'Cmaleski',          record: '6-8'  },  // #6 wildcard
 };
 
-// Actual matchup results — used as the "real" bracket
-// 2025 playoffs used reseeding after QFs (best vs worst remaining).
-// QF1 produces the team that will face seed 1 in SF1 (tdtd19844).
-// QF2 produces the team that will face seed 2 in SF2 (SexMachineAndyD).
+// Actual matchup results — verified against Sleeper DB scores
+// QF: #3 vs #6, #4 vs #5 | SF: #1 vs QF2-winner, #2 vs QF1-winner | Final: SF winners
 const ACTUAL_MATCHUPS: Matchup[] = [
   {
     id: 'qf1',
     week: 'Week 15',
-    home: { ...SEEDINGS[4], score: 144.62 },
-    away: { ...SEEDINGS[5], score: 119.30 },
-    actualWinner: 4,  // tdtd19844 wins
+    home: { ...SEEDINGS[3], score: 142.86 },  // SexMachineAndyD
+    away: { ...SEEDINGS[6], score: 173.40 },  // Cmaleski upset!
+    actualWinner: 6,
   },
   {
     id: 'qf2',
     week: 'Week 15',
-    home: { ...SEEDINGS[3], score: 128.44 },
-    away: { ...SEEDINGS[6], score: 101.18 },
-    actualWinner: 3,  // SexMachineAndyD wins
+    home: { ...SEEDINGS[4], score: 195.82 },  // tdtd19844
+    away: { ...SEEDINGS[5], score: 138.44 },  // JuicyBussy
+    actualWinner: 4,
   },
   {
     id: 'sf1',
     week: 'Week 16',
-    home: { ...SEEDINGS[1], score: 131.88 },
-    away: { ...SEEDINGS[4], score: 156.72 }, // qf1 winner — UPSET
-    actualWinner: 4,  // tdtd19844 upsets MLSchools12
+    home: { ...SEEDINGS[1], score: 120.16 },  // MLSchools12 (#1 bye)
+    away: { ...SEEDINGS[4], score: 137.70 },  // tdtd19844 upset!
+    actualWinner: 4,
   },
   {
     id: 'sf2',
     week: 'Week 16',
-    home: { ...SEEDINGS[2], score: 148.20 },
-    away: { ...SEEDINGS[3], score: 122.54 }, // qf2 winner
-    actualWinner: 2,  // Tubes94 wins
+    home: { ...SEEDINGS[2], score: 182.36 },  // Tubes94 (#2 bye)
+    away: { ...SEEDINGS[6], score: 146.60 },  // Cmaleski
+    actualWinner: 2,
   },
   {
     id: 'championship',
     week: 'Week 17',
-    home: { ...SEEDINGS[4], score: 162.48 }, // sf1 winner
-    away: { ...SEEDINGS[2], score: 139.14 }, // sf2 winner
-    actualWinner: 4,  // tdtd19844 wins championship
+    home: { ...SEEDINGS[2], score: 135.08 },  // Tubes94
+    away: { ...SEEDINGS[4], score: 152.92 },  // tdtd19844 — CHAMPION
+    actualWinner: 4,
   },
 ];
 
@@ -344,7 +343,7 @@ export default function PlayoffSimulatorPage() {
 
   const champColor = SEED_COLORS[champion.seed] ?? 'text-white';
   const champBg = SEED_BG[champion.seed] ?? 'bg-white/5 border-white/20';
-  const isActualChamp = champion.seed === 5; // tdtd19844
+  const isActualChamp = champion.seed === 4; // tdtd19844 (#4 seed)
 
   return (
     <>
@@ -625,10 +624,10 @@ export default function PlayoffSimulatorPage() {
             </div>
             <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: 'Final Seed',        value: '#5',       note: '8-6 regular season record' },
-                { label: 'Championship Score', value: '174.20',   note: 'vs Tubes94\'s 165.80' },
+                { label: 'Final Seed',        value: '#4',        note: '8-6 regular season record' },
+                { label: 'Championship Score', value: '152.92',   note: 'vs Tubes94\'s 135.08' },
                 { label: 'Playoff Run',        value: '3-0',      note: 'QF → SF → Championship' },
-                { label: 'Upset Margin',       value: '8.40 pts', note: 'Won by 8.40 in the final' },
+                { label: 'Upset Margin',       value: '17.84 pts', note: 'Won by 17.84 in the final' },
               ].map(stat => (
                 <div key={stat.label} className="bg-[#0d1b2a]/50 rounded-lg px-4 py-3 border border-[#ffd700]/15 text-center">
                   <div className="text-[10px] text-slate-600 uppercase tracking-wider font-semibold mb-1">{stat.label}</div>
@@ -639,7 +638,7 @@ export default function PlayoffSimulatorPage() {
             </div>
             <div className="px-5 pb-5 space-y-3">
               <p className="text-sm text-slate-300 leading-relaxed">
-                <span className="text-[#ffd700] font-bold">tdtd19844</span> became just the 2nd ever #5 seed to win the BMFFFL championship — and arguably the most improbable run in league history. After beating #4 <span className="text-blue-400 font-semibold">SexMachineAndyD</span> in the quarterfinals (168.50 vs 152.30), they upset #2 <span className="text-rose-400 font-semibold">MLSchools12</span> in the semifinals (171.40 vs 158.60) before topping #1 seed <span className="text-[#ffd700] font-semibold">Tubes94</span> in the championship.
+                <span className="text-[#ffd700] font-bold">tdtd19844</span> — the #4 seed — pulled off one of the most improbable championship runs in league history. After dominating #5 <span className="text-emerald-400 font-semibold">JuicyBussy</span> in the quarterfinals (195.82 vs 138.44), they upset #1 seed <span className="text-[#ffd700] font-semibold">MLSchools12</span> in the semifinals (137.70 vs 120.16) before topping #2 seed <span className="text-rose-400 font-semibold">Tubes94</span> in the championship (152.92 vs 135.08).
               </p>
 
               <div className="rounded-lg border border-[#2d4a66] bg-[#0d1b2a]/60 px-4 py-3">

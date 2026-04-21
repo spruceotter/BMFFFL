@@ -7,33 +7,33 @@ import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 
 // ─── Owner Roster ──────────────────────────────────────────────────────────────
 //
-// Verified career totals (source: task specification):
-//   MLSchools12:     68W-15L (.819) — 2 champs, 6 playoff apps
-//   SexMachineAndyD: 50W-33L (.602) — 0 champs, 4 playoff apps
-//   JuicyBussy:      46W-37L (.554) — 1 champ (2023), 5 playoff apps
+// Verified career totals (source: Sleeper DB, 2020-2025):
+//   MLSchools12:     68W-15L (.819) — 2 Sleeper-era champs (2021,2024), 6 playoff apps
+//   SexMachineAndyD: 50W-33L (.602) — 0 champs, 2 runner-ups (2021,2024), 4 playoff apps
+//   JuicyBussy:      46W-37L (.554) — 1 champ (2023), 4 playoff apps
 //   Grandes:         42W-41L (.506) — 1 champ (2022), 4 playoff apps
-//   rbr:             44W-39L (.530) — 0 champs, 2 runner-ups, 4 playoff apps
+//   rbr:             44W-39L (.530) — 0 champs, 1 runner-up (2022), 4 playoff apps
 //   eldridsm:        41W-42L (.494) — 0 champs, 1 runner-up (2020), 3 playoff apps
-//   Tubes94:         34W-36L (.486) — 0 champs, 1 runner-up (2025), joined 2021
+//   Tubes94:         34W-36L (.486) — 0 champs, 1 runner-up (2025), 2 playoff apps (2024,2025), joined 2021
 //   eldridm20:       39W-44L (.470) — 0 champs, 1 runner-up (2023), 2 playoff apps
 //   Cogdeill11:      38W-45L (.458) — 1 champ (2020), 2 playoff apps
 //   tdtd19844:       36W-47L (.434) — 1 champ (2025), 3 playoff apps
-//   Cmaleski:        36W-47L (.434) — 0 champs, 2 playoff apps
-//   Escuelas:        15W-41L (.268) — 0 champs, joined 2022
+//   Cmaleski:        36W-47L (.434) — 0 champs, 2 playoff apps (2023,2025)
+//   Escuelas:        20W-63L (.241) — 0 champs, 0 playoff apps, since 2020
 
 const OWNERS = [
   { id: 'mlschools12',    name: 'MLSchools12',     wins: 68, losses: 15, champs: 2, runnerUps: 0, playoffApps: 6, since: 2020 },
-  { id: 'sexmachineandy', name: 'SexMachineAndyD', wins: 50, losses: 33, champs: 0, runnerUps: 0, playoffApps: 4, since: 2020 },
-  { id: 'juicybussy',     name: 'JuicyBussy',      wins: 46, losses: 37, champs: 1, runnerUps: 0, playoffApps: 5, since: 2020 },
+  { id: 'sexmachineandy', name: 'SexMachineAndyD', wins: 50, losses: 33, champs: 0, runnerUps: 2, playoffApps: 4, since: 2020 },
+  { id: 'juicybussy',     name: 'JuicyBussy',      wins: 46, losses: 37, champs: 1, runnerUps: 0, playoffApps: 4, since: 2020 },
   { id: 'grandes',        name: 'Grandes',          wins: 42, losses: 41, champs: 1, runnerUps: 0, playoffApps: 4, since: 2020 },
-  { id: 'rbr',            name: 'rbr',              wins: 44, losses: 39, champs: 0, runnerUps: 2, playoffApps: 4, since: 2020 },
+  { id: 'rbr',            name: 'rbr',              wins: 44, losses: 39, champs: 0, runnerUps: 1, playoffApps: 4, since: 2020 },
   { id: 'eldridsm',       name: 'eldridsm',         wins: 41, losses: 42, champs: 0, runnerUps: 1, playoffApps: 3, since: 2020 },
-  { id: 'tubes94',        name: 'Tubes94',           wins: 34, losses: 36, champs: 0, runnerUps: 1, playoffApps: 1, since: 2021 },
+  { id: 'tubes94',        name: 'Tubes94',           wins: 34, losses: 36, champs: 0, runnerUps: 1, playoffApps: 2, since: 2021 },
   { id: 'eldridm20',      name: 'eldridm20',         wins: 39, losses: 44, champs: 0, runnerUps: 1, playoffApps: 2, since: 2020 },
   { id: 'cogdeill11',     name: 'Cogdeill11',        wins: 38, losses: 45, champs: 1, runnerUps: 0, playoffApps: 2, since: 2020 },
   { id: 'tdtd19844',      name: 'tdtd19844',         wins: 36, losses: 47, champs: 1, runnerUps: 0, playoffApps: 3, since: 2020 },
   { id: 'cmaleski',       name: 'Cmaleski',           wins: 36, losses: 47, champs: 0, runnerUps: 0, playoffApps: 2, since: 2020 },
-  { id: 'escuelas',       name: 'Escuelas',           wins: 15, losses: 41, champs: 0, runnerUps: 0, playoffApps: 0, since: 2022 },
+  { id: 'escuelas',       name: 'Escuelas',           wins: 20, losses: 63, champs: 0, runnerUps: 0, playoffApps: 0, since: 2020 },
 ] as const;
 
 type OwnerId = typeof OWNERS[number]['id'];
@@ -458,7 +458,7 @@ export default function H2HRecordsPage() {
                     )}
                   </div>
                 </div>
-                <p className="text-xs text-slate-500">In league since {selectedOwnerData.since} &bull; {selectedOwnerData.playoffApps} playoff appearance{selectedOwnerData.playoffApps !== 1 ? 's' : ''}</p>
+                <p className="text-xs text-slate-500">In league since {selectedOwnerData.since} &bull; {selectedOwnerData.playoffApps} playoff appearance{(selectedOwnerData.playoffApps as number) !== 1 ? 's' : ''}</p>
               </div>
             </div>
 

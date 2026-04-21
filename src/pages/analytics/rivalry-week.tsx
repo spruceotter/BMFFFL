@@ -55,11 +55,11 @@ const RIVALRIES: RivalryData[] = [
     h2hWinsB: 2,
     leader: 'A',
     playoffMeetings: [
-      { year: 2021, round: 'Championship', winner: 'MLSchools12', note: 'MLSchools12 wins it all 150–103 as rbr reaches the finals' },
+      { year: 2021, round: 'Semifinals', winner: 'MLSchools12', note: 'MLSchools12 beats rbr in the semis en route to the title' },
     ],
     iconicStat: 'rbr has the best lineup IQ in the league — and still can\'t crack MLSchools12 (10–2 all-time)',
     narrative:
-      "Consistent excellence versus dynasty dominance. rbr is widely regarded as the sharpest roster manager in the BMFFFL — optimal lineup decisions, aggressive waiver use, elite instincts. But against MLSchools12 it hasn't mattered. The 2021 Championship meeting only deepened the wound: rbr made the finals and still lost.",
+      "Consistent excellence versus dynasty dominance. rbr is widely regarded as the sharpest roster manager in the BMFFFL — optimal lineup decisions, aggressive waiver use, elite instincts. But against MLSchools12 it hasn't mattered. Their 2021 playoff meeting: MLSchools12 eliminated rbr in the semifinals on the way to the title.",
     hasPlayoffHistory: true,
   },
   {
@@ -120,7 +120,7 @@ const RIVALRIES: RivalryData[] = [
     playoffMeetings: [],
     iconicStat: 'Both are top-3 dynasty contenders entering 2026 — neither has won the title',
     narrative:
-      "The two next-gen challengers battling for the right to dethrone MLSchools12. SexMachineAndyD leads the series 6–4, but both fell short of the title in 2025. Tubes94 reached the Championship game; SexMachineAndyD was eliminated in the Semis. Their H2H will define who leads the next wave.",
+      "The two next-gen challengers battling for the right to dethrone MLSchools12. SexMachineAndyD leads the series 6–4, but both fell short of the title in 2025. Tubes94 reached the Championship game; SexMachineAndyD was eliminated in the Quarterfinals by Cmaleski. Their H2H will define who leads the next wave.",
     hasPlayoffHistory: false,
   },
   {
@@ -132,9 +132,9 @@ const RIVALRIES: RivalryData[] = [
     h2hWinsB: 5,
     leader: 'A',
     playoffMeetings: [],
-    iconicStat: 'rbr: two runner-up finishes. eldridm20: one. Neither can close.',
+    iconicStat: 'rbr: one runner-up finish (2022). eldridm20: one (2023). Neither can close.',
     narrative:
-      "Two managers defined by near-misses, facing each other. rbr has reached the championship game twice and lost both times. eldridm20 made it once and fell short. When they meet in the regular season it carries the weight of that shared grief — two title-caliber managers who have everything except the ring.",
+      "Two managers defined by near-misses, facing each other. rbr reached the 2022 championship game and lost to Grandes. eldridm20 reached the 2023 championship game and fell to JuicyBussy. When they meet in the regular season it carries the weight of that shared grief — two title-caliber managers who have everything except the ring.",
     hasPlayoffHistory: false,
   },
   {

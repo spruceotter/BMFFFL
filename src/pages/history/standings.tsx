@@ -40,86 +40,72 @@ type SortDir = 'asc' | 'desc';
 
 // ─── All-Time Data ────────────────────────────────────────────────────────────
 
-// All-time W/L updated 2026-04-21 to include ESPN era (2016-2019) + Sleeper era (2020-2025).
-// ESPN era regular season records sourced from bmfffl-espn-combined.json (retrieved 2026-04-15).
-// Sleeper era regular season records validated from SQLite DB.
 const ALL_TIME: AllTimeOwner[] = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     currentTeamName: 'Schoolcraft Football Team',
-    wins: 114,     // ESPN (46W: 11+12+11+12) + Sleeper (68W)
-    losses: 21,    // ESPN (6L: 2+1+2+1) + Sleeper (15L)
-    winPct: 0.844,
+    wins: 68,
+    losses: 15,
+    winPct: 0.820,
     championships: [2016, 2019, 2021, 2024],
-    runnerUps: [2018],                // Added ESPN 2018 runner-up
-    playoffAppearances: 10,           // 4 ESPN + 6 Sleeper
+    runnerUps: [],
+    playoffAppearances: 6,
   },
   {
     slug: 'sexmachineandy',
     displayName: 'SexMachineAndyD',
     currentTeamName: 'SexMachineAndyD',
-    wins: 78,      // ESPN (28W: 3+9+9+7) + Sleeper (50W)
-    losses: 57,    // ESPN (24L: 10+4+4+6) + Sleeper (33L)
-    winPct: 0.578,
-    championships: [2018],            // Added ESPN 2018 championship
+    wins: 50,
+    losses: 33,
+    winPct: 0.603,
+    championships: [],
     runnerUps: [2021, 2024],
-    playoffAppearances: 7,            // 3 ESPN + 4 Sleeper
-  },
-  {
-    slug: 'eldridsm',
-    displayName: 'eldridsm',
-    currentTeamName: '(no name 2025)',
-    wins: 75,      // ESPN (34W: 6+11+7+10) + Sleeper (41W)
-    losses: 60,    // ESPN (18L: 7+2+6+3) + Sleeper (42L)
-    winPct: 0.556,
-    championships: [],
-    runnerUps: [2017, 2020],          // Added ESPN 2017 runner-up
-    playoffAppearances: 7,            // 4 ESPN + 3 Sleeper
-  },
-  {
-    slug: 'rbr',
-    displayName: 'rbr',
-    currentTeamName: 'Really Big Rings',
-    wins: 73,      // ESPN (29W: 7+8+8+6) + Sleeper (44W)
-    losses: 62,    // ESPN (23L: 6+5+5+7) + Sleeper (39L)
-    winPct: 0.541,
-    championships: [],
-    runnerUps: [2019, 2022],          // Added ESPN 2019 runner-up
-    playoffAppearances: 8,            // 4 ESPN + 4 Sleeper
-  },
-  {
-    slug: 'grandes',
-    displayName: 'Grandes',
-    currentTeamName: 'El Rioux Grandes',
-    wins: 71,      // ESPN (29W: 8+6+7+8) + Sleeper (42W)
-    losses: 64,    // ESPN (23L: 5+7+6+5) + Sleeper (41L)
-    winPct: 0.526,
-    championships: [2022],
-    runnerUps: [2016],                // Added ESPN 2016 runner-up
-    playoffAppearances: 7,            // 3 ESPN + 3+ Sleeper
+    playoffAppearances: 4,
   },
   {
     slug: 'juicybussy',
     displayName: 'JuicyBussy',
     currentTeamName: 'Juicy Bussy',
-    wins: 67,      // ESPN (21W: 9+4+2+6) + Sleeper (46W)
-    losses: 68,    // ESPN (31L: 4+9+11+7) + Sleeper (37L)
-    winPct: 0.496,
+    wins: 46,
+    losses: 37,
+    winPct: 0.554,
     championships: [2023],
     runnerUps: [],
-    playoffAppearances: 8,            // 3 ESPN + 5 Sleeper
+    playoffAppearances: 5,
   },
   {
-    slug: 'cogdeill11',
-    displayName: 'Cogdeill11',
-    currentTeamName: 'Cogdeill11',
-    wins: 67,      // ESPN (29W: 5+7+9+8) + Sleeper (38W)
-    losses: 68,    // ESPN (23L: 8+6+4+5) + Sleeper (45L)
-    winPct: 0.496,
-    championships: [2017, 2020],      // Added ESPN 2017 championship
+    slug: 'rbr',
+    displayName: 'rbr',
+    currentTeamName: 'Really Big Rings',
+    wins: 44,
+    losses: 39,
+    winPct: 0.530,
+    championships: [],
+    runnerUps: [2022],
+    playoffAppearances: 4,
+  },
+  {
+    slug: 'grandes',
+    displayName: 'Grandes',
+    currentTeamName: 'El Rioux Grandes',
+    wins: 42,
+    losses: 41,
+    winPct: 0.506,
+    championships: [2022],
     runnerUps: [],
-    playoffAppearances: 5,            // 3 ESPN + 2 Sleeper
+    playoffAppearances: 3,
+  },
+  {
+    slug: 'eldridsm',
+    displayName: 'eldridsm',
+    currentTeamName: '(no name 2025)',
+    wins: 41,
+    losses: 42,
+    winPct: 0.494,
+    championships: [],
+    runnerUps: [2020],
+    playoffAppearances: 3,
   },
   {
     slug: 'tubes94',
@@ -134,6 +120,39 @@ const ALL_TIME: AllTimeOwner[] = [
     joinedYear: 2021,
   },
   {
+    slug: 'eldridm20',
+    displayName: 'eldridm20',
+    currentTeamName: 'Franks Little Beauties',
+    wins: 39,
+    losses: 44,
+    winPct: 0.470,
+    championships: [],
+    runnerUps: [2023],
+    playoffAppearances: 3,
+  },
+  {
+    slug: 'cogdeill11',
+    displayName: 'Cogdeill11',
+    currentTeamName: 'Cogdeill11',
+    wins: 38,
+    losses: 45,
+    winPct: 0.458,
+    championships: [2020],
+    runnerUps: [],
+    playoffAppearances: 2,
+  },
+  {
+    slug: 'cmaleski',
+    displayName: 'Cmaleski',
+    currentTeamName: 'Showtyme Boyz',
+    wins: 36,
+    losses: 47,
+    winPct: 0.434,
+    championships: [],
+    runnerUps: [],
+    playoffAppearances: 2,
+  },
+  {
     slug: 'tdtd19844',
     displayName: 'tdtd19844',
     currentTeamName: 'THE Shameful Saggy sack',
@@ -143,29 +162,6 @@ const ALL_TIME: AllTimeOwner[] = [
     championships: [2025],
     runnerUps: [],
     playoffAppearances: 3,
-    joinedYear: 2020,
-  },
-  {
-    slug: 'eldridm20',
-    displayName: 'eldridm20',
-    currentTeamName: 'Franks Little Beauties',
-    wins: 57,      // ESPN (18W: 3+2+6+7) + Sleeper (39W)
-    losses: 78,    // ESPN (34L: 10+11+7+6) + Sleeper (44L)
-    winPct: 0.422,
-    championships: [],
-    runnerUps: [2023],
-    playoffAppearances: 6,            // 3 ESPN + 3 Sleeper
-  },
-  {
-    slug: 'cmaleski',
-    displayName: 'Cmaleski',
-    currentTeamName: 'Showtyme Boyz',
-    wins: 55,      // ESPN (19W: 8+7+2+2) + Sleeper (36W)
-    losses: 80,    // ESPN (33L: 5+6+11+11) + Sleeper (47L)
-    winPct: 0.407,
-    championships: [],
-    runnerUps: [],
-    playoffAppearances: 4,            // 2 ESPN + 2 Sleeper
   },
   {
     slug: 'escuelas',
@@ -198,10 +194,10 @@ const SEASON_STANDINGS: Record<number, SeasonEntry[]> = {
   ],
   2021: [
     { rank: 1,  ownerSlug: 'mlschools12',   displayName: 'MLSchools12',     teamName: 'The Murder Boners',    record: '11-3', wins: 11, losses: 3,  pointsFor: 2327.06, playoffResult: 'CHAMPION',        seed: 1    },
-    { rank: 2,  ownerSlug: 'sexmachineandy',displayName: 'SexMachineAndyD', teamName: 'SexMachineAndyD',      record: '10-4', wins: 10, losses: 4,  pointsFor: 2050.50, playoffResult: 'Lost semis',      seed: 2    },
-    { rank: 3,  ownerSlug: 'grandes',       displayName: 'Grandes',         teamName: 'El Rioux Grandes',     record: '10-4', wins: 10, losses: 4,  pointsFor: 1974.92, playoffResult: 'Lost round 1',    seed: 3    },
+    { rank: 2,  ownerSlug: 'sexmachineandy',displayName: 'SexMachineAndyD', teamName: 'SexMachineAndyD',      record: '10-4', wins: 10, losses: 4,  pointsFor: 2050.50, playoffResult: 'Runner-up',        seed: 2    },
+    { rank: 3,  ownerSlug: 'grandes',       displayName: 'Grandes',         teamName: 'El Rioux Grandes',     record: '10-4', wins: 10, losses: 4,  pointsFor: 1974.92, playoffResult: '3rd place',        seed: 3    },
     { rank: 4,  ownerSlug: 'cogdeill11',    displayName: 'Cogdeill11',      teamName: 'Cogdeill11',           record: '9-5',  wins: 9,  losses: 5,  pointsFor: 2008.02, playoffResult: 'Lost round 1',    seed: 4    },
-    { rank: 5,  ownerSlug: 'rbr',           displayName: 'rbr',             teamName: 'Really Big Rings',     record: '9-5',  wins: 9,  losses: 5,  pointsFor: 1980.00, playoffResult: 'Runner-up',        seed: 5    },
+    { rank: 5,  ownerSlug: 'rbr',           displayName: 'rbr',             teamName: 'Really Big Rings',     record: '9-5',  wins: 9,  losses: 5,  pointsFor: 1980.00, playoffResult: 'Lost semis',       seed: 5    },
     { rank: 6,  ownerSlug: 'juicybussy',    displayName: 'JuicyBussy',      teamName: 'Juicy Bussy',          record: '8-6',  wins: 8,  losses: 6,  pointsFor: 1926.12, playoffResult: 'Lost round 1',    seed: 6    },
     { rank: 7,  ownerSlug: 'eldridm20',     displayName: 'eldridm20',       teamName: 'Franks Little Beauties',record: '8-6', wins: 8,  losses: 6,  pointsFor: 1881.10, playoffResult: 'Consolation',     seed: null },
     { rank: 8,  ownerSlug: 'eldridsm',      displayName: 'eldridsm',        teamName: 'eldridsm',             record: '7-7',  wins: 7,  losses: 7,  pointsFor: 1848.60, playoffResult: 'Missed playoffs', seed: null },
@@ -252,10 +248,10 @@ const SEASON_STANDINGS: Record<number, SeasonEntry[]> = {
     { rank: 12, ownerSlug: 'escuelas',      displayName: 'Escuelas',        teamName: 'The Young Guns + backups', record: '3-11', wins: 3, losses: 11, pointsFor: 1312.36, playoffResult: 'Missed playoffs', seed: null },
   ],
   2025: [
-    { rank: 1,  ownerSlug: 'mlschools12',   displayName: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '13-1', wins: 13, losses: 1, pointsFor: 2161.42, playoffResult: '3rd place',        seed: 1    },
+    { rank: 1,  ownerSlug: 'mlschools12',   displayName: 'MLSchools12',     teamName: 'Schoolcraft Football Team', record: '13-1', wins: 13, losses: 1, pointsFor: 2161.42, playoffResult: '3rd place',       seed: 1    },
     { rank: 2,  ownerSlug: 'tubes94',       displayName: 'Tubes94',         teamName: 'Whale Tails',          record: '10-4', wins: 10, losses: 4,  pointsFor: 1934.66, playoffResult: 'Runner-up',        seed: 2    },
     { rank: 3,  ownerSlug: 'sexmachineandy',displayName: 'SexMachineAndyD', teamName: 'SexMachineAndyD',      record: '9-5',  wins: 9,  losses: 5,  pointsFor: 1996.48, playoffResult: 'Lost wild card',   seed: 3    },
-    { rank: 4,  ownerSlug: 'tdtd19844',     displayName: 'tdtd19844',       teamName: 'THE Shameful Saggy sack', record: '8-6', wins: 8, losses: 6, pointsFor: 1934.24, playoffResult: 'CHAMPION',         seed: 4    },
+    { rank: 4,  ownerSlug: 'tdtd19844',     displayName: 'tdtd19844',       teamName: 'THE Shameful Saggy sack', record: '8-6', wins: 8, losses: 6, pointsFor: 1934.24, playoffResult: 'CHAMPION',        seed: 4    },
     { rank: 5,  ownerSlug: 'juicybussy',    displayName: 'JuicyBussy',      teamName: 'Juicy Bussy',          record: '7-7',  wins: 7,  losses: 7,  pointsFor: 1845.16, playoffResult: 'Lost wild card',   seed: 5    },
     { rank: 6,  ownerSlug: 'cmaleski',      displayName: 'Cmaleski',        teamName: 'Showtyme Boyz',        record: '6-8',  wins: 6,  losses: 8,  pointsFor: 1990.08, playoffResult: 'Lost semis',       seed: 6    },
     { rank: 7,  ownerSlug: 'eldridm20',     displayName: 'eldridm20',       teamName: 'Franks Little Beauties',record: '6-8', wins: 6,  losses: 8,  pointsFor: 1804.50, playoffResult: 'Missed playoffs',  seed: null },
