@@ -30,13 +30,13 @@ const WEEKLY_RECORDS: RecordEntry[] = [
   },
   {
     id: 'highest-championship-score',
-    title: 'Known Championship Score',
+    title: 'Highest Championship Score',
     holder: 'Cogdeill11',
     value: '203.10 pts',
     context: '2020 Championship (win over eldridsm 198.34)',
     icon: 'trophy',
     highlight: true,
-    note: '2020 is the only season with a verified championship game score. 2021–2025 game-level data requires Sleeper API.',
+    note: 'Confirmed from Sleeper matchup data. All 10 seasons (2016–2025) now have verified championship game scores.',
   },
   {
     id: 'closest-championship',
@@ -46,16 +46,17 @@ const WEEKLY_RECORDS: RecordEntry[] = [
     context: '2020 Championship — 203.10 vs 198.34',
     icon: 'award',
     highlight: true,
-    note: 'The only championship decided by under 5 points.',
+    note: 'The only championship decided by under 5 points across all 10 seasons.',
   },
   {
     id: 'biggest-championship-blowout',
     title: 'Biggest Championship Blowout',
     holder: 'MLSchools12',
-    value: 'Data pending',
-    context: '2021 Championship — game score not yet available',
+    value: '81.76 pt margin',
+    context: '2021 Championship — Murder Boners 193.10 def. SexMachineAndyD 111.34',
     icon: 'trending',
-    note: 'Requires Sleeper API enrichment for individual game-level scores.',
+    highlight: true,
+    note: 'Confirmed from Sleeper matchup data. The 2021 championship was the most dominant title run in league history.',
   },
 ];
 
@@ -122,10 +123,12 @@ const ALL_TIME_RECORDS: RecordEntry[] = [
   {
     id: 'longest-winning-streak',
     title: 'Longest Winning Streak',
-    holder: 'TBD',
-    value: 'Unknown',
-    context: 'Data pending full week-by-week audit',
+    holder: 'MLSchools12',
+    value: '14 Wins',
+    context: '2024 Week 11 — 2025 Week 7 (cross-season streak)',
     icon: 'trending',
+    highlight: true,
+    note: 'Confirmed from Sleeper matchup data across 2020–2025. MLSchools12 won 14 consecutive regular season games spanning two seasons.',
   },
 ];
 

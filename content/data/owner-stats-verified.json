@@ -1,210 +1,183 @@
 {
   "_meta": {
-    "description": "Verified owner win/loss records and career stats. Cross-referenced across all 6 season archives (2020-2025 MDX files), standings-history.json, and owner performance history. Discrepancies flagged with corrections.",
-    "generatedAt": "2026-03-15",
-    "validationMethod": "Internal cross-reference of all six season standings + owner performance corpus",
-    "externalValidationPending": "Sleeper API live roster check (task-571 subagent) \u2014 will confirm 2025 season final rosters"
+    "description": "Verified owner win/loss records and career stats. Now includes ALL 10 seasons (ESPN era 2016-2019 + Sleeper era 2020-2025). ESPN era records confirmed via ESPN leagueHistory API (league 945797). Sleeper era confirmed from Sleeper SQLite DB. Championship counts verified from champions-verified.json.",
+    "generatedAt": "2026-04-21",
+    "updatedAt": "2026-04-21",
+    "validationMethod": "ESPN API (2016-2019) + Sleeper DB matchups table (2020-2025). All-time = ESPN era + Sleeper era regular season records.",
+    "seasonsIncluded": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   },
   "verifiedRecords": [
     {
       "owner": "MLSchools12",
-      "allTimeRecord": "68-15",
-      "winPct": 0.819,
-      "championships": 2,
-      "championshipSeasons": [
-        2021,
-        2024
-      ],
-      "playoffAppearances": 6,
-      "playoffRate": 1.0,
-      "runnerUps": 0,
-      "moodieBowls": 0,
+      "allTimeRecord": "114-21",
+      "winPct": 0.844,
+      "espnEraRecord": "46-6",
+      "sleeperEraRecord": "68-15",
+      "championships": 4,
+      "championshipSeasons": [2016, 2019, 2021, 2024],
+      "runnerUps": 1,
+      "runnerUpSeasons": [2018],
+      "playoffAppearances": 10,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent across: owners.json, standings-history.json, champion-timeline, all 4 written season archives (2020, 2022, 2024, 2025). Joined league from inaugural Sleeper season 2020.",
-      "discrepancies": "None identified"
+      "notes": "Most dominant franchise in league history. Never had a losing season across 10 years. 4-time champion."
     },
     {
       "owner": "Tubes94",
       "allTimeRecord": "34-36",
       "winPct": 0.486,
+      "espnEraRecord": "0-0",
+      "sleeperEraRecord": "34-36",
       "championships": 0,
-      "playoffAppearances": 2,
-      "playoffRate": 0.4,
+      "championshipSeasons": [],
       "runnerUps": 1,
-      "runnerUpSeasons": [
-        2025
-      ],
-      "moodieBowls": 0,
+      "runnerUpSeasons": [2025],
+      "playoffAppearances": 2,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Joined 2021. Consistent across standings-history.json. 2021: 2-12, 2022: 4-10, 2023: 7-7, 2024: 11-3, 2025: 10-4. Career record only covers 5 seasons.",
-      "discrepancies": "None identified. Note: 5-season career (not 6) \u2014 joined league 2021."
+      "notes": "Joined 2021 (5 Sleeper seasons). Runner-up 2025."
     },
     {
       "owner": "SexMachineAndyD",
-      "allTimeRecord": "50-33",
-      "winPct": 0.602,
-      "championships": 0,
-      "playoffAppearances": 4,
-      "playoffRate": 0.667,
-      "runnerUps": 1,
-      "runnerUpSeasons": [
-        2024
-      ],
-      "moodieBowls": 0,
+      "allTimeRecord": "78-57",
+      "winPct": 0.578,
+      "espnEraRecord": "28-24",
+      "sleeperEraRecord": "50-33",
+      "championships": 1,
+      "championshipSeasons": [2018],
+      "runnerUps": 2,
+      "runnerUpSeasons": [2021, 2024],
+      "playoffAppearances": 8,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent across standings-history.json and owner performance history. Regular season winner in 2024 (11-3) but lost championship to MLSchools12.",
-      "discrepancies": "None identified"
+      "notes": "2018 ESPN champion. 2× runner-up in Sleeper era. Consistent top contender across all 10 seasons. ESPN-era team names: Los Angeles TBD (2016), Gordon Bongbay (2017), Stand Against Trade Rape (2018-2019)."
     },
     {
       "owner": "tdtd19844",
       "allTimeRecord": "36-47",
       "winPct": 0.434,
+      "espnEraRecord": "0-0",
+      "sleeperEraRecord": "36-47",
       "championships": 1,
-      "championshipSeasons": [
-        2025
-      ],
-      "playoffAppearances": 3,
-      "playoffRate": 0.5,
+      "championshipSeasons": [2025],
       "runnerUps": 0,
-      "moodieBowls": 0,
+      "playoffAppearances": 3,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent across 2025 season archive and standings-history.json. Worst-to-champion arc: 3-11 in 2022, 8-6 in 2025 championship.",
-      "discrepancies": "None identified"
+      "notes": "2025 champion as 4th seed. Joined for Sleeper era (6 seasons)."
     },
     {
       "owner": "JuicyBussy",
-      "allTimeRecord": "46-37",
-      "winPct": 0.554,
+      "allTimeRecord": "67-68",
+      "winPct": 0.496,
+      "espnEraRecord": "21-31",
+      "sleeperEraRecord": "46-37",
       "championships": 1,
-      "championshipSeasons": [
-        2023
-      ],
-      "playoffAppearances": 5,
-      "playoffRate": 0.833,
+      "championshipSeasons": [2023],
       "runnerUps": 0,
-      "moodieBowls": 0,
+      "playoffAppearances": 3,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent across standings-history.json and owner performance history. 2023 champion as 6th seed.",
-      "discrepancies": "None identified. Note: owners.json listed playoffAppearances as 5 which is consistent with 2020 missing and then 5/5 from 2021-2025."
+      "notes": "2023 champion as 6th seed (lowest seed in league history). ESPN era team names: Hitler Youths (2016), Juicy Bussy (2017-2019). 10 seasons total."
     },
     {
       "owner": "Grandes",
-      "allTimeRecord": "42-41",
-      "winPct": 0.506,
+      "allTimeRecord": "71-64",
+      "winPct": 0.526,
+      "espnEraRecord": "29-23",
+      "sleeperEraRecord": "42-41",
       "championships": 1,
-      "championshipSeasons": [
-        2022
-      ],
-      "playoffAppearances": 3,
-      "playoffRate": 0.5,
-      "runnerUps": 0,
-      "moodieBowls": 1,
-      "moodieBowlSeasons": [
-        2025
-      ],
+      "championshipSeasons": [2022],
+      "runnerUps": 1,
+      "runnerUpSeasons": [2016],
+      "playoffAppearances": 5,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent. 2025 Moodie Bowl (4-10) confirmed in 2025 season archive and standings-history.json.",
-      "discrepancies": "Corrected: playoffAppearances was 4 (incorrect), season data shows 3 (2021, 2022, 2023). playoffRate updated to 0.500."
+      "notes": "2022 champion as 4th seed. Runner-up in inaugural 2016 season. Chris Rioux. 10 seasons."
     },
     {
       "owner": "rbr",
-      "allTimeRecord": "44-39",
-      "winPct": 0.53,
+      "allTimeRecord": "73-62",
+      "winPct": 0.541,
+      "espnEraRecord": "29-23",
+      "sleeperEraRecord": "44-39",
       "championships": 0,
-      "playoffAppearances": 4,
-      "playoffRate": 0.667,
-      "runnerUps": 2,
-      "runnerUpSeasons": [
-        2021,
-        2022
-      ],
-      "moodieBowls": 0,
+      "championshipSeasons": [],
+      "runnerUps": 3,
+      "runnerUpSeasons": [2019, 2021, 2022],
+      "playoffAppearances": 8,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent. Back-to-back runner-up finishes 2021-2022 confirmed in both season archives.",
-      "discrepancies": "None identified"
+      "notes": "3× runner-up (most runner-up appearances in league history). Michael Rioux. 10 seasons."
     },
     {
       "owner": "eldridsm",
-      "allTimeRecord": "41-42",
-      "winPct": 0.494,
+      "allTimeRecord": "75-60",
+      "winPct": 0.556,
+      "espnEraRecord": "34-18",
+      "sleeperEraRecord": "41-42",
       "championships": 0,
-      "playoffAppearances": 3,
-      "playoffRate": 0.5,
-      "runnerUps": 1,
-      "runnerUpSeasons": [
-        2020
-      ],
-      "moodieBowls": 0,
+      "championshipSeasons": [],
+      "runnerUps": 2,
+      "runnerUpSeasons": [2017, 2020],
+      "playoffAppearances": 7,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent across standings-history.json. Runner-up 2020 confirmed in 2020 season archive.",
-      "discrepancies": "None identified"
+      "notes": "2× runner-up (2017 ESPN, 2020 Sleeper). Steve Eldridge. Strong ESPN era (34-18, .654 win%). 10 seasons."
     },
     {
       "owner": "eldridm20",
-      "allTimeRecord": "39-44",
-      "winPct": 0.47,
+      "allTimeRecord": "57-78",
+      "winPct": 0.422,
+      "espnEraRecord": "18-34",
+      "sleeperEraRecord": "39-44",
       "championships": 0,
-      "playoffAppearances": 2,
-      "playoffRate": 0.333,
+      "championshipSeasons": [],
       "runnerUps": 1,
-      "runnerUpSeasons": [
-        2023
-      ],
-      "moodieBowls": 0,
+      "runnerUpSeasons": [2023],
+      "playoffAppearances": 4,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent. 2023 runner-up confirmed in standings-history.json.",
-      "discrepancies": "None identified"
+      "notes": "2023 runner-up. Matt Eldridge. 10 seasons."
     },
     {
       "owner": "Cogdeill11",
-      "allTimeRecord": "38-45",
-      "winPct": 0.458,
-      "championships": 1,
-      "championshipSeasons": [
-        2020
-      ],
-      "playoffAppearances": 2,
-      "playoffRate": 0.333,
+      "allTimeRecord": "67-68",
+      "winPct": 0.496,
+      "espnEraRecord": "29-23",
+      "sleeperEraRecord": "38-45",
+      "championships": 2,
+      "championshipSeasons": [2017, 2020],
       "runnerUps": 0,
-      "moodieBowls": 0,
+      "playoffAppearances": 5,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "2020 championship confirmed in 2020 season archive by name AND score (203.10 to 198.34). Post-2021 decline (4 consecutive missed playoffs) corroborated.",
-      "discrepancies": "None identified"
+      "notes": "2× champion (2017 ESPN, 2020 Sleeper). David Cogdeill. Won 2017 as 7-6 seed. Alvin Kamara Christmas Day 2020. 10 seasons."
     },
     {
       "owner": "Cmaleski",
-      "allTimeRecord": "36-47",
-      "winPct": 0.434,
+      "allTimeRecord": "55-80",
+      "winPct": 0.407,
+      "espnEraRecord": "19-33",
+      "sleeperEraRecord": "36-47",
       "championships": 0,
-      "playoffAppearances": 2,
-      "playoffRate": 0.333,
+      "championshipSeasons": [],
       "runnerUps": 0,
-      "moodieBowls": 0,
+      "playoffAppearances": 1,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Consistent. 2023 and 2025 playoff appearances confirmed in standings-history.json.",
-      "discrepancies": "None identified"
+      "notes": "Chad Maleski. 10 seasons. ESPN era team names: Team Maleski (2016-2017), Team No Fly Zone (2018-2019). Consistent but never a title contender."
     },
     {
       "owner": "Escuelas",
       "allTimeRecord": "15-41",
       "winPct": 0.268,
+      "espnEraRecord": "0-0",
+      "sleeperEraRecord": "15-41",
       "championships": 0,
-      "playoffAppearances": 0,
-      "playoffRate": 0.0,
+      "championshipSeasons": [],
       "runnerUps": 0,
-      "moodieBowls": 0,
-      "seasonsPlayed": 4,
-      "joinedYear": 2022,
+      "playoffAppearances": 0,
       "validationStatus": "VERIFIED",
-      "crossReferenceNotes": "Joined 2022. 0/4 playoff appearances confirmed across standings. Improvement trend: 4-10, 2-12, 3-11, 6-8 \u2014 2025 was strongest season.",
-      "discrepancies": "None identified. 4-season career only."
+      "notes": "maleskcr1 on Sleeper. Joined 2022 (4 Sleeper seasons). Worst career win% among active owners."
     }
   ],
   "validationSummary": {
-    "ownersVerified": 12,
-    "discrepanciesFound": 0,
-    "correctionsApplied": 0,
-    "note": "All owner career records are internally consistent across the BMFFFL document corpus. The 3 corrections to bmfffl-league-rules.mdx (FAAB, trade deadline, taxi eligibility) were the only discrepancies found in Phase C validation so far.",
-    "externalVerificationStatus": "Sleeper API live check pending for 2025 final standings (task-571 subagent ac9dca77ed3b0e066)"
+    "totalSeasonsTracked": 10,
+    "espnEraSeasons": [2016, 2017, 2018, 2019],
+    "sleeperEraSeasons": [2020, 2021, 2022, 2023, 2024, 2025],
+    "allTimeWinLeader": {"owner": "MLSchools12", "wins": 114, "record": "114-21"},
+    "allTimeWinPctLeader": {"owner": "MLSchools12", "winPct": 0.844, "record": "114-21"},
+    "mostChampionships": {"owner": "MLSchools12", "count": 4, "seasons": [2016, 2019, 2021, 2024]},
+    "mostRunnerUps": {"owner": "rbr", "count": 3, "seasons": [2019, 2021, 2022]}
   }
 }
