@@ -277,7 +277,7 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     narratives: [
       'MLSchools12 claims their second ESPN-era championship — 197.98 points in the final, the highest championship score in ESPN-era BMFFFL history.',
       'Final ESPN season before the league migrated to Sleeper in 2020.',
-      'Several founding members (DeLaura, Moodie, drysdale) depart after this season; new owners join for the Sleeper era.',
+      'Dan Gaudy departs after this season; Matt Moodie plays one final season in 2020 before leaving. Tyler Drysdale (tdtd19844) and all others carried forward — the founding core largely intact.',
     ],
   },
 
