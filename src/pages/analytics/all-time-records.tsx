@@ -129,11 +129,11 @@ const RECORD_CATEGORIES: RecordCategory[] = [
     icon: Flame,
     iconColor: 'text-orange-400',
     entries: [
-      { rank: 1, label: 'MLSchools12', sublabel: '2025 Season', value: '2,161.42 pts', note: 'Record-setting offensive output — highest single-season total in BMFFFL history' },
-      { rank: 2, label: 'MLSchools12', sublabel: '2024 Season', value: '~2,080 pts', note: 'Estimated — second-highest scoring season' },
+      { rank: 1, label: 'MLSchools12', sublabel: '2021 Season', value: '2,327.1 pts', note: 'All-time record — dominant 11-3 regular season en route to the 2021 championship' },
+      { rank: 2, label: 'MLSchools12', sublabel: '2022 Season', value: '2,260.3 pts', note: 'Second all-time — 10-4 record with the highest points of any non-champion that year' },
       { rank: 3, label: 'JuicyBussy', sublabel: '2021 Week 16', value: '245.8 single game', note: 'Highest single-game score in BMFFFL history (consolation bracket)' },
     ],
-    footnote: 'Regular season totals. Single-game record from consolation bracket Week 16, 2021.',
+    footnote: 'Season totals from Sleeper DB. Single-game record from consolation bracket Week 16, 2021.',
   },
   {
     id: 'most-playoff-apps',
