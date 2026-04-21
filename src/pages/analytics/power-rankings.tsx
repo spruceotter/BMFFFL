@@ -70,9 +70,9 @@ const RANKINGS: TeamRanking[] = [
     allTimeWinPct: 0.603,
     allTimeRecord: '50-33',
     recentRecord: '20-8',
-    championships: 0,
+    championships: 1,
     trend: 'stable',
-    bimfleNote: 'Consistent. Very consistent. The ring remains elusive.',
+    bimfleNote: '2018 ESPN champion. Consistent contender across both eras.',
   },
   {
     rank: 5,
