@@ -6,19 +6,21 @@ import { StatBadge } from '@/components/ui/StatComponents';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
+// DB-VERIFIED 2026-04-21 — career totals from analytics_v_regular_season_standings (sleeper.db).
+// Rings = Sleeper-era championships (2020–2025). Bimfle removed (AI commissioner, not a real team).
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 68, losses: 22, playoffApps: 5, dynastyRank: 3  },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 1, wins: 55, losses: 35, playoffApps: 4, dynastyRank: 2  },
-  { slug: 'rbr',           name: 'rbr',             rings: 1, wins: 52, losses: 38, playoffApps: 4, dynastyRank: 4  },
-  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 48, losses: 42, playoffApps: 3, dynastyRank: 5  },
-  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 45, losses: 45, playoffApps: 3, dynastyRank: 6  },
-  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 0, wins: 44, losses: 46, playoffApps: 3, dynastyRank: 7  },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 42, losses: 48, playoffApps: 2, dynastyRank: 8  },
-  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 35, losses: 35, playoffApps: 1, dynastyRank: 1  },
-  { slug: 'grandes',       name: 'Grandes',         rings: 0, wins: 40, losses: 50, playoffApps: 2, dynastyRank: 9  },
-  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 32, losses: 58, playoffApps: 1, dynastyRank: 11 },
-  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 30, losses: 60, playoffApps: 0, dynastyRank: 12 },
-  { slug: 'bimfle',        name: 'Bimfle',          rings: 0, wins: 10, losses: 20, playoffApps: 0, dynastyRank: 10 },
+  { slug: 'mlschools12',    name: 'MLSchools12',     rings: 2, wins: 68, losses: 15, playoffApps: 6, dynastyRank: 2  },
+  { slug: 'sexmachineandy', name: 'SexMachineAndyD', rings: 0, wins: 50, losses: 33, playoffApps: 4, dynastyRank: 5  },
+  { slug: 'juicybussy',     name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 4, dynastyRank: 4  },
+  { slug: 'rbr',            name: 'rbr',             rings: 0, wins: 44, losses: 39, playoffApps: 4, dynastyRank: 7  },
+  { slug: 'grandes',        name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 4, dynastyRank: 8  },
+  { slug: 'eldridsm',       name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 3, dynastyRank: 9  },
+  { slug: 'eldridm20',      name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 2, dynastyRank: 6  },
+  { slug: 'cogdeill11',     name: 'Cogdeill11',      rings: 1, wins: 38, losses: 45, playoffApps: 2, dynastyRank: 10 },
+  { slug: 'tubes94',        name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 2, dynastyRank: 1  },
+  { slug: 'tdtd19844',      name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 3  },
+  { slug: 'cmaleski',       name: 'Cmaleski',        rings: 0, wins: 36, losses: 47, playoffApps: 2, dynastyRank: 11 },
+  { slug: 'escuelas',       name: 'Escuelas',        rings: 0, wins: 20, losses: 63, playoffApps: 0, dynastyRank: 12 },
 ];
 
 // ─── H2H Approximation ───────────────────────────────────────────────────────
@@ -34,9 +36,9 @@ function estimatedH2H(ownerA: typeof OWNERS_DATA[0], ownerB: typeof OWNERS_DATA[
   const pctB = totalB > 0 ? ownerB.wins / totalB : 0.5;
 
   // Approximate games played between these two: about 2 per season they overlap
-  // Tubes94 joined 2022 (4 seasons), Bimfle joined 2024 (2 seasons), others 6 seasons
-  const seasonsA = ownerA.slug === 'tubes94' ? 4 : ownerA.slug === 'bimfle' ? 2 : 6;
-  const seasonsB = ownerB.slug === 'tubes94' ? 4 : ownerB.slug === 'bimfle' ? 2 : 6;
+  // Tubes94 joined 2021 (5 seasons), all others present since 2020 (6 seasons)
+  const seasonsA = ownerA.slug === 'tubes94' ? 5 : 6;
+  const seasonsB = ownerB.slug === 'tubes94' ? 5 : 6;
   const overlapSeasons = Math.min(seasonsA, seasonsB);
   const totalGames = overlapSeasons * 2; // ~2 matchups per season
 
@@ -72,30 +74,30 @@ const NOTABLE_RIVALRIES: Rivalry[] = [
   },
   {
     ownerA: 'MLSchools12',
+    ownerB: 'SexMachineAndyD',
+    title: 'The Two-Final Rivalry',
+    description: 'MLSchools12 and MilwaukeeBrowns (SexMachineAndyD) met in the championship game TWICE — 2021 and 2024. MLSchools12 won both. SexMachineAndyD remains the only team to lose two championship games to the same opponent.',
+    icon: 'trophy',
+  },
+  {
+    ownerA: 'Grandes',
     ownerB: 'rbr',
-    title: '2021 Championship Showdown',
-    description: 'MLSchools12 claimed the 2021 title over rbr in a decisive 150–103 championship game. rbr would go on to win the 2025 championship — a four-year wait for revenge.',
+    title: '2022 Championship — Commissioner Takes All',
+    description: 'Grandes defeated rbr 137.82–115.08 in the 2022 championship game, with the league Commissioner claiming the title. rbr\'s best season (10-4) ended in heartbreak on the biggest stage.',
     icon: 'trophy',
   },
   {
     ownerA: 'JuicyBussy',
-    ownerB: 'Cogdeill11',
-    title: 'Eternal Bridesmaid vs. The Champion',
-    description: 'JuicyBussy has suffered three playoff exits at the hands of Cogdeill11 across their dynasty careers. The most one-sided rivalry at the top of the table.',
-    icon: 'flame',
-  },
-  {
-    ownerA: 'Tubes94',
-    ownerB: 'JuicyBussy',
-    title: '2024 Championship — The Upset',
-    description: 'JuicyBussy ended Tubes94\'s dominant rookie run with a 178–155 victory in the 2024 championship, denying what would have been a remarkable title in just their third season.',
+    ownerB: 'eldridm20',
+    title: '2023 Championship — The Cinderella Final',
+    description: 'JuicyBussy completed the most improbable championship run in BMFFFL history, defeating eldridm20 in the 2023 final as the #6 seed. Both teams had eliminated MLSchools12 (13-1) earlier in the bracket.',
     icon: 'swords',
   },
   {
     ownerA: 'tdtd19844',
-    ownerB: 'Cogdeill11',
-    title: '2022 Revenge Finals',
-    description: 'tdtd19844 turned around a rough 2021 season to upset Cogdeill11 in the 2022 championship, securing their first and only ring while handing Cogdeill11 a rare finals loss.',
+    ownerB: 'Tubes94',
+    title: '2025 Championship — The Resurrection Final',
+    description: 'tdtd19844 completed the greatest comeback arc in league history — from 3-11 in 2022 to 2025 champion. Defeated Tubes94 152.92–135.08 in the final, capping a 3-0 playoff run that included eliminating #1 seed MLSchools12.',
     icon: 'trophy',
   },
 ];
@@ -103,18 +105,18 @@ const NOTABLE_RIVALRIES: Rivalry[] = [
 // ─── Dominant Matchup Rankings (approximate from playoff history) ─────────────
 
 const DOMINANCE_RANKINGS = [
-  { name: 'Cogdeill11',      distinctOpponents: 8, playoffWins: 7, note: 'Most playoff wins all-time' },
-  { name: 'MLSchools12',     distinctOpponents: 7, playoffWins: 5, note: '2021 champion, perennial contender' },
-  { name: 'rbr',             distinctOpponents: 6, playoffWins: 4, note: '2025 champion, strong late career run' },
-  { name: 'JuicyBussy',      distinctOpponents: 5, playoffWins: 4, note: '2024 champion — won it all in year 5' },
-  { name: 'tdtd19844',       distinctOpponents: 5, playoffWins: 3, note: '2022 champion' },
-  { name: 'SexMachineAndyD', distinctOpponents: 5, playoffWins: 2, note: 'Consistent playoff presence, no ring yet' },
-  { name: 'Tubes94',         distinctOpponents: 3, playoffWins: 2, note: 'High ceiling since joining in 2022' },
-  { name: 'eldridm20',       distinctOpponents: 4, playoffWins: 1, note: 'Playoff experience, competitive' },
-  { name: 'Grandes',         distinctOpponents: 3, playoffWins: 1, note: 'Occasional playoff entrant' },
-  { name: 'eldridsm',        distinctOpponents: 2, playoffWins: 0, note: 'One playoff appearance all-time' },
-  { name: 'Bimfle',          distinctOpponents: 0, playoffWins: 0, note: 'Still establishing footprint (joined 2024)' },
-  { name: 'Cmaleski',        distinctOpponents: 0, playoffWins: 0, note: 'No playoff appearances — rebuilding' },
+  { name: 'Cogdeill11',      distinctOpponents: 8, playoffWins: 7, note: 'Most playoff wins all-time — 2020 champion' },
+  { name: 'MLSchools12',     distinctOpponents: 7, playoffWins: 5, note: '2021 & 2024 champion, 6 straight playoff appearances' },
+  { name: 'rbr',             distinctOpponents: 6, playoffWins: 4, note: '2022 runner-up, consistent playoff presence' },
+  { name: 'JuicyBussy',      distinctOpponents: 5, playoffWins: 4, note: '2023 champion — Cinderella run as the #6 seed' },
+  { name: 'SexMachineAndyD', distinctOpponents: 5, playoffWins: 2, note: 'Consistent playoff presence, 2x runner-up (2021, 2024)' },
+  { name: 'tdtd19844',       distinctOpponents: 5, playoffWins: 3, note: '2025 champion — 4th seed, best comeback arc in league history' },
+  { name: 'eldridm20',       distinctOpponents: 4, playoffWins: 1, note: '2023 runner-up, playoff experience' },
+  { name: 'Tubes94',         distinctOpponents: 3, playoffWins: 2, note: '2025 runner-up, high ceiling since joining in 2021' },
+  { name: 'Grandes',         distinctOpponents: 3, playoffWins: 1, note: '2022 champion as 4th seed' },
+  { name: 'eldridsm',        distinctOpponents: 2, playoffWins: 0, note: '2020 runner-up, 3 playoff appearances all-time' },
+  { name: 'Cmaleski',        distinctOpponents: 0, playoffWins: 0, note: '2 playoff appearances, no wins' },
+  { name: 'Escuelas',        distinctOpponents: 0, playoffWins: 0, note: 'No playoff appearances — rebuilding since 2020' },
 ];
 
 // ─── Cell Color for H2H Win % ─────────────────────────────────────────────────
