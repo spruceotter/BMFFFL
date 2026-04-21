@@ -30,7 +30,7 @@ const PLAYER_VALUES: Record<string, PlayerEntry> = {
   'Malik Nabers':       { value: 88, pos: 'WR', age: 22, owner: 'JuicyBussy' },
   'Trevor Lawrence':    { value: 88, pos: 'QB', age: 26, owner: 'Tubes94' },
   'Tetairoa McMillan':  { value: 89, pos: 'WR', age: 22, owner: 'tdtd19844' },
-  'Jordan Love':        { value: 85, pos: 'QB', age: 26, owner: 'Bimfle' },
+  'Jordan Love':        { value: 85, pos: 'QB', age: 26, owner: 'Escuelas' },
   'Kyler Murray':       { value: 82, pos: 'QB', age: 27, owner: 'MLSchools12' },
   'Bucky Irving':       { value: 84, pos: 'RB', age: 23, owner: 'MLSchools12' },
   'Quinshon Judkins':   { value: 83, pos: 'RB', age: 22, owner: 'rbr' },

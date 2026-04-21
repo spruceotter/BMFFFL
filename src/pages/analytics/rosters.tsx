@@ -115,8 +115,8 @@ const ROSTER_VALUES: RosterValue[] = [
     keyAssets: ['CJ Stroud', 'Rashee Rice', 'Rhamondre Stevenson'],
   },
   {
-    ownerName: 'Bimfle',
-    teamName: 'Bimfle',
+    ownerName: 'Escuelas',
+    teamName: 'Escuelas',
     dynastyRank: 10,
     totalRosterScore: 58.3,
     breakdown: { qb: 14, rb: 13, wr: 15, te: 10, picks: 6 },

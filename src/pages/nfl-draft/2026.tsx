@@ -72,7 +72,7 @@ const TEAM_NEEDS: TeamNeed[] = [
   { owner: 'Grandes',        need: 'Needs QB and RB depth' },
   { owner: 'eldridsm',       need: 'Needs everything — full rebuild' },
   { owner: 'Cmaleski',       need: 'Needs everything — full rebuild' },
-  { owner: 'Bimfle',         need: 'Needs RB' },
+  { owner: 'Escuelas',       need: 'Needs RB' },
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
