@@ -216,7 +216,7 @@ const SEASONS: SeasonData[] = [
         id: 'runner-up',
         name: 'Runner-Up',
         winner: 'rbr',
-        context: 'Second runner-up finish in BMFFFL history — two finals appearances, no rings',
+        context: '10-4, 3rd seed — rbr\'s only finals appearance in BMFFFL history',
         icon: 'medal',
         accentColor: 'silver',
       },
@@ -338,7 +338,7 @@ const SEASONS: SeasonData[] = [
         id: 'playoff-heartbreak',
         name: 'Playoff Heartbreak',
         winner: 'MLSchools12',
-        context: '#1 seed, 11-2 — lost the semis to eldridsm despite scoring 181 points',
+        context: '#1 seed, 11-2 — eldridsm dropped 181.06 on them in the semis, ending their title run',
         icon: 'heart-crack',
         accentColor: 'red',
       },
@@ -520,7 +520,7 @@ export default function AwardsPage() {
         <title>Annual Awards — BMFFFL</title>
         <meta
           name="description"
-          content="The BMFFFL official awards archive — champions, best regular seasons, heartbreak, and story of the year for every season from 2020 to present."
+          content="The BMFFFL official awards archive — Sleeper era champions, best regular seasons, heartbreak, and story of the year for every season from 2020 to 2025."
         />
       </Head>
 
@@ -547,7 +547,7 @@ export default function AwardsPage() {
             Annual Awards
           </h1>
           <p className="text-slate-400 text-lg">
-            BMFFFL &bull; 2020 &ndash; 2025
+            BMFFFL &bull; Sleeper Era &bull; 2020 &ndash; 2025
           </p>
         </header>
 

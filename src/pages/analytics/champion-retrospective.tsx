@@ -73,11 +73,11 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Justin Herbert', position: 'SF', note: 'SF2 usage — Herbert emerging as a starter-grade fantasy option' },
     ],
     narrative:
-      "The 2021 Schoolcraft Football Team had arguably the most dominant collection of talent in BMFFFL history at the time. Cooper Kupp entered one of the greatest individual seasons ever recorded in dynasty fantasy — a full Triple Crown performance that produced elite weekly scoring floors regardless of matchup. But this wasn't a one-man show. Jonathan Taylor broke out in historic fashion as a complementary RB1, Davante Adams provided WR2 production that would be WR1 elsewhere, and Travis Kelce gave MLSchools12 the positional advantage at TE every week. This was the first of two BMFFFL rings for MLSchools12 — but looking at this roster, it almost feels like they should have won more. The blueprint: collect elite talent at WR, surround with a top RB, and ride the wave of a generational season.",
+      "The 2021 Schoolcraft Football Team had arguably the most dominant collection of talent in BMFFFL history at the time. Cooper Kupp entered one of the greatest individual seasons ever recorded in dynasty fantasy — a full Triple Crown performance that produced elite weekly scoring floors regardless of matchup. But this wasn't a one-man show. Jonathan Taylor broke out in historic fashion as a complementary RB1, Davante Adams provided WR2 production that would be WR1 elsewhere, and Travis Kelce gave MLSchools12 the positional advantage at TE every week. This was the first Sleeper-era ring for MLSchools12 — the third all-time, following ESPN-era titles in 2016 and 2019. But looking at this roster, it almost feels like they should have won more. The blueprint: collect elite talent at WR, surround with a top RB, and ride the wave of a generational season.",
     accentColor: 'text-emerald-400',
     accentBg: 'bg-emerald-400/10',
     accentBorder: 'border-emerald-400/40',
-    badge: 'First of Two',
+    badge: 'First Sleeper-Era Ring',
   },
   {
     year: 2022,
@@ -96,7 +96,7 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Mark Andrews', position: 'TE', note: 'Elite TE1 — 453 receiving yards and 5 TDs in a commanding campaign' },
     ],
     narrative:
-      "Grandes entered 2022 playoffs as a 4-seed and nobody saw it coming. The roster was built on the principle of positional scarcity — Jalen Hurts as a SF1 gave a floor that most rosters couldn't match at the superflex slot, while Ja'Marr Chase and A.J. Brown formed one of the most feared WR duos in the field. Mark Andrews provided the weekly TE advantage. Derrick Henry's bounce-back season was the low-key X-factor nobody valued enough on the waiver wire. This championship is a testament to playoff sequencing and health — a roster that peaked at exactly the right moment. The 2022 title established Grandes as a legitimate dynasty power and remains the only title won by a manager outside the MLSchools12 / JuicyBussy rivalry corridor.",
+      "Grandes entered 2022 playoffs as a 4-seed and nobody saw it coming. The roster was built on the principle of positional scarcity — Jalen Hurts as a SF1 gave a floor that most rosters couldn't match at the superflex slot, while Ja'Marr Chase and A.J. Brown formed one of the most feared WR duos in the field. Mark Andrews provided the weekly TE advantage. Derrick Henry's bounce-back season was the low-key X-factor nobody valued enough on the waiver wire. This championship is a testament to playoff sequencing and health — a roster that peaked at exactly the right moment. The 2022 title established Grandes as a legitimate dynasty contender, one of six different managers to claim a BMFFFL ring.",
     accentColor: 'text-purple-400',
     accentBg: 'bg-purple-400/10',
     accentBorder: 'border-purple-400/40',
@@ -106,10 +106,10 @@ const CHAMPIONS: ChampionSeason[] = [
     owner: 'JuicyBussy',
     teamName: 'Juicy Bussy',
     seed: 6,
-    record: '7-7',
+    record: '8-6',
     keyWeapon: 'CMC + Justin Jefferson — two top-6 dynasty assets on one team',
     qbSituation: 'Patrick Mahomes — premium SF1 locked in year-round',
-    howTheyWon: 'Lowest-seed Cinderella run — defeated #2, #3, and #4 seeds before the championship; CMC was unstoppable',
+    howTheyWon: 'Lowest-seed Cinderella run — beat #3 eldridsm, then #2 Grandes (201.80 pts), then defeated #5 eldridm20 in the final',
     roster: [
       { name: 'Christian McCaffrey', position: 'RB', note: 'CMC reborn in San Francisco — 21 total TDs, elite every week', isElite: true },
       { name: 'Justin Jefferson', position: 'WR', note: 'The best WR in fantasy football; elite floor and ceiling', isElite: true },
@@ -119,7 +119,7 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Sam LaPorta', position: 'TE', note: 'Rookie TE — most receiving yards by a rookie TE in NFL history' },
     ],
     narrative:
-      "The 2023 JuicyBussy season is the single greatest Cinderella story in BMFFFL history. A 7-7 record secured the last playoff spot at the #6 seed — and then everything changed. CMC went supernova in the San Francisco offense, Justin Jefferson was a weekly locked-in WR1, and Tyreek Hill added a second WR weapon that no defensive roster could fully neutralize. Patrick Mahomes as SF1 meant JuicyBussy never had a bad QB week. Sam LaPorta, a rookie TE, shattered records and provided weekly production no one expected from that slot. The playoff run dismantled the #2, #3, and #4 seeds consecutively before the championship. This team didn't just win — it proved that dynasty is about having the right pieces at peak performance, not about finishing first in the regular season. The most celebrated championship in BMFFFL lore.",
+      "The 2023 JuicyBussy season is the single greatest Cinderella story in BMFFFL history. An 8-6 record secured the last playoff spot at the #6 seed — and then everything changed. CMC went supernova in the San Francisco offense, Justin Jefferson was a weekly locked-in WR1, and Tyreek Hill added a second WR weapon that no defensive roster could fully neutralize. Patrick Mahomes as SF1 meant JuicyBussy never had a bad QB week. Sam LaPorta, a rookie TE, shattered records and provided weekly production no one expected from that slot. The playoff run: beat #3 eldridsm in wildcards, dropped 201.80 on #2 Grandes in the semis, then defeated #5 eldridm20 in the championship. This team didn't just win — it proved that dynasty is about having the right pieces at peak performance, not about finishing first in the regular season. The most celebrated championship in BMFFFL lore.",
     accentColor: 'text-[#e94560]',
     accentBg: 'bg-[#e94560]/10',
     accentBorder: 'border-[#e94560]/40',
@@ -129,11 +129,11 @@ const CHAMPIONS: ChampionSeason[] = [
     year: 2024,
     owner: 'MLSchools12',
     teamName: 'Schoolcraft Football Team',
-    seed: 1,
-    record: '13-1',
+    seed: 3,
+    record: '10-4',
     keyWeapon: 'CeeDee Lamb — WR1 locked in for a historic 135-catch season',
     qbSituation: 'Lamar Jackson — unanimous MVP, SF1 destroyer of matchups',
-    howTheyWon: 'Dominant wire-to-wire campaign; best roster depth in the league, zero weak positions',
+    howTheyWon: 'Won as 3-seed through a deep playoff run; CeeDee Lamb and Lamar Jackson elevated every matchup',
     roster: [
       { name: 'CeeDee Lamb', position: 'WR', note: '135 rec, 1,749 yds — best WR season since Kupp 2021', isElite: true },
       { name: "Ja'Marr Chase", position: 'WR', note: 'Continued elite WR1 production; dual-WR1 pairing', isElite: true },
@@ -143,18 +143,18 @@ const CHAMPIONS: ChampionSeason[] = [
       { name: 'Kyren Williams', position: 'RB', note: 'LA Rams bellcow — 12 rushing TDs backed up the RB corps' },
     ],
     narrative:
-      "The 2024 Schoolcraft Football Team may be the most complete dynasty roster in BMFFFL history. MLSchools12 went 13-1 in the regular season — the best record ever recorded in the league — and backed it up with a championship run that looked inevitable from Week 1. CeeDee Lamb operated as a locked-in WR1 with one of the finest WR seasons in dynasty history, and Ja'Marr Chase gave the team an unreal WR1-WR1 tandem. Lamar Jackson's unanimous MVP campaign meant the superflex position was a weekly 30-35 point floor. Bijan Robinson emerged as a true RB1, Kyren Williams added TD upside, and Sam LaPorta's year two development held the TE slot. This was the back-to-back — sealing MLSchools12's legacy as the greatest dynasty manager in BMFFFL history and the only two-time champion the league has ever seen.",
+      "The 2024 Schoolcraft Football Team assembled a complete dynasty roster and ran through the playoff bracket as a 3-seed. CeeDee Lamb operated as a locked-in WR1 with one of the finest WR seasons in dynasty history, and Ja'Marr Chase gave the team an unreal WR1-WR1 tandem. Lamar Jackson's unanimous MVP campaign meant the superflex position was a weekly 30-35 point floor. Bijan Robinson emerged as a true RB1, Kyren Williams added TD upside, and Sam LaPorta's year two development held the TE slot. This was the fourth all-time championship for MLSchools12 — cementing their legacy as the most decorated franchise in BMFFFL history, with rings spanning the ESPN era (2016, 2019) and the Sleeper era (2021, 2024).",
     accentColor: 'text-[#ffd700]',
     accentBg: 'bg-[#ffd700]/10',
     accentBorder: 'border-[#ffd700]/40',
-    badge: 'Back-to-Back Champion',
+    badge: '4th All-Time Championship',
   },
   {
     year: 2025,
     owner: 'tdtd19844',
-    teamName: 'tdtd19844',
+    teamName: 'THE Shameful Saggy Sack',
     seed: 4,
-    record: '9-5',
+    record: '8-6',
     keyWeapon: 'Brock Bowers — TE1 redefining the position at only Year 2',
     qbSituation: 'Jalen Hurts — dual-threat floor with SF1 rushing upside',
     howTheyWon: 'Health and peaking at the right time; Puka and Collins gave weekly WR reliability; Bowers was unguardable at TE',
@@ -591,7 +591,7 @@ export default function ChampionRetrospectivePage() {
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
             Every BMFFFL title — the rosters that won, the players who delivered,
-            and the dynasty decisions that made it happen. Six seasons. Five owners. One back-to-back.
+            and the dynasty decisions that made it happen. Six Sleeper seasons. Five distinct champions. No back-to-back winners — yet.
           </p>
         </header>
 
@@ -674,13 +674,14 @@ export default function ChampionRetrospectivePage() {
                   The Dynasty: MLSchools12
                 </h2>
                 <p className="text-sm text-slate-300 leading-relaxed max-w-3xl">
-                  MLSchools12 is the only two-time champion in BMFFFL history, winning back-to-back titles
-                  in 2021 and 2024. Across six seasons the Schoolcraft Football Team has never posted a losing
-                  regular-season record, holds the all-time best career win percentage at{' '}
+                  MLSchools12 is the most decorated franchise in BMFFFL history — four all-time championships
+                  spanning the ESPN era (2016, 2019) and Sleeper era (2021, 2024). Across the Sleeper era the Schoolcraft
+                  Football Team has never posted a losing regular-season record, holds the all-time best career win
+                  percentage at{' '}
                   <span className="text-white font-bold">.819 (68-15)</span>, and made the playoffs every single
-                  year. The 2024 championship run at{' '}
+                  year. The 2025 regular season record of{' '}
                   <span className="text-white font-bold">13-1</span> — the best single-season record in league
-                  history — cemented a legacy that no other owner in BMFFFL has come close to matching.
+                  history — set up a playoff run that fell just short of a fifth ring.
                 </p>
               </div>
             </div>
