@@ -494,6 +494,237 @@ function RosterHistorySection({ displayName }: { displayName: string }) {
   );
 }
 
+// ─── Owner History Section (draft picks + trades) ────────────────────────────
+
+interface OwnerDraftPick {
+  season: string;
+  draft_type: string;
+  round: number;
+  pick_no: number;
+  player_name: string;
+  position: string;
+  team: string;
+}
+
+interface OwnerTrade {
+  week: number;
+  acquired: string[];
+  sent: string[];
+  trade_partner: string;
+}
+
+interface OwnerSeasonData {
+  season: string;
+  draft_picks: OwnerDraftPick[];
+  trades: OwnerTrade[];
+  notable_adds: Array<{ week: number; type: string; player_name: string; position: string }>;
+}
+
+interface OwnerHistoryFile {
+  generated_at: string;
+  owners: Record<string, Record<string, OwnerSeasonData>>;
+}
+
+function DraftHistorySection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/owner-history.json')
+      .then(r => r.json())
+      .then((json: OwnerHistoryFile) => {
+        const ownerData = json.owners[displayName] ?? null;
+        setData(ownerData);
+        if (ownerData) {
+          // Default open: most recent season with draft picks
+          const seasonsWithPicks = Object.entries(ownerData)
+            .filter(([, d]) => d.draft_picks.length > 0)
+            .map(([s]) => s)
+            .sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasonsWithPicks[0] ?? null);
+        }
+      })
+      .catch(() => null)
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading draft history…</span>
+      </div>
+    );
+  }
+
+  if (!data) return <div className="p-4 text-sm text-slate-500 italic">No draft history available.</div>;
+
+  const seasons = Object.entries(data)
+    .filter(([, d]) => d.draft_picks.length > 0)
+    .map(([s]) => s)
+    .sort((a, b) => Number(b) - Number(a));
+
+  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No draft picks recorded.</div>;
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const isOpen = openSeason === season;
+        const picks = data[season].draft_picks;
+        const label = picks[0]?.draft_type === 'espn_startup' ? 'ESPN startup' :
+                      picks[0]?.draft_type === 'startup' ? 'startup' : 'rookie';
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold text-white">{season}</span>
+                <span className="text-xs text-slate-500 capitalize">{label} draft</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{picks.length} picks</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 space-y-1">
+                {picks.map((p, i) => {
+                  const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-sm"
+                    >
+                      <span className="text-xs text-slate-500 font-mono w-10 shrink-0">R{p.round}</span>
+                      {p.position && (
+                        <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono shrink-0', badgeClass)}>
+                          {p.position}
+                        </span>
+                      )}
+                      <span className="text-white">{p.player_name}</span>
+                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function TransactionsSection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/owner-history.json')
+      .then(r => r.json())
+      .then((json: OwnerHistoryFile) => {
+        const ownerData = json.owners[displayName] ?? null;
+        setData(ownerData);
+        if (ownerData) {
+          const seasonsWithTrades = Object.entries(ownerData)
+            .filter(([, d]) => d.trades.length > 0)
+            .map(([s]) => s)
+            .sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasonsWithTrades[0] ?? null);
+        }
+      })
+      .catch(() => null)
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading transactions…</span>
+      </div>
+    );
+  }
+
+  if (!data) return <div className="p-4 text-sm text-slate-500 italic">No transaction history available.</div>;
+
+  const seasons = Object.entries(data)
+    .filter(([, d]) => d.trades.length > 0)
+    .map(([s]) => s)
+    .sort((a, b) => Number(b) - Number(a));
+
+  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No trades recorded.</div>;
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const isOpen = openSeason === season;
+        const trades = data[season].trades;
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-white">{season}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{trades.length} trade{trades.length !== 1 ? 's' : ''}</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 space-y-2">
+                {trades.map((trade, i) => (
+                  <div key={i} className="rounded-lg bg-[#0d1b2a] border border-[#2d4a66] p-3 text-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs text-slate-500">Wk {trade.week}</span>
+                      <span className="text-xs text-slate-400">with {trade.trade_partner}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <div className="text-xs text-[#22c55e] font-semibold mb-1">Acquired</div>
+                        {trade.acquired.map((p, j) => (
+                          <div key={j} className="text-slate-300 text-xs">{p}</div>
+                        ))}
+                        {trade.acquired.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#e94560] font-semibold mb-1">Sent</div>
+                        {trade.sent.map((p, j) => (
+                          <div key={j} className="text-slate-300 text-xs">{p}</div>
+                        ))}
+                        {trade.sent.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function getRankLabel(rank: number): string {
@@ -810,7 +1041,25 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
             <RosterHistorySection displayName={owner.displayName} />
           </div>
 
-          {/* ── Section 6: Owner Profile ──────────────────────────────────── */}
+          {/* ── Section 6: Draft History ──────────────────────────────────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Draft History</h2>
+              <span className="text-xs text-slate-500">Rookie picks by season · 2020–present</span>
+            </div>
+            <DraftHistorySection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 7: Trades ─────────────────────────────────────────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Trade History</h2>
+              <span className="text-xs text-slate-500">All trades · 2020–present</span>
+            </div>
+            <TransactionsSection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 8: Owner Profile ──────────────────────────────────── */}
           <div className="rounded-xl p-5 bg-[#16213e] border border-[#2d4a66] mb-6">
             <h2 className="text-base font-bold text-white mb-3">Owner Profile</h2>
             <p className="text-slate-300 leading-relaxed">{owner.status}</p>
