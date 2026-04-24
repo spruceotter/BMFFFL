@@ -28,13 +28,12 @@ const NAV_LINKS: NavLink[] = [
   },
   {
     label: 'Current Season',
-    href:  '/nfl-draft/2026',
+    href:  '/season/current',
     children: [
+      { label: '2026 Season',                href: '/season/current' },
       { label: 'NFL Draft Hub 2026',         href: '/nfl-draft/2026' },
       { label: '🏆 Draft Game',              href: '/nfl-draft/draft-game-2026' },
       { label: 'Draft Game Leaderboard',     href: '/nfl-draft/draft-game-leaderboard-2026' },
-      { label: 'Matchups',                   href: '/season/matchups' },
-      { label: 'Power Rankings',             href: '/analytics/power-rankings' },
     ],
   },
   {
