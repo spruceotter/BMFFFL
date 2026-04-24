@@ -362,6 +362,138 @@ function LiveRosterSection({ displayName }: { displayName: string }) {
   );
 }
 
+// ─── Roster History Section ───────────────────────────────────────────────────
+
+interface HistoricalPlayer {
+  player_id: string;
+  full_name: string;
+  position: string;
+  team: string | null;
+  is_starter: boolean;
+}
+
+interface HistoricalSeasonRoster {
+  display_name: string;
+  team_name: string;
+  roster_id: number;
+  wins: number;
+  losses: number;
+  players: HistoricalPlayer[];
+}
+
+interface RosterHistory {
+  generated_at: string;
+  seasons: string[];
+  history: Record<string, Record<string, HistoricalSeasonRoster>>;
+}
+
+const POS_BADGE: Record<string, string> = {
+  QB: 'bg-[#e94560]/20 text-[#e94560]',
+  RB: 'bg-[#22c55e]/20 text-[#22c55e]',
+  WR: 'bg-[#3b82f6]/20 text-[#3b82f6]',
+  TE: 'bg-[#f97316]/20 text-[#f97316]',
+  K:  'bg-slate-700 text-slate-300',
+};
+
+function RosterHistorySection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, HistoricalSeasonRoster> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/roster-history.json')
+      .then(r => r.json())
+      .then((json: RosterHistory) => {
+        const ownerHistory = json.history[displayName] ?? null;
+        setData(ownerHistory);
+        // Default open: most recent season
+        if (ownerHistory) {
+          const seasons = Object.keys(ownerHistory).sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasons[0] ?? null);
+        }
+      })
+      .catch(err => setError(err instanceof Error ? err.message : 'Failed to load history'))
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading roster history…</span>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="p-4 text-sm text-slate-500 italic">
+        {error ?? 'No roster history available.'}
+      </div>
+    );
+  }
+
+  const seasons = Object.keys(data).sort((a, b) => Number(b) - Number(a));
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const roster = data[season];
+        const isOpen = openSeason === season;
+        const record = `${roster.wins}-${roster.losses}`;
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold text-white">{season}</span>
+                <span className="text-xs text-slate-400 font-mono">{record}</span>
+                <span className="text-xs text-slate-500 italic truncate max-w-[160px]">{roster.team_name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{roster.players.length} players</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                {roster.players.map(p => {
+                  const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                  return (
+                    <div
+                      key={p.player_id}
+                      className={cn(
+                        'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm',
+                        'bg-[#0d1b2a] border border-[#2d4a66]',
+                        p.is_starter && 'border-[#ffd700]/30'
+                      )}
+                    >
+                      <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono', badgeClass)}>
+                        {p.position}
+                      </span>
+                      <span className="text-white truncate">{p.full_name}</span>
+                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function getRankLabel(rank: number): string {
@@ -669,7 +801,16 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
             <LiveRosterSection displayName={owner.displayName} />
           </div>
 
-          {/* ── Section 5: Owner Profile ──────────────────────────────────── */}
+          {/* ── Section 5: Roster History (end-of-season snapshots) ─────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Roster History</h2>
+              <span className="text-xs text-slate-500">End-of-season snapshots · 2020–present</span>
+            </div>
+            <RosterHistorySection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 6: Owner Profile ──────────────────────────────────── */}
           <div className="rounded-xl p-5 bg-[#16213e] border border-[#2d4a66] mb-6">
             <h2 className="text-base font-bold text-white mb-3">Owner Profile</h2>
             <p className="text-slate-300 leading-relaxed">{owner.status}</p>
