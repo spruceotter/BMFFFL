@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Trophy, ChevronLeft } from 'lucide-react';
+import { Trophy, ChevronLeft, Loader2, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import Badge from '@/components/ui/Badge';
 import StatCard from '@/components/ui/StatCard';
@@ -255,26 +256,113 @@ const OWNERS = [
 
 type Owner = typeof OWNERS[number];
 
-type Position = 'QB' | 'RB' | 'WR' | 'TE';
+interface LivePlayer {
+  player_id: string;
+  full_name: string;
+  position: string;
+  team: string | null;
+  age: number | null;
+}
 
-interface ParsedPlayer {
-  name: string;
-  position: Position;
+// ─── Live Roster Section ──────────────────────────────────────────────────────
+
+const LEAGUE_ID = '1312123497203376128';
+const SKILL_POSITIONS = new Set(['QB', 'RB', 'WR', 'TE', 'K']);
+
+function LiveRosterSection({ displayName }: { displayName: string }) {
+  const [players, setPlayers] = useState<LivePlayer[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        // 1. Find the owner's Sleeper user_id
+        const users = await fetch(`https://api.sleeper.app/v1/league/${LEAGUE_ID}/users`).then(r => r.json()) as Array<{ user_id: string; display_name: string }>;
+        const user = users.find(u => u.display_name === displayName);
+        if (!user) throw new Error(`No Sleeper user found for ${displayName}`);
+
+        // 2. Find their roster player IDs
+        const rosters = await fetch(`https://api.sleeper.app/v1/league/${LEAGUE_ID}/rosters`).then(r => r.json()) as Array<{ owner_id: string; players: string[] | null }>;
+        const roster = rosters.find(r => r.owner_id === user.user_id);
+        const playerIds = roster?.players ?? [];
+        if (playerIds.length === 0) {
+          setPlayers([]);
+          setLoading(false);
+          return;
+        }
+
+        // 3. Fetch full player DB (cached by browser after first load)
+        const allPlayers = await fetch('https://api.sleeper.app/v1/players/nfl').then(r => r.json()) as Record<string, { full_name?: string; position?: string; team?: string; age?: number }>;
+
+        // 4. Map player IDs → player info (skill positions only)
+        const roster_players: LivePlayer[] = playerIds
+          .map(id => {
+            const p = allPlayers[id];
+            if (!p || !SKILL_POSITIONS.has(p.position ?? '')) return null;
+            return {
+              player_id: id,
+              full_name: p.full_name ?? id,
+              position: p.position ?? 'WR',
+              team: p.team ?? null,
+              age: p.age ?? null,
+            };
+          })
+          .filter(Boolean) as LivePlayer[];
+
+        // Sort: QB first, then RB, WR, TE, K
+        const POS_ORDER: Record<string, number> = { QB: 0, RB: 1, WR: 2, TE: 3, K: 4 };
+        roster_players.sort((a, b) => (POS_ORDER[a.position] ?? 9) - (POS_ORDER[b.position] ?? 9));
+
+        setPlayers(roster_players);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load roster');
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading live roster from Sleeper…</span>
+      </div>
+    );
+  }
+
+  if (error || players.length === 0) {
+    return (
+      <div className="p-4 text-sm text-slate-500 italic">
+        {error ? `Could not load live roster: ${error}` : 'No roster data available.'}
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      {players.map((p) => {
+        const pos = (['QB', 'RB', 'WR', 'TE'] as const).includes(p.position as 'QB' | 'RB' | 'WR' | 'TE')
+          ? (p.position as 'QB' | 'RB' | 'WR' | 'TE')
+          : 'WR';
+        return (
+          <PlayerCard
+            key={p.player_id}
+            name={p.full_name}
+            position={pos}
+            nflTeam={p.team ?? ''}
+            age={p.age ?? 0}
+            compact
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function parseRosterString(str: string): ParsedPlayer {
-  // Format: "Player Name (POS)"
-  const match = str.match(/^(.+?)\s+\(([A-Z]+)\)$/);
-  if (!match) return { name: str, position: 'QB' };
-  const pos = match[2] as Position;
-  const validPositions: Position[] = ['QB', 'RB', 'WR', 'TE'];
-  return {
-    name: match[1],
-    position: validPositions.includes(pos) ? pos : 'QB',
-  };
-}
 
 function getRankLabel(rank: number): string {
   if (rank === 1) return '1st';
@@ -379,8 +467,6 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
   const total = owner.wins + owner.losses;
   const winPct = total > 0 ? (owner.wins / total) : 0;
   const winPctStr = winPct.toFixed(3).replace(/^0/, '');
-
-  const rosterPlayers = owner.currentRoster.map(parseRosterString);
 
   return (
     <>
@@ -574,23 +660,13 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
             </div>
           </div>
 
-          {/* ── Section 4: Current Roster ─────────────────────────────────── */}
+          {/* ── Section 4: Current Roster (live from Sleeper) ────────────── */}
           <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
-            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66]">
-              <h2 className="text-base font-bold text-white">Key Roster Pieces</h2>
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Current Roster</h2>
+              <span className="text-xs text-[#22c55e] font-medium">● Live</span>
             </div>
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {rosterPlayers.map((player) => (
-                <PlayerCard
-                  key={player.name}
-                  name={player.name}
-                  position={player.position}
-                  nflTeam=""
-                  age={0}
-                  compact
-                />
-              ))}
-            </div>
+            <LiveRosterSection displayName={owner.displayName} />
           </div>
 
           {/* ── Section 5: Owner Profile ──────────────────────────────────── */}
