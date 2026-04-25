@@ -19,48 +19,44 @@ const COLUMNS: FooterColumn[] = [
     heading: 'Analytics',
     icon: <BarChart2 className="w-4 h-4" aria-hidden="true" />,
     links: [
-      { label: 'Dynasty Power Index', href: '/analytics/dynasty-power-index' },
-      { label: 'Trade Evaluator',     href: '/analytics/trade-evaluator' },
-      { label: 'Keeper Calculator',   href: '/analytics/keeper-calculator' },
-      { label: 'Playoff Simulator',   href: '/analytics/playoff-simulator' },
-      { label: 'Power Rankings',      href: '/analytics/power-rankings' },
-      { label: 'Manager Efficiency',  href: '/analytics/manager-efficiency' },
+      { label: 'All Articles',        href: '/articles' },
+      { label: 'All-Time Records',    href: '/analytics/all-time-records' },
+      { label: 'Owner Dashboard',     href: '/analytics/owners' },
+      { label: 'Owner Profiles',      href: '/managers' },
     ],
   },
   {
     heading: 'History',
     icon: <History className="w-4 h-4" aria-hidden="true" />,
     links: [
+      { label: 'History Hub',         href: '/history' },
       { label: 'Season Recap',        href: '/history/season-recap' },
-      { label: 'Standings',           href: '/history/standings' },
       { label: 'Awards',              href: '/history/awards' },
       { label: 'Playoff Brackets',    href: '/history/playoff-brackets' },
-      { label: 'All-Time Records',    href: '/analytics/all-time-records' },
       { label: 'Shame Board',         href: '/history/shame-board' },
+      { label: 'Encyclopedia',        href: '/history/encyclopedia' },
     ],
   },
   {
     heading: 'Season',
     icon: <Calendar className="w-4 h-4" aria-hidden="true" />,
     links: [
-      { label: 'Rosters',             href: '/analytics/rosters' },
-      { label: 'Trade Ledger',        href: '/analytics/trade-ledger' },
-      { label: 'Waiver History',      href: '/analytics/waiver-history' },
-      { label: 'Weekly Recap',        href: '/analytics/weekly-recap' },
-      { label: 'Draft Grades',        href: '/analytics/draft-grades' },
-      { label: 'FAAB History',        href: '/analytics/faab-history' },
+      { label: '2026 Season',         href: '/season/current' },
+      { label: 'NFL Draft Hub',       href: '/nfl-draft/2026' },
+      { label: '🏆 Draft Game',       href: '/nfl-draft/draft-game-2026' },
+      { label: 'Leaderboard',         href: '/nfl-draft/draft-game-leaderboard-2026' },
     ],
   },
   {
-    heading: 'Resources',
+    heading: 'League',
     icon: <Wrench className="w-4 h-4" aria-hidden="true" />,
     links: [
-      { label: 'Rules',               href: '/rules' },
+      { label: 'About BMFFFL',        href: '/about' },
+      { label: 'Owners',              href: '/owners' },
       { label: 'Constitution',        href: '/constitution' },
-      { label: 'About',               href: '/about' },
-      { label: 'Search',              href: '/search' },
+      { label: 'League Rules',        href: '/rules' },
       { label: 'League Lore',         href: '/league-lore' },
-      { label: 'Bimfle',             href: '/bimfle' },
+      { label: 'Bimflé Chat',        href: '/bimfle' },
     ],
   },
 ];
@@ -126,9 +122,9 @@ export default function Footer() {
           <nav aria-label="Footer quick links">
             <ul className="flex items-center gap-5" role="list">
               {[
-                { label: 'About',  href: '/about' },
-                { label: 'Rules',  href: '/rules' },
-                { label: 'Search', href: '/search' },
+                { label: 'About',    href: '/about' },
+                { label: 'Rules',    href: '/rules' },
+                { label: 'History',  href: '/history' },
               ].map(({ label, href }) => (
                 <li key={href}>
                   <Link

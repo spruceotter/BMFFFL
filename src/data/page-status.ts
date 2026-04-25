@@ -293,16 +293,18 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/owners': {
     path: '/owners',
-    status: 'placeholder',
+    status: 'validated',
     label: 'Owners',
-    notes: 'Owner list not fully validated against managers registry',
+    notes: 'Owner list wired to Sleeper OWNERS array — all 12 owners confirmed matching 2026 display_names (B694)',
+    validatedAt: '2026-04-25',
     category: 'Core',
   },
   '/owners/[slug]': {
     path: '/owners/[slug]',
-    status: 'placeholder',
+    status: 'validated',
     label: 'Owner Profile',
-    notes: 'Owner profile with mock data',
+    notes: 'Live roster (Sleeper API), 7-season roster history, draft picks (2017-2025), trade history — all from Sleeper + bimfle.db (B694)',
+    validatedAt: '2026-04-25',
     category: 'Core',
   },
   '/drafts': {
