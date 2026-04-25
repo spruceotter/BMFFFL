@@ -13,8 +13,7 @@ interface NavLink {
 }
 
 // ── Nav spec: 5-section structure (B679 Chris/Bimfle cleanup) ────────────────
-// Only real, working content surfaces. Placeholder analytics routes hidden.
-// Analytics & Articles = "Flint's Corner" — working tools + fact-checked pieces.
+// Only real, working content surfaced. Placeholder analytics routes hidden.
 const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '/' },
   {
@@ -22,42 +21,44 @@ const NAV_LINKS: NavLink[] = [
     href: '/about',
     children: [
       { label: 'About BMFFFL',    href: '/about' },
+      { label: 'Owners',          href: '/owners' },
       { label: 'Owner Profiles',  href: '/managers' },
       { label: 'League Rules',    href: '/rules' },
       { label: 'Constitution',    href: '/constitution' },
-      { label: 'Bimflé Chat',     href: '/bimfle' },
+      { label: 'Bimflé Chat',    href: '/bimfle' },
     ],
   },
   {
     label: 'Current Season',
-    href: '/history/standings',
+    href: '/season/current',
     children: [
-      { label: 'Standings',          href: '/history/standings' },
-      { label: 'Matchups',           href: '/season/matchups' },
-      { label: '2026 NFL Draft',     href: '/nfl-draft/2026' },
+      { label: '2026 Season',             href: '/season/current' },
+      { label: 'NFL Draft Hub 2026',      href: '/nfl-draft/2026' },
+      { label: '🏆 Draft Game',           href: '/nfl-draft/draft-game-2026' },
+      { label: 'Draft Game Leaderboard',  href: '/nfl-draft/draft-game-leaderboard-2026' },
     ],
   },
   {
     label: 'League History',
     href: '/history',
     children: [
-      { label: 'History Hub',        href: '/history' },
-      { label: 'League Lore',        href: '/league-lore' },
-      { label: 'All Seasons',        href: '/seasons' },
-      { label: 'All-Time Records',   href: '/records' },
-      { label: 'Annual Awards',      href: '/history/awards' },
-      { label: 'Playoff Brackets',   href: '/history/playoff-brackets' },
-      { label: 'Shame Board',        href: '/history/shame-board' },
-      { label: 'League Encyclopedia', href: '/history/encyclopedia' },
+      { label: 'History Hub',           href: '/history' },
+      { label: 'League Lore',           href: '/league-lore' },
+      { label: 'All Seasons',           href: '/seasons' },
+      { label: 'All-Time Records',      href: '/records' },
+      { label: 'Annual Awards',         href: '/history/awards' },
+      { label: 'Playoff Brackets',      href: '/history/playoff-brackets' },
+      { label: 'Shame Board',           href: '/history/shame-board' },
+      { label: 'League Encyclopedia',   href: '/history/encyclopedia' },
     ],
   },
   {
     label: 'Analytics & Articles',
     href: '/articles',
     children: [
-      { label: 'All Articles',       href: '/articles' },
-      { label: 'All-Time Records',   href: '/analytics/all-time-records' },
-      { label: 'Owner Dashboard',    href: '/analytics/owners' },
+      { label: 'All Articles',      href: '/articles' },
+      { label: 'All-Time Records',  href: '/analytics/all-time-records' },
+      { label: 'Owner Dashboard',   href: '/analytics/owners' },
     ],
   },
 ];
