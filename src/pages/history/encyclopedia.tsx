@@ -37,34 +37,68 @@ interface Manager {
 // ─── Data ──────────────────────────────────────────────────────────────────────
 
 const LEAGUE_STATS = [
-  { label: 'Founded', value: '2020' },
+  { label: 'Founded', value: '2016' },
   { label: 'Managers', value: '12' },
-  { label: 'Seasons', value: '6' },
-  { label: 'Unique Champions', value: '4' },
+  { label: 'Seasons', value: '10' },
+  { label: 'Unique Champions', value: '6' },
   { label: 'Commissioner', value: 'Grandes' },
-  { label: 'Platform', value: 'Sleeper' },
+  { label: 'Platform', value: 'ESPN / Sleeper' },
 ];
 
 const CHAMPIONS: ChampionEntry[] = [
+  // ── ESPN Era (2016–2019) ─────────────────────────────────────────────────────
+  {
+    year: 2016,
+    champion: 'MLSchools12',
+    subtitle: 'The Inaugural Champion',
+    finalScore: '155.98–136.56',
+    opponent: 'Grandes',
+    note: 'Dynasty begins. MLSchools12 wins the first BMFFFL championship on ESPN.',
+  },
+  {
+    year: 2017,
+    champion: 'Cogdeill11',
+    subtitle: 'The 5-Seed Cinderella',
+    finalScore: '109.32–89.54',
+    opponent: 'eldge19',
+    note: 'The biggest upset in league history — 5th seed Cogdeill11 claims the ring.',
+  },
+  {
+    year: 2018,
+    champion: 'SexMachineAndyD',
+    subtitle: 'Stand Against Trade Rape',
+    finalScore: '138.66–106.80',
+    opponent: 'MLSchools12',
+    note: 'SexMachineAndyD defeats the defending champion in dominant fashion.',
+  },
+  {
+    year: 2019,
+    champion: 'MLSchools12',
+    subtitle: 'Dynasty Reasserts',
+    finalScore: '197.98–164.24',
+    opponent: 'rbr',
+    note: '197.98 championship points — the highest-scoring finals performance in ESPN era history.',
+  },
+  // ── Sleeper Era (2020–present) ───────────────────────────────────────────────
   {
     year: 2020,
-    champion: 'cogdeill11',
+    champion: 'Cogdeill11',
     subtitle: 'The Tightest Final',
-    finalScore: '162.4–148.8',
+    finalScore: '203.10–198.34',
     opponent: 'eldridsm',
-    note: 'Closest championship game in BMFFFL history.',
+    note: 'Closest championship game in BMFFFL history — won by 4.76 points.',
   },
   {
     year: 2021,
-    champion: 'mlschools12',
-    subtitle: 'The First Ring',
+    champion: 'MLSchools12',
+    subtitle: 'The Murder Boners',
     finalScore: '193.10–111.34',
-    opponent: 'sexmachineandy',
-    note: 'MLSchools12 dominates with an 11-3 record and the all-time season scoring record (2,327.06 pts).',
+    opponent: 'SexMachineAndyD',
+    note: 'MLSchools12 dominates with an 11-3 record and a championship blowout — 81.76 point margin.',
   },
   {
     year: 2022,
-    champion: 'grandes',
+    champion: 'Grandes',
     subtitle: "Commissioner's Crown",
     finalScore: '137.82–115.08',
     opponent: 'rbr',
@@ -72,7 +106,7 @@ const CHAMPIONS: ChampionEntry[] = [
   },
   {
     year: 2023,
-    champion: 'juicybussy',
+    champion: 'JuicyBussy',
     subtitle: 'The Cinderella',
     finalScore: undefined,
     opponent: 'eldridm20',
@@ -80,18 +114,18 @@ const CHAMPIONS: ChampionEntry[] = [
   },
   {
     year: 2024,
-    champion: 'mlschools12',
+    champion: 'MLSchools12',
     subtitle: 'The Comeback',
     finalScore: '168.40–146.86',
-    opponent: 'sexmachineandy',
-    note: 'Fourth all-time championship for mlschools12 — second Sleeper-era ring. Built on depth, not luck.',
+    opponent: 'SexMachineAndyD',
+    note: 'Fourth all-time championship — second Sleeper-era ring. Built on depth, not luck.',
   },
   {
     year: 2025,
     champion: 'tdtd19844',
     subtitle: 'The Dark Horse',
     finalScore: '152.92–135.08',
-    opponent: 'tubes94',
+    opponent: 'Tubes94',
     note: 'The ultimate upset — 8-6, 4th seed tdtd19844 takes down the 13-1 juggernaut and claims the crown.',
   },
 ];
@@ -152,7 +186,7 @@ const SEASON_SUMMARIES: SeasonSummary[] = [
     year: 2020,
     champion: 'cogdeill11',
     story: 'The Inaugural Season. Twelve managers entered, nobody knew what they were doing. cogdeill11 edged eldridsm in the final by 13.6 points — the closest finish the league has ever seen.',
-    highlights: ['Closest final ever: 162.4–148.8', 'First BMFFFL champion crowned', 'Auction draft format established'],
+    highlights: ['Closest final ever: 203.10–198.34', 'First Sleeper-era champion crowned', 'Auction draft format established'],
   },
   {
     year: 2021,
@@ -180,25 +214,27 @@ const SEASON_SUMMARIES: SeasonSummary[] = [
   },
   {
     year: 2025,
-    champion: 'mlschools12',
+    champion: 'tdtd19844',
     story: "The Dark Horse. tdtd19844 went 8-6, entered as the 4th seed, and outlasted the field. MLSchools12 had the best regular season record in league history (13-1) but fell short. Tubes94 made the finals from the 2nd seed.",
     highlights: ['Champion: tdtd19844 def. Tubes94 152.92–135.08', 'MLSchools12 goes 13-1 and is knocked out before finals', 'tdtd19844 — the ultimate dark horse'],
   },
 ];
 
 const MANAGERS: Manager[] = [
-  { name: 'grandes', joined: 2020, note: 'Commissioner & 2022 champion' },
-  { name: 'cogdeill11', joined: 2020, note: '2020 champion' },
-  { name: 'juicybussy', joined: 2020, note: '2023 champion' },
-  { name: 'tdtd19844', joined: 2020, note: '2025 champion' },
-  { name: 'mlschools12', joined: 2020, note: '4x champion (2016, 2019, 2021, 2024)' },
-  { name: 'tubes94', joined: 2020 },
-  { name: 'eldridsm', joined: 2020 },
-  { name: 'rbr', joined: 2020 },
-  { name: 'SexMachineAndy', joined: 2020 },
-  { name: 'cogdeill11', joined: 2020 },
-  { name: 'escuelas', joined: 2022, note: 'Joined as replacement manager' },
-  { name: 'flinthead', joined: 2020 },
+  // ── Founding members (Sleeper era, 2020) ────────────────────────────────────
+  { name: 'Grandes',         joined: 2020, note: 'Commissioner & 2022 champion' },
+  { name: 'SexMachineAndyD', joined: 2020, note: '2018 ESPN champion' },
+  { name: 'rbr',             joined: 2020 },
+  { name: 'Cogdeill11',      joined: 2020, note: '2017 & 2020 champion' },
+  { name: 'MLSchools12',     joined: 2020, note: '4x champion (2016, 2019, 2021, 2024)' },
+  { name: 'Cmaleski',        joined: 2020 },
+  { name: 'eldridm20',       joined: 2020 },
+  { name: 'JuicyBussy',      joined: 2020, note: '2023 champion' },
+  { name: 'eldridsm',        joined: 2020 },
+  { name: 'tdtd19844',       joined: 2020, note: '2025 champion' },
+  // ── Joined later ────────────────────────────────────────────────────────────
+  { name: 'Tubes94',         joined: 2021, note: 'Replaced mmoodie12' },
+  { name: 'Escuelas',        joined: 2022, note: 'Replacement manager — departed after 2025' },
 ];
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
@@ -210,7 +246,7 @@ export default function EncyclopediaPage() {
         <title>League Encyclopedia — BMFFFL</title>
         <meta
           name="description"
-          content="BMFFFL League Encyclopedia — the definitive reference covering all six seasons, every champion, every record, and the founding members of the league."
+          content="BMFFFL League Encyclopedia — the definitive reference covering all ten seasons (2016–2025), every champion, every record, and the founding members of the league."
         />
       </Head>
 
@@ -243,7 +279,7 @@ export default function EncyclopediaPage() {
             The Definitive BMFFFL Record Book
           </p>
           <p className="mt-4 text-slate-500 text-sm text-center max-w-lg">
-            Six seasons. Twelve managers. Every champion, every record, every moment worth remembering.
+            Ten seasons. Twelve managers. Every champion, every record, every moment worth remembering.
           </p>
         </section>
 

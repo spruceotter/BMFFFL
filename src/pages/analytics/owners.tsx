@@ -9,14 +9,12 @@ import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
 // Ring counts: all-time championships including ESPN era (2016-2025).
-// Verified 2026-04-14 against Sleeper DB + ESPN records.
-// W/L records are Sleeper-era estimates (2020-2025) — wire to getOwnerCareerStats() when available.
-// W/L records verified against Convex getOwnerCareerStats (2026-04-14).
-// Rings verified against Sleeper DB + ESPN era records.
+// Corrected 2026-04-25: MLSchools12=4x (2016,2019,2021,2024), Cogdeill11=2x (2017,2020).
+// W/L records: Sleeper era (2020-2025) from bimfle.db roster_snapshots — verified 2026-04-25.
 // playoffApps and dynastyRank are BMFFFL-internal rankings, not from DB.
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 3, wins: 38, losses: 45, playoffApps: 2, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 3, wins: 68, losses: 15, playoffApps: 6, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 38, losses: 45, playoffApps: 2, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 68, losses: 15, playoffApps: 6, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 44, losses: 39, playoffApps: 4, dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },

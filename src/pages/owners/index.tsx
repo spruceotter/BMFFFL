@@ -8,20 +8,20 @@ import { getOwnerToken, ARCHETYPE_LABELS } from '@/lib/owner-tokens';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Verified correct data — DB confirmed Sleeper era champions:
+// All-time champions (ESPN + Sleeper era) — verified 2026-04-25:
+// 2016=MLSchools12, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
 // 2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
-// ESPN era: 2016=Cogdeill11, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     teamName: 'The Murder Boners',
-    championships: [2019, 2021, 2024],
+    championships: [2016, 2019, 2021, 2024],
     runnerUps: [],
     playoffApps: 6,
     wins: 68, losses: 15,
     dynastyRank: 1,
-    status: 'Three-time champion (2019, 2021, 2024). All-time wins leader (.820 win%). Six consecutive playoff appearances. The defining dynasty of the BMFFFL era.',
+    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader (.820 win%). Six consecutive playoff appearances. The defining dynasty of the BMFFFL era.',
   },
   {
     slug: 'tubes94',
@@ -71,12 +71,12 @@ const OWNERS = [
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
     teamName: 'Cogdeill11',
-    championships: [2016, 2017, 2020],
+    championships: [2017, 2020],
     runnerUps: [],
     playoffApps: 2,
     wins: 38, losses: 45,
     dynastyRank: 6,
-    status: 'Three-time champion (2016 & 2017 ESPN, 2020 Sleeper). Won the tightest 2020 championship on record (203.10–198.34). Has not made the playoffs since 2021.',
+    status: 'Two-time champion (2017 ESPN, 2020 Sleeper). Won the tightest championship on record (203.10–198.34). Has not made the playoffs since 2021.',
   },
   {
     slug: 'grandes',

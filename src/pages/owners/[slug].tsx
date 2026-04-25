@@ -10,19 +10,20 @@ import PlayerCard from '@/components/players/PlayerCard';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Verified correct data — champions: Cogdeill11 (2020), MLSchools12 (2021, 2024),
-// Grandes (2022), JuicyBussy (2023), tdtd19844 (2025). Source: content/data/owners.json
+// All-time champions — verified 2026-04-25:
+// ESPN era: MLSchools12 (2016), Cogdeill11 (2017), SexMachineAndyD (2018), MLSchools12 (2019)
+// Sleeper era: Cogdeill11 (2020), MLSchools12 (2021), Grandes (2022), JuicyBussy (2023), MLSchools12 (2024), tdtd19844 (2025)
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     teamName: 'The Murder Boners',
-    championships: [2021, 2024],
+    championships: [2016, 2019, 2021, 2024],
     runnerUps: [] as number[],
     playoffApps: 6,
-    wins: 81, losses: 15,
+    wins: 68, losses: 15,
     dynastyRank: 1,
-    status: 'Two-time Sleeper-era champion (2021, 2024), plus two ESPN-era titles (2016, 2019). All-time wins leader.',
+    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader (.820 win%). The defining dynasty of the BMFFFL era.',
     currentRoster: ['CeeDee Lamb (WR)', 'Tyreek Hill (WR)', 'Garrett Wilson (WR)', 'Brock Purdy (QB)', 'Breece Hall (RB)'],
     seasons: [
       { year: 2020, rank: 1, wins: 11, losses: 2, champion: false },
