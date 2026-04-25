@@ -529,16 +529,11 @@ export default function HomePage() {
                   Pick your answers before the NFL Draft starts. Bimflé scores everything live. Highest points wins BMFFFL glory and bragging rights.
                 </p>
                 <div className="flex gap-3">
-                  <Link href="/nfl-draft/draft-game-2026"
+                  <Link href="/nfl-draft-game"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black text-[#0d1b2a] transition-all hover:scale-105 active:scale-100"
                     style={{ background: 'linear-gradient(135deg, #ffd700, #ffb700)' }}>
                     <Trophy className="w-4 h-4" />
-                    Enter Picks
-                  </Link>
-                  <Link href="/nfl-draft/draft-game-leaderboard-2026"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border text-slate-300 text-sm font-semibold hover:border-[#ffd700]/50 hover:text-[#ffd700] transition-colors"
-                    style={{ border: '1px solid #2d4a66' }}>
-                    Leaderboard →
+                    Draft Game
                   </Link>
                 </div>
               </div>

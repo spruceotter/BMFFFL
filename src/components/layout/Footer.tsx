@@ -42,8 +42,7 @@ const COLUMNS: FooterColumn[] = [
     links: [
       { label: '2026 Season',         href: '/season/current' },
       { label: 'NFL Draft Hub',       href: '/nfl-draft/2026' },
-      { label: '🏆 Draft Game',       href: '/nfl-draft/draft-game-2026' },
-      { label: 'Leaderboard',         href: '/nfl-draft/draft-game-leaderboard-2026' },
+      { label: '🏆 Draft Game',       href: '/nfl-draft-game' },
     ],
   },
   {
