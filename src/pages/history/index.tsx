@@ -104,7 +104,7 @@ const ALL_TIME_RECORDS: OwnerRecord[] = [
   { owner: 'Cmaleski',        rings: 0, playoffApps: 4,  wins: 55,  losses: 80  },
   { owner: 'tdtd19844',       rings: 1, playoffApps: 4,  wins: 55,  losses: 80  },
   { owner: 'eldridsm',        rings: 0, playoffApps: 6,  wins: 75,  losses: 60  },
-  { owner: 'eldridm20',       rings: 0, playoffApps: 3,  wins: 39,  losses: 44  },
+  { owner: 'eldridm20',       rings: 0, playoffApps: 4,  wins: 57,  losses: 78  },
   { owner: 'Tubes94',         rings: 0, playoffApps: 2,  wins: 34,  losses: 36  },
   { owner: 'MCSchools',       rings: 0, playoffApps: 0,  wins: 20,  losses: 63  },
 ];

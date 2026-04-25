@@ -21,7 +21,8 @@ interface Manager {
 // Champion history validated 2026-04-25. ESPN era (2016-2019) API-verified via lm-api-reads.fantasy.espn.com.
 // Sleeper era (2020-2025) verified from SQLite DB.
 // Win/loss records: ALL-TIME (ESPN 2016-2019 + Sleeper 2020-2025).
-// Sleeper-only owners (joined 2021+): Tubes94, eldridm20, MCSchools — no ESPN era.
+// Sleeper-only owners (joined 2024+): Tubes94 — no ESPN era.
+// ESPN+Sleeper: eldridm20 played ESPN 2016-2019 as mahoo1919 ("Team Smeldridge"), joined Sleeper 2021.
 const MANAGERS: Manager[] = [
   {
     slug: 'mlschools12',
@@ -106,10 +107,10 @@ const MANAGERS: Manager[] = [
     teamName: 'Franks Little Beauties',
     championships: [],
     runnerUps: [2023],
-    overallRecord: { wins: 39, losses: 44 },
-    playoffApps: 3,
+    overallRecord: { wins: 57, losses: 78 },
+    playoffApps: 4,
     dynastyRank: 8,
-    tagline: '2023 runner-up — consistent playoff finisher',
+    tagline: '2023 runner-up — 4x playoffs across ESPN and Sleeper eras (ESPN as mahoo1919)',
   },
   {
     slug: 'rbr',

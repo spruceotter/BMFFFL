@@ -120,10 +120,10 @@ const OWNERS = [
     teamName: 'Franks Little Beauties',
     championships: [],
     runnerUps: [2023],
-    playoffApps: 3,
-    wins: 39, losses: 44, // Sleeper-only (joined 2021)
+    playoffApps: 4,
+    wins: 57, losses: 78, // ESPN 2016-2019 (as mahoo1919) + Sleeper 2021-2025
     dynastyRank: 10,
-    status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis with 154.30 points. Three playoff appearances (2021, 2022, 2023). Dangerous in single-elimination.',
+    status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis. Four playoff appearances (ESPN 2019 + Sleeper 2021, 2022, 2023). Played ESPN era as mahoo1919 ("Team Smeldridge").',
   },
   {
     slug: 'cmaleski',
