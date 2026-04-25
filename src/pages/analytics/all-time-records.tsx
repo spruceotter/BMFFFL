@@ -153,13 +153,13 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     status: 'Active',
     espnSeasons: '2016–2019',
     sleeperSeasons: '2020–2025',
-    rsRecord: '59-76',
-    rsPct: '43.7%',
-    poRecord: '2-5',
-    playoffs: 4,
+    rsRecord: '75-60',
+    rsPct: '55.6%',
+    poRecord: '4-10',
+    playoffs: 6,
     rings: 0,
-    runnerUps: 1,
-    thirds: 0,
+    runnerUps: 2,
+    thirds: 1,
   },
   {
     owner: 'eldridm20',
@@ -237,19 +237,6 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     playoffs: 1,
     rings: 0,
     runnerUps: 0,
-    thirds: 1,
-  },
-  {
-    owner: 'eldge19 (Arnie)',
-    status: 'ESPN Only',
-    espnSeasons: '2016–2019',
-    sleeperSeasons: '—',
-    rsRecord: '34-18',
-    rsPct: '65.4%',
-    poRecord: '2-5',
-    playoffs: 3,
-    rings: 0,
-    runnerUps: 1,
     thirds: 1,
   },
   {
@@ -483,7 +470,7 @@ function FranchiseLedger() {
         <p className="text-[11px] text-slate-600 leading-snug">
           RS W-L = Regular season only. PO W-L = winners-bracket playoff record (Sleeper 2020–2025 DB-verified; ESPN era from bracket API).
           🏆 = championships. 🥈 = runner-up. 🥉 = 3rd place. ESPN era (2016–2019) API-verified via lm-api-reads.fantasy.espn.com.
-          eldridm20 joined 2020 · Tubes94 joined 2021 · MCSchools (Booty Cheeks) left after 2025 · mmoodie12 left after 2020.
+          eldridm20 joined 2021 · Tubes94 joined 2024 · MCSchools (Booty Cheeks) left after 2025 · mmoodie12 left after 2020.
         </p>
       </div>
     </div>
@@ -664,8 +651,8 @@ export default function AllTimeRecordsPage() {
         <div className="mt-10 rounded-xl border border-[#2d4a66] bg-[#16213e] px-5 py-4">
           <p className="text-xs text-slate-500 leading-relaxed">
             <span className="text-slate-400 font-semibold">Data note:</span> Regular season records through the 2025 season (ESPN 2016–2019 API-verified via lm-api-reads.fantasy.espn.com + Sleeper 2020–2025 DB-verified).
-            Playoff W-L from winners bracket only. PO W-L for current owners reflects Sleeper era (2020–2025); ESPN-era playoff bracket data available but excluded from PO W-L totals.
-            Former owners (full careers): eldge19 34-18 RS (.654, 3 playoff apps) &bull; mmoodie12 27-38 RS (.415, 1 playoff app) &bull; miroslav081 17-35 RS (.327).
+            Playoff W-L from winners bracket only. eldridsm PO W-L includes ESPN era (as eldge19). Other owners' ESPN playoff W-L pending full verification — Sleeper era only for all others.
+            Former owners (full careers): mmoodie12 27-38 RS (.415, 1 playoff app) &bull; miroslav081 17-35 RS (.327) &bull; MCSchools 20-63 RS (.241, 0 playoff apps). eldridsm (Steve) played as eldge19 in ESPN era — records merged.
           </p>
         </div>
 

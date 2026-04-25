@@ -128,10 +128,10 @@ const MANAGERS: Manager[] = [
     teamName: 'eldridsm',
     championships: [],
     runnerUps: [2020],
-    overallRecord: { wins: 59, losses: 76 },
-    playoffApps: 4,
+    overallRecord: { wins: 75, losses: 60 },
+    playoffApps: 6,
     dynastyRank: 10,
-    tagline: '2020 runner-up — long-tenured franchise',
+    tagline: '2x runner-up (2017 ESPN, 2020 Sleeper) — 6x playoffs across ESPN and Sleeper eras',
   },
   {
     slug: 'cmaleski',

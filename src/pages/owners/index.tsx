@@ -109,10 +109,10 @@ const OWNERS = [
     teamName: 'eldridsm',
     championships: [],
     runnerUps: [2020],
-    playoffApps: 4,
-    wins: 59, losses: 76,
+    playoffApps: 6,
+    wins: 75, losses: 60,
     dynastyRank: 9,
-    status: '2020 runner-up. Eliminated the #1 seed MLSchools12 in the 2020 semis with 181 points. Four all-time playoff appearances (2019 ESPN, 2020, 2022, 2023 Sleeper).',
+    status: '2x runner-up (2017 ESPN as eldge19, 2020 Sleeper). 6 all-time playoff appearances across both eras. Eliminated the #1 seed MLSchools12 in the 2020 semis.',
   },
   {
     slug: 'eldridm20',
