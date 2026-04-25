@@ -25,6 +25,7 @@ const NAV_LINKS: NavLink[] = [
       { label: 'League Rules',    href: '/rules' },
       { label: 'Constitution',    href: '/constitution' },
       { label: 'Bimflé Chat',    href: '/bimfle' },
+      { label: 'Join the League', href: '/join' },
     ],
   },
   {
