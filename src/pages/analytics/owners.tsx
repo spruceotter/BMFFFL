@@ -677,7 +677,7 @@ export default function OwnersAnalyticsPage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Most Rings</span>
-                  <span className="text-[#ffd700] font-bold">MLSchools12 / Cogdeill11 (3)</span>
+                  <span className="text-[#ffd700] font-bold">MLSchools12 (4)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Best Win %</span>

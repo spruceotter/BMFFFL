@@ -109,7 +109,7 @@ const ALL_TIME_RECORDS: RecordEntry[] = [
     context: '68–15 · .820 win% · 2020–Present',
     icon: 'star',
     highlight: true,
-    note: 'The highest win percentage (.820) in BMFFFL history across 6 seasons.',
+    note: 'The highest win percentage (.820) in BMFFFL history (Sleeper era, 6 seasons).',
   },
   {
     id: 'most-playoff-appearances',

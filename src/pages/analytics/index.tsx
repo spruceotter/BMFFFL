@@ -277,7 +277,7 @@ export default function AnalyticsPage() {
     {
       id: 'season-snapshot',
       title: 'Season Snapshot',
-      description: 'Season-by-season comparison tool — standings, scoring, and team evolution across all 6 BMFFFL seasons.',
+      description: 'Season-by-season comparison tool — standings, scoring, and team evolution across all 10 BMFFFL seasons.',
       href: '/analytics/season-snapshot',
       icon: BarChart2,
     },
@@ -410,7 +410,7 @@ export default function AnalyticsPage() {
             </div>
             <div>
               <h2 id="league-stats-heading" className="text-lg font-bold text-white leading-tight">League Stats</h2>
-              <p className="text-xs text-slate-500">Historical scoring snapshot — all 6 seasons</p>
+              <p className="text-xs text-slate-500">Historical scoring snapshot — all 10 seasons</p>
             </div>
           </div>
           <LeagueStatsSection />

@@ -289,7 +289,7 @@ export default function AllTimeRecordsPage() {
             All-Time Records
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
-            BMFFFL historical records leaderboard &mdash; the best, the worst, and everything in between across 6 seasons (2020&ndash;2025).
+            BMFFFL historical records leaderboard &mdash; the best, the worst, and everything in between across 10 seasons (2016&ndash;2025).
           </p>
         </header>
 

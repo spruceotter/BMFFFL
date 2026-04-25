@@ -46,7 +46,7 @@ export default function AboutPage() {
         <title>About — BMFFFL</title>
         <meta
           name="description"
-          content="Learn about the BMFFFL — Best MFing Fantasy Football League. 12-team dynasty, full PPR, Superflex, founded 2020."
+          content="Learn about the BMFFFL — Best MFing Fantasy Football League. 12-team dynasty, full PPR, founded 2016, 10 seasons of history."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -87,8 +87,8 @@ export default function AboutPage() {
 
           <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
             The <strong className="text-white">Best MFing Fantasy Football League</strong> — a 12-team
-            dynasty league built for the obsessed. Founded in 2020, we&apos;ve traded picks,
-            celebrated upsets, and crowned five unique champions across six seasons.
+            dynasty league built for the obsessed. Founded in 2016 on ESPN, moved to Sleeper in 2020 —
+            we&apos;ve traded picks, celebrated upsets, and crowned six unique champions across ten seasons.
           </p>
         </div>
       </section>
@@ -107,8 +107,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { label: 'Full Name',        value: 'Best MFing Fantasy Football League' },
-              { label: 'Founded',          value: '2020 — originally on ESPN' },
-              { label: 'Platform',         value: 'Sleeper' },
+              { label: 'Founded',          value: '2016 (ESPN) — moved to Sleeper in 2020' },
+              { label: 'Platform',         value: 'ESPN (2016–2019), Sleeper (2020–present)' },
               { label: 'Format',           value: '12-team Dynasty' },
               { label: 'Scoring',          value: 'Full PPR (1.0 pt/reception)' },
               { label: 'Passing TDs',      value: '4 points' },

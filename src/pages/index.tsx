@@ -359,7 +359,7 @@ export default function HomePage() {
               >
                 All-Time Leaders
               </h2>
-              <p className="text-sm text-slate-400 mt-1">Top performers across all 6 seasons</p>
+              <p className="text-sm text-slate-400 mt-1">Top performers across all 10 seasons</p>
             </div>
             <Link
               href="/history"
@@ -437,7 +437,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 mb-4">
             <Trophy className="w-5 h-5 text-[#ffd700]" aria-hidden="true" />
             <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
-              Since 2020
+              Since 2016
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">
