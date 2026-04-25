@@ -291,7 +291,6 @@ const OWNERS = [
   {
     slug: 'escuelas',
     displayName: 'Escuelas',
-    realName: undefined,
     teamName: 'Booty Cheeks',
     championships: [] as number[],
     runnerUps: [] as number[],
