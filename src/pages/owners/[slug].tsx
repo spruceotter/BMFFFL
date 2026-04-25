@@ -16,12 +16,11 @@ import PlayerCard from '@/components/players/PlayerCard';
 // wins/losses = ALL-TIME (ESPN 2016-2019 API-verified + Sleeper 2020-2025 DB-verified).
 // playoffApps = all-time (ESPN winners bracket + Sleeper winners bracket, API+DB verified).
 // Season table includes ESPN era (2016-2019) for ESPN-era owners; ranks are ESPN regular season seeds (estimated by wins).
-// Real names confirmed via ESPN member API (2026-04-25). Sleeper team names from DB; ESPN team names from ESPN API.
+// Sleeper team names from DB; ESPN team names from ESPN API.
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
-    realName: 'Michael Schoolcraft',
     teamName: 'The Murder Boners',
     championships: [2016, 2019, 2021, 2024],
     runnerUps: [2018],
@@ -46,7 +45,6 @@ const OWNERS = [
   {
     slug: 'tubes94',
     displayName: 'Tubes94',
-    realName: 'Joe Tuberdyke',
     teamName: 'Whale Tails',
     championships: [] as number[],
     runnerUps: [2025],
@@ -66,7 +64,6 @@ const OWNERS = [
   {
     slug: 'sexmachineandy',
     displayName: 'SexMachineAndyD',
-    realName: 'Mike Vieyra',
     teamName: 'SexMachineAndyD',
     championships: [2018],
     runnerUps: [2021, 2024],
@@ -91,7 +88,6 @@ const OWNERS = [
   {
     slug: 'juicybussy',
     displayName: 'JuicyBussy',
-    realName: 'Matt DeLaura',
     teamName: 'Juicy Bussy',
     championships: [2023],
     runnerUps: [] as number[],
@@ -116,7 +112,6 @@ const OWNERS = [
   {
     slug: 'rbr',
     displayName: 'rbr',
-    realName: 'Michael Rioux',
     teamName: 'Really Big Rings',
     championships: [] as number[],
     runnerUps: [2019, 2022],
@@ -141,7 +136,6 @@ const OWNERS = [
   {
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
-    realName: 'David Cogdeill',
     teamName: 'Earn it',
     championships: [2017, 2020],
     runnerUps: [] as number[],
@@ -166,7 +160,6 @@ const OWNERS = [
   {
     slug: 'grandes',
     displayName: 'Grandes',
-    realName: 'Chris Rioux',
     teamName: 'El Rioux Grandes',
     championships: [2022],
     runnerUps: [2016],
@@ -191,7 +184,6 @@ const OWNERS = [
   {
     slug: 'tdtd19844',
     displayName: 'tdtd19844',
-    realName: 'Tyler Drysdale',
     teamName: 'THE Shameful Saggy sack',
     championships: [2025],
     runnerUps: [] as number[],
@@ -216,7 +208,6 @@ const OWNERS = [
   {
     slug: 'eldridsm',
     displayName: 'eldridsm',
-    realName: 'Steve Eldridge',
     teamName: 'eldridsm',
     championships: [] as number[],
     runnerUps: [2017, 2020],
@@ -241,7 +232,6 @@ const OWNERS = [
   {
     slug: 'eldridm20',
     displayName: 'eldridm20',
-    realName: 'Matt Eldridge',
     teamName: 'Franks Little Beauties',
     championships: [] as number[],
     runnerUps: [2023],
@@ -266,7 +256,6 @@ const OWNERS = [
   {
     slug: 'cmaleski',
     displayName: 'Cmaleski',
-    realName: 'Chad Maleski',
     teamName: 'Showtyme Boyz',
     championships: [] as number[],
     runnerUps: [] as number[],
@@ -904,6 +893,7 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
       <Head>
         <title>{owner.displayName} — BMFFFL Dynasty</title>
         <meta name="description" content={`${owner.displayName} dynasty profile: ${owner.wins}-${owner.losses} all-time, ${owner.championships.length} championship(s).`} />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       {/* Inject confetti CSS keyframes */}
@@ -993,9 +983,6 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
                   )}
                 </div>
                 <p className="text-slate-400 mb-1">{owner.teamName}</p>
-                {owner.realName && (
-                  <p className="text-xs text-slate-500 mb-2">{owner.realName}</p>
-                )}
                 {/* Championship badges */}
                 {owner.championships.length > 0 ? (
                   <div className="flex items-center gap-2 flex-wrap">

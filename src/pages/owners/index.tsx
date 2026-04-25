@@ -18,7 +18,6 @@ const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
-    realName: 'Michael Schoolcraft',
     teamName: 'The Murder Boners',
     championships: [2016, 2019, 2021, 2024],
     runnerUps: [2018],
@@ -30,7 +29,6 @@ const OWNERS = [
   {
     slug: 'tubes94',
     displayName: 'Tubes94',
-    realName: 'Joe Tuberdyke',
     teamName: 'Whale Tails',
     championships: [],
     runnerUps: [2025],
@@ -42,7 +40,6 @@ const OWNERS = [
   {
     slug: 'sexmachineandy',
     displayName: 'SexMachineAndyD',
-    realName: 'Mike Vieyra',
     teamName: 'SexMachineAndyD',
     championships: [2018],
     runnerUps: [2021, 2024],
@@ -54,7 +51,6 @@ const OWNERS = [
   {
     slug: 'juicybussy',
     displayName: 'JuicyBussy',
-    realName: 'Matt DeLaura',
     teamName: 'Juicy Bussy',
     championships: [2023],
     runnerUps: [],
@@ -66,7 +62,6 @@ const OWNERS = [
   {
     slug: 'rbr',
     displayName: 'rbr',
-    realName: 'Michael Rioux',
     teamName: 'Really Big Rings',
     championships: [],
     runnerUps: [2019, 2022],
@@ -78,7 +73,6 @@ const OWNERS = [
   {
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
-    realName: 'David Cogdeill',
     teamName: 'Cogdeill11',
     championships: [2017, 2020],
     runnerUps: [],
@@ -90,7 +84,6 @@ const OWNERS = [
   {
     slug: 'grandes',
     displayName: 'Grandes',
-    realName: 'Chris Rioux',
     teamName: 'El Rioux Grandes',
     championships: [2022],
     runnerUps: [2016],
@@ -102,7 +95,6 @@ const OWNERS = [
   {
     slug: 'tdtd19844',
     displayName: 'tdtd19844',
-    realName: 'Tyler Drysdale',
     teamName: '14kids0wins/teammoodie',
     championships: [2025],
     runnerUps: [],
@@ -114,7 +106,6 @@ const OWNERS = [
   {
     slug: 'eldridsm',
     displayName: 'eldridsm',
-    realName: 'Steve Eldridge',
     teamName: 'eldridsm',
     championships: [],
     runnerUps: [2020],
@@ -126,7 +117,6 @@ const OWNERS = [
   {
     slug: 'eldridm20',
     displayName: 'eldridm20',
-    realName: 'Matt Eldridge',
     teamName: 'Franks Little Beauties',
     championships: [],
     runnerUps: [2023],
@@ -138,7 +128,6 @@ const OWNERS = [
   {
     slug: 'cmaleski',
     displayName: 'Cmaleski',
-    realName: 'Chad Maleski',
     teamName: 'Showtyme Boyz',
     championships: [],
     runnerUps: [],
@@ -219,9 +208,6 @@ function OwnerSummaryCard({ owner }: { owner: typeof OWNERS[number] }) {
           <div className="min-w-0">
             <p className="font-bold text-white truncate leading-tight">{owner.displayName}</p>
             <p className="text-xs text-slate-400 truncate">{owner.teamName}</p>
-            {owner.realName && (
-              <p className="text-[10px] text-slate-500 truncate">{owner.realName}</p>
-            )}
             {token && (
               <p className="text-[10px] mt-0.5 truncate" style={{ color: token.color }}>
                 {token.personality}
@@ -308,6 +294,7 @@ export default function OwnersIndexPage() {
       <Head>
         <title>Owners — BMFFFL Dynasty</title>
         <meta name="description" content="All 12 BMFFFL dynasty fantasy football team owners and their career records." />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       <main className="min-h-screen bg-[#0d1b2a] px-4 py-10">
