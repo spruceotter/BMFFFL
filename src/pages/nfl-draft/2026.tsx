@@ -17,7 +17,7 @@ interface DraftPick {
 }
 
 // 2026 NFL Draft — actual results (April 24–26, 2026, Pittsburgh PA)
-// R1: Complete (32 picks). R2-R3: Fantasy-relevant picks. R4: In progress.
+// R1: Complete (32 picks). R2-R3: Fantasy-relevant picks. R4-R5: Dynasty-relevant picks added. Draft complete.
 const DRAFT_PICKS_2026: DraftPick[] = [
   // ── ROUND 1 ────────────────────────────────────────────────────────────────
   { pick:  1, round: 1, player: 'Fernando Mendoza',   pos: 'QB',   college: 'Indiana',        nflTeam: 'LV',  dynastyTier: 1, dynastyNote: '#1 overall — dual-threat floor, LV rebuilding around him. SF dynasty QB1.' },
@@ -71,6 +71,15 @@ const DRAFT_PICKS_2026: DraftPick[] = [
   { pick: 79, round: 3, player: 'Zachariah Branch',     pos: 'WR',  college: 'USC',             nflTeam: 'ATL', dynastyTier: 3, dynastyNote: 'Elite punt returner, slot WR. Atlanta offense is improving and Branch gets opportunities — but WR3 ceiling is realistic.' },
   { pick: 80, round: 3, player: 'Ja\'Kobi Lane',        pos: 'WR',  college: 'Tennessee',       nflTeam: 'BAL', dynastyTier: 3, dynastyNote: 'BAL WR room has turnover — Lane lands in a good situation. Long-term upside if he wins a starting role.' },
   { pick: 90, round: 3, player: 'Kaelon Black',         pos: 'RB',  college: 'Texas',           nflTeam: 'SF',  dynastyTier: 3, dynastyNote: 'Kyle Shanahan turns late-round RBs into useful dynasty pieces. SF system = floor. Black is worth a late dynasty flier.' },
+
+  // ── ROUND 4 (Dynasty-relevant picks) ──────────────────────────────────────
+  { pick: 108, round: 4, player: 'Jonah Coleman',        pos: 'RB',  college: 'Washington',      nflTeam: 'DEN', dynastyTier: 3, dynastyNote: 'Three-down back who led Pac-12 in yards after contact. DEN backfield is unsettled — Coleman can compete for a role year one.' },
+  { pick: 110, round: 4, player: 'Cade Klubnik',         pos: 'QB',  college: 'Clemson',         nflTeam: 'NYJ', dynastyTier: 3, dynastyNote: 'Jets needed a QB of the future. Klubnik started 3 years at Clemson in a pro-style system. With Kenyon Sadiq and Omar Cooper Jr. (both R1), NYJ built around him. Best late-round QB stash in the class.' },
+  { pick: 122, round: 4, player: 'Mike Washington Jr.', pos: 'RB',  college: 'Arkansas',        nflTeam: 'LV',  dynastyTier: 4, dynastyNote: 'LV added depth behind Ashton Jeanty. Low dynasty value — Jeanty takes all the oxygen in that backfield.' },
+
+  // ── ROUND 5 (Dynasty-relevant picks) ──────────────────────────────────────
+  { pick: 165, round: 5, player: 'Nicholas Singleton',   pos: 'RB',  college: 'Penn State',      nflTeam: 'TEN', dynastyTier: 3, dynastyNote: 'Former 5-star recruit with elite burst. TEN has Tony Pollard entering year 3 — Singleton is the long stash. Add in deep leagues.' },
+  { pick: 177, round: 5, player: 'Kevin Coleman Jr.',    pos: 'WR',  college: 'Missouri',        nflTeam: 'MIA', dynastyTier: 4, dynastyNote: 'MIA WR room is open after Waddle era. Coleman Jr. has athleticism but needs development. Deep league only.' },
 ];
 
 // ─── BMFFFL Implications ──────────────────────────────────────────────────────
@@ -106,16 +115,22 @@ const BMFFFL_TAKEAWAYS = [
     detail: 'Kyle Shanahan has turned late-round RBs into dynasty assets repeatedly. Black lands in the best possible system. Worth the late pick if it\'s available.',
     tier: 'tier3',
   },
+  {
+    icon: '🔮',
+    headline: 'R4 QB stash: Cade Klubnik (NYJ, R4 #110)',
+    detail: 'NYJ went BIG in this draft — Kenyon Sadiq TE at #16, Omar Cooper Jr. WR at #30, then Klubnik QB at #110. Jets built a full offense around a future franchise QB. Klubnik is the best late-round QB add in this class. Get him while he\'s cheap.',
+    tier: 'tier3',
+  },
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const FANTASY_POS = new Set(['QB', 'RB', 'WR', 'TE']);
 type PosFilter  = 'All' | 'QB' | 'RB' | 'WR' | 'TE';
-type RoundFilter = 'All' | '1' | '2' | '3';
+type RoundFilter = 'All' | '1' | '2' | '3' | '4' | '5';
 
 const POS_FILTERS: PosFilter[]   = ['All', 'QB', 'RB', 'WR', 'TE'];
-const ROUND_FILTERS: RoundFilter[] = ['All', '1', '2', '3'];
+const ROUND_FILTERS: RoundFilter[] = ['All', '1', '2', '3', '4', '5'];
 
 function posBadgeClass(pos: string): string {
   if (pos === 'QB')                return 'bg-[#e94560]/20 text-[#e94560] border border-[#e94560]/30';
@@ -165,7 +180,7 @@ export default function NflDraft2026Page() {
         <title>2026 NFL Draft — Class Report | BMFFFL</title>
         <meta
           name="description"
-          content="2026 NFL Draft results and dynasty impact analysis for BMFFFL. Real pick data through R3."
+          content="2026 NFL Draft complete results and dynasty impact analysis for BMFFFL. R1 full results, R2-R5 dynasty picks tracked."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -175,9 +190,9 @@ export default function NflDraft2026Page() {
 
           {/* ── Page Header ─────────────────────────────────────────────── */}
           <div className="mb-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e94560]/10 border border-[#e94560]/30 text-[#e94560] text-xs font-semibold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e94560] animate-pulse" aria-hidden="true" />
-              2026 Draft — R4 In Progress
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+              2026 Draft — Complete
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-1">
               2026 NFL Draft
@@ -186,7 +201,7 @@ export default function NflDraft2026Page() {
               April 24–26, 2026 &bull; Acrisure Stadium, Pittsburgh, PA
             </p>
             <p className="text-slate-500 text-xs">
-              Real draft results through Round 3. R4 in progress. Dynasty analysis by Bimflé.
+              Full 2026 NFL Draft results — R1 complete, R2–R5 dynasty-relevant picks tracked. Dynasty analysis by Bimflé.
             </p>
           </div>
 
@@ -210,7 +225,7 @@ export default function NflDraft2026Page() {
               { stat: '32',           label: 'Round 1 picks',         color: 'text-[#ffd700]' },
               { stat: String(tier1Count),  label: 'Dynasty Tier 1 rookies', color: 'text-[#e94560]' },
               { stat: String(fantasyCount), label: 'Fantasy-relevant picks tracked', color: 'text-emerald-400' },
-              { stat: 'R4',           label: 'Ongoing — data updates weekly', color: 'text-slate-300' },
+              { stat: 'Done',         label: 'Draft complete — all 7 rounds', color: 'text-emerald-400' },
             ].map(({ stat, label, color }) => (
               <div
                 key={label}
