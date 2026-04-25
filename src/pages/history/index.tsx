@@ -92,16 +92,17 @@ interface OwnerRecord {
 // Rings include ESPN era (2016-2019): MLSchools12 +2 (2016,2019), Cogdeill11 +1 (2017), SexMachineAndyD +1 (2018).
 // SexMachineAndyD = Mike Vieyra — used ESPN username during 2016-2019 era, changed to SexMachineAndyD on Sleeper.
 const ALL_TIME_RECORDS: OwnerRecord[] = [
+  // Playoff appearances = Sleeper-era only (2020-2025), DB-verified from roster_snapshots
   { owner: 'MLSchools12',     rings: 4, playoffApps: 6, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024)' },
-  { owner: 'Cogdeill11',      rings: 2, playoffApps: 3, wins: 38, losses: 45, note: '2x champion (2017, 2020)' },
-  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 5, wins: 50, losses: 33, note: '2018 champion, 2x runner-up (2021, 2024)' },
-  { owner: 'JuicyBussy',      rings: 1, playoffApps: 4, wins: 46, losses: 37, note: '2023 champion' },
+  { owner: 'Cogdeill11',      rings: 2, playoffApps: 2, wins: 38, losses: 45, note: '2x champion (2017, 2020)' },
+  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 4, wins: 50, losses: 33, note: '2018 champion, 2x runner-up (2021, 2024)' },
+  { owner: 'JuicyBussy',      rings: 1, playoffApps: 5, wins: 46, losses: 37, note: '2023 champion' },
   { owner: 'Grandes',         rings: 1, playoffApps: 3, wins: 42, losses: 41, note: '2022 champion — commissioner' },
   { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 36, losses: 47, note: '2025 champion' },
-  { owner: 'rbr',             rings: 0, playoffApps: 5, wins: 44, losses: 39, note: '2022 runner-up' },
+  { owner: 'rbr',             rings: 0, playoffApps: 4, wins: 44, losses: 39, note: '2022 runner-up' },
   { owner: 'eldridsm',        rings: 0, playoffApps: 3, wins: 41, losses: 42, note: '2020 runner-up' },
-  { owner: 'eldridm20',       rings: 0, playoffApps: 3, wins: 39, losses: 44, note: '2023 runner-up' },
-  { owner: 'Tubes94',         rings: 0, playoffApps: 3, wins: 34, losses: 36, note: '2025 runner-up' },
+  { owner: 'eldridm20',       rings: 0, playoffApps: 2, wins: 39, losses: 44, note: '2023 runner-up' },
+  { owner: 'Tubes94',         rings: 0, playoffApps: 2, wins: 34, losses: 36, note: '2025 runner-up' },
   { owner: 'Cmaleski',        rings: 0, playoffApps: 2, wins: 36, losses: 47 },
   { owner: 'MCSchools',       rings: 0, playoffApps: 0, wins: 20, losses: 63 },
 ];

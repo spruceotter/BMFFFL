@@ -80,7 +80,7 @@ const SEASONS_DATA: Record<string, SeasonPageData> = {
     runnerUp: 'SexMachineAndyD',
     championshipScore: '193.10 - 111.34',
     standings: [
-      { rank: 1,  teamName: 'MLSchools12',     owner: 'MLSchools12',     wins: 11, losses: 3,  pointsFor: 2327.06 },
+      { rank: 1,  teamName: 'MLSchools12',     owner: 'MLSchools12',     wins: 11, losses: 3,  pointsFor: 2327.10 },
       { rank: 2,  teamName: 'Grandes',         owner: 'Grandes',         wins: 10, losses: 4,  pointsFor: 1974.92 },
       { rank: 3,  teamName: 'SexMachineAndyD', owner: 'SexMachineAndyD', wins: 10, losses: 4,  pointsFor: 2050.50 },
       { rank: 4,  teamName: 'rbr',             owner: 'rbr',             wins: 9,  losses: 5,  pointsFor: 1980.00 },

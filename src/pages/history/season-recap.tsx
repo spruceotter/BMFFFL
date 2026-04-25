@@ -61,8 +61,8 @@ const SEASONS: SeasonRecap[] = [
       'JuicyBussy posted a consolation week score of 245.80 — the all-time single-game record.',
     ],
     seasonHighScorer: 'MLSchools12',
-    seasonHighPts: '2,327.06',
-    dynastyNote: 'MLSchools12 posts the all-time season scoring record (2,327.06 pts).',
+    seasonHighPts: '2,327.10',
+    dynastyNote: 'MLSchools12 posts the all-time season scoring record (2,327.10 pts).',
   },
   {
     year: 2022,

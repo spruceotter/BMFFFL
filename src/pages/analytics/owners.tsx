@@ -19,7 +19,7 @@ const OWNERS_DATA = [
   { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 50, losses: 33, playoffApps: 4, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 3, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 2, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 2, dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
   { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 3, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
   { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 2, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },

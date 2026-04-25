@@ -191,8 +191,8 @@ const SEASON_SUMMARIES: SeasonSummary[] = [
   {
     year: 2021,
     champion: 'mlschools12',
-    story: 'The First Ring. MLSchools12 posted an 11-3 regular season and the all-time season scoring record (2,327.06 pts), then won the championship over SexMachineAndyD 193.10–111.34. JuicyBussy set the all-time single-week record (245.80) in a consolation game.',
-    highlights: ['Record season: 2,327.06 pts', 'JuicyBussy consolation record: 245.80 pts', 'Taxi squad added by vote (10-2)'],
+    story: 'The First Ring. MLSchools12 posted an 11-3 regular season and the all-time season scoring record (2,327.10 pts), then won the championship over SexMachineAndyD 193.10–111.34. JuicyBussy set the all-time single-week record (245.80) in a consolation game.',
+    highlights: ['Record season: 2,327.10 pts', 'JuicyBussy consolation record: 245.80 pts', 'Taxi squad added by vote (10-2)'],
   },
   {
     year: 2022,

@@ -117,7 +117,7 @@ const OWNERS = [
     teamName: 'Franks Little Beauties',
     championships: [],
     runnerUps: [2023],
-    playoffApps: 3,
+    playoffApps: 2,
     wins: 39, losses: 44,
     dynastyRank: 10,
     status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis with 154.30 points. Dangerous in single-elimination.',
@@ -131,7 +131,7 @@ const OWNERS = [
     playoffApps: 2,
     wins: 36, losses: 47,
     dynastyRank: 11,
-    status: 'Two playoff appearances (2023, 2025). In 2025 scored 1,990 pts (2nd in league) while going 6-8. The league\'s most underrated team by record.',
+    status: 'Two playoff appearances (2023, 2025). In 2025 scored 1,990 pts (3rd in league) while going 6-8. The league\'s most underrated team by record.',
   },
   {
     slug: 'escuelas',
