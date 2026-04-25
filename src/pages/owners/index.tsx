@@ -30,7 +30,7 @@ const OWNERS = [
   {
     slug: 'tubes94',
     displayName: 'Tubes94',
-    realName: undefined,
+    realName: 'Joe Tuberdyke',
     teamName: 'Whale Tails',
     championships: [],
     runnerUps: [2025],
