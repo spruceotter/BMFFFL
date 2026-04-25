@@ -85,29 +85,28 @@ interface OwnerRecord {
   playoffApps: number;
   wins: number;
   losses: number;
-  note?: string;
 }
 
 // Records: All-time (ESPN 2016-2019 + Sleeper 2020-2025).
-// Wins/losses = Sleeper era only (DB-verified from bimfle.db). Rings = all-time.
-// ESPN playoff apps = DB-verified 2026-04-25 via lm-api-reads.fantasy.espn.com (winners bracket,
-//   leagueHistory endpoint for 2016-2017, seasons endpoint for 2018-2019).
+// Wins/losses = ALL-TIME: ESPN 2016-2019 API-verified (lm-api-reads.fantasy.espn.com) + Sleeper 2020-2025 DB-verified.
+// Sleeper-only owners (joined 2021+): Tubes94, eldridm20, MCSchools — no ESPN era.
+// ESPN playoff apps = API-verified 2026-04-25 via lm-api-reads.fantasy.espn.com (winners bracket).
 // Sleeper playoff apps = DB-verified from stage_v_playoffs (winners bracket, seasons 2020-2025).
 // SexMachineAndyD = Mike Vieyra — ESPN username vieyramf@sbu.edu during 2016-2019.
 const ALL_TIME_RECORDS: OwnerRecord[] = [
   // playoffApps = ESPN winners bracket + Sleeper winners bracket (all-time, API-verified)
-  { owner: 'MLSchools12',     rings: 4, playoffApps: 10, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024) — 4 ESPN (2016–2019) + 6 Sleeper (2020–2025)' },
-  { owner: 'rbr',             rings: 0, playoffApps: 8,  wins: 44, losses: 39, note: '2022 runner-up — 4 ESPN (2016–2019) + 4 Sleeper (2020, 2021, 2022, 2024)' },
-  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 6,  wins: 50, losses: 33, note: '2018 champion, 2x runner-up (2021, 2024) — 2 ESPN (2017, 2018) + 4 Sleeper' },
-  { owner: 'Cogdeill11',      rings: 2, playoffApps: 5,  wins: 38, losses: 45, note: '2x champion (2017, 2020) — 3 ESPN (2017, 2018, 2019) + 2 Sleeper (2020, 2021)' },
-  { owner: 'JuicyBussy',      rings: 1, playoffApps: 5,  wins: 46, losses: 37, note: '2023 champion — 1 ESPN (2016) + 4 Sleeper (2022–2025)' },
-  { owner: 'Grandes',         rings: 1, playoffApps: 5,  wins: 42, losses: 41, note: '2022 champion — 2 ESPN (2016, 2019) + 3 Sleeper (2021–2023)' },
-  { owner: 'Cmaleski',        rings: 0, playoffApps: 4,  wins: 36, losses: 47, note: '2 ESPN (2016, 2017) + 2 Sleeper (2023, 2025)' },
-  { owner: 'tdtd19844',       rings: 1, playoffApps: 4,  wins: 36, losses: 47, note: '2025 champion — 1 ESPN (2016) + 3 Sleeper (2020, 2024, 2025)' },
-  { owner: 'eldridsm',        rings: 0, playoffApps: 4,  wins: 41, losses: 42, note: '2020 runner-up — 1 ESPN (2019) + 3 Sleeper (2020, 2022, 2023)' },
-  { owner: 'eldridm20',       rings: 0, playoffApps: 3,  wins: 39, losses: 44, note: '2023 runner-up — 3 Sleeper (2021, 2022, 2023)' },
-  { owner: 'Tubes94',         rings: 0, playoffApps: 2,  wins: 34, losses: 36, note: '2025 runner-up — 2 Sleeper (2024, 2025)' },
-  { owner: 'MCSchools',       rings: 0, playoffApps: 0,  wins: 20, losses: 63 },
+  { owner: 'MLSchools12',     rings: 4, playoffApps: 10, wins: 114, losses: 21  },
+  { owner: 'rbr',             rings: 0, playoffApps: 8,  wins: 73,  losses: 62  },
+  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 6,  wins: 78,  losses: 57  },
+  { owner: 'Cogdeill11',      rings: 2, playoffApps: 5,  wins: 67,  losses: 68  },
+  { owner: 'JuicyBussy',      rings: 1, playoffApps: 5,  wins: 67,  losses: 68  },
+  { owner: 'Grandes',         rings: 1, playoffApps: 5,  wins: 71,  losses: 64  },
+  { owner: 'Cmaleski',        rings: 0, playoffApps: 4,  wins: 55,  losses: 80  },
+  { owner: 'tdtd19844',       rings: 1, playoffApps: 4,  wins: 55,  losses: 80  },
+  { owner: 'eldridsm',        rings: 0, playoffApps: 4,  wins: 59,  losses: 76  },
+  { owner: 'eldridm20',       rings: 0, playoffApps: 3,  wins: 39,  losses: 44  },
+  { owner: 'Tubes94',         rings: 0, playoffApps: 2,  wins: 34,  losses: 36  },
+  { owner: 'MCSchools',       rings: 0, playoffApps: 0,  wins: 20,  losses: 63  },
 ];
 
 interface Milestone {
@@ -301,9 +300,6 @@ export default function HistoryPage() {
                     <th scope="col" className="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wider text-slate-400 w-16">
                       Pct
                     </th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400 min-w-[120px]">
-                      Note
-                    </th>
                   </tr>
                 </thead>
 
@@ -386,10 +382,6 @@ export default function HistoryPage() {
                           {winPct(r.wins, r.losses)}
                         </td>
 
-                        {/* Note */}
-                        <td className="px-4 py-3 text-xs text-slate-500 italic">
-                          {r.note ?? ''}
-                        </td>
                       </tr>
                     );
                   })}
