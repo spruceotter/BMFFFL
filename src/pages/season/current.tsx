@@ -32,7 +32,7 @@ const OWNER_SLUGS: Record<string, string> = {
 // Source: 2025 final standings. Tubes94 (#2 finish), MLSchools12 (13-1 regular season).
 const PRESEASON_POWER: Record<string, { rank: number; note: string }> = {
   'Tubes94':         { rank: 1,  note: 'Runner-up 2025. Deep rebuild paid off.' },
-  'MLSchools12':     { rank: 2,  note: '13-1 in 2025 regular season. 2× champion.' },
+  'MLSchools12':     { rank: 2,  note: '13-1 in 2025 regular season. 4× champion (2016, 2019, 2021, 2024).' },
   'SexMachineAndyD': { rank: 3,  note: '9-5 in 2025. Perennial contender.' },
   'tdtd19844':       { rank: 4,  note: 'Defending champion. Proven playoff run.' },
   'JuicyBussy':      { rank: 5,  note: '7-7 in 2025. Former champion (2023).' },
@@ -40,7 +40,7 @@ const PRESEASON_POWER: Record<string, { rank: number; note: string }> = {
   'eldridm20':       { rank: 7,  note: '6-8 in 2025. Perennial mid-tier.' },
   'eldridsm':        { rank: 8,  note: '5-9 but 1751 pts for. Efficient.' },
   'rbr':             { rank: 9,  note: '5-9 in 2025. Strong draft capital.' },
-  'Cogdeill11':      { rank: 10, note: '5-9 in 2025. 3× all-time champion.' },
+  'Cogdeill11':      { rank: 10, note: '5-9 in 2025. 2× all-time champion (2017, 2020).' },
   'Grandes':         { rank: 11, note: '4-10 in 2025. Commissioner\'s bounce-back year.' },
   'Bimfle':          { rank: 12, note: 'Steward roster (Escuelas). Developmental.' },
 };
