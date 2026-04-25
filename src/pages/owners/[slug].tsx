@@ -11,32 +11,42 @@ import PlayerCard from '@/components/players/PlayerCard';
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
 // All-time champions — verified 2026-04-25:
-// ESPN era: MLSchools12 (2016), Cogdeill11 (2017), SexMachineAndyD (2018), MLSchools12 (2019)
-// Sleeper era: Cogdeill11 (2020), MLSchools12 (2021), Grandes (2022), JuicyBussy (2023), MLSchools12 (2024), tdtd19844 (2025)
+// ESPN era (2016-2019): MLSchools12 (2016), Cogdeill11 (2017), SexMachineAndyD (2018), MLSchools12 (2019)
+// Sleeper era (2020-2025): Cogdeill11 (2020), MLSchools12 (2021), Grandes (2022), JuicyBussy (2023), MLSchools12 (2024), tdtd19844 (2025)
+// wins/losses = ALL-TIME (ESPN 2016-2019 API-verified + Sleeper 2020-2025 DB-verified).
+// playoffApps = all-time (ESPN winners bracket + Sleeper winners bracket, API+DB verified).
+// Season table includes ESPN era (2016-2019) for ESPN-era owners; ranks are ESPN regular season seeds (estimated by wins).
+// Real names confirmed via ESPN member API (2026-04-25). Sleeper team names from DB; ESPN team names from ESPN API.
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
+    realName: 'Michael Schoolcraft',
     teamName: 'The Murder Boners',
     championships: [2016, 2019, 2021, 2024],
-    runnerUps: [] as number[],
+    runnerUps: [2018],
     playoffApps: 10,
-    wins: 68, losses: 15,
+    wins: 114, losses: 21,
     dynastyRank: 1,
-    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader (.820 win%). 10 playoff appearances across 10 seasons — made the playoffs every year of the league\'s existence. The defining dynasty of the BMFFFL era.',
+    status: 'Four-time champion (2016, 2019, 2021, 2024). Runner-up in 2018 (ESPN era). All-time wins leader (.844 win%). 10 playoff appearances across 10 seasons — made the playoffs every year of the league\'s existence. The defining dynasty of the BMFFFL era.',
     currentRoster: ['CeeDee Lamb (WR)', 'Tyreek Hill (WR)', 'Garrett Wilson (WR)', 'Brock Purdy (QB)', 'Breece Hall (RB)'],
     seasons: [
-      { year: 2020, rank: 1, wins: 11, losses: 2, champion: false },
-      { year: 2021, rank: 1, wins: 11, losses: 3, champion: true },
-      { year: 2022, rank: 1, wins: 10, losses: 4, champion: false },
-      { year: 2023, rank: 1, wins: 13, losses: 1, champion: false },
-      { year: 2024, rank: 3, wins: 10, losses: 4, champion: true },
-      { year: 2025, rank: 1, wins: 13, losses: 1, champion: false },
+      { year: 2025, rank: 1,  wins: 13, losses: 1,  champion: false, teamName: 'Schoolcraft Football Team' },
+      { year: 2024, rank: 3,  wins: 10, losses: 4,  champion: true,  teamName: 'Schoolcraft Football Team' },
+      { year: 2023, rank: 1,  wins: 13, losses: 1,  champion: false, teamName: 'The Murder Boners' },
+      { year: 2022, rank: 1,  wins: 10, losses: 4,  champion: false, teamName: 'The Murder Boners' },
+      { year: 2021, rank: 1,  wins: 11, losses: 3,  champion: true,  teamName: 'The Murder Boners' },
+      { year: 2020, rank: 1,  wins: 11, losses: 2,  champion: false, teamName: 'The Murder Boners' },
+      { year: 2019, rank: 1,  wins: 12, losses: 1,  champion: true,  teamName: 'The Murder Boners',  era: 'espn' as const },
+      { year: 2018, rank: 1,  wins: 11, losses: 2,  champion: false, teamName: 'The Murder Boners',  era: 'espn' as const },
+      { year: 2017, rank: 1,  wins: 12, losses: 1,  champion: false, teamName: 'The Murder Boners',  era: 'espn' as const },
+      { year: 2016, rank: 1,  wins: 11, losses: 2,  champion: true,  teamName: 'The Murder Boners',  era: 'espn' as const },
     ],
   },
   {
     slug: 'tubes94',
     displayName: 'Tubes94',
+    realName: undefined,
     teamName: 'Whale Tails',
     championships: [] as number[],
     runnerUps: [2025],
@@ -46,216 +56,274 @@ const OWNERS = [
     status: 'Runner-up 2025. Joined in 2021. Went 2-12 in their first season, then rebuilt to 11-3 in 2024. One of two favorites for the 2026 championship.',
     currentRoster: ['Bijan Robinson (RB)', 'Breece Hall (RB)', 'Drake London (WR)', 'Trevor Lawrence (QB)', 'Puka Nacua (WR)'],
     seasons: [
-      { year: 2021, rank: 11, wins: 2, losses: 12, champion: false },
-      { year: 2022, rank: 10, wins: 4, losses: 10, champion: false },
-      { year: 2023, rank: 7, wins: 7, losses: 7, champion: false },
-      { year: 2024, rank: 2, wins: 11, losses: 3, champion: false },
-      { year: 2025, rank: 2, wins: 10, losses: 4, champion: false },
+      { year: 2025, rank: 2,  wins: 10, losses: 4,  champion: false, teamName: 'Whale Tails' },
+      { year: 2024, rank: 2,  wins: 11, losses: 3,  champion: false, teamName: 'Nacua Matata' },
+      { year: 2023, rank: 7,  wins: 7,  losses: 7,  champion: false, teamName: 'Burn it all' },
+      { year: 2022, rank: 11, wins: 4,  losses: 10, champion: false, teamName: 'Burn it all' },
+      { year: 2021, rank: 11, wins: 2,  losses: 12, champion: false, teamName: "Swamp Donkey's" },
     ],
   },
   {
     slug: 'sexmachineandy',
     displayName: 'SexMachineAndyD',
+    realName: 'Mike Vieyra',
     teamName: 'SexMachineAndyD',
     championships: [2018],
     runnerUps: [2021, 2024],
     playoffApps: 6,
-    wins: 50, losses: 33,
+    wins: 78, losses: 57,
     dynastyRank: 3,
-    status: '2018 ESPN champion. Runner-up in 2021 and 2024. Six playoff appearances across both eras. The most consistent multi-era performer.',
+    status: '2018 ESPN champion. Runner-up in 2021 and 2024. Six playoff appearances across both eras. ESPN usernames: vieyramf@sbu.edu → MilwaukeeBrowns (Sleeper). The most consistent multi-era performer.',
     currentRoster: ['Josh Allen (QB)', 'Jonathan Taylor (RB)', 'Davante Adams (WR)', 'Cooper Kupp (WR)', 'Tony Pollard (RB)'],
     seasons: [
-      { year: 2020, rank: 3, wins: 9, losses: 4, champion: false },
-      { year: 2021, rank: 2, wins: 10, losses: 4, champion: false },
-      { year: 2022, rank: 7, wins: 6, losses: 8, champion: false },
-      { year: 2023, rank: 8, wins: 5, losses: 9, champion: false },
-      { year: 2024, rank: 1, wins: 11, losses: 3, champion: false },
-      { year: 2025, rank: 3, wins: 9, losses: 5, champion: false },
+      { year: 2025, rank: 3,  wins: 9,  losses: 5,  champion: false, teamName: 'SexMachineAndyD' },
+      { year: 2024, rank: 1,  wins: 11, losses: 3,  champion: false, teamName: 'SexMachineAndyD' },
+      { year: 2023, rank: 10, wins: 5,  losses: 9,  champion: false, teamName: 'SexMachineAndyD' },
+      { year: 2022, rank: 9,  wins: 6,  losses: 8,  champion: false, teamName: 'SexMachineAndyD' },
+      { year: 2021, rank: 2,  wins: 10, losses: 4,  champion: false, teamName: 'SexMachineAndyD' },
+      { year: 2020, rank: 3,  wins: 9,  losses: 4,  champion: false, teamName: "Herbert's Heros" },
+      { year: 2019, rank: 6,  wins: 7,  losses: 6,  champion: false, teamName: 'Stand Against Trade Rape', era: 'espn' as const },
+      { year: 2018, rank: 2,  wins: 9,  losses: 4,  champion: true,  teamName: 'Stand Against Trade Rape', era: 'espn' as const },
+      { year: 2017, rank: 3,  wins: 9,  losses: 4,  champion: false, teamName: 'Gordon Bongbay',           era: 'espn' as const },
+      { year: 2016, rank: 11, wins: 3,  losses: 10, champion: false, teamName: 'Los Angeles TBD',          era: 'espn' as const },
     ],
   },
   {
     slug: 'juicybussy',
     displayName: 'JuicyBussy',
+    realName: 'Matt DeLaura',
     teamName: 'Juicy Bussy',
     championships: [2023],
     runnerUps: [] as number[],
     playoffApps: 5,
-    wins: 46, losses: 37,
+    wins: 67, losses: 68,
     dynastyRank: 4,
     status: '2023 champion as the 6th seed. Holds the all-time single-week scoring record (245.80 pts, Week 16 2021). The most explosive offense in the league.',
     currentRoster: ['Joe Burrow (QB)', "De'Von Achane (RB)", 'Malik Nabers (WR)', 'Harold Fannin Jr. (TE)', 'Matthew Golden (WR)'],
     seasons: [
-      { year: 2020, rank: 9, wins: 5, losses: 8, champion: false },
-      { year: 2021, rank: 6, wins: 8, losses: 6, champion: false },
-      { year: 2022, rank: 2, wins: 10, losses: 4, champion: false },
-      { year: 2023, rank: 4, wins: 8, losses: 6, champion: true },
-      { year: 2024, rank: 4, wins: 8, losses: 6, champion: false },
-      { year: 2025, rank: 5, wins: 7, losses: 7, champion: false },
+      { year: 2025, rank: 5,  wins: 7,  losses: 7,  champion: false, teamName: 'Juicy Bussy' },
+      { year: 2024, rank: 4,  wins: 8,  losses: 6,  champion: false, teamName: 'Juicy Bussy' },
+      { year: 2023, rank: 6,  wins: 8,  losses: 6,  champion: true,  teamName: 'JuicyBussy' },
+      { year: 2022, rank: 2,  wins: 10, losses: 4,  champion: false, teamName: 'JuicyBussy' },
+      { year: 2021, rank: 6,  wins: 8,  losses: 6,  champion: false, teamName: 'JuicyBussy' },
+      { year: 2020, rank: 8,  wins: 5,  losses: 8,  champion: false, teamName: 'Juicy Bussy' },
+      { year: 2019, rank: 7,  wins: 6,  losses: 7,  champion: false, teamName: 'Juicy Bussy Bussy',       era: 'espn' as const },
+      { year: 2018, rank: 11, wins: 2,  losses: 11, champion: false, teamName: 'Juicy Bussy',             era: 'espn' as const },
+      { year: 2017, rank: 9,  wins: 4,  losses: 9,  champion: false, teamName: 'Juicy Bussy',             era: 'espn' as const },
+      { year: 2016, rank: 2,  wins: 9,  losses: 4,  champion: false, teamName: 'Hitler Youths',           era: 'espn' as const },
     ],
   },
   {
     slug: 'rbr',
     displayName: 'rbr',
+    realName: 'Michael Rioux',
     teamName: 'Really Big Rings',
     championships: [] as number[],
-    runnerUps: [2022],
+    runnerUps: [2019, 2022],
     playoffApps: 8,
-    wins: 44, losses: 39,
+    wins: 73, losses: 62,
     dynastyRank: 5,
-    status: '2022 runner-up. Made the playoffs in all 4 ESPN seasons and 4 of 6 Sleeper seasons — 8 all-time appearances, the most without a title. Best lineup IQ in the league (89.78%).',
+    status: '2019 and 2022 runner-up. Made the playoffs in all 4 ESPN seasons and 4 of 6 Sleeper seasons — 8 all-time appearances, the most without a title. Best lineup IQ in the league (89.78%).',
     currentRoster: ['Patrick Mahomes (QB)', 'Stefon Diggs (WR)', 'Marvin Harrison Jr. (WR)', 'Travis Kelce (TE)', 'Quinshon Judkins (RB)'],
     seasons: [
-      { year: 2020, rank: 5, wins: 6, losses: 7, champion: false },
-      { year: 2021, rank: 4, wins: 9, losses: 5, champion: false },
-      { year: 2022, rank: 3, wins: 10, losses: 4, champion: false },
-      { year: 2023, rank: 6, wins: 6, losses: 8, champion: false },
-      { year: 2024, rank: 5, wins: 8, losses: 6, champion: false },
-      { year: 2025, rank: 8, wins: 5, losses: 9, champion: false },
+      { year: 2025, rank: 10, wins: 5,  losses: 9,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2024, rank: 6,  wins: 8,  losses: 6,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2023, rank: 8,  wins: 6,  losses: 8,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2022, rank: 3,  wins: 10, losses: 4,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2021, rank: 5,  wins: 9,  losses: 5,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2020, rank: 5,  wins: 6,  losses: 7,  champion: false, teamName: 'Really Big Rings' },
+      { year: 2019, rank: 8,  wins: 6,  losses: 7,  champion: false, teamName: 'Really Big Rings',        era: 'espn' as const },
+      { year: 2018, rank: 5,  wins: 8,  losses: 5,  champion: false, teamName: 'Really Big Rings',        era: 'espn' as const },
+      { year: 2017, rank: 4,  wins: 8,  losses: 5,  champion: false, teamName: 'Really Big Rings',        era: 'espn' as const },
+      { year: 2016, rank: 5,  wins: 7,  losses: 6,  champion: false, teamName: 'Really Big Rings',        era: 'espn' as const },
     ],
   },
   {
     slug: 'cogdeill11',
     displayName: 'Cogdeill11',
-    teamName: 'Cogdeill11',
+    realName: 'David Cogdeill',
+    teamName: 'Earn it',
     championships: [2017, 2020],
     runnerUps: [] as number[],
     playoffApps: 5,
-    wins: 38, losses: 45,
+    wins: 67, losses: 68,
     dynastyRank: 6,
     status: 'Two-time champion (2017 ESPN, 2020 Sleeper). Five all-time playoff appearances. Won the tightest championship game on record (203.10–198.34). Has not made the playoffs since 2021.',
     currentRoster: ['Omarion Hampton (RB)', "Ja'Marr Chase (WR)", 'Saquon Barkley (RB)', 'Brock Purdy (QB)', 'Colston Loveland (TE)'],
     seasons: [
-      { year: 2020, rank: 2, wins: 10, losses: 3, champion: true },
-      { year: 2021, rank: 4, wins: 9, losses: 5, champion: false },
-      { year: 2022, rank: 5, wins: 7, losses: 7, champion: false },
-      { year: 2023, rank: 11, wins: 3, losses: 11, champion: false },
-      { year: 2024, rank: 10, wins: 4, losses: 10, champion: false },
-      { year: 2025, rank: 7, wins: 5, losses: 9, champion: false },
+      { year: 2025, rank: 11, wins: 5,  losses: 9,  champion: false, teamName: 'Earn it' },
+      { year: 2024, rank: 10, wins: 4,  losses: 10, champion: false, teamName: 'With alvins penix' },
+      { year: 2023, rank: 11, wins: 3,  losses: 11, champion: false, teamName: 'Cogdeill11' },
+      { year: 2022, rank: 8,  wins: 7,  losses: 7,  champion: false, teamName: 'Cogdeill11' },
+      { year: 2021, rank: 4,  wins: 9,  losses: 5,  champion: false, teamName: 'Cogdeill11' },
+      { year: 2020, rank: 2,  wins: 10, losses: 3,  champion: true,  teamName: 'Cogdeill11' },
+      { year: 2019, rank: 3,  wins: 8,  losses: 5,  champion: false, teamName: 'Alvin and the Chipmunks', era: 'espn' as const },
+      { year: 2018, rank: 3,  wins: 9,  losses: 4,  champion: false, teamName: 'Alvin and the Chipmunks', era: 'espn' as const },
+      { year: 2017, rank: 6,  wins: 7,  losses: 6,  champion: true,  teamName: 'Team Cogdeill',           era: 'espn' as const },
+      { year: 2016, rank: 9,  wins: 5,  losses: 8,  champion: false, teamName: 'Team Cogdeill',           era: 'espn' as const },
     ],
   },
   {
     slug: 'grandes',
     displayName: 'Grandes',
+    realName: 'Chris Rioux',
     teamName: 'El Rioux Grandes',
     championships: [2022],
-    runnerUps: [] as number[],
+    runnerUps: [2016],
     playoffApps: 5,
-    wins: 42, losses: 41,
+    wins: 71, losses: 64,
     dynastyRank: 7,
-    status: '2022 champion and league Commissioner. Five all-time playoff appearances. The fastest title-to-last trajectory: champion in 2022, Moodie Bowl in 2025.',
+    status: '2022 champion. Runner-up in 2016 (ESPN era). League Commissioner and founding member. Five all-time playoff appearances. The fastest title-to-last trajectory: champion in 2022, Moodie Bowl in 2025.',
     currentRoster: ['C.J. Stroud (QB)', 'Rashee Rice (WR)', 'Rhamondre Stevenson (RB)', 'Evan Engram (TE)', 'Dameon Pierce (RB)'],
     seasons: [
-      { year: 2020, rank: 10, wins: 4, losses: 9, champion: false },
-      { year: 2021, rank: 3, wins: 10, losses: 4, champion: false },
-      { year: 2022, rank: 4, wins: 8, losses: 6, champion: true },
-      { year: 2023, rank: 2, wins: 9, losses: 5, champion: false },
-      { year: 2024, rank: 6, wins: 7, losses: 7, champion: false },
-      { year: 2025, rank: 12, wins: 4, losses: 10, champion: false },
+      { year: 2025, rank: 12, wins: 4,  losses: 10, champion: false, teamName: 'El Rioux Grandes' },
+      { year: 2024, rank: 7,  wins: 7,  losses: 7,  champion: false, teamName: 'El Rioux Grandes' },
+      { year: 2023, rank: 2,  wins: 9,  losses: 5,  champion: false, teamName: 'El Rioux Grandes' },
+      { year: 2022, rank: 4,  wins: 8,  losses: 6,  champion: true,  teamName: 'El Rioux Grandes' },
+      { year: 2021, rank: 3,  wins: 10, losses: 4,  champion: false, teamName: 'El Rioux Grandes' },
+      { year: 2020, rank: 10, wins: 4,  losses: 9,  champion: false, teamName: 'El Rioux Grandes' },
+      { year: 2019, rank: 4,  wins: 8,  losses: 5,  champion: false, teamName: 'El Rioux Grandes',        era: 'espn' as const },
+      { year: 2018, rank: 6,  wins: 7,  losses: 6,  champion: false, teamName: 'El Rioux Grandes',        era: 'espn' as const },
+      { year: 2017, rank: 7,  wins: 6,  losses: 7,  champion: false, teamName: 'El Rioux Grandes',        era: 'espn' as const },
+      { year: 2016, rank: 3,  wins: 8,  losses: 5,  champion: false, teamName: 'El Rioux Grandes',        era: 'espn' as const },
     ],
   },
   {
     slug: 'tdtd19844',
     displayName: 'tdtd19844',
-    teamName: '14kids0wins/teammoodie',
+    realName: 'Tyler Drysdale',
+    teamName: 'THE Shameful Saggy sack',
     championships: [2025],
     runnerUps: [] as number[],
     playoffApps: 4,
-    wins: 36, losses: 47,
+    wins: 55, losses: 80,
     dynastyRank: 8,
     status: '2025 champion as the #4 seed. Went 3-11 in 2022, clawed back to playoff contention, and won it all — upset MLSchools12 in the semis and Tubes94 in the final.',
     currentRoster: ['Jayden Daniels (QB)', 'Kyren Williams (RB)', 'Tee Higgins (WR)', 'Sam LaPorta (TE)', 'Jalen McMillan (WR)'],
     seasons: [
-      { year: 2020, rank: 6, wins: 6, losses: 7, champion: false },
-      { year: 2021, rank: 8, wins: 6, losses: 8, champion: false },
-      { year: 2022, rank: 12, wins: 3, losses: 11, champion: false },
-      { year: 2023, rank: 9, wins: 5, losses: 9, champion: false },
-      { year: 2024, rank: 5, wins: 8, losses: 6, champion: false },
-      { year: 2025, rank: 4, wins: 8, losses: 6, champion: true },
+      { year: 2025, rank: 4,  wins: 8,  losses: 6,  champion: true,  teamName: 'THE Shameful Saggy sack' },
+      { year: 2024, rank: 5,  wins: 8,  losses: 6,  champion: false, teamName: 'THE Shameful Saggy sack' },
+      { year: 2023, rank: 9,  wins: 5,  losses: 9,  champion: false, teamName: '14kids0wins/teammoodie' },
+      { year: 2022, rank: 12, wins: 3,  losses: 11, champion: false, teamName: 'WaiverWireWarriors' },
+      { year: 2021, rank: 9,  wins: 6,  losses: 8,  champion: false, teamName: 'WaiverWireWarriors' },
+      { year: 2020, rank: 6,  wins: 6,  losses: 7,  champion: false, teamName: 'Acorns & river water' },
+      { year: 2019, rank: 11, wins: 3,  losses: 10, champion: false, teamName: 'Lost hope Needdraft picks', era: 'espn' as const },
+      { year: 2018, rank: 9,  wins: 5,  losses: 8,  champion: false, teamName: 'Lost hope Needdraft picks', era: 'espn' as const },
+      { year: 2017, rank: 11, wins: 4,  losses: 9,  champion: false, teamName: 'Lost hope Needdraft picks', era: 'espn' as const },
+      { year: 2016, rank: 6,  wins: 7,  losses: 6,  champion: false, teamName: 'Team drysdale',             era: 'espn' as const },
     ],
   },
   {
     slug: 'eldridsm',
     displayName: 'eldridsm',
+    realName: 'Steve Eldridge',
     teamName: 'eldridsm',
     championships: [] as number[],
-    runnerUps: [2020],
-    playoffApps: 4,
-    wins: 41, losses: 42,
+    runnerUps: [2017, 2020],
+    playoffApps: 6,
+    wins: 75, losses: 60,
     dynastyRank: 9,
-    status: '2020 runner-up. Eliminated the #1 seed MLSchools12 in the 2020 semis with 181 points. Four all-time playoff appearances (2019 ESPN, 2020, 2022, 2023 Sleeper).',
+    status: '2x runner-up (2017 ESPN, 2020 Sleeper). Six all-time playoff appearances across both eras. ESPN username: eldge19 ("Arnie\'s Army"). Eliminated the #1 seed MLSchools12 in the 2020 semis.',
     currentRoster: ['Dak Prescott (QB)', 'Isiah Pacheco (RB)', 'Courtland Sutton (WR)', 'Cole Kmet (TE)', 'Demario Douglas (WR)'],
     seasons: [
-      { year: 2020, rank: 4, wins: 8, losses: 5, champion: false },
-      { year: 2021, rank: 7, wins: 7, losses: 7, champion: false },
-      { year: 2022, rank: 4, wins: 8, losses: 6, champion: false },
-      { year: 2023, rank: 3, wins: 9, losses: 5, champion: false },
-      { year: 2024, rank: 10, wins: 4, losses: 10, champion: false },
-      { year: 2025, rank: 9, wins: 5, losses: 9, champion: false },
+      { year: 2025, rank: 9,  wins: 5,  losses: 9,  champion: false, teamName: 'eldridsm' },
+      { year: 2024, rank: 11, wins: 4,  losses: 10, champion: false, teamName: 'eldridsm' },
+      { year: 2023, rank: 3,  wins: 9,  losses: 5,  champion: false, teamName: 'eldridsm' },
+      { year: 2022, rank: 5,  wins: 8,  losses: 6,  champion: false, teamName: 'eldridsm' },
+      { year: 2021, rank: 8,  wins: 7,  losses: 7,  champion: false, teamName: 'eldridsm' },
+      { year: 2020, rank: 4,  wins: 8,  losses: 5,  champion: false, teamName: 'eldridsm' },
+      { year: 2019, rank: 2,  wins: 10, losses: 3,  champion: false, teamName: "Arnie's Army",             era: 'espn' as const },
+      { year: 2018, rank: 7,  wins: 7,  losses: 6,  champion: false, teamName: "Arnie's Army",             era: 'espn' as const },
+      { year: 2017, rank: 2,  wins: 11, losses: 2,  champion: false, teamName: "Arnie's Army",             era: 'espn' as const },
+      { year: 2016, rank: 7,  wins: 6,  losses: 7,  champion: false, teamName: "Arnie's Army",             era: 'espn' as const },
     ],
   },
   {
     slug: 'eldridm20',
     displayName: 'eldridm20',
+    realName: 'Matt Eldridge',
     teamName: 'Franks Little Beauties',
     championships: [] as number[],
     runnerUps: [2023],
-    playoffApps: 3,
-    wins: 39, losses: 44,
+    playoffApps: 4,
+    wins: 57, losses: 78,
     dynastyRank: 10,
-    status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis with 154.30 points. Three playoff appearances (2021, 2022, 2023). Dangerous in single-elimination.',
+    status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis. Four playoff appearances (ESPN 2019 + Sleeper 2021, 2022, 2023). ESPN username: mahoo1919 ("Role Players"). Dangerous in single-elimination.',
     currentRoster: ['Josh Allen (QB)', 'Luther Burden III (WR)', 'Jayden Reed (WR)', 'James Cook (RB)', 'Chuba Hubbard (RB)'],
     seasons: [
-      { year: 2020, rank: 11, wins: 4, losses: 9, champion: false },
-      { year: 2021, rank: 5, wins: 8, losses: 6, champion: false },
-      { year: 2022, rank: 6, wins: 7, losses: 7, champion: false },
-      { year: 2023, rank: 5, wins: 8, losses: 6, champion: false },
-      { year: 2024, rank: 7, wins: 6, losses: 8, champion: false },
-      { year: 2025, rank: 6, wins: 6, losses: 8, champion: false },
+      { year: 2025, rank: 7,  wins: 6,  losses: 8,  champion: false, teamName: 'Franks Little Beauties' },
+      { year: 2024, rank: 8,  wins: 6,  losses: 8,  champion: false, teamName: 'Franks Little Beauties' },
+      { year: 2023, rank: 5,  wins: 8,  losses: 6,  champion: false, teamName: 'Franks Little Beauties' },
+      { year: 2022, rank: 6,  wins: 7,  losses: 7,  champion: false, teamName: 'Franks Little Beauties' },
+      { year: 2021, rank: 7,  wins: 8,  losses: 6,  champion: false, teamName: 'Franks Little Beauties' },
+      { year: 2020, rank: 11, wins: 4,  losses: 9,  champion: false, teamName: 'eldridm20' },
+      { year: 2019, rank: 5,  wins: 7,  losses: 6,  champion: false, teamName: 'Role Players',            era: 'espn' as const },
+      { year: 2018, rank: 8,  wins: 6,  losses: 7,  champion: false, teamName: 'Role Players',            era: 'espn' as const },
+      { year: 2017, rank: 12, wins: 2,  losses: 11, champion: false, teamName: 'Team Smeldridge',         era: 'espn' as const },
+      { year: 2016, rank: 12, wins: 3,  losses: 10, champion: false, teamName: 'Team Eldridge',           era: 'espn' as const },
     ],
   },
   {
     slug: 'cmaleski',
     displayName: 'Cmaleski',
+    realName: 'Chad Maleski',
     teamName: 'Showtyme Boyz',
     championships: [] as number[],
     runnerUps: [] as number[],
     playoffApps: 4,
-    wins: 36, losses: 47,
+    wins: 55, losses: 80,
     dynastyRank: 11,
     status: 'Four all-time playoff appearances: 2 ESPN (2016, 2017) + 2 Sleeper (2023, 2025). In 2025 scored 1,990 pts (3rd in league) while going 6-8. The league\'s most underrated team by record.',
     currentRoster: ['Jaylen Waddle (WR)', 'George Kittle (TE)', 'Josh Downs (WR)', 'Gus Edwards (RB)', 'Baker Mayfield (QB)'],
     seasons: [
-      { year: 2020, rank: 6, wins: 6, losses: 7, champion: false },
-      { year: 2021, rank: 10, wins: 4, losses: 10, champion: false },
-      { year: 2022, rank: 7, wins: 7, losses: 7, champion: false },
-      { year: 2023, rank: 3, wins: 9, losses: 5, champion: false },
-      { year: 2024, rank: 10, wins: 4, losses: 10, champion: false },
-      { year: 2025, rank: 6, wins: 6, losses: 8, champion: false },
+      { year: 2025, rank: 6,  wins: 6,  losses: 8,  champion: false, teamName: 'Showtyme Boyz' },
+      { year: 2024, rank: 9,  wins: 4,  losses: 10, champion: false, teamName: 'Showtyme Boyz' },
+      { year: 2023, rank: 4,  wins: 9,  losses: 5,  champion: false, teamName: 'Showtyme Boyz' },
+      { year: 2022, rank: 7,  wins: 7,  losses: 7,  champion: false, teamName: 'Showtyme Boyz' },
+      { year: 2021, rank: 10, wins: 4,  losses: 10, champion: false, teamName: 'Showtyme Boyz' },
+      { year: 2020, rank: 7,  wins: 6,  losses: 7,  champion: false, teamName: 'Locked & Loaded' },
+      { year: 2019, rank: 12, wins: 2,  losses: 11, champion: false, teamName: 'No Fly Zone',             era: 'espn' as const },
+      { year: 2018, rank: 12, wins: 2,  losses: 11, champion: false, teamName: 'Team No Fly Zone',        era: 'espn' as const },
+      { year: 2017, rank: 5,  wins: 7,  losses: 6,  champion: false, teamName: 'Team No Fly Zone',        era: 'espn' as const },
+      { year: 2016, rank: 4,  wins: 8,  losses: 5,  champion: false, teamName: 'Team Maleski',            era: 'espn' as const },
     ],
   },
   {
     slug: 'escuelas',
     displayName: 'Escuelas',
+    realName: undefined,
     teamName: 'Booty Cheeks',
     championships: [] as number[],
     runnerUps: [] as number[],
     playoffApps: 0,
-    wins: 15, losses: 41,
+    wins: 20, losses: 63,
     dynastyRank: 12,
-    status: 'Joined 2022. No playoff appearances in four seasons. 2025 was the first 6-win season. Long rebuild with young assets.',
+    status: 'Joined 2020 as MCSchools, renamed Escuelas from 2022. No playoff appearances in 6 seasons. First registered winning record in 2025 (6-8). Commissioner\'s brother.',
     currentRoster: ['Jordan Love (QB)', 'Zay Flowers (WR)', 'Jaylen Warren (RB)', 'Jelani Woods (TE)', 'Dontayvion Wicks (WR)'],
     seasons: [
-      { year: 2022, rank: 11, wins: 4, losses: 10, champion: false },
-      { year: 2023, rank: 12, wins: 2, losses: 12, champion: false },
-      { year: 2024, rank: 12, wins: 3, losses: 11, champion: false },
-      { year: 2025, rank: 6, wins: 6, losses: 8, champion: false },
+      { year: 2025, rank: 8,  wins: 6,  losses: 8,  champion: false, teamName: 'Booty Cheeks' },
+      { year: 2024, rank: 12, wins: 3,  losses: 11, champion: false, teamName: 'The Young Guns + backups' },
+      { year: 2023, rank: 12, wins: 2,  losses: 12, champion: false, teamName: 'Loud and Stroud!' },
+      { year: 2022, rank: 10, wins: 4,  losses: 10, champion: false, teamName: "Grindin Gere's" },
+      { year: 2021, rank: 12, wins: 0,  losses: 14, champion: false, teamName: 'Our Lady of the Poor' },
+      { year: 2020, rank: 9,  wins: 5,  losses: 8,  champion: false, teamName: 'Mike Was Adopted' },
     ],
   },
 ];
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Owner = typeof OWNERS[number];
+interface OwnerSeason {
+  year: number;
+  rank: number;
+  wins: number;
+  losses: number;
+  champion: boolean;
+  teamName: string;
+  era?: 'espn';
+}
+
+type Owner = Omit<typeof OWNERS[number], 'seasons'> & { seasons: OwnerSeason[] };
 
 interface LivePlayer {
   player_id: string;
@@ -925,8 +993,10 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
                     </span>
                   )}
                 </div>
-                <p className="text-slate-400 mb-3">{owner.teamName}</p>
-
+                <p className="text-slate-400 mb-1">{owner.teamName}</p>
+                {owner.realName && (
+                  <p className="text-xs text-slate-500 mb-2">{owner.realName}</p>
+                )}
                 {/* Championship badges */}
                 {owner.championships.length > 0 ? (
                   <div className="flex items-center gap-2 flex-wrap">
@@ -970,17 +1040,21 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
 
           {/* ── Section 3: Season-by-Season ───────────────────────────────── */}
           <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
-            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66]">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
               <h2 className="text-base font-bold text-white">Season-by-Season</h2>
+              {owner.seasons.some(s => s.era === 'espn') && (
+                <span className="text-[10px] text-slate-500 font-mono">ESPN era 2016–2019 included</span>
+              )}
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-[#0d1b2a] text-slate-500 text-xs uppercase tracking-wider">
-                    <th className="px-5 py-3 text-left font-semibold">Year</th>
-                    <th className="px-5 py-3 text-left font-semibold">Finish</th>
-                    <th className="px-5 py-3 text-left font-semibold">Record</th>
-                    <th className="px-5 py-3 text-center font-semibold">Champion</th>
+                    <th className="px-4 py-3 text-left font-semibold">Year</th>
+                    <th className="px-4 py-3 text-left font-semibold">Team Name</th>
+                    <th className="px-4 py-3 text-left font-semibold">Seed</th>
+                    <th className="px-4 py-3 text-left font-semibold">Record</th>
+                    <th className="px-4 py-3 text-center font-semibold">🏆</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#2d4a66]">
@@ -991,30 +1065,33 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
                         'transition-colors',
                         season.champion
                           ? 'bg-[#ffd700]/5 hover:bg-[#ffd700]/10'
+                          : season.era === 'espn'
+                          ? 'bg-[#0d1b2a]/60 hover:bg-[#0d1b2a]'
                           : 'bg-[#16213e] hover:bg-[#1a2d42]'
                       )}
                     >
-                      <td className="px-5 py-3 font-bold text-white">{season.year}</td>
-                      <td className="px-5 py-3">
-                        <span
-                          className={cn(
-                            'font-semibold',
-                            season.rank === 1 ? 'text-[#ffd700]' : 'text-slate-300'
-                          )}
-                        >
-                          {getRankLabel(season.rank)}
+                      <td className="px-4 py-3 font-bold text-white whitespace-nowrap">
+                        {season.year}
+                        {season.era === 'espn' && (
+                          <span className="ml-1.5 text-[9px] font-bold text-[#e94560]/70 bg-[#e94560]/10 px-1 py-0.5 rounded uppercase tracking-wide">ESPN</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-slate-300 max-w-[180px]">
+                        <span className="truncate block" title={season.teamName}>{season.teamName}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={cn('font-semibold', season.rank === 1 ? 'text-[#ffd700]' : 'text-slate-300')}>
+                          #{season.rank}
                         </span>
                       </td>
-                      <td className="px-5 py-3 font-mono text-slate-300">
+                      <td className="px-4 py-3 font-mono text-slate-300">
                         {season.wins}-{season.losses}
                       </td>
-                      <td className="px-5 py-3 text-center">
+                      <td className="px-4 py-3 text-center">
                         {season.champion ? (
-                          <span className="inline-flex items-center justify-center" title="Champion">
-                            <Trophy className="w-5 h-5 text-[#ffd700]" aria-label="Champion" />
-                          </span>
+                          <Trophy className="w-4 h-4 text-[#ffd700] mx-auto" aria-label="Champion" />
                         ) : (
-                          <span className="text-slate-600">—</span>
+                          <span className="text-slate-700">—</span>
                         )}
                       </td>
                     </tr>

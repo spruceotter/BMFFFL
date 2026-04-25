@@ -8,23 +8,24 @@ import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Ring counts: all-time championships including ESPN era (2016-2025).
-// Corrected 2026-04-25: MLSchools12=4x (2016,2019,2021,2024), Cogdeill11=2x (2017,2020).
-// W/L records: Sleeper era (2020-2025) from bimfle.db roster_snapshots — verified 2026-04-25.
-// playoffApps and dynastyRank are BMFFFL-internal rankings, not from DB.
+// Ring counts: all-time championships (ESPN 2016-2019 + Sleeper 2020-2025).
+// W/L records: ALL-TIME (ESPN 2016-2019 API-verified + Sleeper 2020-2025 DB-verified).
+// Sleeper-only owners (joined 2021+): Tubes94, eldridm20, Escuelas — no ESPN era.
+// playoffApps: ALL-TIME (ESPN winners bracket + Sleeper winners bracket), API-verified 2026-04-25.
+// dynastyRank: BMFFFL-internal ranking.
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 38, losses: 45, playoffApps: 2, dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 68, losses: 15, playoffApps: 6, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 44, losses: 39, playoffApps: 4, dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 46, losses: 37, playoffApps: 3, dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 36, losses: 47, playoffApps: 3, dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 50, losses: 33, playoffApps: 4, dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39, losses: 44, playoffApps: 2, dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34, losses: 36, playoffApps: 2, dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
-  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 42, losses: 41, playoffApps: 3, dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 41, losses: 42, playoffApps: 2, dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 36, losses: 47, playoffApps: 1, dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'escuelas',      name: 'Escuelas',        rings: 0, wins: 15, losses: 41, playoffApps: 0, dynastyRank: 10, seasons: [2022,2023,2024,2025] },
+  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 114, losses: 21, playoffApps: 10, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 73,  losses: 62, playoffApps: 8,  dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 78,  losses: 57, playoffApps: 6,  dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39,  losses: 44, playoffApps: 3,  dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34,  losses: 36, playoffApps: 2,  dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
+  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 71,  losses: 64, playoffApps: 5,  dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 59,  losses: 76, playoffApps: 4,  dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
+  { slug: 'escuelas',      name: 'Escuelas',        rings: 0, wins: 15,  losses: 41, playoffApps: 0,  dynastyRank: 10, seasons: [2022,2023,2024,2025] },
 ];
 
 // ─── Season Rank Data ─────────────────────────────────────────────────────────
