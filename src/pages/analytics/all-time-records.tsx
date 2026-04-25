@@ -28,11 +28,11 @@ interface FranchiseRow {
   sleeperSeasons: string;
   rsRecord: string; // "114-21"
   rsPct: string;   // "84.4%"
+  poRecord: string; // "9-4" — winners-bracket playoff W-L
   playoffs: number;
   rings: number;
   runnerUps: number;
   thirds: number;
-  notes?: string;
 }
 
 // ─── Medal Helpers ────────────────────────────────────────────────────────────
@@ -65,6 +65,7 @@ function MedalBadge({ rank }: { rank: 1 | 2 | 3 }) {
 
 // ─── Franchise Ledger Data ────────────────────────────────────────────────────
 // RS records: ESPN era (2016-2019) + Sleeper era (2020-2025), API-verified.
+// PO Record: winners-bracket playoff W-L (Sleeper 2020-2025 from DB; ESPN via bracket API).
 // Playoffs = total winners-bracket appearances across all seasons.
 // 🏆 = championship wins, 🥈 = runner-up, 🥉 = 3rd-place finishes.
 
@@ -76,6 +77,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '114-21',
     rsPct: '84.4%',
+    poRecord: '9-4',
     playoffs: 10,
     rings: 4,
     runnerUps: 1,
@@ -88,6 +90,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '78-57',
     rsPct: '57.8%',
+    poRecord: '3-5',
     playoffs: 6,
     rings: 1,
     runnerUps: 2,
@@ -100,11 +103,11 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '73-62',
     rsPct: '54.1%',
+    poRecord: '5-5',
     playoffs: 8,
     rings: 0,
     runnerUps: 2,
     thirds: 1,
-    notes: 'Most playoff apps without a ring',
   },
   {
     owner: 'Grandes',
@@ -113,6 +116,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '71-64',
     rsPct: '52.6%',
+    poRecord: '5-3',
     playoffs: 5,
     rings: 1,
     runnerUps: 1,
@@ -125,11 +129,11 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '67-68',
     rsPct: '49.6%',
+    poRecord: '4-6',
     playoffs: 5,
     rings: 1,
     runnerUps: 0,
     thirds: 0,
-    notes: '2023 Cinderella: won as #6 seed',
   },
   {
     owner: 'Cogdeill11',
@@ -138,6 +142,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '67-68',
     rsPct: '49.6%',
+    poRecord: '2-2',
     playoffs: 5,
     rings: 2,
     runnerUps: 0,
@@ -150,6 +155,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '59-76',
     rsPct: '43.7%',
+    poRecord: '2-5',
     playoffs: 4,
     rings: 0,
     runnerUps: 1,
@@ -162,11 +168,11 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '39-44',
     rsPct: '47.0%',
+    poRecord: '4-3',
     playoffs: 3,
     rings: 0,
     runnerUps: 1,
     thirds: 0,
-    notes: 'Sleeper era only',
   },
   {
     owner: 'Cmaleski',
@@ -175,6 +181,7 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '55-80',
     rsPct: '40.7%',
+    poRecord: '2-3',
     playoffs: 4,
     rings: 0,
     runnerUps: 0,
@@ -187,11 +194,11 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '55-80',
     rsPct: '40.7%',
+    poRecord: '4-4',
     playoffs: 4,
     rings: 1,
     runnerUps: 0,
     thirds: 0,
-    notes: '2025 champion from #4 seed',
   },
   {
     owner: 'Tubes94',
@@ -200,11 +207,11 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2021–2025',
     rsRecord: '34-36',
     rsPct: '48.6%',
+    poRecord: '2-2',
     playoffs: 2,
     rings: 0,
     runnerUps: 1,
     thirds: 1,
-    notes: 'Joined 2021',
   },
   {
     owner: 'MCSchools',
@@ -213,50 +220,50 @@ const FRANCHISE_LEDGER: FranchiseRow[] = [
     sleeperSeasons: '2020–2025',
     rsRecord: '20-63',
     rsPct: '24.1%',
+    poRecord: '0-0',
     playoffs: 0,
     rings: 0,
     runnerUps: 0,
     thirds: 0,
-    notes: 'Left after 2025',
   },
   {
     owner: 'mmoodie12',
     status: 'Alumni',
-    espnSeasons: '2018–2019',
+    espnSeasons: '2016–2019',
     sleeperSeasons: '2020',
-    rsRecord: '~4-9',
-    rsPct: '~30%',
+    rsRecord: '27-38',
+    rsPct: '41.5%',
+    poRecord: '1-1',
     playoffs: 1,
     rings: 0,
     runnerUps: 0,
-    thirds: 0,
-    notes: 'ESPN 2018 playoffs. Left after 2020.',
+    thirds: 1,
   },
   {
     owner: 'eldge19 (Arnie)',
     status: 'ESPN Only',
     espnSeasons: '2016–2019',
     sleeperSeasons: '—',
-    rsRecord: 'ESPN era',
-    rsPct: '—',
+    rsRecord: '34-18',
+    rsPct: '65.4%',
+    poRecord: '2-5',
     playoffs: 3,
     rings: 0,
     runnerUps: 1,
     thirds: 1,
-    notes: '2017 runner-up. Did not join Sleeper.',
   },
   {
     owner: 'miroslav081',
     status: 'ESPN Only',
     espnSeasons: '2016–2019',
     sleeperSeasons: '—',
-    rsRecord: 'ESPN era',
-    rsPct: '—',
+    rsRecord: '17-35',
+    rsPct: '32.7%',
+    poRecord: '—',
     playoffs: 0,
     rings: 0,
     runnerUps: 0,
     thirds: 0,
-    notes: 'Did not join Sleeper.',
   },
 ];
 
@@ -409,9 +416,10 @@ function FranchiseLedger() {
             <tr className="border-b border-[#1e3347] bg-[#0d1b2a]/60">
               <th className="text-left px-4 py-3 text-slate-500 font-semibold uppercase tracking-wider">Owner</th>
               <th className="text-left px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">Seasons</th>
-              <th className="text-right px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">RS Record</th>
+              <th className="text-right px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">RS W-L</th>
               <th className="text-right px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">RS%</th>
-              <th className="text-right px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">Playoffs</th>
+              <th className="text-right px-3 py-3 text-blue-400 font-semibold uppercase tracking-wider">PO W-L</th>
+              <th className="text-right px-3 py-3 text-slate-500 font-semibold uppercase tracking-wider">PO Apps</th>
               <th className="text-right px-3 py-3 text-[#ffd700] font-semibold uppercase tracking-wider">🏆</th>
               <th className="text-right px-3 py-3 text-slate-400 font-semibold uppercase tracking-wider">🥈</th>
               <th className="text-right px-3 py-3 text-amber-700 font-semibold uppercase tracking-wider">🥉</th>
@@ -430,7 +438,6 @@ function FranchiseLedger() {
               >
                 <td className="px-4 py-3">
                   <div className="font-bold text-white">{row.owner}</div>
-                  {row.notes && <div className="text-[10px] text-slate-500 mt-0.5">{row.notes}</div>}
                 </td>
                 <td className="px-3 py-3 text-slate-400">
                   <div>{row.espnSeasons !== '—' ? <span className="text-slate-500">ESPN:</span> : null} {row.espnSeasons !== '—' ? row.espnSeasons : '—'}</div>
@@ -438,7 +445,8 @@ function FranchiseLedger() {
                 </td>
                 <td className="px-3 py-3 text-right font-mono font-bold text-slate-200 tabular-nums">{row.rsRecord}</td>
                 <td className="px-3 py-3 text-right font-mono text-slate-400 tabular-nums">{row.rsPct}</td>
-                <td className="px-3 py-3 text-right font-mono text-blue-300 tabular-nums font-bold">{row.playoffs}</td>
+                <td className="px-3 py-3 text-right font-mono text-blue-300 tabular-nums font-bold">{row.poRecord}</td>
+                <td className="px-3 py-3 text-right font-mono text-blue-400 tabular-nums font-bold">{row.playoffs}</td>
                 <td className="px-3 py-3 text-right font-mono tabular-nums font-bold">
                   <span className={row.rings > 0 ? 'text-[#ffd700]' : 'text-slate-600'}>
                     {row.rings > 0 ? row.rings : '—'}
@@ -473,9 +481,9 @@ function FranchiseLedger() {
       {/* Footer note */}
       <div className="px-5 py-3 border-t border-[#1e3347] bg-[#0d1b2a]/40">
         <p className="text-[11px] text-slate-600 leading-snug">
-          RS = Regular Season only. 🏆 = championships won. 🥈 = runner-up finishes. 🥉 = 3rd-place finishes.
-          ESPN era data (2016–2019) via ESPN winners bracket API. Sleeper era (2020–2025) via Sleeper DB.
-          eldridm20 joined 2020 · Tubes94 joined 2021. MCSchools (Booty Cheeks) was active 2020–2025.
+          RS W-L = Regular season only. PO W-L = winners-bracket playoff record (Sleeper 2020–2025 DB-verified; ESPN era from bracket API).
+          🏆 = championships. 🥈 = runner-up. 🥉 = 3rd place. ESPN era (2016–2019) API-verified via lm-api-reads.fantasy.espn.com.
+          eldridm20 joined 2020 · Tubes94 joined 2021 · MCSchools (Booty Cheeks) left after 2025 · mmoodie12 left after 2020.
         </p>
       </div>
     </div>
@@ -655,9 +663,9 @@ export default function AllTimeRecordsPage() {
         {/* Footer note */}
         <div className="mt-10 rounded-xl border border-[#2d4a66] bg-[#16213e] px-5 py-4">
           <p className="text-xs text-slate-500 leading-relaxed">
-            <span className="text-slate-400 font-semibold">Data note:</span> Regular season records through the 2025 season (ESPN 2016–2019 API-verified + Sleeper 2020–2025 DB-verified).
-            Playoff appearances from winners bracket only (ESPN bracket API + Sleeper playoff table).
-            RS records: MLSchools12 114-21 (.844) &bull; SexMachineAndyD 78-57 (.578) &bull; rbr 73-62 (.541) &bull; Grandes 71-64 (.526) &bull; JuicyBussy 67-68 (.496) &bull; Cogdeill11 67-68 (.496).
+            <span className="text-slate-400 font-semibold">Data note:</span> Regular season records through the 2025 season (ESPN 2016–2019 API-verified via lm-api-reads.fantasy.espn.com + Sleeper 2020–2025 DB-verified).
+            Playoff W-L from winners bracket only. PO W-L for current owners reflects Sleeper era (2020–2025); ESPN-era playoff bracket data available but excluded from PO W-L totals.
+            Former owners (full careers): eldge19 34-18 RS (.654, 3 playoff apps) &bull; mmoodie12 27-38 RS (.415, 1 playoff app) &bull; miroslav081 17-35 RS (.327).
           </p>
         </div>
 
