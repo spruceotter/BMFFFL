@@ -88,21 +88,25 @@ interface OwnerRecord {
   note?: string;
 }
 
-// Records: Sleeper era (2020-2025) from Convex prod getOwnerCareerStats.
-// Rings include ESPN era (2016-2019): MLSchools12 +2 (2016,2019), Cogdeill11 +1 (2017), SexMachineAndyD +1 (2018).
-// SexMachineAndyD = Mike Vieyra — used ESPN username during 2016-2019 era, changed to SexMachineAndyD on Sleeper.
+// Records: All-time (ESPN 2016-2019 + Sleeper 2020-2025).
+// Wins/losses = Sleeper era only (DB-verified). Rings = all-time.
+// ESPN playoff appearances = confirmed championship finalists only (full bracket data unavailable).
+// ESPN finals confirmed: 2016 (MLSchools12 def. Grandes), 2017 (Cogdeill11 def. eldge19),
+//   2018 (SexMachineAndyD def. MLSchools12), 2019 (MLSchools12 def. rbr).
+// SexMachineAndyD = Mike Vieyra — ESPN username during 2016-2019, changed to SexMachineAndyD on Sleeper.
+// Sleeper playoff apps DB-verified from stage_v_playoffs (winners bracket, seasons 2020-2025).
 const ALL_TIME_RECORDS: OwnerRecord[] = [
-  // Playoff appearances = Sleeper-era only (2020-2025), DB-verified from roster_snapshots
-  { owner: 'MLSchools12',     rings: 4, playoffApps: 6, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024)' },
-  { owner: 'Cogdeill11',      rings: 2, playoffApps: 2, wins: 38, losses: 45, note: '2x champion (2017, 2020)' },
-  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 4, wins: 50, losses: 33, note: '2018 champion, 2x runner-up (2021, 2024)' },
-  { owner: 'JuicyBussy',      rings: 1, playoffApps: 5, wins: 46, losses: 37, note: '2023 champion' },
-  { owner: 'Grandes',         rings: 1, playoffApps: 3, wins: 42, losses: 41, note: '2022 champion — commissioner' },
-  { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 36, losses: 47, note: '2025 champion' },
-  { owner: 'rbr',             rings: 0, playoffApps: 4, wins: 44, losses: 39, note: '2022 runner-up' },
-  { owner: 'eldridsm',        rings: 0, playoffApps: 3, wins: 41, losses: 42, note: '2020 runner-up' },
-  { owner: 'eldridm20',       rings: 0, playoffApps: 2, wins: 39, losses: 44, note: '2023 runner-up' },
-  { owner: 'Tubes94',         rings: 0, playoffApps: 2, wins: 34, losses: 36, note: '2025 runner-up' },
+  // playoffApps = ESPN confirmed finals + Sleeper winners bracket (all-time)
+  { owner: 'MLSchools12',     rings: 4, playoffApps: 9, wins: 68, losses: 15, note: '4x champion (2016, 2019, 2021, 2024) — 3 ESPN finals + 6 Sleeper' },
+  { owner: 'Cogdeill11',      rings: 2, playoffApps: 3, wins: 38, losses: 45, note: '2x champion (2017, 2020) — 1 ESPN finals + 2 Sleeper' },
+  { owner: 'SexMachineAndyD', rings: 1, playoffApps: 5, wins: 50, losses: 33, note: '2018 champion, 2x runner-up (2021, 2024) — 1 ESPN finals + 4 Sleeper' },
+  { owner: 'JuicyBussy',      rings: 1, playoffApps: 4, wins: 46, losses: 37, note: '2023 champion — 4 Sleeper (2022–2025)' },
+  { owner: 'Grandes',         rings: 1, playoffApps: 4, wins: 42, losses: 41, note: '2022 champion — 1 ESPN finals (2016) + 3 Sleeper' },
+  { owner: 'tdtd19844',       rings: 1, playoffApps: 3, wins: 36, losses: 47, note: '2025 champion — 3 Sleeper' },
+  { owner: 'rbr',             rings: 0, playoffApps: 5, wins: 44, losses: 39, note: '2022 runner-up — 1 ESPN finals (2019) + 4 Sleeper' },
+  { owner: 'eldridsm',        rings: 0, playoffApps: 3, wins: 41, losses: 42, note: '2020 runner-up — 3 Sleeper' },
+  { owner: 'eldridm20',       rings: 0, playoffApps: 3, wins: 39, losses: 44, note: '2023 runner-up — 3 Sleeper (2021–2023)' },
+  { owner: 'Tubes94',         rings: 0, playoffApps: 2, wins: 34, losses: 36, note: '2025 runner-up — 2 Sleeper' },
   { owner: 'Cmaleski',        rings: 0, playoffApps: 2, wins: 36, losses: 47 },
   { owner: 'MCSchools',       rings: 0, playoffApps: 0, wins: 20, losses: 63 },
 ];

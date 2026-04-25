@@ -51,7 +51,7 @@ const OWNERS = [
     teamName: 'Juicy Bussy',
     championships: [2023],
     runnerUps: [],
-    playoffApps: 5,
+    playoffApps: 4,
     wins: 46, losses: 37,
     dynastyRank: 4,
     status: '2023 champion as the 6th seed. Holds the all-time single-week scoring record (245.80 pts, Week 16 2021). The most explosive offense in the league.',
