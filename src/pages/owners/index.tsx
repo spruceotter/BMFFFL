@@ -11,18 +11,20 @@ import { getOwnerToken, ARCHETYPE_LABELS } from '@/lib/owner-tokens';
 // All-time champions (ESPN + Sleeper era) — verified 2026-04-25:
 // 2016=MLSchools12, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
 // 2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
-// playoffApps = all-time (ESPN winners bracket API-verified + Sleeper winners bracket DB-verified)
+// wins/losses = ALL-TIME (ESPN 2016-2019 API-verified + Sleeper 2020-2025 DB-verified).
+// Sleeper-only owners (joined 2021+): Tubes94, eldridm20, Escuelas — no ESPN era.
+// playoffApps = all-time (ESPN winners bracket + Sleeper winners bracket, API+DB verified).
 const OWNERS = [
   {
     slug: 'mlschools12',
     displayName: 'MLSchools12',
     teamName: 'The Murder Boners',
     championships: [2016, 2019, 2021, 2024],
-    runnerUps: [],
+    runnerUps: [2018],
     playoffApps: 10,
-    wins: 68, losses: 15,
+    wins: 114, losses: 21,
     dynastyRank: 1,
-    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader (.820 win%). 10 playoff appearances across 10 seasons. The defining dynasty of the BMFFFL era.',
+    status: 'Four-time champion (2016, 2019, 2021, 2024). All-time wins leader (.844 win%). 10 playoff appearances across 10 seasons. The defining dynasty of the BMFFFL era.',
   },
   {
     slug: 'tubes94',
@@ -31,7 +33,7 @@ const OWNERS = [
     championships: [],
     runnerUps: [2025],
     playoffApps: 2,
-    wins: 34, losses: 36,
+    wins: 34, losses: 36, // Sleeper-only (joined 2021)
     dynastyRank: 2,
     status: 'Runner-up 2025 after an 11-3 regular season in 2024. Joined in 2021. One of two favorites for the 2026 championship.',
   },
@@ -42,7 +44,7 @@ const OWNERS = [
     championships: [2018],
     runnerUps: [2021, 2024],
     playoffApps: 6,
-    wins: 50, losses: 33,
+    wins: 78, losses: 57,
     dynastyRank: 3,
     status: '2018 ESPN champion. Runner-up in 2021 and 2024. Six playoff appearances across both eras. The most consistent multi-era performer.',
   },
@@ -53,7 +55,7 @@ const OWNERS = [
     championships: [2023],
     runnerUps: [],
     playoffApps: 5,
-    wins: 46, losses: 37,
+    wins: 67, losses: 68,
     dynastyRank: 4,
     status: '2023 champion as the 6th seed. Holds the all-time single-week scoring record (245.80 pts, Week 16 2021). The most explosive offense in the league.',
   },
@@ -62,11 +64,11 @@ const OWNERS = [
     displayName: 'rbr',
     teamName: 'Really Big Rings',
     championships: [],
-    runnerUps: [2022],
+    runnerUps: [2019, 2022],
     playoffApps: 8,
-    wins: 44, losses: 39,
+    wins: 73, losses: 62,
     dynastyRank: 5,
-    status: '2022 runner-up. Made the playoffs in all 4 ESPN seasons (2016–2019) and 4 of 6 Sleeper seasons. Eight all-time playoff appearances — the most without a title.',
+    status: '2019 and 2022 runner-up. Made the playoffs in all 4 ESPN seasons (2016–2019) and 4 of 6 Sleeper seasons. Eight all-time playoff appearances — the most without a title.',
   },
   {
     slug: 'cogdeill11',
@@ -75,7 +77,7 @@ const OWNERS = [
     championships: [2017, 2020],
     runnerUps: [],
     playoffApps: 5,
-    wins: 38, losses: 45,
+    wins: 67, losses: 68,
     dynastyRank: 6,
     status: 'Two-time champion (2017 ESPN, 2020 Sleeper). Five all-time playoff appearances. Won the tightest championship on record (203.10–198.34). Has not made the playoffs since 2021.',
   },
@@ -84,11 +86,11 @@ const OWNERS = [
     displayName: 'Grandes',
     teamName: 'El Rioux Grandes',
     championships: [2022],
-    runnerUps: [],
+    runnerUps: [2016],
     playoffApps: 5,
-    wins: 42, losses: 41,
+    wins: 71, losses: 64,
     dynastyRank: 7,
-    status: '2022 champion. Commissioner and founding member. Five all-time playoff appearances. The fastest title-to-last trajectory: champion in 2022, Moodie Bowl in 2025.',
+    status: '2022 champion. Runner-up in 2016 (ESPN era). Commissioner and founding member. Five all-time playoff appearances. The fastest title-to-last trajectory: champion in 2022, Moodie Bowl in 2025.',
   },
   {
     slug: 'tdtd19844',
@@ -97,7 +99,7 @@ const OWNERS = [
     championships: [2025],
     runnerUps: [],
     playoffApps: 4,
-    wins: 36, losses: 47,
+    wins: 55, losses: 80,
     dynastyRank: 8,
     status: '2025 champion. Reigning champion entering 2026. Dramatic rebuild arc: 3-11 in 2022, champion in 2025.',
   },
@@ -108,7 +110,7 @@ const OWNERS = [
     championships: [],
     runnerUps: [2020],
     playoffApps: 4,
-    wins: 41, losses: 42,
+    wins: 59, losses: 76,
     dynastyRank: 9,
     status: '2020 runner-up. Eliminated the #1 seed MLSchools12 in the 2020 semis with 181 points. Four all-time playoff appearances (2019 ESPN, 2020, 2022, 2023 Sleeper).',
   },
@@ -119,7 +121,7 @@ const OWNERS = [
     championships: [],
     runnerUps: [2023],
     playoffApps: 3,
-    wins: 39, losses: 44,
+    wins: 39, losses: 44, // Sleeper-only (joined 2021)
     dynastyRank: 10,
     status: '2023 runner-up. Eliminated the #1 seed MLSchools12 (13-1) in the 2023 semis with 154.30 points. Three playoff appearances (2021, 2022, 2023). Dangerous in single-elimination.',
   },
@@ -130,7 +132,7 @@ const OWNERS = [
     championships: [],
     runnerUps: [],
     playoffApps: 4,
-    wins: 36, losses: 47,
+    wins: 55, losses: 80,
     dynastyRank: 11,
     status: 'Four all-time playoff appearances: 2 ESPN (2016, 2017) + 2 Sleeper (2023, 2025). In 2025 scored 1,990 pts (3rd in league) while going 6-8. The league\'s most underrated team by record.',
   },
@@ -141,9 +143,9 @@ const OWNERS = [
     championships: [],
     runnerUps: [],
     playoffApps: 0,
-    wins: 15, losses: 41,
+    wins: 20, losses: 63, // Sleeper era 2020-2025 (MCSchools 2020-2021, Escuelas 2022-2025)
     dynastyRank: 12,
-    status: 'Joined 2022. No playoff appearances yet. 2025 was the first season with a winning-ish record (6-8). Long rebuild ahead.',
+    status: 'Joined 2020. No playoff appearances in 6 seasons. 2025 was the best record (6-8). Left after 2025.',
   },
 ];
 
