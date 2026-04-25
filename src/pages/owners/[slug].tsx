@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Trophy, ChevronLeft } from 'lucide-react';
+import { Trophy, ChevronLeft, Loader2, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import Badge from '@/components/ui/Badge';
 import StatCard from '@/components/ui/StatCard';
@@ -255,26 +256,476 @@ const OWNERS = [
 
 type Owner = typeof OWNERS[number];
 
-type Position = 'QB' | 'RB' | 'WR' | 'TE';
+interface LivePlayer {
+  player_id: string;
+  full_name: string;
+  position: string;
+  team: string | null;
+  age: number | null;
+}
 
-interface ParsedPlayer {
-  name: string;
-  position: Position;
+// ─── Live Roster Section ──────────────────────────────────────────────────────
+
+const LEAGUE_ID = '1312123497203376128';
+const SKILL_POSITIONS = new Set(['QB', 'RB', 'WR', 'TE', 'K']);
+
+function LiveRosterSection({ displayName }: { displayName: string }) {
+  const [players, setPlayers] = useState<LivePlayer[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        // 1. Find the owner's Sleeper user_id
+        const users = await fetch(`https://api.sleeper.app/v1/league/${LEAGUE_ID}/users`).then(r => r.json()) as Array<{ user_id: string; display_name: string }>;
+        const user = users.find(u => u.display_name === displayName);
+        if (!user) throw new Error(`No Sleeper user found for ${displayName}`);
+
+        // 2. Find their roster player IDs
+        const rosters = await fetch(`https://api.sleeper.app/v1/league/${LEAGUE_ID}/rosters`).then(r => r.json()) as Array<{ owner_id: string; players: string[] | null }>;
+        const roster = rosters.find(r => r.owner_id === user.user_id);
+        const playerIds = roster?.players ?? [];
+        if (playerIds.length === 0) {
+          setPlayers([]);
+          setLoading(false);
+          return;
+        }
+
+        // 3. Fetch full player DB (cached by browser after first load)
+        const allPlayers = await fetch('https://api.sleeper.app/v1/players/nfl').then(r => r.json()) as Record<string, { full_name?: string; position?: string; team?: string; age?: number }>;
+
+        // 4. Map player IDs → player info (skill positions only)
+        const roster_players: LivePlayer[] = playerIds
+          .map(id => {
+            const p = allPlayers[id];
+            if (!p || !SKILL_POSITIONS.has(p.position ?? '')) return null;
+            return {
+              player_id: id,
+              full_name: p.full_name ?? id,
+              position: p.position ?? 'WR',
+              team: p.team ?? null,
+              age: p.age ?? null,
+            };
+          })
+          .filter(Boolean) as LivePlayer[];
+
+        // Sort: QB first, then RB, WR, TE, K
+        const POS_ORDER: Record<string, number> = { QB: 0, RB: 1, WR: 2, TE: 3, K: 4 };
+        roster_players.sort((a, b) => (POS_ORDER[a.position] ?? 9) - (POS_ORDER[b.position] ?? 9));
+
+        setPlayers(roster_players);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load roster');
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading live roster from Sleeper…</span>
+      </div>
+    );
+  }
+
+  if (error || players.length === 0) {
+    return (
+      <div className="p-4 text-sm text-slate-500 italic">
+        {error ? `Could not load live roster: ${error}` : 'No roster data available.'}
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      {players.map((p) => {
+        const pos = (['QB', 'RB', 'WR', 'TE'] as const).includes(p.position as 'QB' | 'RB' | 'WR' | 'TE')
+          ? (p.position as 'QB' | 'RB' | 'WR' | 'TE')
+          : 'WR';
+        return (
+          <PlayerCard
+            key={p.player_id}
+            name={p.full_name}
+            position={pos}
+            nflTeam={p.team ?? ''}
+            age={p.age ?? 0}
+            compact
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Roster History Section ───────────────────────────────────────────────────
+
+interface HistoricalPlayer {
+  player_id: string;
+  full_name: string;
+  position: string;
+  team: string | null;
+  is_starter: boolean;
+}
+
+interface HistoricalSeasonRoster {
+  display_name: string;
+  team_name: string;
+  roster_id: number;
+  wins: number;
+  losses: number;
+  players: HistoricalPlayer[];
+}
+
+interface RosterHistory {
+  generated_at: string;
+  seasons: string[];
+  history: Record<string, Record<string, HistoricalSeasonRoster>>;
+}
+
+const POS_BADGE: Record<string, string> = {
+  QB: 'bg-[#e94560]/20 text-[#e94560]',
+  RB: 'bg-[#22c55e]/20 text-[#22c55e]',
+  WR: 'bg-[#3b82f6]/20 text-[#3b82f6]',
+  TE: 'bg-[#f97316]/20 text-[#f97316]',
+  K:  'bg-slate-700 text-slate-300',
+};
+
+function RosterHistorySection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, HistoricalSeasonRoster> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/roster-history.json')
+      .then(r => r.json())
+      .then((json: RosterHistory) => {
+        const ownerHistory = json.history[displayName] ?? null;
+        setData(ownerHistory);
+        // Default open: most recent season
+        if (ownerHistory) {
+          const seasons = Object.keys(ownerHistory).sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasons[0] ?? null);
+        }
+      })
+      .catch(err => setError(err instanceof Error ? err.message : 'Failed to load history'))
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading roster history…</span>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="p-4 text-sm text-slate-500 italic">
+        {error ?? 'No roster history available.'}
+      </div>
+    );
+  }
+
+  const seasons = Object.keys(data).sort((a, b) => Number(b) - Number(a));
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const roster = data[season];
+        const isOpen = openSeason === season;
+        const record = `${roster.wins}-${roster.losses}`;
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold text-white">{season}</span>
+                <span className="text-xs text-slate-400 font-mono">{record}</span>
+                <span className="text-xs text-slate-500 italic truncate max-w-[160px]">{roster.team_name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{roster.players.length} players</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                {roster.players.map(p => {
+                  const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                  return (
+                    <div
+                      key={p.player_id}
+                      className={cn(
+                        'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm',
+                        'bg-[#0d1b2a] border border-[#2d4a66]',
+                        p.is_starter && 'border-[#ffd700]/30'
+                      )}
+                    >
+                      <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono', badgeClass)}>
+                        {p.position}
+                      </span>
+                      <span className="text-white truncate">{p.full_name}</span>
+                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Owner History Section (draft picks + trades) ────────────────────────────
+
+interface OwnerDraftPick {
+  season: string;
+  draft_type: string;
+  round: number;
+  pick_no: number;
+  player_name: string;
+  position: string;
+  team: string;
+}
+
+interface OwnerTrade {
+  week: number;
+  acquired: string[];
+  sent: string[];
+  trade_partner: string;
+}
+
+interface OwnerSeasonData {
+  season: string;
+  draft_picks: OwnerDraftPick[];
+  trades: OwnerTrade[];
+  notable_adds: Array<{ week: number; type: string; player_name: string; position: string }>;
+}
+
+interface OwnerHistoryFile {
+  generated_at: string;
+  owners: Record<string, Record<string, OwnerSeasonData>>;
+}
+
+function DraftHistorySection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/owner-history.json')
+      .then(r => r.json())
+      .then((json: OwnerHistoryFile) => {
+        const ownerData = json.owners[displayName] ?? null;
+        setData(ownerData);
+        if (ownerData) {
+          // Default open: most recent season with draft picks
+          const seasonsWithPicks = Object.entries(ownerData)
+            .filter(([, d]) => d.draft_picks.length > 0)
+            .map(([s]) => s)
+            .sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasonsWithPicks[0] ?? null);
+        }
+      })
+      .catch(() => null)
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading draft history…</span>
+      </div>
+    );
+  }
+
+  if (!data) return <div className="p-4 text-sm text-slate-500 italic">No draft history available.</div>;
+
+  const seasons = Object.entries(data)
+    .filter(([, d]) => d.draft_picks.length > 0)
+    .map(([s]) => s)
+    .sort((a, b) => Number(b) - Number(a));
+
+  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No draft picks recorded.</div>;
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const isOpen = openSeason === season;
+        const picks = data[season].draft_picks;
+        const label = picks[0]?.draft_type === 'espn_startup' ? 'ESPN startup' :
+                      picks[0]?.draft_type === 'startup' ? 'startup' : 'rookie';
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold text-white">{season}</span>
+                <span className="text-xs text-slate-500 capitalize">{label} draft</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{picks.length} picks</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 space-y-1">
+                {picks.map((p, i) => {
+                  const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-sm"
+                    >
+                      <span className="text-xs text-slate-500 font-mono w-10 shrink-0">R{p.round}</span>
+                      {p.position && (
+                        <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono shrink-0', badgeClass)}>
+                          {p.position}
+                        </span>
+                      )}
+                      <span className="text-white">{p.player_name}</span>
+                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function TransactionsSection({ displayName }: { displayName: string }) {
+  const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [openSeason, setOpenSeason] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/data/owner-history.json')
+      .then(r => r.json())
+      .then((json: OwnerHistoryFile) => {
+        const ownerData = json.owners[displayName] ?? null;
+        setData(ownerData);
+        if (ownerData) {
+          const seasonsWithTrades = Object.entries(ownerData)
+            .filter(([, d]) => d.trades.length > 0)
+            .map(([s]) => s)
+            .sort((a, b) => Number(b) - Number(a));
+          setOpenSeason(seasonsWithTrades[0] ?? null);
+        }
+      })
+      .catch(() => null)
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading transactions…</span>
+      </div>
+    );
+  }
+
+  if (!data) return <div className="p-4 text-sm text-slate-500 italic">No transaction history available.</div>;
+
+  const seasons = Object.entries(data)
+    .filter(([, d]) => d.trades.length > 0)
+    .map(([s]) => s)
+    .sort((a, b) => Number(b) - Number(a));
+
+  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No trades recorded.</div>;
+
+  return (
+    <div className="divide-y divide-[#2d4a66]">
+      {seasons.map(season => {
+        const isOpen = openSeason === season;
+        const trades = data[season].trades;
+
+        return (
+          <div key={season}>
+            <button
+              type="button"
+              onClick={() => setOpenSeason(isOpen ? null : season)}
+              className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-[#1a2d42] transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-white">{season}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500">{trades.length} trade{trades.length !== 1 ? 's' : ''}</span>
+                <ChevronLeft
+                  className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
+
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 space-y-2">
+                {trades.map((trade, i) => (
+                  <div key={i} className="rounded-lg bg-[#0d1b2a] border border-[#2d4a66] p-3 text-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs text-slate-500">Wk {trade.week}</span>
+                      <span className="text-xs text-slate-400">with {trade.trade_partner}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <div className="text-xs text-[#22c55e] font-semibold mb-1">Acquired</div>
+                        {trade.acquired.map((p, j) => (
+                          <div key={j} className="text-slate-300 text-xs">{p}</div>
+                        ))}
+                        {trade.acquired.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#e94560] font-semibold mb-1">Sent</div>
+                        {trade.sent.map((p, j) => (
+                          <div key={j} className="text-slate-300 text-xs">{p}</div>
+                        ))}
+                        {trade.sent.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function parseRosterString(str: string): ParsedPlayer {
-  // Format: "Player Name (POS)"
-  const match = str.match(/^(.+?)\s+\(([A-Z]+)\)$/);
-  if (!match) return { name: str, position: 'QB' };
-  const pos = match[2] as Position;
-  const validPositions: Position[] = ['QB', 'RB', 'WR', 'TE'];
-  return {
-    name: match[1],
-    position: validPositions.includes(pos) ? pos : 'QB',
-  };
-}
 
 function getRankLabel(rank: number): string {
   if (rank === 1) return '1st';
@@ -379,8 +830,6 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
   const total = owner.wins + owner.losses;
   const winPct = total > 0 ? (owner.wins / total) : 0;
   const winPctStr = winPct.toFixed(3).replace(/^0/, '');
-
-  const rosterPlayers = owner.currentRoster.map(parseRosterString);
 
   return (
     <>
@@ -574,26 +1023,43 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
             </div>
           </div>
 
-          {/* ── Section 4: Current Roster ─────────────────────────────────── */}
+          {/* ── Section 4: Current Roster (live from Sleeper) ────────────── */}
           <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
-            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66]">
-              <h2 className="text-base font-bold text-white">Key Roster Pieces</h2>
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Current Roster</h2>
+              <span className="text-xs text-[#22c55e] font-medium">● Live</span>
             </div>
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {rosterPlayers.map((player) => (
-                <PlayerCard
-                  key={player.name}
-                  name={player.name}
-                  position={player.position}
-                  nflTeam=""
-                  age={0}
-                  compact
-                />
-              ))}
-            </div>
+            <LiveRosterSection displayName={owner.displayName} />
           </div>
 
-          {/* ── Section 5: Owner Profile ──────────────────────────────────── */}
+          {/* ── Section 5: Roster History (end-of-season snapshots) ─────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Roster History</h2>
+              <span className="text-xs text-slate-500">End-of-season snapshots · 2020–present</span>
+            </div>
+            <RosterHistorySection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 6: Draft History ──────────────────────────────────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Draft History</h2>
+              <span className="text-xs text-slate-500">Rookie picks by season · 2020–present</span>
+            </div>
+            <DraftHistorySection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 7: Trades ─────────────────────────────────────────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Trade History</h2>
+              <span className="text-xs text-slate-500">All trades · 2020–present</span>
+            </div>
+            <TransactionsSection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 8: Owner Profile ──────────────────────────────────── */}
           <div className="rounded-xl p-5 bg-[#16213e] border border-[#2d4a66] mb-6">
             <h2 className="text-base font-bold text-white mb-3">Owner Profile</h2>
             <p className="text-slate-300 leading-relaxed">{owner.status}</p>
