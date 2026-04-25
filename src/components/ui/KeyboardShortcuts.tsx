@@ -94,7 +94,7 @@ export default function KeyboardShortcuts() {
           s: '/season',
           y: '/history',
           o: '/owners',
-          m: '/managers',
+          m: '/owners',
           r: '/records',
           p: '/analytics/power-rankings',
           l: '/analytics/live-scoring',

@@ -22,7 +22,6 @@ const NAV_LINKS: NavLink[] = [
     children: [
       { label: 'About BMFFFL',    href: '/about' },
       { label: 'Owners',          href: '/owners' },
-      { label: 'Owner Profiles',  href: '/managers' },
       { label: 'League Rules',    href: '/rules' },
       { label: 'Constitution',    href: '/constitution' },
       { label: 'Bimflé Chat',    href: '/bimfle' },

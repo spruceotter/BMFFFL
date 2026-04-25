@@ -614,8 +614,8 @@ export default function CurrentSeasonPage() {
                 <Link href="/owners" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#16213e] border border-[#2d4a66] text-slate-300 hover:text-white hover:border-[#3a5f80] text-sm transition-all duration-150">
                   <Trophy className="w-4 h-4 text-[#ffd700]" aria-hidden="true" /> All Owners
                 </Link>
-                <Link href="/managers" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#16213e] border border-[#2d4a66] text-slate-300 hover:text-white hover:border-[#3a5f80] text-sm transition-all duration-150">
-                  Manager Profiles
+                <Link href="/owners" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#16213e] border border-[#2d4a66] text-slate-300 hover:text-white hover:border-[#3a5f80] text-sm transition-all duration-150">
+                  Owner Profiles
                 </Link>
                 <Link href="/history/2025" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#16213e] border border-[#2d4a66] text-slate-300 hover:text-white hover:border-[#3a5f80] text-sm transition-all duration-150">
                   2025 Season

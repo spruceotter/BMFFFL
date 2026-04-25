@@ -22,7 +22,6 @@ const COLUMNS: FooterColumn[] = [
       { label: 'All Articles',        href: '/articles' },
       { label: 'All-Time Records',    href: '/analytics/all-time-records' },
       { label: 'Owner Dashboard',     href: '/analytics/owners' },
-      { label: 'Owner Profiles',      href: '/managers' },
     ],
   },
   {

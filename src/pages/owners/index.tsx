@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Trophy } from 'lucide-react';
+import { Trophy, Star } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import Badge from '@/components/ui/Badge';
 import { getOwnerToken, ARCHETYPE_LABELS } from '@/lib/owner-tokens';
@@ -237,7 +237,7 @@ function OwnerSummaryCard({ owner }: { owner: typeof OWNERS[number] }) {
       </div>
 
       {/* Championship rings */}
-      <div className="mb-3">
+      <div className="mb-3 min-h-[1.5rem]">
         {owner.championships.length > 0 ? (
           <div className="flex items-center gap-1.5 flex-wrap">
             {owner.championships.map((year) => (
@@ -248,6 +248,19 @@ function OwnerSummaryCard({ owner }: { owner: typeof OWNERS[number] }) {
               >
                 <Trophy className="w-3 h-3" aria-hidden="true" />
                 {year}
+              </span>
+            ))}
+          </div>
+        ) : owner.runnerUps.length > 0 ? (
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {owner.runnerUps.map((year) => (
+              <span
+                key={year}
+                className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-500/20 border border-slate-500/40 text-slate-300 text-xs font-semibold"
+                title={`${year} Runner-Up`}
+              >
+                <Star className="w-3 h-3" aria-hidden="true" />
+                {year} RU
               </span>
             ))}
           </div>
@@ -306,6 +319,37 @@ export default function OwnersIndexPage() {
               BMFFFL · All 12 Teams
             </p>
             <h1 className="text-4xl font-black text-white">Owners</h1>
+          </div>
+
+          {/* Championship History banner */}
+          <div className="mb-8 rounded-xl bg-[#16213e] border border-[#ffd700]/20 p-5">
+            <h2 className="text-sm font-bold text-[#ffd700] uppercase tracking-widest mb-3">
+              Championship History
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { year: 2016, winner: 'MLSchools12', note: 'ESPN era' },
+                { year: 2017, winner: 'Cogdeill11', note: 'ESPN era' },
+                { year: 2018, winner: 'SexMachineAndyD', note: 'ESPN era' },
+                { year: 2019, winner: 'MLSchools12', note: 'ESPN era' },
+                { year: 2020, winner: 'Cogdeill11', note: 'def. eldridsm' },
+                { year: 2021, winner: 'MLSchools12', note: 'def. SexMachineAndyD' },
+                { year: 2022, winner: 'Grandes', note: 'def. rbr' },
+                { year: 2023, winner: 'JuicyBussy', note: 'def. eldridm20' },
+                { year: 2024, winner: 'MLSchools12', note: 'def. SexMachineAndyD' },
+                { year: 2025, winner: 'tdtd19844', note: 'def. Tubes94' },
+              ].map(({ year, winner, note }) => (
+                <div
+                  key={year}
+                  className="flex flex-col items-center px-4 py-2 rounded-lg bg-[#0d1b2a] border border-[#ffd700]/30 min-w-[100px]"
+                >
+                  <span className="text-[10px] uppercase tracking-widest text-[#ffd700]/60 mb-0.5">{year}</span>
+                  <Trophy className="w-4 h-4 text-[#ffd700] mb-0.5" aria-hidden="true" />
+                  <span className="text-xs font-bold text-white text-center leading-tight">{winner}</span>
+                  {note && <span className="text-[9px] text-slate-500 mt-0.5 text-center">{note}</span>}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Sort controls */}
