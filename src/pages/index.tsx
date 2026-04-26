@@ -577,9 +577,29 @@ export default function HomePage() {
             style={{ fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: '-0.03em' }}>
             The best league you&apos;re not in.
           </h2>
-          <p className="text-slate-500 text-base max-w-lg mx-auto">
+          <p className="text-slate-500 text-base max-w-lg mx-auto mb-8">
             12 managers. Full PPR dynasty. Rookie drafts. 257 trades. One throne per year.
           </p>
+
+          {/* Orphan spot CTA */}
+          <div className="inline-block rounded-2xl p-6 mb-2 text-left max-w-md mx-auto"
+            style={{ background: 'linear-gradient(135deg, #16213e, #1a2d42)', border: '1px solid rgba(255,215,0,0.2)' }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3"
+              style={{ background: '#e9456015', border: '1px solid #e9456030', color: '#e94560' }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e94560] animate-pulse" />
+              1 Roster Spot Open — Apply by May 9
+            </div>
+            <p className="text-sm text-slate-300 mb-4 leading-relaxed">
+              A dynasty roster is available. Apply to join the league or refer someone — referrals earn up to $50 FAAB.
+            </p>
+            <Link href="/join"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-black text-sm text-[#0d1b2a] transition-all hover:scale-105 active:scale-100"
+              style={{ background: 'linear-gradient(135deg, #ffd700, #ffb700)', boxShadow: '0 0 24px rgba(255,215,0,0.2)' }}>
+              <Users className="w-4 h-4" />
+              Apply to Join
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

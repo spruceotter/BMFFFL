@@ -8,61 +8,73 @@ import { PageStatusBanner } from '@/components/status/PageStatusBanner';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
-// Ring counts: all-time championships (ESPN 2016-2019 + Sleeper 2020-2025).
-// W/L records: ALL-TIME (ESPN 2016-2019 API-verified + Sleeper 2020-2025 DB-verified).
-// Sleeper-only owners (joined 2021+): Tubes94, eldridm20, Escuelas — no ESPN era.
-// playoffApps: ALL-TIME (ESPN winners bracket + Sleeper winners bracket), API-verified 2026-04-25.
-// dynastyRank: BMFFFL-internal ranking.
+// Ring counts: all-time championships (ESPN 2016–2019 + Sleeper 2020–2025).
+// W/L records: All-time for ESPN-era owners (ESPN 2016–2019 API-verified + Sleeper 2020–2025 DB-verified).
+//              Sleeper-only for Tubes94 (joined 2021) and Escuelas/MCSchools (joined 2020).
+// playoffApps: ALL-TIME (ESPN winners bracket + Sleeper winners bracket), verified.
+// dynastyRank: BMFFFL-internal dynasty value ranking (Tubes94 = hottest current dynasty).
+// Sleeper-only (no ESPN era): Tubes94 (joined 2021), Escuelas/MCSchools (joined 2020).
 const OWNERS_DATA = [
-  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 3,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 114, losses: 21, playoffApps: 10, dynastyRank: 2,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 73,  losses: 62, playoffApps: 8,  dynastyRank: 4,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 5,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 6,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 78,  losses: 57, playoffApps: 6,  dynastyRank: 7,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39,  losses: 44, playoffApps: 3,  dynastyRank: 8,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 34,  losses: 36, playoffApps: 2,  dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
-  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 71,  losses: 64, playoffApps: 5,  dynastyRank: 9,  seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 59,  losses: 76, playoffApps: 4,  dynastyRank: 11, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 12, seasons: [2020,2021,2022,2023,2024,2025] },
-  { slug: 'escuelas',      name: 'Escuelas',        rings: 0, wins: 15,  losses: 41, playoffApps: 0,  dynastyRank: 10, seasons: [2022,2023,2024,2025] },
+  { slug: 'cogdeill11',    name: 'Cogdeill11',      rings: 2, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 3,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'mlschools12',   name: 'MLSchools12',     rings: 4, wins: 114, losses: 21, playoffApps: 10, dynastyRank: 2,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'rbr',           name: 'rbr',             rings: 0, wins: 73,  losses: 62, playoffApps: 8,  dynastyRank: 4,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'juicybussy',    name: 'JuicyBussy',      rings: 1, wins: 67,  losses: 68, playoffApps: 5,  dynastyRank: 5,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'tdtd19844',     name: 'tdtd19844',       rings: 1, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 6,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'sexmachineandy',name: 'SexMachineAndyD', rings: 1, wins: 78,  losses: 57, playoffApps: 6,  dynastyRank: 7,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridm20',     name: 'eldridm20',       rings: 0, wins: 39,  losses: 44, playoffApps: 3,  dynastyRank: 8,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'tubes94',       name: 'Tubes94',         rings: 0, wins: 38,  losses: 42, playoffApps: 2,  dynastyRank: 1,  seasons: [2021,2022,2023,2024,2025] },
+  { slug: 'grandes',       name: 'Grandes',         rings: 1, wins: 71,  losses: 64, playoffApps: 5,  dynastyRank: 9,  seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'eldridsm',      name: 'eldridsm',        rings: 0, wins: 59,  losses: 76, playoffApps: 4,  dynastyRank: 11, seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'cmaleski',      name: 'Cmaleski',        rings: 0, wins: 55,  losses: 80, playoffApps: 4,  dynastyRank: 12, seasons: [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025] },
+  { slug: 'escuelas',      name: 'Escuelas',        rings: 0, wins: 24,  losses: 74, playoffApps: 0,  dynastyRank: 10, seasons: [2020,2021,2022,2023,2024,2025] },
 ];
 
 // ─── Season Rank Data ─────────────────────────────────────────────────────────
 
-// Index order: [2020, 2021, 2022, 2023, 2024, 2025]. 0 = not in league that year.
-// Champions: 2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
+// Index order: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+//  0 = not in league that year
+// -1 = in league, ESPN-era full standings not available (only champion #1 confirmed)
+// 1–12 = verified final season finish (playoff outcome + reg-season tiebreak for non-playoff teams)
+//
+// Sleeper era (2020–2025): fully DB-verified via matchup results + playoff bracket data (Flint DB, B757).
+// ESPN era (2016–2019):   only champion positions confirmed (ESPN API pull B546).
+//
+// Champions: 2016=MLSchools12, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
+//            2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
 // Runner-ups: 2020=eldridsm, 2021=SexMachineAndyD, 2022=rbr, 2023=eldridm20, 2024=SexMachineAndyD, 2025=Tubes94
 const SEASON_RANKS: Record<string, number[]> = {
-  'Cogdeill11':      [1,  5,  8,  9,  8,  10],
-  'MLSchools12':     [3,  1,  3,  3,  1,  3],
-  'rbr':             [6,  4,  2,  5,  6,  7],
-  'JuicyBussy':      [7,  9,  4,  1,  4,  6],
-  'tdtd19844':       [4,  6,  5,  7,  5,  1],
-  'SexMachineAndyD': [5,  2,  6,  6,  2,  5],
-  'eldridm20':       [8,  7,  7,  2,  7,  8],
-  'Tubes94':         [0,  11, 9,  8,  3,  2],
-  'Grandes':         [9,  3,  1,  4,  9,  9],
-  'eldridsm':        [2,  8,  10, 10, 10, 11],
-  'Cmaleski':        [10, 10, 11, 11, 11, 4],
-  'Escuelas':        [0,  0,  12, 12, 12, 12],
+  //                       2016  2017  2018  2019  2020  2021  2022  2023  2024  2025
+  'Cogdeill11':          [  -1,    1,   -1,   -1,    1,    6,    8,   11,   10,   11],
+  'MLSchools12':         [   1,   -1,   -1,    1,    3,    1,    3,    3,    1,    3],
+  'rbr':                 [  -1,   -1,   -1,   -1,    5,    4,    2,    8,    5,   10],
+  'JuicyBussy':          [  -1,   -1,   -1,   -1,    8,    7,    4,    1,    4,    6],
+  'tdtd19844':           [  -1,   -1,   -1,   -1,    4,    9,   12,    9,    6,    1],
+  'SexMachineAndyD':     [  -1,   -1,    1,   -1,    6,    2,    9,   10,    2,    5],
+  'eldridm20':           [  -1,   -1,   -1,   -1,   11,    5,    6,    2,    8,    7],
+  'Tubes94':             [   0,    0,    0,    0,    0,   11,   11,    7,    3,    2],
+  'Grandes':             [  -1,   -1,   -1,   -1,   10,    3,    1,    4,    7,   12],
+  'eldridsm':            [  -1,   -1,   -1,   -1,    2,    8,    5,    6,   11,    9],
+  'Cmaleski':            [  -1,   -1,   -1,   -1,    7,   10,    7,    5,    9,    4],
+  'Escuelas':            [   0,    0,    0,    0,    9,   12,   10,   12,   12,    8],
 };
 
-const SEASONS = [2020, 2021, 2022, 2023, 2024, 2025];
+const SEASONS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
 // ─── Rank Cell Color ─────────────────────────────────────────────────────────
 
 function getRankColor(rank: number): string {
-  if (rank === 0) return 'bg-slate-800/40 text-slate-600';
-  if (rank === 1) return 'bg-[#ffd700]/20 text-[#ffd700] font-bold border border-[#ffd700]/30';
-  if (rank <= 3)  return 'bg-emerald-500/15 text-emerald-400 font-semibold border border-emerald-500/20';
-  if (rank <= 6)  return 'bg-blue-500/15 text-blue-400 border border-blue-500/20';
-  if (rank <= 9)  return 'bg-slate-500/15 text-slate-400 border border-slate-500/20';
+  if (rank === 0)  return 'bg-slate-800/40 text-slate-600';                                          // not in league
+  if (rank === -1) return 'bg-slate-700/30 text-slate-500 border border-slate-600/20';              // ESPN era, data N/A
+  if (rank === 1)  return 'bg-[#ffd700]/20 text-[#ffd700] font-bold border border-[#ffd700]/30';
+  if (rank <= 3)   return 'bg-emerald-500/15 text-emerald-400 font-semibold border border-emerald-500/20';
+  if (rank <= 6)   return 'bg-blue-500/15 text-blue-400 border border-blue-500/20';
+  if (rank <= 9)   return 'bg-slate-500/15 text-slate-400 border border-slate-500/20';
   return 'bg-[#e94560]/10 text-[#e94560]/80 border border-[#e94560]/20';
 }
 
 function getRankLabel(rank: number): string {
-  if (rank === 0) return '—';
+  if (rank === 0)  return '—';
+  if (rank === -1) return '?';
   return `#${rank}`;
 }
 
@@ -113,7 +125,7 @@ function getWorstSeason(name: string): { year: number; rank: number } | null {
 function getTrend(name: string): 'up' | 'down' | 'neutral' {
   const ranks = SEASON_RANKS[name];
   if (!ranks) return 'neutral';
-  // Compare last two active seasons
+  // Compare last two active seasons with known data (r > 0)
   const active = ranks.map((r, i) => ({ r, i })).filter(x => x.r > 0);
   if (active.length < 2) return 'neutral';
   const last = active[active.length - 1].r;
@@ -137,8 +149,13 @@ function AllOwnersTable({ onSelectOwner }: { onSelectOwner: (name: string) => vo
                 Owner
               </th>
               {SEASONS.map(yr => (
-                <th key={yr} scope="col" className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  {yr}
+                <th key={yr} scope="col" className={cn(
+                  'px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider whitespace-nowrap',
+                  yr <= 2019 ? 'text-slate-500' : 'text-slate-400'
+                )}>
+                  {yr <= 2019 ? (
+                    <span title="ESPN era — full standings not available">{yr}</span>
+                  ) : yr}
                 </th>
               ))}
               <th scope="col" className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider text-[#ffd700]">
@@ -243,13 +260,14 @@ function AllOwnersTable({ onSelectOwner }: { onSelectOwner: (name: string) => vo
           { label: '#4-6', cls: 'bg-blue-500/15 text-blue-400 border border-blue-500/20' },
           { label: '#7-9', cls: 'bg-slate-500/15 text-slate-400 border border-slate-500/20' },
           { label: '#10-12', cls: 'bg-[#e94560]/10 text-[#e94560]/80 border border-[#e94560]/20' },
+          { label: '?', cls: 'bg-slate-700/30 text-slate-500 border border-slate-600/20' },
           { label: 'N/A', cls: 'bg-slate-800/40 text-slate-600' },
         ].map(item => (
           <span key={item.label} className={cn('inline-flex items-center justify-center px-2 py-0.5 rounded text-[10px] font-bold', item.cls)}>
             {item.label}
           </span>
         ))}
-        <span className="text-[10px] text-slate-600 ml-2">Click any row to view owner detail</span>
+        <span className="text-[10px] text-slate-600 ml-1">? = ESPN era (2016–2019), champion only confirmed &bull; N/A = not in league &bull; Click row for detail</span>
       </div>
     </div>
   );
@@ -270,12 +288,12 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
   const totalGames = owner.wins + owner.losses;
   const winPct = totalGames > 0 ? (owner.wins / totalGames).toFixed(3).replace(/^0/, '') : '.000';
 
-  // Active seasons with rank data
+  // Active seasons with known rank data (r > 0)
   const activeSeasons = SEASONS
     .map((yr, i) => ({ year: yr, rank: ranks[i] ?? 0 }))
     .filter(s => s.rank > 0);
 
-  // Avg rank
+  // Avg rank (known seasons only)
   const avgRank = activeSeasons.length > 0
     ? (activeSeasons.reduce((sum, s) => sum + s.rank, 0) / activeSeasons.length).toFixed(1)
     : '—';
@@ -318,7 +336,7 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
         <StatCard label="All-Time Record" value={`${owner.wins}-${owner.losses}`} subtext={`${winPct} win pct`} trend={trend} />
         <StatCard label="Championships" value={owner.rings} subtext={owner.rings > 0 ? 'Verified rings' : 'Still hunting'} />
         <StatCard label="Playoff Apps" value={owner.playoffApps} subtext={`of ${owner.seasons.length} seasons`} />
-        <StatCard label="Avg Finish" value={avgRank} subtext="Rank across all seasons" />
+        <StatCard label="Avg Finish" value={avgRank} subtext="Known seasons only" />
       </div>
 
       {/* Season-by-season rank visualization */}
@@ -328,16 +346,19 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
         </h3>
 
         {/* Rank bars */}
-        <div className="flex items-end gap-2 sm:gap-3 h-40 mb-3">
+        <div className="flex items-end gap-1 sm:gap-2 h-40 mb-3">
           {SEASONS.map((yr, i) => {
             const rank = ranks[i] ?? 0;
-            if (rank === 0) {
+            if (rank <= 0) {
               return (
                 <div key={yr} className="flex-1 flex flex-col items-center gap-1">
                   <div className="flex-1 flex items-end">
-                    <div className="w-full h-1 rounded bg-slate-800" />
+                    <div className={cn(
+                      'w-full h-1 rounded',
+                      rank === -1 ? 'bg-slate-700' : 'bg-slate-800'
+                    )} />
                   </div>
-                  <span className="text-[10px] text-slate-600 tabular-nums">{yr}</span>
+                  <span className="text-[9px] text-slate-600 tabular-nums">{yr}</span>
                 </div>
               );
             }
@@ -356,7 +377,7 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
             return (
               <div key={yr} className="flex-1 flex flex-col items-center gap-1">
                 <div className="w-full flex flex-col items-center justify-end" style={{ height: '100%' }}>
-                  <span className={cn('text-[10px] font-bold mb-1', rank === 1 ? 'text-[#ffd700]' : 'text-slate-400')}>
+                  <span className={cn('text-[9px] font-bold mb-1', rank === 1 ? 'text-[#ffd700]' : 'text-slate-400')}>
                     #{rank}
                   </span>
                   <div
@@ -365,7 +386,7 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
                     title={`${yr}: #${rank}`}
                   />
                 </div>
-                <span className="text-[10px] text-slate-500 tabular-nums">{yr}</span>
+                <span className="text-[9px] text-slate-500 tabular-nums">{yr}</span>
               </div>
             );
           })}
@@ -403,28 +424,38 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
           <tbody className="divide-y divide-[#1e3347]">
             {SEASONS.map((yr, i) => {
               const rank = ranks[i] ?? 0;
-              if (rank === 0) {
+              if (rank <= 0) {
                 return (
                   <tr key={yr} className="bg-[#1a2d42]/40">
                     <td className="px-4 py-2.5 text-slate-600 tabular-nums font-mono">{yr}</td>
-                    <td className="px-4 py-2.5 text-center text-slate-600 text-xs">Not in league</td>
-                    <td className="px-4 py-2.5 text-slate-600 text-xs">—</td>
+                    <td className="px-4 py-2.5 text-center">
+                      {rank === -1 ? (
+                        <span className={cn('inline-flex items-center justify-center w-9 h-7 rounded text-xs', getRankColor(-1))}>?</span>
+                      ) : (
+                        <span className="text-slate-600 text-xs">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-2.5 text-slate-600 text-xs">
+                      {rank === -1 ? 'ESPN era — full standings not available' : 'Not in league'}
+                    </td>
                   </tr>
                 );
               }
               const isChamp = rank === 1;
-              const isPlayoff = rank <= 4;
+              const isPlayoff = rank <= 6;
               const note = isChamp
                 ? 'League Champion'
                 : rank === 2
                   ? 'Runner-up'
-                  : isPlayoff
-                    ? 'Playoff appearance'
-                    : rank <= 6
-                      ? 'Middle of pack'
-                      : rank <= 9
-                        ? 'Below average finish'
-                        : 'Cellar finish';
+                  : rank === 3
+                    ? '3rd place'
+                    : rank === 4
+                      ? '4th place (semifinalist)'
+                      : rank <= 6
+                        ? 'Playoff appearance (first round exit)'
+                        : rank <= 9
+                          ? 'Missed playoffs'
+                          : 'Cellar finish';
 
               return (
                 <tr
@@ -446,7 +477,7 @@ function OwnerDetailView({ ownerName, onBack }: { ownerName: string; onBack: () 
                       #{rank}
                     </span>
                   </td>
-                  <td className={cn('px-4 py-2.5 text-xs', isChamp ? 'text-[#ffd700]/80 font-semibold' : 'text-slate-400')}>
+                  <td className={cn('px-4 py-2.5 text-xs', isChamp ? 'text-[#ffd700]/80 font-semibold' : isPlayoff ? 'text-blue-400/70' : 'text-slate-400')}>
                     {note}
                   </td>
                 </tr>
@@ -606,7 +637,7 @@ export default function OwnersAnalyticsPage() {
         <title>Owner Performance Dashboard — BMFFFL Analytics</title>
         <meta
           name="description"
-          content="BMFFFL dynasty fantasy football owner performance dashboard — season-by-season rankings, career records, and dynasty tier breakdowns for all 12 managers."
+          content="BMFFFL dynasty fantasy football owner performance dashboard — season-by-season rankings, career records, and dynasty tier breakdowns for all 12 managers across 10 seasons (2016–2025)."
         />
       </Head>
 
@@ -622,14 +653,14 @@ export default function OwnersAnalyticsPage() {
             Owner Performance Dashboard
           </h1>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl">
-            Season-by-season rankings, career records, and dynasty tier breakdowns for all 12 BMFFFL managers.
+            Season-by-season rankings, career records, and dynasty tier breakdowns for all 12 BMFFFL managers across 10 seasons (2016–2025).
           </p>
         </header>
 
-        {/* Data quality notice: ring counts are verified; W/L records are Sleeper-era estimates pending DB wiring */}
+        {/* Data status notice */}
         <PageStatusBanner
           status="partial"
-          notes="Ring counts verified (2016–2025). W/L records and rankings are estimates — live DB wiring pending."
+          notes="Sleeper era (2020–2025): rankings DB-verified via playoff brackets + standings. ESPN era (2016–2019): champion positions only confirmed; full standings not available in DB."
         />
 
         {/* Controls row */}
@@ -661,7 +692,7 @@ export default function OwnersAnalyticsPage() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-bold text-white">All-Time Season Finishes</h2>
-                  <span className="text-xs text-slate-500">2020 – 2025 &bull; Click a row to drill down</span>
+                  <span className="text-xs text-slate-500">2016 – 2025 &bull; Click a row to drill down</span>
                 </div>
                 <AllOwnersTable onSelectOwner={setSelectedOwner} />
               </div>
@@ -682,22 +713,22 @@ export default function OwnersAnalyticsPage() {
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Best Win %</span>
-                  <span className="text-emerald-400 font-bold">MLSchools12 (.819)</span>
+                  <span className="text-emerald-400 font-bold">MLSchools12 (.844)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Most Playoff Apps</span>
-                  <span className="text-blue-400 font-bold">MLSchools12 (6)</span>
+                  <span className="text-blue-400 font-bold">MLSchools12 (10)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-400">Most Wins</span>
-                  <span className="text-slate-300 font-bold">MLSchools12 (68)</span>
+                  <span className="text-slate-400">Most Wins (all-time)</span>
+                  <span className="text-slate-300 font-bold">MLSchools12 (114)</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">2025 Champion</span>
                   <span className="text-[#ffd700] font-bold">tdtd19844</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-400">Reigning Rank #1</span>
+                  <span className="text-slate-400">Hottest Dynasty</span>
                   <span className="text-emerald-400 font-bold">Tubes94</span>
                 </div>
               </div>
@@ -708,8 +739,9 @@ export default function OwnersAnalyticsPage() {
 
         {/* Footer note */}
         <p className="mt-12 text-xs text-center text-slate-600">
-          Season finish ranks are approximate based on available league records. Win/loss totals are all-time regular season.
-          Click any owner row to view their full season breakdown.
+          Sleeper era (2020–2025) season finishes are DB-verified: playoff bracket outcomes determine ranks 1–6; regular season standings determine ranks 7–12.
+          ESPN era (2016–2019) shows champion (#1) positions only — full standings not available.
+          Win/loss totals are all-time (regular season + playoffs). Click any owner row to view their full season breakdown.
         </p>
 
       </div>
