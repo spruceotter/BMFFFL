@@ -60,6 +60,7 @@ const NAV_LINKS: NavLink[] = [
       { label: 'Owner Dashboard',   href: '/analytics/owners' },
     ],
   },
+  { label: '🆕 Join the League', href: '/join' },
 ];
 
 export default function Navigation() {
