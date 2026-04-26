@@ -149,6 +149,9 @@ export default function JoinPage() {
             Express Interest
             <ChevronRight size={15} />
           </a>
+          <p className="text-xs text-slate-500 mt-4">
+            Deadline to apply: <span className="text-slate-400 font-semibold">May 9, 2026</span> — Dispersal draft to follow in May, before the Owners Meeting.
+          </p>
         </div>
       </section>
 
