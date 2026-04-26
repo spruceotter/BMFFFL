@@ -33,31 +33,32 @@ const OWNERS_DATA = [
 
 // Index order: [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
 //  0 = not in league that year
-// 0  = not in league that year
-// -1 = in league, ESPN-era standings not confirmed (should not appear after B767 fix)
-// 1–12 = verified final season finish (playoff outcome + reg-season tiebreak for non-playoff teams)
+// -1 = in league, data unknown
+// 1–12 = final season finish
 //
-// Sleeper era (2020–2025): fully DB-verified via matchup results + playoff bracket data (Flint DB, B757).
-// ESPN era (2016–2019):   full standings confirmed from ESPN winners bracket API (B713/B767).
-//   Note: eldridm20 ESPN identity = "eldge19" on ESPN platform (same person, different account name).
-//   Former owners in ESPN era: miroslav081 (replaced by MCSchools 2020), mmoodie12 (replaced by Tubes94 2021).
+// Sleeper era (2020–2025): final standings (playoff outcome + reg-season for non-playoff), DB-verified (B757).
+// ESPN era (2016–2019):   regular season W/L rank (12-team), derived from ESPN API records (B767).
+//   Identity: eldridsm ESPN username = "eldge19" ("Arnie's Army"); eldridm20 ESPN = "mahoo1919" ("Role Players").
+//   Former owners in ESPN era: miroslav081 (slot 10 each year, replaced by MCSchools 2020),
+//                              mmoodie12 (slot 7 each year, replaced by Tubes94 2021).
 //
 // Champions: 2016=MLSchools12, 2017=Cogdeill11, 2018=SexMachineAndyD, 2019=MLSchools12
 //            2020=Cogdeill11, 2021=MLSchools12, 2022=Grandes, 2023=JuicyBussy, 2024=MLSchools12, 2025=tdtd19844
-// Runner-ups: 2020=eldridsm, 2021=SexMachineAndyD, 2022=rbr, 2023=eldridm20, 2024=SexMachineAndyD, 2025=Tubes94
+// Runner-ups: 2017=eldridsm(ESPN), 2019=rbr(ESPN)
+//             2020=eldridsm, 2021=SexMachineAndyD, 2022=rbr, 2023=eldridm20, 2024=SexMachineAndyD, 2025=Tubes94
 const SEASON_RANKS: Record<string, number[]> = {
   //                       2016  2017  2018  2019  2020  2021  2022  2023  2024  2025
-  'Cogdeill11':          [  12,    1,    3,    5,    1,    6,    8,   11,   10,   11],
-  'MLSchools12':         [   1,    4,    2,    1,    3,    1,    3,    3,    1,    3],
-  'rbr':                 [   3,    6,    5,    2,    5,    4,    2,    8,    5,   10],
-  'JuicyBussy':          [   6,   11,   11,    9,    8,    7,    4,    1,    4,    6],
-  'tdtd19844':           [   5,   10,   10,   12,    4,    9,   12,    9,    6,    1],
-  'SexMachineAndyD':     [  10,    3,    1,    8,    6,    2,    9,   10,    2,    5],
-  'eldridm20':           [   9,    2,    6,    3,   11,    5,    6,    2,    8,    7],
+  'Cogdeill11':          [   9,    5,    2,    3,    1,    6,    8,   11,   10,   11],
+  'MLSchools12':         [   1,    1,    1,    1,    3,    1,    3,    3,    1,    3],
+  'rbr':                 [   5,    4,    5,    7,    5,    4,    2,    8,    5,   10],
+  'JuicyBussy':          [   2,    8,   12,    8,    8,    7,    4,    1,    4,    6],
+  'tdtd19844':           [   6,   10,    9,   11,    4,    9,   12,    9,    6,    1],
+  'SexMachineAndyD':     [  11,    3,    3,    6,    6,   2,    9,   10,    2,    5],
+  'eldridm20':           [  12,   12,    8,    5,   11,    5,    6,    2,    8,    7],
   'Tubes94':             [   0,    0,    0,    0,    0,   11,   11,    7,    3,    2],
-  'Grandes':             [   2,    7,    8,    4,   10,    3,    1,    4,    7,   12],
-  'eldridsm':            [   8,   12,    7,    6,    2,    8,    5,    6,   11,    9],
-  'Cmaleski':            [   4,    5,    9,    7,    7,   10,    7,    5,    9,    4],
+  'Grandes':             [   3,    7,    7,    4,   10,    3,    1,    4,    7,   12],
+  'eldridsm':            [   8,    2,    6,    2,    2,    8,    5,    6,   11,    9],
+  'Cmaleski':            [   4,    6,   11,   12,    7,   10,    7,    5,    9,    4],
   'Escuelas':            [   0,    0,    0,    0,    9,   12,   10,   12,   12,    8],
 };
 
