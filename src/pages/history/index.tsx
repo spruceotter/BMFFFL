@@ -565,6 +565,36 @@ export default function HistoryPage() {
               </div>
             </Link>
 
+            {/* Division History */}
+            <Link
+              href="/history/divisions"
+              className={cn(
+                'group flex items-start gap-4 rounded-xl border p-6',
+                'bg-[#16213e] border-[#2d4a66]',
+                'hover:border-[#fbbf24]/50 hover:bg-[#1a2d42] hover:-translate-y-0.5',
+                'transition-all duration-200'
+              )}
+              aria-label="View Division History — all 11 seasons of division names and compositions"
+            >
+              <div className="w-11 h-11 rounded-lg bg-[#fbbf24]/10 border border-[#fbbf24]/20 flex items-center justify-center shrink-0">
+                <Users className="w-5 h-5 text-[#fbbf24]" aria-hidden="true" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-white font-black text-base group-hover:text-[#fbbf24] transition-colors duration-150">
+                    Division History
+                  </p>
+                  <span className="text-slate-600 group-hover:text-[#fbbf24] transition-colors duration-150 text-sm">
+                    &rarr;
+                  </span>
+                </div>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  Every division name and lineup, 2016–2026. From Bonas/Cleveland/Hotlanta to
+                  Group of Death/Moodie&apos;s Wives/Pig Bottoms — the full naming rights history.
+                </p>
+              </div>
+            </Link>
+
             {/* Shame Board */}
             <Link
               href="/history/shame-board"

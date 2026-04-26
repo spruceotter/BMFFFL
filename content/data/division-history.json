@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-04-26T18:00:52.000Z",
+  "note": "Complete division history 2016-2026. ESPN era (2016-2018) from lm-api-reads.fantasy.espn.com with owner ESPN→Sleeper identity mapping. Sleeper era (2019-2026) from Sleeper API.",
+  "seasons": {
+    "2016": {
+      "platform": "ESPN",
+      "league_id": "945797",
+      "num_divisions": 3,
+      "division_names": {
+        "0": "Bonas",
+        "1": "Cleveland",
+        "2": "Hotlanta"
+      },
+      "divisions": {
+        "0": ["Grandes", "SexMachineAndyD", "Cmaleski", "Escuelas"],
+        "1": ["tdtd19844", "mmoodie12", "rbr", "eldridsm"],
+        "2": ["MLSchools12", "JuicyBussy", "eldridm20", "Cogdeill11"]
+      }
+    },
+    "2017": {
+      "platform": "ESPN",
+      "league_id": "945797",
+      "num_divisions": 3,
+      "division_names": {
+        "0": "Bonas",
+        "1": "Two Won Six",
+        "2": "Boo-ffalo"
+      },
+      "divisions": {
+        "0": ["Grandes", "Cmaleski", "SexMachineAndyD", "Escuelas"],
+        "1": ["tdtd19844", "mmoodie12", "rbr", "eldridsm"],
+        "2": ["MLSchools12", "JuicyBussy", "eldridm20", "Cogdeill11"]
+      }
+    },
+    "2018": {
+      "platform": "ESPN",
+      "league_id": "945797",
+      "num_divisions": 3,
+      "division_names": {
+        "0": "Bonas",
+        "1": "Two Won Six",
+        "2": "Boo-ffalo"
+      },
+      "divisions": {
+        "0": ["Grandes", "Cmaleski", "SexMachineAndyD", "Escuelas"],
+        "1": ["tdtd19844", "mmoodie12", "rbr", "eldridsm"],
+        "2": ["MLSchools12", "JuicyBussy", "eldridm20", "Cogdeill11"]
+      }
+    },
+    "2019": {
+      "platform": "Sleeper",
+      "league_id": "378704755930730496",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "The Left Nut",
+        "2": "The Shaft",
+        "3": "Just The Tip"
+      },
+      "divisions": {
+        "1": ["Grandes", null, "eldridsm", "mmoodie12"],
+        "2": ["rbr", "JuicyBussy", "Escuelas", "tdtd19844"],
+        "3": ["SexMachineAndyD", "Cogdeill11", "Cmaleski", "eldridm20"]
+      }
+    },
+    "2020": {
+      "platform": "Sleeper",
+      "league_id": "515286181558452224",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "The Left Nut",
+        "2": "The Shaft",
+        "3": "Just The Tip"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "MLSchools12", "eldridm20"],
+        "2": ["rbr", "Cogdeill11", "Cmaleski", "mmoodie12"],
+        "3": ["JuicyBussy", "Escuelas", "eldridsm", "tdtd19844"]
+      }
+    },
+    "2021": {
+      "platform": "Sleeper",
+      "league_id": "649927136014065664",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Scattered Division",
+        "2": "Cleveland Division",
+        "3": "Buffalo Division"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Escuelas"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    },
+    "2022": {
+      "platform": "Sleeper",
+      "league_id": "784483016662724608",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Group of Death",
+        "2": "Cleveland",
+        "3": "Pig Bottoms"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Escuelas"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    },
+    "2023": {
+      "platform": "Sleeper",
+      "league_id": "917929860344004608",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Group of Death",
+        "2": "Cleveland",
+        "3": "Pig Bottoms"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Escuelas"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    },
+    "2024": {
+      "platform": "Sleeper",
+      "league_id": "1048281095227236352",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Group of Death",
+        "2": "Moodie's Wives",
+        "3": "Pig Bottoms"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Escuelas"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    },
+    "2025": {
+      "platform": "Sleeper",
+      "league_id": "1180109269263917056",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Group of Death",
+        "2": "Moodie's Wives",
+        "3": "Pig Bottoms"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Escuelas"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    },
+    "2026": {
+      "platform": "Sleeper",
+      "league_id": "1312123497203376128",
+      "num_divisions": 3,
+      "division_names": {
+        "1": "Group of Death",
+        "2": "Moodie's Wives",
+        "3": "Pig Bottoms"
+      },
+      "divisions": {
+        "1": ["Grandes", "SexMachineAndyD", "rbr", "JuicyBussy"],
+        "2": ["Cogdeill11", "MLSchools12", "Cmaleski", "Bimfle"],
+        "3": ["eldridm20", "eldridsm", "tdtd19844", "Tubes94"]
+      }
+    }
+  }
+}

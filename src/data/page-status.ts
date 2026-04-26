@@ -82,6 +82,14 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     validatedAt: '2026-04-14',
     category: 'History',
   },
+  '/history/divisions': {
+    path: '/history/divisions',
+    status: 'validated',
+    label: 'Division History',
+    notes: '2016–2026 complete. ESPN era from lm-api-reads API; Sleeper era from Sleeper API. All division names and member compositions verified.',
+    validatedAt: '2026-04-26',
+    category: 'History',
+  },
   '/records': {
     path: '/records',
     status: 'validated',
