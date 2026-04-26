@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Users, Trophy, Calendar, ChevronRight, Star, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Users, Trophy, Calendar, ChevronRight, Star, CheckCircle } from 'lucide-react';
 
 // ─── Static data ──────────────────────────────────────────────────────────────
 
@@ -11,6 +12,7 @@ const LEAGUE_FACTS = [
   { label: 'Owners',        value: '12 teams, 3 divisions' },
   { label: 'Roster size',   value: '15 active + 3 taxi + 1 IR' },
   { label: 'FAAB budget',   value: '$100 / season' },
+  { label: 'Annual dues',   value: '$110 / year' },
   { label: 'Rookie draft',  value: 'Annual — 5 rounds, spring' },
 ];
 
@@ -32,24 +34,60 @@ const DYNASTY_POINTS = [
 const DISPERSAL_STEPS = [
   {
     step: '1',
-    title: 'Application & Selection',
-    body: 'Submit your application via the waitlist form. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit.',
+    title: 'Apply & Express Interest',
+    body: 'Submit the anonymous interest form below. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit. Anonymous submissions are welcome — no name required.',
   },
   {
     step: '2',
     title: 'Dispersal Draft',
-    body: 'The orphan roster is entered into a dispersal draft — existing owners pick from the available assets in a structured format. The new owner receives compensatory value and a fresh foundation to build from.',
+    body: 'Three teams participate: the new owner plus two existing owners who volunteer. Each volunteer puts their full roster and two-plus years of draft picks into an anonymous pool. Both players and picks are selectable. The draft runs snake format with randomized order. Supplemental picks (2026 1.13 and 2027 1.13) are added to the pool as league incentives for volunteers.',
   },
   {
     step: '3',
-    title: 'Pay the entry fee & join the league.',
-    body: 'Once selected, you pay the entry fee (confirmed by Commissioner), join the Sleeper league, and begin competing. You will inherit a team with draft picks and assets to develop.',
+    title: 'Rookie Draft & Full Entry',
+    body: 'After the dispersal draft, the new owner enters the annual rookie draft as a full participant. The 2026 dues are already paid by the league — your first bill is 2027. Then you are in for the long haul.',
   },
 ];
+
+const VOLUNTEER_NOTES = [
+  'Your full roster and 2+ years of draft picks enter the anonymous pool.',
+  'You draft from the same pool — same snake format, same odds.',
+  'Supplemental bonus: 2026 pick 1.13 and 2027 pick 1.13 are added to the pool.',
+  'Two volunteers are needed. First two confirmed hands go in.',
+];
+
+// ─── Interest form (anonymous) ────────────────────────────────────────────────
+// Powered by Formspree. Set NEXT_PUBLIC_INTEREST_FORM_ID in .env to activate.
+// Until configured, the form submits to a placeholder endpoint.
+const FORM_ENDPOINT = process.env.NEXT_PUBLIC_INTEREST_FORM_ID
+  ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_INTEREST_FORM_ID}`
+  : null;
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function JoinPage() {
+  const [interest, setInterest] = useState('');
+  const [experience, setExperience] = useState('');
+  const [source, setSource] = useState('');
+  const [notes, setNotes] = useState('');
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!FORM_ENDPOINT) return;
+    setFormState('submitting');
+    try {
+      const resp = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ interest_level: interest, dynasty_experience: experience, heard_from: source, notes }),
+      });
+      setFormState(resp.ok ? 'done' : 'error');
+    } catch {
+      setFormState('error');
+    }
+  };
+
   return (
     <>
       <Head>
@@ -90,10 +128,10 @@ export default function JoinPage() {
           </p>
 
           <a
-            href="mailto:commissioner@bmfffl.com?subject=BMFFFL%20Owner%20Application"
+            href="#interest-form"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 transition-colors duration-150"
           >
-            Apply Now
+            Express Interest
             <ChevronRight size={15} />
           </a>
         </div>
@@ -184,7 +222,7 @@ export default function JoinPage() {
             </div>
             <h2 className="text-xl font-bold text-white">How the New Owner Gets Started</h2>
           </div>
-          <p className="text-sm text-slate-400 mb-8 ml-11">The process for joining a mid-history dynasty league.</p>
+          <p className="text-sm text-slate-400 mb-8 ml-11">The dispersal draft process — confirmed format.</p>
 
           <div className="space-y-6">
             {DISPERSAL_STEPS.map((s) => (
@@ -200,26 +238,66 @@ export default function JoinPage() {
             ))}
           </div>
 
-          {/* Note */}
-          <div className="mt-8 flex items-start gap-3 p-4 rounded-lg bg-amber-500/5 border border-amber-500/20">
-            <AlertCircle size={15} className="text-amber-400 flex-shrink-0 mt-0.5" />
-            <p className="text-xs text-amber-300/80">
-              Exact dispersal draft format and entry fee are confirmed by the Commissioner at time
-              of selection. The above describes the standard process — details may vary.
+          {/* Supplemental picks callout */}
+          <div className="mt-8 p-5 rounded-xl bg-[#ffd700]/5 border border-[#ffd700]/20">
+            <p className="text-xs font-bold text-[#ffd700] uppercase tracking-widest mb-2">Supplemental Pool Incentives</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex-1 p-3 rounded-lg bg-[#0f2035] border border-[#2d4a66] text-center">
+                <p className="text-white font-bold text-sm">2026 Pick 1.13</p>
+                <p className="text-slate-500 text-xs mt-0.5">Added to dispersal pool</p>
+              </div>
+              <div className="flex-1 p-3 rounded-lg bg-[#0f2035] border border-[#2d4a66] text-center">
+                <p className="text-white font-bold text-sm">2027 Pick 1.13</p>
+                <p className="text-slate-500 text-xs mt-0.5">Added to dispersal pool</p>
+              </div>
+            </div>
+            <p className="text-xs text-slate-500 mt-3">
+              These picks are added by the league as bonus value — no existing owner is asked to contribute them.
+              They increase the value of the pool for everyone in the draft.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Volunteer Call ───────────────────────────────────────────────────── */}
+      <section className="bg-[#0f2035] border-b border-[#2d4a66]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 rounded-lg bg-[#1a2d42]">
+              <Star size={18} className="text-[#ffd700]" />
+            </div>
+            <h2 className="text-xl font-bold text-white">Existing Owners: We Need Two Volunteers</h2>
+          </div>
+          <p className="text-sm text-slate-400 mb-8 ml-11">
+            The dispersal draft requires two existing owners to enter alongside the new owner.
+            This is a chance to reshape your roster.
+          </p>
+
+          <div className="space-y-3 mb-8">
+            {VOLUNTEER_NOTES.map((note) => (
+              <div key={note} className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-4 h-4 rounded-full bg-[#ffd700]/20 border border-[#ffd700]/40 flex items-center justify-center mt-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ffd700]" />
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">{note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 rounded-xl bg-[#ffd700]/5 border border-[#ffd700]/20">
+            <p className="text-sm text-white font-semibold mb-1">Ready to volunteer?</p>
+            <p className="text-xs text-slate-400">
+              Drop your name in the league group chat or message Grandes directly in Sleeper.
+              Two spots available — first confirmed, first in.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── Referral incentive ───────────────────────────────────────────────── */}
-      <section className="bg-[#0f2035] border-b border-[#2d4a66]">
+      <section className="bg-[#0d1b2a] border-b border-[#2d4a66]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-[#1a2d42]">
-              <Star size={18} className="text-[#ffd700]" />
-            </div>
-            <h2 className="text-xl font-bold text-white">Referral Incentive</h2>
-          </div>
+          <h2 className="text-xl font-bold text-white mb-4">Referral Incentive</h2>
           <p className="text-sm text-slate-400 leading-relaxed mb-4">
             Existing owners earn <span className="text-white font-semibold">$10 FAAB bonus</span> per
             qualified referral submitted (maximum $50 FAAB per owner). If you were referred by an
@@ -233,32 +311,124 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* ── Apply ────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#0d1b2a]">
+      {/* ── Interest Form ────────────────────────────────────────────────────── */}
+      <section id="interest-form" className="bg-[#0f2035]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-2xl font-bold text-white mb-3">Apply to the Waitlist</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Express Anonymous Interest</h2>
           <p className="text-sm text-slate-400 leading-relaxed mb-8 max-w-xl">
-            To be considered, send a brief message to Commissioner Grandes. Include your name,
-            how you heard about the league, your dynasty experience (or lack of it — honesty is
-            appreciated), and who referred you if applicable.
+            No name required. This form routes directly to the league assistant. Your interest is
+            logged confidentially — the Commissioner sees aggregate interest, not individual identities,
+            unless you choose to share.
           </p>
 
-          {/* Placeholder — will be replaced with embedded form once confirmed */}
-          <div className="border border-[#2d4a66] rounded-xl p-8 text-center bg-[#0f2035]">
-            <p className="text-slate-500 text-xs uppercase tracking-widest mb-3">Application</p>
-            <p className="text-white font-semibold mb-1">Waitlist form coming soon</p>
-            <p className="text-sm text-slate-400 mb-6">
-              In the meantime, reach out directly to an existing owner or the Commissioner in the
-              Sleeper league chat.
-            </p>
-            <a
-              href="mailto:commissioner@bmfffl.com?subject=BMFFFL%20Owner%20Application"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 transition-colors duration-150"
-            >
-              Email Commissioner
-              <ChevronRight size={15} />
-            </a>
-          </div>
+          {formState === 'done' ? (
+            <div className="border border-emerald-500/30 rounded-xl p-8 text-center bg-emerald-500/5">
+              <CheckCircle size={28} className="text-emerald-400 mx-auto mb-3" />
+              <p className="text-white font-semibold mb-1">Interest received.</p>
+              <p className="text-sm text-slate-400">
+                Noted. The Commissioner will be in touch if you included contact details,
+                or watch the Sleeper chat for next steps.
+              </p>
+            </div>
+          ) : !FORM_ENDPOINT ? (
+            /* Form not yet configured — show placeholder */
+            <div className="border border-[#2d4a66] rounded-xl p-8 text-center bg-[#0d1b2a]">
+              <p className="text-slate-500 text-xs uppercase tracking-widest mb-3">Interest Form</p>
+              <p className="text-white font-semibold mb-1">Form configuration in progress</p>
+              <p className="text-sm text-slate-400 mb-6">
+                The submission form is being set up. In the meantime, message Grandes or any
+                existing owner directly in the Sleeper league chat.
+              </p>
+              <a
+                href="mailto:commissioner@bmfffl.com?subject=BMFFFL%20Owner%20Application"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 transition-colors duration-150"
+              >
+                Email Commissioner
+                <ChevronRight size={15} />
+              </a>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Interest level */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Interest level
+                </label>
+                <select
+                  value={interest}
+                  onChange={(e) => setInterest(e.target.value)}
+                  required
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                >
+                  <option value="">Select one</option>
+                  <option value="very-interested">Very interested — I want in</option>
+                  <option value="somewhat-interested">Somewhat interested — learning more</option>
+                  <option value="just-looking">Just looking for now</option>
+                </select>
+              </div>
+
+              {/* Dynasty experience */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Dynasty experience
+                </label>
+                <select
+                  value={experience}
+                  onChange={(e) => setExperience(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                >
+                  <option value="">Select one (optional)</option>
+                  <option value="veteran">Veteran — 3+ years of dynasty</option>
+                  <option value="experienced">Experienced — 1–2 years</option>
+                  <option value="redraft">Redraft experience, new to dynasty</option>
+                  <option value="new">New to fantasy football</option>
+                </select>
+              </div>
+
+              {/* How they heard */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  How did you hear about the league? <span className="text-slate-500 normal-case font-normal">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  value={source}
+                  onChange={(e) => setSource(e.target.value)}
+                  placeholder="e.g. referred by an owner, found the site, etc."
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                />
+              </div>
+
+              {/* Notes */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Anything else? <span className="text-slate-500 normal-case font-normal">(optional — contact if you want a reply)</span>
+                </label>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  rows={4}
+                  placeholder="Questions, comments, or contact details if you'd like a reply…"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={formState === 'submitting'}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150"
+              >
+                {formState === 'submitting' ? 'Sending…' : 'Submit Interest'}
+                <ChevronRight size={15} />
+              </button>
+
+              {formState === 'error' && (
+                <p className="text-xs text-red-400">
+                  Something went wrong. Try emailing the Commissioner directly.
+                </p>
+              )}
+            </form>
+          )}
 
           <p className="text-xs text-slate-600 mt-8 text-center">
             The BMFFFL has been running since 2016. You are being offered the opportunity to be
