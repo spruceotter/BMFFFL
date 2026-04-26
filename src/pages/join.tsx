@@ -35,7 +35,7 @@ const DISPERSAL_STEPS = [
   {
     step: '1',
     title: 'Apply & Express Interest',
-    body: 'Submit the anonymous interest form below. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit. Anonymous submissions are welcome — no name required.',
+    body: 'Submit the application form below with your name, phone, and Sleeper username. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit. Deadline: May 9, 2026.',
   },
   {
     step: '2',
@@ -64,9 +64,11 @@ const CONVEX_URL = 'https://resolute-setter-416.convex.cloud';
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function JoinPage() {
-  const [interest, setInterest] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [sleeperUser, setSleeperUser] = useState('');
+  const [referredBy, setReferredBy] = useState('');
   const [experience, setExperience] = useState('');
-  const [source, setSource] = useState('');
   const [notes, setNotes] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle');
 
@@ -87,9 +89,11 @@ export default function JoinPage() {
             to_agent: 'bimfle',
             task_type: 'join_application',
             payload: {
-              interest_level: interest,
+              full_name: fullName,
+              phone: phone || null,
+              sleeper_username: sleeperUser || null,
+              referred_by: referredBy || null,
               dynasty_experience: experience || null,
-              heard_from: source || null,
               notes: notes || null,
               submitted_at: new Date().toISOString(),
             },
@@ -146,7 +150,7 @@ export default function JoinPage() {
             href="#interest-form"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 transition-colors duration-150"
           >
-            Express Interest
+            Apply Now
             <ChevronRight size={15} />
           </a>
           <p className="text-xs text-slate-500 mt-4">
@@ -329,56 +333,93 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* ── Interest Form ────────────────────────────────────────────────────── */}
+      {/* ── Application Form ─────────────────────────────────────────────────── */}
       <section id="interest-form" className="bg-[#0f2035]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-2xl font-bold text-white mb-2">Express Anonymous Interest</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Apply to Join</h2>
           <p className="text-sm text-slate-400 leading-relaxed mb-8 max-w-xl">
-            No name required. This form routes directly to the league assistant. Your interest is
-            logged confidentially — the Commissioner sees aggregate interest, not individual identities,
-            unless you choose to share.
+            Applications go directly to the league assistant and are reviewed by the Commissioner.
+            Deadline: <span className="text-white font-semibold">May 9, 2026</span>.
           </p>
 
           {formState === 'done' ? (
             <div className="border border-emerald-500/30 rounded-xl p-8 text-center bg-emerald-500/5">
               <CheckCircle size={28} className="text-emerald-400 mx-auto mb-3" />
-              <p className="text-white font-semibold mb-1">Interest received.</p>
+              <p className="text-white font-semibold mb-1">Application received.</p>
               <p className="text-sm text-slate-400">
-                Noted. The Commissioner will be in touch if you included contact details,
-                or watch the Sleeper chat for next steps.
+                The Commissioner will review and be in touch. Watch the Sleeper chat for updates.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Interest level */}
+              {/* Full name */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
-                  Interest level
+                  Full name <span className="text-red-400">*</span>
                 </label>
-                <select
-                  value={interest}
-                  onChange={(e) => setInterest(e.target.value)}
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm focus:outline-none focus:border-[#ffd700]/50 transition-colors"
-                >
-                  <option value="">Select one</option>
-                  <option value="very-interested">Very interested — I want in</option>
-                  <option value="somewhat-interested">Somewhat interested — learning more</option>
-                  <option value="just-looking">Just looking for now</option>
-                </select>
+                  placeholder="Your real name"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Phone <span className="text-slate-500 normal-case font-normal">(optional — helps us reach you)</span>
+                </label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="e.g. 555-867-5309"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                />
+              </div>
+
+              {/* Sleeper username */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Sleeper username <span className="text-slate-500 normal-case font-normal">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  value={sleeperUser}
+                  onChange={(e) => setSleeperUser(e.target.value)}
+                  placeholder="Your @username on Sleeper"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                />
+              </div>
+
+              {/* Referred by */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
+                  Referred by <span className="text-slate-500 normal-case font-normal">(optional — referring owner earns $10 FAAB)</span>
+                </label>
+                <input
+                  type="text"
+                  value={referredBy}
+                  onChange={(e) => setReferredBy(e.target.value)}
+                  placeholder="Name of the BMFFFL owner who referred you"
+                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
+                />
               </div>
 
               {/* Dynasty experience */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
-                  Dynasty experience
+                  Dynasty experience <span className="text-slate-500 normal-case font-normal">(optional)</span>
                 </label>
                 <select
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm focus:outline-none focus:border-[#ffd700]/50 transition-colors"
                 >
-                  <option value="">Select one (optional)</option>
+                  <option value="">Select one</option>
                   <option value="veteran">Veteran — 3+ years of dynasty</option>
                   <option value="experienced">Experienced — 1–2 years</option>
                   <option value="redraft">Redraft experience, new to dynasty</option>
@@ -386,30 +427,16 @@ export default function JoinPage() {
                 </select>
               </div>
 
-              {/* How they heard */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
-                  How did you hear about the league? <span className="text-slate-500 normal-case font-normal">(optional)</span>
-                </label>
-                <input
-                  type="text"
-                  value={source}
-                  onChange={(e) => setSource(e.target.value)}
-                  placeholder="e.g. referred by an owner, found the site, etc."
-                  className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors"
-                />
-              </div>
-
               {/* Notes */}
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">
-                  Anything else? <span className="text-slate-500 normal-case font-normal">(optional — contact if you want a reply)</span>
+                  Anything else? <span className="text-slate-500 normal-case font-normal">(optional)</span>
                 </label>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  rows={4}
-                  placeholder="Questions, comments, or contact details if you'd like a reply…"
+                  rows={3}
+                  placeholder="Questions, why you want in, prior leagues — anything relevant."
                   className="w-full px-4 py-2.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#ffd700]/50 transition-colors resize-none"
                 />
               </div>
