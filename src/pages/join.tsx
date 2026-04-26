@@ -56,12 +56,10 @@ const VOLUNTEER_NOTES = [
   'Two volunteers are needed. First two confirmed hands go in.',
 ];
 
-// ─── Interest form (anonymous) ────────────────────────────────────────────────
-// Powered by Formspree. Set NEXT_PUBLIC_INTEREST_FORM_ID in .env to activate.
-// Until configured, the form submits to a placeholder endpoint.
-const FORM_ENDPOINT = process.env.NEXT_PUBLIC_INTEREST_FORM_ID
-  ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_INTEREST_FORM_ID}`
-  : null;
+// ─── Convex submission ────────────────────────────────────────────────────────
+// Submissions go directly to the BMFFFL Convex database as agent_tasks.
+// Bimflé picks these up each beat and logs them for the Commissioner.
+const CONVEX_URL = 'https://resolute-setter-416.convex.cloud';
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -74,15 +72,32 @@ export default function JoinPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!FORM_ENDPOINT) return;
     setFormState('submitting');
+    const taskId = `join-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
     try {
-      const resp = await fetch(FORM_ENDPOINT, {
+      const resp = await fetch(`${CONVEX_URL}/api/mutation`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ interest_level: interest, dynasty_experience: experience, heard_from: source, notes }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          path: 'bmfffl:createTask',
+          format: 'json',
+          args: {
+            task_id: taskId,
+            from_agent: 'web_form',
+            to_agent: 'bimfle',
+            task_type: 'join_application',
+            payload: {
+              interest_level: interest,
+              dynasty_experience: experience || null,
+              heard_from: source || null,
+              notes: notes || null,
+              submitted_at: new Date().toISOString(),
+            },
+          },
+        }),
       });
-      setFormState(resp.ok ? 'done' : 'error');
+      const json = await resp.json();
+      setFormState(json.status === 'success' ? 'done' : 'error');
     } catch {
       setFormState('error');
     }
@@ -328,16 +343,6 @@ export default function JoinPage() {
               <p className="text-sm text-slate-400">
                 Noted. The Commissioner will be in touch if you included contact details,
                 or watch the Sleeper chat for next steps.
-              </p>
-            </div>
-          ) : !FORM_ENDPOINT ? (
-            /* Form not yet configured — show placeholder */
-            <div className="border border-[#2d4a66] rounded-xl p-8 text-center bg-[#0d1b2a]">
-              <p className="text-slate-500 text-xs uppercase tracking-widest mb-3">Interest Form</p>
-              <p className="text-white font-semibold mb-1">Form coming soon</p>
-              <p className="text-sm text-slate-400">
-                The submission form is being configured. Check back shortly — or reach out to
-                any existing owner in the Sleeper league chat to express interest now.
               </p>
             </div>
           ) : (
