@@ -334,18 +334,11 @@ export default function JoinPage() {
             /* Form not yet configured — show placeholder */
             <div className="border border-[#2d4a66] rounded-xl p-8 text-center bg-[#0d1b2a]">
               <p className="text-slate-500 text-xs uppercase tracking-widest mb-3">Interest Form</p>
-              <p className="text-white font-semibold mb-1">Form configuration in progress</p>
-              <p className="text-sm text-slate-400 mb-6">
-                The submission form is being set up. In the meantime, message Grandes or any
-                existing owner directly in the Sleeper league chat.
+              <p className="text-white font-semibold mb-1">Form coming soon</p>
+              <p className="text-sm text-slate-400">
+                The submission form is being configured. Check back shortly — or reach out to
+                any existing owner in the Sleeper league chat to express interest now.
               </p>
-              <a
-                href="mailto:commissioner@bmfffl.com?subject=BMFFFL%20Owner%20Application"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ffd700] text-black text-sm font-bold rounded-lg hover:bg-yellow-300 transition-colors duration-150"
-              >
-                Email Commissioner
-                <ChevronRight size={15} />
-              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -424,7 +417,7 @@ export default function JoinPage() {
 
               {formState === 'error' && (
                 <p className="text-xs text-red-400">
-                  Something went wrong. Try emailing the Commissioner directly.
+                  Something went wrong. Please try again in a moment.
                 </p>
               )}
             </form>
