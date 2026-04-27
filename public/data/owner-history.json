@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T23:09:03.261Z",
+  "generated_at": "2026-04-27T17:00:58.092Z",
   "note": "Draft picks (Sleeper 2020+, ESPN 2017-2019). Trades and adds (Sleeper 2020+).",
   "owners": {
     "Grandes": {
@@ -124,7 +124,9 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2020 R1 Pick (orig. Cogdeill11)"
+            ],
             "sent": [
               "Drew Lock"
             ],
@@ -136,7 +138,8 @@
               "JuJu Smith-Schuster"
             ],
             "sent": [
-              "John Brown"
+              "John Brown",
+              "2020 R1 Pick (orig. Cogdeill11)"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -154,9 +157,12 @@
           {
             "week": 1,
             "acquired": [
-              "Greg Olsen"
+              "Greg Olsen",
+              "2020 R4 Pick (orig. Cmaleski)"
             ],
-            "sent": [],
+            "sent": [
+              "2020 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
@@ -173,10 +179,12 @@
           {
             "week": 1,
             "acquired": [
-              "Benny Snell"
+              "Benny Snell",
+              "2020 R2 Pick"
             ],
             "sent": [
-              "Sammy Watkins"
+              "Sammy Watkins",
+              "2020 R4 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "MCSchools"
           },
@@ -186,13 +194,16 @@
               "Aaron Rodgers",
               "N'Keal Harry"
             ],
-            "sent": [],
+            "sent": [
+              "2020 R1 Pick (orig. mmoodie12)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
             "acquired": [
-              "David Montgomery"
+              "David Montgomery",
+              "2020 R1 Pick"
             ],
             "sent": [
               "T.Y. Hilton",
@@ -205,7 +216,9 @@
             "acquired": [
               "Sony Michel"
             ],
-            "sent": [],
+            "sent": [
+              "2020 R2 Pick (orig. MCSchools)"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -234,7 +247,9 @@
             "acquired": [
               "Rex Burkhead"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -242,7 +257,9 @@
             "acquired": [
               "Kyle Rudolph"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R3 Pick"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -260,14 +277,17 @@
               "Preston Williams"
             ],
             "sent": [
-              "Mike Williams"
+              "Mike Williams",
+              "2021 R4 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "SexMachineAndyD"
           },
           {
             "week": 1,
             "acquired": [
-              "O.J. Howard"
+              "O.J. Howard",
+              "2021 R2 Pick (orig. tdtd19844)",
+              "2021 R3 Pick"
             ],
             "sent": [
               "Christian Kirk",
@@ -288,7 +308,9 @@
             "acquired": [
               "Delanie Walker"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R4 Pick (orig. MCSchools)"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -301,7 +323,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R2 Pick"
+            ],
             "sent": [
               "Damien Harris"
             ],
@@ -312,7 +336,9 @@
             "acquired": [
               "Will Dissly"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R4 Pick"
+            ],
             "trade_partner": "Cogdeill11"
           },
           {
@@ -340,13 +366,16 @@
               "Mecole Hardman"
             ],
             "sent": [
-              "James Robinson"
+              "James Robinson",
+              "2021 R3 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "tdtd19844"
           },
           {
             "week": 3,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick"
+            ],
             "sent": [
               "Mo Alie-Cox"
             ],
@@ -357,18 +386,23 @@
             "acquired": [
               "A.J. Green"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick (orig. eldridsm)",
+              "2021 R3 Pick (orig. mmoodie12)"
+            ],
             "trade_partner": "mmoodie12"
           },
           {
             "week": 6,
             "acquired": [
               "Patrick Mahomes",
-              "Mike Gesicki"
+              "Mike Gesicki",
+              "2021 R3 Pick"
             ],
             "sent": [
               "Jared Goff",
-              "Jonathan Taylor"
+              "Jonathan Taylor",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "mmoodie12"
           },
@@ -377,7 +411,9 @@
             "acquired": [
               "David Njoku"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick (orig. mmoodie12)"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
@@ -390,7 +426,11 @@
           },
           {
             "week": 8,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick (orig. Grandes)",
+              "2021 R4 Pick",
+              "2021 R3 Pick (orig. Cmaleski)"
+            ],
             "sent": [
               "Rob Gronkowski"
             ],
@@ -1214,9 +1254,12 @@
           {
             "week": 1,
             "acquired": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R1 Pick (orig. MLSchools12)"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick (orig. MCSchools)"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -1225,7 +1268,9 @@
               "Tyreek Hill"
             ],
             "sent": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R2 Pick (orig. Tubes94)",
+              "2021 R4 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "MCSchools"
           },
@@ -1243,10 +1288,12 @@
           {
             "week": 1,
             "acquired": [
-              "David Johnson"
+              "David Johnson",
+              "2021 R4 Pick"
             ],
             "sent": [
-              "Mecole Hardman"
+              "Mecole Hardman",
+              "2021 R3 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -1255,7 +1302,10 @@
             "acquired": [
               "Zach Ertz"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick",
+              "2021 R4 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Cogdeill11"
           },
           {
@@ -1263,7 +1313,9 @@
             "acquired": [
               "Mark Ingram"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -1279,10 +1331,12 @@
           {
             "week": 1,
             "acquired": [
-              "James Robinson"
+              "James Robinson",
+              "2021 R5 Pick"
             ],
             "sent": [
-              "Diontae Johnson"
+              "Diontae Johnson",
+              "2021 R2 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "tdtd19844"
           },
@@ -1291,7 +1345,9 @@
             "acquired": [
               "Julio Jones"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R5 Pick (orig. tdtd19844)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -1310,7 +1366,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick"
+            ],
             "sent": [
               "N'Keal Harry"
             ],
@@ -1318,7 +1376,10 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R1 Pick (orig. MLSchools12)",
+              "2022 R3 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Chase Edmonds"
             ],
@@ -1326,7 +1387,9 @@
           },
           {
             "week": 5,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick (orig. tdtd19844)"
+            ],
             "sent": [
               "David Njoku"
             ],
@@ -1360,7 +1423,8 @@
               "Elijah Mitchell"
             ],
             "sent": [
-              "James Proche"
+              "James Proche",
+              "2022 R1 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "JuicyBussy"
           },
@@ -1379,7 +1443,9 @@
             "acquired": [
               "Matt Breida"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "MCSchools"
           },
           {
@@ -1390,7 +1456,8 @@
             ],
             "sent": [
               "Michael Thomas",
-              "Elijah Mitchell"
+              "Elijah Mitchell",
+              "2022 R2 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "MCSchools"
           }
@@ -2490,7 +2557,9 @@
             "acquired": [
               "Sam Darnold"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. tdtd19844)"
+            ],
             "trade_partner": "eldridm20"
           },
           {
@@ -2506,7 +2575,8 @@
           {
             "week": 1,
             "acquired": [
-              "Mike Williams"
+              "Mike Williams",
+              "2022 R3 Pick (orig. Tubes94)"
             ],
             "sent": [
               "JuJu Smith-Schuster"
@@ -2515,9 +2585,13 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. Grandes)",
+              "2023 R4 Pick"
+            ],
             "sent": [
-              "DJ Chark"
+              "DJ Chark",
+              "2024 R3 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -2530,7 +2604,8 @@
             "sent": [
               "Zach Ertz",
               "Mike Williams",
-              "James Robinson"
+              "James Robinson",
+              "2023 R4 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "tdtd19844"
           },
@@ -2554,10 +2629,12 @@
             "week": 1,
             "acquired": [
               "Austin Hooper",
-              "Kellen Mond"
+              "Kellen Mond",
+              "2023 R3 Pick"
             ],
             "sent": [
-              "Melvin Gordon"
+              "Melvin Gordon",
+              "2023 R4 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -2579,7 +2656,8 @@
               "Anthony Schwartz"
             ],
             "sent": [
-              "Parris Campbell"
+              "Parris Campbell",
+              "2023 R3 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "SexMachineAndyD"
           },
@@ -2615,14 +2693,19 @@
           {
             "week": 6,
             "acquired": [
-              "Mac Jones"
+              "Mac Jones",
+              "2023 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R1 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 7,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick"
+            ],
             "sent": [
               "Sam Ehlinger"
             ],
@@ -2640,7 +2723,11 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2023 R3 Pick (orig. Grandes)",
+              "2023 R2 Pick",
+              "2024 R4 Pick"
+            ],
             "sent": [
               "Zach Ertz"
             ],
@@ -2651,7 +2738,9 @@
             "acquired": [
               "Jonnu Smith"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R4 Pick (orig. JuicyBussy)"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
@@ -2660,25 +2749,33 @@
               "Hunter Henry",
               "Allen Lazard"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 10,
             "acquired": [
-              "Raheem Mostert"
+              "Raheem Mostert",
+              "2024 R4 Pick"
             ],
             "sent": [
-              "Jake Ferguson"
+              "Jake Ferguson",
+              "2023 R3 Pick",
+              "2023 R3 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 14,
             "acquired": [
-              "Kevin Harris"
+              "Kevin Harris",
+              "2023 R4 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick (orig. JuicyBussy)"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -2687,7 +2784,8 @@
               "Aaron Jones"
             ],
             "sent": [
-              "DJ Moore"
+              "DJ Moore",
+              "2023 R4 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "Cmaleski"
           }
@@ -4456,7 +4554,9 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick"
+            ],
             "sent": [
               "Jakobi Meyers"
             ],
@@ -4466,7 +4566,8 @@
             "week": 1,
             "acquired": [
               "Odell Beckham",
-              "Joe Mixon"
+              "Joe Mixon",
+              "2023 R2 Pick"
             ],
             "sent": [
               "Jerick McKinnon",
@@ -4480,14 +4581,20 @@
             "acquired": [
               "Nico Collins"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R4 Pick",
+              "2023 R2 Pick (orig. eldridm20)"
+            ],
             "sent": [
-              "Allen Lazard"
+              "Allen Lazard",
+              "2024 R2 Pick (orig. Escuelas)"
             ],
             "trade_partner": "Tubes94"
           },
@@ -4495,18 +4602,22 @@
             "week": 1,
             "acquired": [
               "Saquon Barkley",
-              "Chase Claypool"
+              "Chase Claypool",
+              "2023 R2 Pick (orig. Cmaleski)"
             ],
             "sent": [
               "Chris Godwin",
-              "Aaron Jones"
+              "Aaron Jones",
+              "2023 R2 Pick (orig. eldridm20)"
             ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 1,
             "acquired": [
-              "Greg Dortch"
+              "Greg Dortch",
+              "2023 R3 Pick (orig. Cmaleski)",
+              "2023 R3 Pick (orig. JuicyBussy)"
             ],
             "sent": [
               "Odell Beckham"
@@ -4518,7 +4629,10 @@
             "acquired": [
               "Calvin Ridley"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick (orig. Cmaleski)",
+              "2023 R2 Pick (orig. JuicyBussy)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -4526,7 +4640,9 @@
             "acquired": [
               "Courtland Sutton"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick (orig. eldridsm)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -4534,8 +4650,18 @@
             "acquired": [
               "Marquez Valdes-Scantling"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R3 Pick (orig. Cmaleski)"
+            ],
             "trade_partner": "Tubes94"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2023 R4 Pick"
+            ],
+            "sent": [],
+            "trade_partner": "rbr"
           },
           {
             "week": 1,
@@ -4565,7 +4691,9 @@
               "Marquise Brown"
             ],
             "sent": [
-              "Miles Sanders"
+              "Miles Sanders",
+              "2024 R4 Pick (orig. Tubes94)",
+              "2024 R4 Pick (orig. Escuelas)"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -4575,7 +4703,8 @@
               "Tyler Higbee"
             ],
             "sent": [
-              "Chase Claypool"
+              "Chase Claypool",
+              "2025 R3 Pick"
             ],
             "trade_partner": "Cogdeill11"
           },
@@ -4583,10 +4712,12 @@
             "week": 6,
             "acquired": [
               "Michael Thomas",
-              "Jordan Addison"
+              "Jordan Addison",
+              "2025 R2 Pick"
             ],
             "sent": [
-              "Marquise Brown"
+              "Marquise Brown",
+              "2024 R1 Pick"
             ],
             "trade_partner": "Escuelas"
           },
@@ -4612,7 +4743,8 @@
               "Taysom Hill"
             ],
             "sent": [
-              "Gerald Everett"
+              "Gerald Everett",
+              "2024 R4 Pick"
             ],
             "trade_partner": "Cogdeill11"
           },
@@ -4627,10 +4759,12 @@
           {
             "week": 8,
             "acquired": [
-              "Taylor Heinicke"
+              "Taylor Heinicke",
+              "2024 R3 Pick"
             ],
             "sent": [
-              "Kirk Cousins"
+              "Kirk Cousins",
+              "2025 R2 Pick (orig. Escuelas)"
             ],
             "trade_partner": "Cogdeill11"
           },
@@ -4650,7 +4784,9 @@
             "acquired": [
               "Ezekiel Elliott"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick (orig. Cogdeill11)"
+            ],
             "trade_partner": "Cogdeill11"
           }
         ],
@@ -6184,10 +6320,21 @@
           {
             "week": 1,
             "acquired": [
+              "2025 R4 Pick"
+            ],
+            "sent": [
+              "2025 R4 Pick"
+            ],
+            "trade_partner": "JuicyBussy"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Elijah Mitchell"
             ],
             "sent": [
-              "Joe Flacco"
+              "Joe Flacco",
+              "2025 R4 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "Escuelas"
           },
@@ -6229,13 +6376,16 @@
             ],
             "sent": [
               "Ezekiel Elliott",
-              "Drew Lock"
+              "Drew Lock",
+              "2025 R1 Pick"
             ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 14,
-            "acquired": [],
+            "acquired": [
+              "2025 R2 Pick"
+            ],
             "sent": [
               "Mac Jones"
             ],
@@ -7475,7 +7625,9 @@
           {
             "week": 1,
             "acquired": [
-              "Sam Howell"
+              "Sam Howell",
+              "2025 R2 Pick (orig. Tubes94)",
+              "2025 R3 Pick (orig. SexMachineAndyD)"
             ],
             "sent": [
               "Calvin Ridley",
@@ -7487,15 +7639,30 @@
           {
             "week": 1,
             "acquired": [
+              "2025 R2 Pick",
+              "2025 R3 Pick"
+            ],
+            "sent": [
+              "2025 R2 Pick"
+            ],
+            "trade_partner": "tdtd19844"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Jerry Jeudy"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick",
+              "2025 R3 Pick (orig. SexMachineAndyD)"
+            ],
             "trade_partner": "Tubes94"
           },
           {
             "week": 4,
             "acquired": [
-              "Chris Rodriguez"
+              "Chris Rodriguez",
+              "2026 R3 Pick (orig. Tubes94)"
             ],
             "sent": [
               "Hunter Henry"
@@ -7504,7 +7671,10 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2026 R3 Pick",
+              "2026 R4 Pick"
+            ],
             "sent": [
               "Joe Flacco"
             ],
@@ -7512,7 +7682,10 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2026 R1 Pick",
+              "2027 R2 Pick"
+            ],
             "sent": [
               "Nico Collins"
             ],
@@ -7541,7 +7714,10 @@
           },
           {
             "week": 12,
-            "acquired": [],
+            "acquired": [
+              "2026 R1 Pick",
+              "2027 R1 Pick"
+            ],
             "sent": [
               "Saquon Barkley"
             ],
@@ -7549,15 +7725,21 @@
           },
           {
             "week": 12,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick (orig. Escuelas)"
+            ],
             "sent": [
-              "Kareem Hunt"
+              "Kareem Hunt",
+              "2026 R3 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 14,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick (orig. MLSchools12)",
+              "2026 R3 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Devin Singletary",
               "Adonai Mitchell"
@@ -8637,19 +8819,36 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2020 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
-              "Greg Olsen"
+              "Greg Olsen",
+              "2020 R4 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
             "acquired": [
-              "Rob Gronkowski"
+              "Rob Gronkowski",
+              "2020 R4 Pick (orig. MLSchools12)"
             ],
-            "sent": [],
+            "sent": [
+              "2020 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Cogdeill11"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2020 R1 Pick",
+              "2020 R2 Pick"
+            ],
+            "sent": [
+              "2020 R1 Pick"
+            ],
+            "trade_partner": "eldridsm"
           },
           {
             "week": 1,
@@ -8665,7 +8864,8 @@
           {
             "week": 1,
             "acquired": [
-              "Mike Williams"
+              "Mike Williams",
+              "2021 R4 Pick (orig. tdtd19844)"
             ],
             "sent": [
               "Rob Gronkowski",
@@ -8687,13 +8887,16 @@
               "Alexander Mattison"
             ],
             "sent": [
-              "Matt Breida"
+              "Matt Breida",
+              "2021 R2 Pick"
             ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 7,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick (orig. mmoodie12)"
+            ],
             "sent": [
               "David Njoku"
             ],
@@ -9151,9 +9354,13 @@
           {
             "week": 1,
             "acquired": [
-              "Antonio Brown"
+              "Antonio Brown",
+              "2021 R1 Pick (orig. eldridsm)",
+              "2021 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
@@ -9162,13 +9369,17 @@
               "Keenan Allen"
             ],
             "sent": [
-              "Darnell Mooney"
+              "Darnell Mooney",
+              "2022 R2 Pick"
             ],
             "trade_partner": "Tubes94"
           },
           {
             "week": 4,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick (orig. Grandes)",
+              "2023 R1 Pick"
+            ],
             "sent": [
               "Henry Ruggs"
             ],
@@ -9176,7 +9387,9 @@
           },
           {
             "week": 10,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick (orig. Tubes94)"
+            ],
             "sent": [
               "Mike White"
             ],
@@ -9403,9 +9616,21 @@
               "JuJu Smith-Schuster"
             ],
             "sent": [
-              "Mike Williams"
+              "Mike Williams",
+              "2022 R3 Pick (orig. Tubes94)"
             ],
             "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2022 R1 Pick (orig. MLSchools12)",
+              "2023 R3 Pick"
+            ],
+            "sent": [
+              "2022 R1 Pick"
+            ],
+            "trade_partner": "JuicyBussy"
           },
           {
             "week": 1,
@@ -9429,7 +9654,8 @@
           {
             "week": 1,
             "acquired": [
-              "Parris Campbell"
+              "Parris Campbell",
+              "2023 R3 Pick (orig. Cmaleski)"
             ],
             "sent": [
               "Ke'Shawn Vaughn",
@@ -9457,7 +9683,9 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2024 R4 Pick (orig. JuicyBussy)"
+            ],
             "sent": [
               "Jonnu Smith"
             ],
@@ -9465,7 +9693,9 @@
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick"
+            ],
             "sent": [
               "Baker Mayfield",
               "Sam Darnold"
@@ -9478,7 +9708,8 @@
               "Jacoby Brissett"
             ],
             "sent": [
-              "Gus Edwards"
+              "Gus Edwards",
+              "2023 R4 Pick"
             ],
             "trade_partner": "Cogdeill11"
           }
@@ -9995,9 +10226,21 @@
               "Odell Beckham"
             ],
             "sent": [
-              "Greg Dortch"
+              "Greg Dortch",
+              "2023 R3 Pick (orig. Cmaleski)",
+              "2023 R3 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2024 R1 Pick"
+            ],
+            "sent": [
+              "2023 R1 Pick (orig. eldridsm)"
+            ],
+            "trade_partner": "Tubes94"
           },
           {
             "week": 8,
@@ -10012,7 +10255,8 @@
           {
             "week": 8,
             "acquired": [
-              "Michael Mayer"
+              "Michael Mayer",
+              "2024 R2 Pick"
             ],
             "sent": [
               "Dalton Schultz",
@@ -10022,7 +10266,9 @@
           },
           {
             "week": 8,
-            "acquired": [],
+            "acquired": [
+              "2024 R1 Pick"
+            ],
             "sent": [
               "Dalton Schultz",
               "Javonte Williams"
@@ -10052,7 +10298,9 @@
             ],
             "sent": [
               "Matthew Stafford",
-              "Brandin Cooks"
+              "Brandin Cooks",
+              "2024 R2 Pick",
+              "2024 R3 Pick"
             ],
             "trade_partner": "Tubes94"
           }
@@ -10454,7 +10702,10 @@
             "acquired": [
               "Stefon Diggs"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick (orig. Tubes94)",
+              "2025 R3 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -10472,12 +10723,16 @@
             "acquired": [
               "De'Von Achane"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R1 Pick (orig. Tubes94)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick"
+            ],
             "sent": [
               "Romeo Doubs"
             ],
@@ -10504,11 +10759,13 @@
           {
             "week": 9,
             "acquired": [
-              "Garrett Wilson"
+              "Garrett Wilson",
+              "2025 R3 Pick"
             ],
             "sent": [
               "Malik Willis",
-              "Braelon Allen"
+              "Braelon Allen",
+              "2025 R1 Pick"
             ],
             "trade_partner": "Escuelas"
           }
@@ -10917,9 +11174,13 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2026 R1 Pick (orig. MLSchools12)"
+            ],
             "sent": [
-              "Shedeur Sanders"
+              "Shedeur Sanders",
+              "2026 R2 Pick",
+              "2026 R4 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -10949,7 +11210,10 @@
             "acquired": [
               "Saquon Barkley"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R1 Pick",
+              "2027 R1 Pick"
+            ],
             "trade_partner": "Grandes"
           }
         ],
@@ -11455,6 +11719,16 @@
         ],
         "trades": [
           {
+            "week": 1,
+            "acquired": [
+              "2020 R3 Pick"
+            ],
+            "sent": [
+              "2020 R2 Pick"
+            ],
+            "trade_partner": "Cmaleski"
+          },
+          {
             "week": 7,
             "acquired": [
               "DeSean Jackson"
@@ -11467,7 +11741,9 @@
             "acquired": [
               "Alex Smith"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick"
+            ],
             "trade_partner": "Cogdeill11"
           }
         ],
@@ -11572,7 +11848,11 @@
             "acquired": [
               "Derrick Henry"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick",
+              "2021 R2 Pick",
+              "2022 R1 Pick"
+            ],
             "trade_partner": "Cmaleski"
           }
         ],
@@ -11754,6 +12034,14 @@
         "trades": [
           {
             "week": 1,
+            "acquired": [],
+            "sent": [
+              "2023 R4 Pick"
+            ],
+            "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
             "acquired": [
               "Clayton Tune"
             ],
@@ -11840,7 +12128,9 @@
             "acquired": [
               "Mac Jones"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           }
         ],
@@ -12100,15 +12390,20 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2020 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
-              "Rob Gronkowski"
+              "Rob Gronkowski",
+              "2020 R4 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "SexMachineAndyD"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R4 Pick"
+            ],
             "sent": [
               "Will Dissly"
             ],
@@ -12120,13 +12415,16 @@
               "Tyler Boyd"
             ],
             "sent": [
-              "Curtis Samuel"
+              "Curtis Samuel",
+              "2021 R1 Pick"
             ],
             "trade_partner": "tdtd19844"
           },
           {
             "week": 13,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick"
+            ],
             "sent": [
               "Alex Smith"
             ],
@@ -12367,7 +12665,10 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick",
+              "2021 R4 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Zach Ertz"
             ],
@@ -12388,7 +12689,9 @@
             "acquired": [
               "Taylor Heinicke"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick"
+            ],
             "trade_partner": "MCSchools"
           }
         ],
@@ -12657,7 +12960,8 @@
           {
             "week": 12,
             "acquired": [
-              "Gus Edwards"
+              "Gus Edwards",
+              "2023 R4 Pick"
             ],
             "sent": [
               "Jacoby Brissett"
@@ -12869,15 +13173,27 @@
         "trades": [
           {
             "week": 2,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick"
+            ],
             "sent": [
               "Gus Edwards"
             ],
             "trade_partner": "eldridm20"
           },
           {
+            "week": 2,
+            "acquired": [
+              "2024 R4 Pick"
+            ],
+            "sent": [],
+            "trade_partner": "MLSchools12"
+          },
+          {
             "week": 5,
-            "acquired": [],
+            "acquired": [
+              "2024 R1 Pick (orig. eldridsm)"
+            ],
             "sent": [
               "Puka Nacua"
             ],
@@ -12886,7 +13202,8 @@
           {
             "week": 5,
             "acquired": [
-              "Chase Claypool"
+              "Chase Claypool",
+              "2025 R3 Pick"
             ],
             "sent": [
               "Tyler Higbee"
@@ -12896,7 +13213,8 @@
           {
             "week": 8,
             "acquired": [
-              "Gerald Everett"
+              "Gerald Everett",
+              "2024 R4 Pick"
             ],
             "sent": [
               "Taysom Hill"
@@ -12906,16 +13224,20 @@
           {
             "week": 8,
             "acquired": [
-              "Kirk Cousins"
+              "Kirk Cousins",
+              "2025 R2 Pick (orig. Escuelas)"
             ],
             "sent": [
-              "Taylor Heinicke"
+              "Taylor Heinicke",
+              "2024 R3 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 13,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick (orig. Cogdeill11)"
+            ],
             "sent": [
               "Ezekiel Elliott"
             ],
@@ -13799,7 +14121,8 @@
           {
             "week": 1,
             "acquired": [
-              "John Brown"
+              "John Brown",
+              "2020 R1 Pick (orig. Cogdeill11)"
             ],
             "sent": [
               "JuJu Smith-Schuster"
@@ -13820,16 +14143,45 @@
           {
             "week": 1,
             "acquired": [
+              "2020 R1 Pick",
+              "2021 R1 Pick"
+            ],
+            "sent": [
+              "2020 R1 Pick (orig. Cmaleski)"
+            ],
+            "trade_partner": "JuicyBussy"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2021 R1 Pick"
+            ],
+            "sent": [
+              "2020 R1 Pick",
+              "2020 R2 Pick (orig. JuicyBussy)"
+            ],
+            "trade_partner": "Cmaleski"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Christian McCaffrey"
             ],
             "sent": [
-              "Le'Veon Bell"
+              "Le'Veon Bell",
+              "2021 R1 Pick",
+              "2021 R2 Pick",
+              "2021 R1 Pick (orig. Cmaleski)",
+              "2021 R1 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R4 Pick",
+              "2021 R3 Pick (orig. eldridm20)"
+            ],
             "sent": [
               "Josh Reynolds"
             ],
@@ -13838,7 +14190,9 @@
           {
             "week": 1,
             "acquired": [
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2021 R3 Pick",
+              "2022 R1 Pick"
             ],
             "sent": [
               "Henry Ruggs"
@@ -13868,17 +14222,21 @@
             ],
             "sent": [
               "J.K. Dobbins",
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2022 R1 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
             "acquired": [
-              "Michael Pittman"
+              "Michael Pittman",
+              "2022 R1 Pick",
+              "2022 R1 Pick (orig. JuicyBussy)"
             ],
             "sent": [
-              "Aaron Jones"
+              "Aaron Jones",
+              "2021 R3 Pick (orig. eldridm20)"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -13889,13 +14247,16 @@
             ],
             "sent": [
               "John Brown",
-              "Melvin Gordon"
+              "Melvin Gordon",
+              "2022 R2 Pick"
             ],
             "trade_partner": "MCSchools"
           },
           {
             "week": 5,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick (orig. Grandes)"
+            ],
             "sent": [
               "Kyle Allen"
             ],
@@ -13906,7 +14267,11 @@
             "acquired": [
               "Rob Gronkowski"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick (orig. Grandes)",
+              "2021 R4 Pick",
+              "2021 R3 Pick (orig. Cmaleski)"
+            ],
             "trade_partner": "Grandes"
           }
         ],
@@ -14158,7 +14523,10 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R4 Pick (orig. MLSchools12)",
+              "2021 R3 Pick"
+            ],
             "sent": [
               "Mike Davis"
             ],
@@ -14167,10 +14535,12 @@
           {
             "week": 1,
             "acquired": [
-              "Mecole Hardman"
+              "Mecole Hardman",
+              "2021 R3 Pick (orig. Cmaleski)"
             ],
             "sent": [
-              "David Johnson"
+              "David Johnson",
+              "2021 R4 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -14184,30 +14554,55 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. rbr)",
+              "2021 R3 Pick (orig. Cogdeill11)"
+            ],
+            "sent": [
+              "2022 R1 Pick",
+              "2021 R3 Pick (orig. Cmaleski)",
+              "2021 R4 Pick (orig. Cmaleski)",
+              "2022 R1 Pick (orig. JuicyBussy)"
+            ],
+            "trade_partner": "eldridsm"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2021 R1 Pick (orig. Grandes)"
+            ],
             "sent": [
               "Eric Ebron",
               "Keke Coutee",
               "Allen Lazard",
-              "Jerry Jeudy"
+              "Jerry Jeudy",
+              "2021 R3 Pick (orig. Cogdeill11)",
+              "2021 R3 Pick (orig. MCSchools)"
             ],
             "trade_partner": "MCSchools"
           },
           {
             "week": 1,
             "acquired": [
-              "DK Metcalf"
+              "DK Metcalf",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "sent": [
-              "Marquez Valdes-Scantling"
+              "Marquez Valdes-Scantling",
+              "2021 R1 Pick (orig. Grandes)",
+              "2021 R1 Pick (orig. rbr)",
+              "2022 R3 Pick"
             ],
             "trade_partner": "Tubes94"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick"
+            ],
             "sent": [
-              "Samaje Perine"
+              "Samaje Perine",
+              "2022 R4 Pick"
             ],
             "trade_partner": "JuicyBussy"
           },
@@ -14223,7 +14618,10 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. eldridsm)",
+              "2023 R2 Pick"
+            ],
             "sent": [
               "Miles Sanders"
             ],
@@ -14576,7 +14974,10 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. Grandes)",
+              "2023 R4 Pick"
+            ],
             "sent": [
               "Matt Ryan"
             ],
@@ -14585,10 +14986,13 @@
           {
             "week": 1,
             "acquired": [
-              "Cam Akers"
+              "Cam Akers",
+              "2022 R1 Pick (orig. tdtd19844)",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
             "sent": [
-              "DK Metcalf"
+              "DK Metcalf",
+              "2022 R1 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "Escuelas"
           },
@@ -14598,24 +15002,46 @@
               "Adam Thielen",
               "Nyheim Miller-Hines"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick (orig. eldridsm)"
+            ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. Cmaleski)",
+              "2022 R5 Pick"
+            ],
             "sent": [
-              "Clyde Edwards-Helaire"
+              "Clyde Edwards-Helaire",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 1,
             "acquired": [
-              "DJ Chark"
+              "DJ Chark",
+              "2024 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick (orig. Grandes)",
+              "2023 R4 Pick"
+            ],
             "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2022 R1 Pick (orig. SexMachineAndyD)",
+              "2023 R1 Pick"
+            ],
+            "sent": [
+              "2022 R1 Pick (orig. tdtd19844)",
+              "2022 R5 Pick (orig. Escuelas)"
+            ],
+            "trade_partner": "JuicyBussy"
           },
           {
             "week": 1,
@@ -14635,15 +15061,20 @@
           },
           {
             "week": 6,
-            "acquired": [],
+            "acquired": [
+              "2023 R1 Pick"
+            ],
             "sent": [
-              "Mac Jones"
+              "Mac Jones",
+              "2023 R3 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 8,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick"
+            ],
             "sent": [
               "Nyheim Miller-Hines"
             ],
@@ -14654,20 +15085,30 @@
             "acquired": [
               "Rondale Moore"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick",
+              "2023 R4 Pick (orig. Escuelas)"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 10,
             "acquired": [
-              "Jaylen Waddle"
+              "Jaylen Waddle",
+              "2024 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R1 Pick (orig. Grandes)",
+              "2023 R1 Pick",
+              "2024 R3 Pick"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Kareem Hunt"
             ],
@@ -14676,9 +15117,12 @@
           {
             "week": 13,
             "acquired": [
-              "Mike White"
+              "Mike White",
+              "2023 R4 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick"
+            ],
             "trade_partner": "Escuelas"
           }
         ],
@@ -15019,9 +15463,12 @@
           {
             "week": 1,
             "acquired": [
-              "Devin Singletary"
+              "Devin Singletary",
+              "2023 R4 Pick (orig. Tubes94)"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick (orig. JuicyBussy)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -15035,7 +15482,19 @@
           {
             "week": 1,
             "acquired": [
-              "Desmond Ridder"
+              "2023 R4 Pick",
+              "2023 R4 Pick (orig. JuicyBussy)"
+            ],
+            "sent": [
+              "2023 R4 Pick (orig. Escuelas)"
+            ],
+            "trade_partner": "Cmaleski"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "Desmond Ridder",
+              "2025 R1 Pick"
             ],
             "sent": [
               "Mecole Hardman",
@@ -15043,6 +15502,14 @@
               "Quentin Johnston"
             ],
             "trade_partner": "Tubes94"
+          },
+          {
+            "week": 2,
+            "acquired": [],
+            "sent": [
+              "2024 R4 Pick"
+            ],
+            "trade_partner": "Cogdeill11"
           },
           {
             "week": 5,
@@ -15211,7 +15678,8 @@
               "Travis Etienne"
             ],
             "sent": [
-              "Will Levis"
+              "Will Levis",
+              "2024 R2 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -15220,7 +15688,10 @@
             "acquired": [
               "Russell Wilson"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R2 Pick",
+              "2025 R3 Pick"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -15238,9 +15709,13 @@
           {
             "week": 9,
             "acquired": [
-              "Josh Jacobs"
+              "Josh Jacobs",
+              "2025 R2 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R1 Pick (orig. Tubes94)",
+              "2025 R1 Pick"
+            ],
             "trade_partner": "eldridsm"
           }
         ],
@@ -15429,13 +15904,17 @@
             ],
             "sent": [
               "Travis Etienne",
-              "Tyler Warren"
+              "Tyler Warren",
+              "2026 R1 Pick",
+              "2026 R3 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick"
+            ],
             "sent": [
               "Russell Wilson"
             ],
@@ -15443,7 +15922,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick"
+            ],
             "sent": [
               "Michael Pittman",
               "Juwan Johnson"
@@ -15465,9 +15946,12 @@
           {
             "week": 1,
             "acquired": [
-              "Ricky Pearsall"
+              "Ricky Pearsall",
+              "2027 R4 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2027 R1 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -15481,7 +15965,8 @@
           {
             "week": 1,
             "acquired": [
-              "Quentin Johnston"
+              "Quentin Johnston",
+              "2026 R3 Pick"
             ],
             "sent": [
               "Chig Okonkwo"
@@ -15493,7 +15978,9 @@
             "acquired": [
               "Brian Robinson"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -15502,14 +15989,16 @@
               "Hunter Henry"
             ],
             "sent": [
-              "Chris Rodriguez"
+              "Chris Rodriguez",
+              "2026 R3 Pick (orig. Tubes94)"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 9,
             "acquired": [
-              "Justin Fields"
+              "Justin Fields",
+              "2027 R1 Pick"
             ],
             "sent": [
               "Sam Darnold"
@@ -15519,9 +16008,12 @@
           {
             "week": 12,
             "acquired": [
-              "Kareem Hunt"
+              "Kareem Hunt",
+              "2026 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick (orig. Escuelas)"
+            ],
             "trade_partner": "Grandes"
           }
         ],
@@ -15966,7 +16458,9 @@
             "acquired": [
               "Drew Lock"
             ],
-            "sent": [],
+            "sent": [
+              "2020 R1 Pick (orig. Cogdeill11)"
+            ],
             "trade_partner": "Grandes"
           },
           {
@@ -15982,12 +16476,35 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2020 R1 Pick (orig. mmoodie12)"
+            ],
             "sent": [
               "Aaron Rodgers",
               "N'Keal Harry"
             ],
             "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2020 R1 Pick",
+              "2020 R2 Pick (orig. JuicyBussy)"
+            ],
+            "sent": [
+              "2021 R1 Pick"
+            ],
+            "trade_partner": "MLSchools12"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2020 R2 Pick"
+            ],
+            "sent": [
+              "2020 R3 Pick"
+            ],
+            "trade_partner": "rbr"
           },
           {
             "week": 1,
@@ -16014,9 +16531,12 @@
           {
             "week": 1,
             "acquired": [
-              "Tevin Coleman"
+              "Tevin Coleman",
+              "2021 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R2 Pick"
+            ],
             "trade_partner": "eldridm20"
           },
           {
@@ -16044,7 +16564,10 @@
             "acquired": [
               "Josh Reynolds"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R4 Pick",
+              "2021 R3 Pick (orig. eldridm20)"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
@@ -16053,13 +16576,17 @@
               "Henry Ruggs"
             ],
             "sent": [
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2021 R3 Pick",
+              "2022 R1 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick"
+            ],
             "sent": [
               "Rex Burkhead"
             ],
@@ -16068,7 +16595,9 @@
           {
             "week": 1,
             "acquired": [
-              "Ronald Jones"
+              "Ronald Jones",
+              "2022 R1 Pick",
+              "2022 R2 Pick"
             ],
             "sent": [
               "Kenyan Drake"
@@ -16079,7 +16608,8 @@
             "week": 1,
             "acquired": [
               "J.K. Dobbins",
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2022 R1 Pick (orig. Cmaleski)"
             ],
             "sent": [
               "Clyde Edwards-Helaire"
@@ -16089,31 +16619,39 @@
           {
             "week": 1,
             "acquired": [
-              "Aaron Jones"
+              "Aaron Jones",
+              "2021 R3 Pick (orig. eldridm20)"
             ],
             "sent": [
-              "Michael Pittman"
+              "Michael Pittman",
+              "2022 R1 Pick",
+              "2022 R1 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 1,
             "acquired": [
-              "KJ Hamler"
+              "KJ Hamler",
+              "2021 R2 Pick (orig. Grandes)"
             ],
             "sent": [
-              "Jordan Love"
+              "Jordan Love",
+              "2022 R4 Pick"
             ],
             "trade_partner": "mmoodie12"
           },
           {
             "week": 6,
             "acquired": [
-              "Derrick Henry"
+              "Derrick Henry",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "sent": [
               "Brandon Aiyuk",
-              "J.K. Dobbins"
+              "J.K. Dobbins",
+              "2021 R2 Pick (orig. Grandes)",
+              "2022 R2 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "eldridm20"
           },
@@ -16126,7 +16664,8 @@
               "AJ Dillon"
             ],
             "sent": [
-              "Robert Woods"
+              "Robert Woods",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "trade_partner": "mmoodie12"
           }
@@ -16308,7 +16847,11 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick",
+              "2021 R2 Pick",
+              "2022 R1 Pick"
+            ],
             "sent": [
               "Derrick Henry"
             ],
@@ -16316,9 +16859,14 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. Cmaleski)"
+            ],
             "sent": [
-              "Darrell Henderson"
+              "Darrell Henderson",
+              "2021 R1 Pick (orig. rbr)",
+              "2021 R2 Pick (orig. rbr)",
+              "2021 R3 Pick (orig. eldridm20)"
             ],
             "trade_partner": "eldridsm"
           },
@@ -16326,9 +16874,14 @@
             "week": 1,
             "acquired": [
               "Michael Gallup",
-              "Marquise Brown"
+              "Marquise Brown",
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R1 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick (orig. tdtd19844)",
+              "2021 R1 Pick"
+            ],
             "trade_partner": "eldridm20"
           },
           {
@@ -16337,21 +16890,41 @@
               "Noah Fant"
             ],
             "sent": [
-              "Jordan Love"
+              "Jordan Love",
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "trade_partner": "Tubes94"
           },
           {
             "week": 1,
             "acquired": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R2 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. MLSchools12)",
+              "2021 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick (orig. eldridm20)"
+            ],
             "trade_partner": "MCSchools"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. Cogdeill11)"
+            ],
+            "sent": [
+              "2021 R2 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. MLSchools12)"
+            ],
+            "trade_partner": "tdtd19844"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2021 R5 Pick (orig. tdtd19844)"
+            ],
             "sent": [
               "Julio Jones"
             ],
@@ -16360,7 +16933,9 @@
           {
             "week": 1,
             "acquired": [
-              "Darrell Henderson"
+              "Darrell Henderson",
+              "2022 R1 Pick",
+              "2022 R3 Pick (orig. Tubes94)"
             ],
             "sent": [
               "Derek Carr"
@@ -16372,7 +16947,9 @@
             "acquired": [
               "N'Keal Harry"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
@@ -16400,7 +16977,9 @@
             "acquired": [
               "Mike White"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. Tubes94)"
+            ],
             "trade_partner": "SexMachineAndyD"
           }
         ],
@@ -16548,7 +17127,9 @@
             "week": 1,
             "acquired": [
               "Julio Jones",
-              "Calvin Ridley"
+              "Calvin Ridley",
+              "2022 R3 Pick",
+              "2022 R3 Pick (orig. Escuelas)"
             ],
             "sent": [
               "Michael Gallup"
@@ -16558,7 +17139,8 @@
           {
             "week": 1,
             "acquired": [
-              "Russell Wilson"
+              "Russell Wilson",
+              "2022 R2 Pick (orig. Cogdeill11)"
             ],
             "sent": [
               "AJ Dillon",
@@ -16569,25 +17151,47 @@
           {
             "week": 1,
             "acquired": [
+              "2022 R3 Pick (orig. tdtd19844)",
+              "2022 R1 Pick (orig. Tubes94)",
+              "2022 R4 Pick"
+            ],
+            "sent": [
+              "2022 R1 Pick (orig. eldridsm)",
+              "2023 R2 Pick",
+              "2022 R3 Pick (orig. Escuelas)"
+            ],
+            "trade_partner": "eldridm20"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Courtland Sutton"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R4 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. Cogdeill11)",
+              "2022 R4 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 1,
             "acquired": [
-              "Melvin Gordon"
+              "Melvin Gordon",
+              "2023 R4 Pick"
             ],
             "sent": [
               "Austin Hooper",
-              "Kellen Mond"
+              "Kellen Mond",
+              "2023 R3 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick"
+            ],
             "sent": [
               "Randall Cobb",
               "Julio Jones",
@@ -16610,7 +17214,9 @@
             "acquired": [
               "DeVonta Smith"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R1 Pick"
+            ],
             "trade_partner": "Tubes94"
           },
           {
@@ -16626,7 +17232,8 @@
           {
             "week": 14,
             "acquired": [
-              "DJ Moore"
+              "DJ Moore",
+              "2023 R4 Pick (orig. JuicyBussy)"
             ],
             "sent": [
               "Aaron Jones"
@@ -16800,7 +17407,10 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick (orig. Cmaleski)",
+              "2023 R2 Pick (orig. JuicyBussy)"
+            ],
             "sent": [
               "Calvin Ridley"
             ],
@@ -16808,7 +17418,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick (orig. eldridsm)"
+            ],
             "sent": [
               "Courtland Sutton"
             ],
@@ -16817,15 +17429,38 @@
           {
             "week": 1,
             "acquired": [
-              "Michael Gallup"
+              "2023 R4 Pick (orig. Escuelas)"
+            ],
+            "sent": [
+              "2023 R4 Pick",
+              "2023 R4 Pick (orig. JuicyBussy)"
+            ],
+            "trade_partner": "MLSchools12"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2023 R4 Pick (orig. MLSchools12)"
             ],
             "sent": [],
+            "trade_partner": "tdtd19844"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "Michael Gallup"
+            ],
+            "sent": [
+              "2024 R3 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 2,
             "acquired": [
-              "Miles Sanders"
+              "Miles Sanders",
+              "2024 R4 Pick (orig. Tubes94)",
+              "2024 R4 Pick (orig. Escuelas)"
             ],
             "sent": [
               "Marquise Brown"
@@ -16847,7 +17482,8 @@
               "Javonte Williams"
             ],
             "sent": [
-              "Michael Mayer"
+              "Michael Mayer",
+              "2024 R2 Pick"
             ],
             "trade_partner": "SexMachineAndyD"
           },
@@ -16857,12 +17493,16 @@
               "Dalton Schultz",
               "Javonte Williams"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R1 Pick"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick (orig. Tubes94)"
+            ],
             "sent": [
               "Isaiah Likely"
             ],
@@ -16966,7 +17606,8 @@
           {
             "week": 1,
             "acquired": [
-              "Will Levis"
+              "Will Levis",
+              "2024 R2 Pick"
             ],
             "sent": [
               "Travis Etienne"
@@ -16976,16 +17617,21 @@
           {
             "week": 1,
             "acquired": [
-              "Tony Pollard"
+              "Tony Pollard",
+              "2024 R2 Pick (orig. JuicyBussy)"
             ],
             "sent": [
-              "Jahan Dotson"
+              "Jahan Dotson",
+              "2024 R4 Pick (orig. Tubes94)",
+              "2024 R2 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R1 Pick (orig. Tubes94)"
+            ],
             "sent": [
               "De'Von Achane"
             ],
@@ -16993,7 +17639,10 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2025 R2 Pick",
+              "2025 R3 Pick"
+            ],
             "sent": [
               "Russell Wilson"
             ],
@@ -17004,7 +17653,9 @@
             "acquired": [
               "Spencer Rattler"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -17100,9 +17751,12 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2025 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
-              "Joe Milton"
+              "Joe Milton",
+              "2025 R3 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "eldridsm"
           },
@@ -17110,7 +17764,9 @@
             "week": 1,
             "acquired": [
               "Travis Etienne",
-              "Tyler Warren"
+              "Tyler Warren",
+              "2026 R1 Pick",
+              "2026 R3 Pick"
             ],
             "sent": [
               "Bucky Irving"
@@ -17120,14 +17776,20 @@
           {
             "week": 1,
             "acquired": [
-              "Shedeur Sanders"
+              "Shedeur Sanders",
+              "2026 R2 Pick",
+              "2026 R4 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R1 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick"
+            ],
             "sent": [
               "Brian Robinson"
             ],
@@ -17139,7 +17801,10 @@
               "Devin Singletary",
               "Adonai Mitchell"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick (orig. MLSchools12)",
+              "2026 R3 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Grandes"
           }
         ],
@@ -17284,16 +17949,20 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R2 Pick"
+            ],
             "sent": [
-              "Tevin Coleman"
+              "Tevin Coleman",
+              "2021 R3 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 5,
             "acquired": [
-              "Matt Breida"
+              "Matt Breida",
+              "2021 R2 Pick"
             ],
             "sent": [
               "Alexander Mattison"
@@ -17304,10 +17973,13 @@
             "week": 6,
             "acquired": [
               "Brandon Aiyuk",
-              "J.K. Dobbins"
+              "J.K. Dobbins",
+              "2021 R2 Pick (orig. Grandes)",
+              "2022 R2 Pick (orig. JuicyBussy)"
             ],
             "sent": [
-              "Derrick Henry"
+              "Derrick Henry",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "trade_partner": "Cmaleski"
           }
@@ -17702,21 +18374,28 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. tdtd19844)",
+              "2021 R1 Pick"
+            ],
             "sent": [
               "Michael Gallup",
-              "Marquise Brown"
+              "Marquise Brown",
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R1 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
             "acquired": [
-              "Mitchell Trubisky"
+              "Mitchell Trubisky",
+              "2022 R1 Pick"
             ],
             "sent": [
               "Denzel Mims",
-              "Quintez Cephus"
+              "Quintez Cephus",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "Tubes94"
           },
@@ -17733,10 +18412,13 @@
           {
             "week": 1,
             "acquired": [
-              "Adam Thielen"
+              "Adam Thielen",
+              "2023 R4 Pick"
             ],
             "sent": [
-              "Tony Pollard"
+              "Tony Pollard",
+              "2022 R2 Pick",
+              "2022 R3 Pick"
             ],
             "trade_partner": "eldridsm"
           },
@@ -17758,7 +18440,8 @@
               "Carson Wentz"
             ],
             "sent": [
-              "Courtland Sutton"
+              "Courtland Sutton",
+              "2022 R1 Pick"
             ],
             "trade_partner": "eldridsm"
           }
@@ -18197,7 +18880,9 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick (orig. tdtd19844)"
+            ],
             "sent": [
               "Sam Darnold"
             ],
@@ -18205,7 +18890,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. eldridsm)"
+            ],
             "sent": [
               "Adam Thielen",
               "Nyheim Miller-Hines"
@@ -18215,9 +18902,27 @@
           {
             "week": 1,
             "acquired": [
-              "Sammy Watkins"
+              "2022 R1 Pick (orig. eldridsm)",
+              "2023 R2 Pick",
+              "2022 R3 Pick (orig. Escuelas)"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. tdtd19844)",
+              "2022 R1 Pick (orig. Tubes94)",
+              "2022 R4 Pick"
+            ],
+            "trade_partner": "Cmaleski"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "Sammy Watkins",
+              "2022 R2 Pick (orig. SexMachineAndyD)",
+              "2023 R3 Pick"
+            ],
+            "sent": [
+              "2022 R2 Pick (orig. eldridsm)"
+            ],
             "trade_partner": "Escuelas"
           },
           {
@@ -18227,7 +18932,8 @@
             ],
             "sent": [
               "Sammy Watkins",
-              "Michael Carter"
+              "Michael Carter",
+              "2023 R1 Pick"
             ],
             "trade_partner": "Escuelas"
           },
@@ -18237,7 +18943,9 @@
               "Davis Mills"
             ],
             "sent": [
-              "Mitchell Trubisky"
+              "Mitchell Trubisky",
+              "2023 R4 Pick",
+              "2023 R3 Pick (orig. Escuelas)"
             ],
             "trade_partner": "eldridsm"
           }
@@ -18565,7 +19273,8 @@
               "Gardner Minshew"
             ],
             "sent": [
-              "Terrace Marshall"
+              "Terrace Marshall",
+              "2023 R2 Pick"
             ],
             "trade_partner": "Tubes94"
           },
@@ -18573,11 +19282,13 @@
             "week": 1,
             "acquired": [
               "Chris Godwin",
-              "Aaron Jones"
+              "Aaron Jones",
+              "2023 R2 Pick (orig. eldridm20)"
             ],
             "sent": [
               "Saquon Barkley",
-              "Chase Claypool"
+              "Chase Claypool",
+              "2023 R2 Pick (orig. Cmaleski)"
             ],
             "trade_partner": "Grandes"
           },
@@ -18589,15 +19300,21 @@
             "sent": [
               "Gardner Minshew",
               "Elijah Moore",
-              "Jerome Ford"
+              "Jerome Ford",
+              "2023 R2 Pick"
             ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R3 Pick",
+              "2023 R3 Pick (orig. Escuelas)"
+            ],
             "sent": [
-              "Jaylen Warren"
+              "Jaylen Warren",
+              "2023 R4 Pick (orig. eldridsm)",
+              "2023 R3 Pick"
             ],
             "trade_partner": "eldridsm"
           },
@@ -18606,7 +19323,9 @@
             "acquired": [
               "Gus Edwards"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick"
+            ],
             "trade_partner": "Cogdeill11"
           },
           {
@@ -19194,7 +19913,9 @@
         "trades": [
           {
             "week": 10,
-            "acquired": [],
+            "acquired": [
+              "2026 R1 Pick"
+            ],
             "sent": [
               "DK Metcalf"
             ],
@@ -19587,7 +20308,20 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2020 R1 Pick (orig. Cmaleski)"
+            ],
+            "sent": [
+              "2020 R1 Pick",
+              "2021 R1 Pick"
+            ],
+            "trade_partner": "MLSchools12"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2020 R2 Pick (orig. MCSchools)"
+            ],
             "sent": [
               "Sony Michel"
             ],
@@ -19605,7 +20339,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R3 Pick"
+            ],
             "sent": [
               "Kyle Rudolph"
             ],
@@ -19617,7 +20353,9 @@
               "Kenyan Drake"
             ],
             "sent": [
-              "Ronald Jones"
+              "Ronald Jones",
+              "2022 R1 Pick",
+              "2022 R2 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -19631,7 +20369,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R4 Pick (orig. MCSchools)"
+            ],
             "sent": [
               "Delanie Walker"
             ],
@@ -19647,9 +20387,15 @@
           },
           {
             "week": 4,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick",
+              "2021 R1 Pick (orig. MLSchools12)",
+              "2021 R2 Pick (orig. MLSchools12)",
+              "2021 R1 Pick (orig. JuicyBussy)"
+            ],
             "sent": [
-              "Josh Jacobs"
+              "Josh Jacobs",
+              "2021 R2 Pick"
             ],
             "trade_partner": "eldridsm"
           }
@@ -19826,17 +20572,24 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. MCSchools)"
+            ],
             "sent": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R1 Pick (orig. MLSchools12)"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick"
+            ],
             "sent": [
-              "Antonio Brown"
+              "Antonio Brown",
+              "2021 R1 Pick (orig. eldridsm)",
+              "2021 R3 Pick"
             ],
             "trade_partner": "SexMachineAndyD"
           },
@@ -19853,15 +20606,19 @@
           {
             "week": 1,
             "acquired": [
-              "Samaje Perine"
+              "Samaje Perine",
+              "2022 R4 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 8,
             "acquired": [
-              "James Proche"
+              "James Proche",
+              "2022 R1 Pick (orig. MLSchools12)"
             ],
             "sent": [
               "Elijah Mitchell"
@@ -19968,6 +20725,29 @@
           {
             "week": 1,
             "acquired": [
+              "2022 R1 Pick"
+            ],
+            "sent": [
+              "2022 R1 Pick (orig. MLSchools12)",
+              "2023 R3 Pick"
+            ],
+            "trade_partner": "SexMachineAndyD"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2022 R1 Pick (orig. tdtd19844)",
+              "2022 R5 Pick (orig. Escuelas)"
+            ],
+            "sent": [
+              "2022 R1 Pick (orig. SexMachineAndyD)",
+              "2023 R1 Pick"
+            ],
+            "trade_partner": "MLSchools12"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Mac Jones"
             ],
             "sent": [],
@@ -19983,7 +20763,9 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick"
+            ],
             "sent": [
               "Gerald Everett"
             ],
@@ -19994,7 +20776,9 @@
             "acquired": [
               "Nyheim Miller-Hines"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
@@ -20002,14 +20786,21 @@
             "acquired": [
               "Zach Ertz"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R3 Pick (orig. Grandes)",
+              "2023 R2 Pick",
+              "2024 R4 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 14,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick (orig. JuicyBussy)"
+            ],
             "sent": [
-              "Kevin Harris"
+              "Kevin Harris",
+              "2023 R4 Pick"
             ],
             "trade_partner": "Grandes"
           }
@@ -20108,7 +20899,8 @@
             ],
             "sent": [
               "Odell Beckham",
-              "Joe Mixon"
+              "Joe Mixon",
+              "2023 R2 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -20125,7 +20917,10 @@
             "acquired": [
               "David Njoku"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick (orig. Tubes94)",
+              "2024 R3 Pick"
+            ],
             "trade_partner": "Escuelas"
           },
           {
@@ -20133,7 +20928,9 @@
             "acquired": [
               "D'Andre Swift"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R1 Pick"
+            ],
             "trade_partner": "Escuelas"
           }
         ],
@@ -20249,6 +21046,16 @@
           {
             "week": 1,
             "acquired": [
+              "2025 R4 Pick"
+            ],
+            "sent": [
+              "2025 R4 Pick"
+            ],
+            "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Skyy Moore"
             ],
             "sent": [],
@@ -20338,7 +21145,9 @@
             "acquired": [
               "Russell Wilson"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
@@ -20346,7 +21155,10 @@
             "acquired": [
               "Joe Flacco"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R3 Pick",
+              "2026 R4 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
@@ -20354,7 +21166,10 @@
             "acquired": [
               "Nico Collins"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R1 Pick",
+              "2027 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
@@ -20363,7 +21178,8 @@
               "Sam Darnold"
             ],
             "sent": [
-              "Justin Fields"
+              "Justin Fields",
+              "2027 R1 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -20505,10 +21321,12 @@
           {
             "week": 1,
             "acquired": [
-              "Sammy Watkins"
+              "Sammy Watkins",
+              "2020 R4 Pick (orig. Cmaleski)"
             ],
             "sent": [
-              "Benny Snell"
+              "Benny Snell",
+              "2020 R2 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -20519,7 +21337,8 @@
               "JuJu Smith-Schuster"
             ],
             "sent": [
-              "David Montgomery"
+              "David Montgomery",
+              "2020 R1 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -20535,7 +21354,8 @@
             "week": 1,
             "acquired": [
               "John Brown",
-              "Melvin Gordon"
+              "Melvin Gordon",
+              "2022 R2 Pick"
             ],
             "sent": [
               "Jerry Jeudy"
@@ -20555,7 +21375,9 @@
             "acquired": [
               "Kyle Allen"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick (orig. Grandes)"
+            ],
             "trade_partner": "MLSchools12"
           }
         ],
@@ -20634,7 +21456,9 @@
           {
             "week": 1,
             "acquired": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R2 Pick (orig. Tubes94)",
+              "2021 R4 Pick (orig. MLSchools12)"
             ],
             "sent": [
               "Tyreek Hill"
@@ -20646,7 +21470,10 @@
             "acquired": [
               "Mike Davis"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R4 Pick (orig. MLSchools12)",
+              "2021 R3 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
@@ -20663,16 +21490,25 @@
               "Eric Ebron",
               "Keke Coutee",
               "Allen Lazard",
-              "Jerry Jeudy"
+              "Jerry Jeudy",
+              "2021 R3 Pick (orig. Cogdeill11)",
+              "2021 R3 Pick (orig. MCSchools)"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick (orig. Grandes)"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R1 Pick (orig. eldridm20)"
+            ],
             "sent": [
-              "Joe Mixon"
+              "Joe Mixon",
+              "2021 R2 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. MLSchools12)",
+              "2021 R3 Pick"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -20692,7 +21528,9 @@
           },
           {
             "week": 2,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick"
+            ],
             "sent": [
               "Taylor Heinicke"
             ],
@@ -20701,10 +21539,13 @@
           {
             "week": 4,
             "acquired": [
-              "Chuba Hubbard"
+              "Chuba Hubbard",
+              "2022 R2 Pick",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
             "sent": [
-              "Julio Jones"
+              "Julio Jones",
+              "2022 R3 Pick"
             ],
             "trade_partner": "eldridsm"
           },
@@ -20713,13 +21554,16 @@
             "acquired": [
               "David Njoku"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. tdtd19844)"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 9,
             "acquired": [
-              "Foster Moreau"
+              "Foster Moreau",
+              "2022 R2 Pick (orig. Grandes)"
             ],
             "sent": [
               "A.J. Green"
@@ -20731,12 +21575,17 @@
             "acquired": [
               "Miles Sanders"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick (orig. eldridsm)",
+              "2023 R2 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Matt Breida"
             ],
@@ -20746,7 +21595,8 @@
             "week": 12,
             "acquired": [
               "Michael Thomas",
-              "Elijah Mitchell"
+              "Elijah Mitchell",
+              "2022 R2 Pick (orig. Cmaleski)"
             ],
             "sent": [
               "Melvin Gordon",
@@ -21038,7 +21888,22 @@
           {
             "week": 1,
             "acquired": [
-              "Le'Veon Bell"
+              "2020 R1 Pick"
+            ],
+            "sent": [
+              "2020 R1 Pick",
+              "2020 R2 Pick"
+            ],
+            "trade_partner": "SexMachineAndyD"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "Le'Veon Bell",
+              "2021 R1 Pick",
+              "2021 R2 Pick",
+              "2021 R1 Pick (orig. Cmaleski)",
+              "2021 R1 Pick (orig. JuicyBussy)"
             ],
             "sent": [
               "Christian McCaffrey"
@@ -21047,7 +21912,10 @@
           },
           {
             "week": 2,
-            "acquired": [],
+            "acquired": [
+              "2022 R3 Pick",
+              "2021 R3 Pick (orig. Cogdeill11)"
+            ],
             "sent": [
               "Le'Veon Bell"
             ],
@@ -21058,15 +21926,23 @@
             "acquired": [
               "Mo Alie-Cox"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R3 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 4,
             "acquired": [
-              "Josh Jacobs"
+              "Josh Jacobs",
+              "2021 R2 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick",
+              "2021 R1 Pick (orig. MLSchools12)",
+              "2021 R2 Pick (orig. MLSchools12)",
+              "2021 R1 Pick (orig. JuicyBussy)"
+            ],
             "trade_partner": "JuicyBussy"
           }
         ],
@@ -21299,14 +22175,35 @@
           {
             "week": 1,
             "acquired": [
-              "Darrell Henderson"
+              "Darrell Henderson",
+              "2021 R1 Pick (orig. rbr)",
+              "2021 R2 Pick (orig. rbr)",
+              "2021 R3 Pick (orig. eldridm20)"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R1 Pick (orig. Cmaleski)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R1 Pick",
+              "2021 R3 Pick (orig. Cmaleski)",
+              "2021 R4 Pick (orig. Cmaleski)",
+              "2022 R1 Pick (orig. JuicyBussy)"
+            ],
+            "sent": [
+              "2021 R1 Pick (orig. rbr)",
+              "2021 R3 Pick (orig. Cogdeill11)"
+            ],
+            "trade_partner": "MLSchools12"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2022 R3 Pick"
+            ],
             "sent": [
               "Mark Ingram"
             ],
@@ -21317,12 +22214,18 @@
             "acquired": [
               "Zack Moss"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R1 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Tubes94"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R3 Pick",
+              "2023 R4 Pick",
+              "2021 R3 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Jimmy Garoppolo"
             ],
@@ -21334,27 +22237,35 @@
               "Derek Carr"
             ],
             "sent": [
-              "Darrell Henderson"
+              "Darrell Henderson",
+              "2022 R1 Pick",
+              "2022 R3 Pick (orig. Tubes94)"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
             "acquired": [
-              "Tony Pollard"
+              "Tony Pollard",
+              "2022 R2 Pick",
+              "2022 R3 Pick"
             ],
             "sent": [
-              "Adam Thielen"
+              "Adam Thielen",
+              "2023 R4 Pick"
             ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 4,
             "acquired": [
-              "Julio Jones"
+              "Julio Jones",
+              "2022 R3 Pick"
             ],
             "sent": [
-              "Chuba Hubbard"
+              "Chuba Hubbard",
+              "2022 R2 Pick",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
             "trade_partner": "MCSchools"
           },
@@ -21363,13 +22274,17 @@
             "acquired": [
               "Henry Ruggs"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick (orig. Grandes)",
+              "2023 R1 Pick"
+            ],
             "trade_partner": "SexMachineAndyD"
           },
           {
             "week": 10,
             "acquired": [
-              "Courtland Sutton"
+              "Courtland Sutton",
+              "2022 R1 Pick"
             ],
             "sent": [
               "Carson Wentz"
@@ -21652,13 +22567,19 @@
             ],
             "sent": [
               "Julio Jones",
-              "Calvin Ridley"
+              "Calvin Ridley",
+              "2022 R3 Pick",
+              "2022 R3 Pick (orig. Escuelas)"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R4 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. Cogdeill11)",
+              "2022 R4 Pick"
+            ],
             "sent": [
               "Courtland Sutton"
             ],
@@ -21677,7 +22598,9 @@
           {
             "week": 7,
             "acquired": [
-              "Mitchell Trubisky"
+              "Mitchell Trubisky",
+              "2023 R4 Pick",
+              "2023 R3 Pick (orig. Escuelas)"
             ],
             "sent": [
               "Davis Mills"
@@ -21870,20 +22793,27 @@
             "acquired": [
               "Jakobi Meyers"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick (orig. JuicyBussy)"
+            ],
             "sent": [
-              "Devin Singletary"
+              "Devin Singletary",
+              "2023 R4 Pick (orig. Tubes94)"
             ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick"
+            ],
             "sent": [
               "Nico Collins"
             ],
@@ -21891,7 +22821,10 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick (orig. Grandes)",
+              "2023 R1 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "D'Andre Swift"
             ],
@@ -21900,14 +22833,32 @@
           {
             "week": 1,
             "acquired": [
-              "Jaylen Warren"
+              "Jaylen Warren",
+              "2023 R4 Pick (orig. eldridsm)",
+              "2023 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R3 Pick",
+              "2023 R3 Pick (orig. Escuelas)"
+            ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R3 Pick (orig. Grandes)",
+              "2023 R3 Pick (orig. MLSchools12)"
+            ],
+            "sent": [
+              "2023 R3 Pick (orig. eldridm20)"
+            ],
+            "trade_partner": "Escuelas"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2024 R3 Pick"
+            ],
             "sent": [
               "Michael Gallup"
             ],
@@ -21915,11 +22866,14 @@
           },
           {
             "week": 4,
-            "acquired": [],
+            "acquired": [
+              "2024 R1 Pick (orig. Escuelas)"
+            ],
             "sent": [
               "Mike Evans",
               "Jakobi Meyers",
-              "Joshua Palmer"
+              "Joshua Palmer",
+              "2024 R1 Pick"
             ],
             "trade_partner": "Tubes94"
           },
@@ -21928,14 +22882,19 @@
             "acquired": [
               "Jerome Ford"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 5,
-            "acquired": [],
+            "acquired": [
+              "2025 R2 Pick"
+            ],
             "sent": [
-              "Tank Bigsby"
+              "Tank Bigsby",
+              "2025 R3 Pick"
             ],
             "trade_partner": "Tubes94"
           },
@@ -22296,16 +23255,22 @@
           {
             "week": 1,
             "acquired": [
-              "Jahan Dotson"
+              "Jahan Dotson",
+              "2024 R4 Pick (orig. Tubes94)",
+              "2024 R2 Pick (orig. MLSchools12)"
             ],
             "sent": [
-              "Tony Pollard"
+              "Tony Pollard",
+              "2024 R2 Pick (orig. JuicyBussy)"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick (orig. Tubes94)",
+              "2025 R3 Pick"
+            ],
             "sent": [
               "Stefon Diggs"
             ],
@@ -22316,12 +23281,16 @@
             "acquired": [
               "Gardner Minshew"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2025 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Spencer Rattler"
             ],
@@ -22329,9 +23298,13 @@
           },
           {
             "week": 9,
-            "acquired": [],
+            "acquired": [
+              "2025 R1 Pick (orig. Tubes94)",
+              "2025 R1 Pick"
+            ],
             "sent": [
-              "Josh Jacobs"
+              "Josh Jacobs",
+              "2025 R2 Pick"
             ],
             "trade_partner": "MLSchools12"
           }
@@ -22540,23 +23513,31 @@
               "Kenneth Gainwell"
             ],
             "sent": [
-              "Sam Howell"
+              "Sam Howell",
+              "2025 R2 Pick (orig. Tubes94)",
+              "2025 R3 Pick (orig. SexMachineAndyD)"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
             "acquired": [
-              "Joe Milton"
+              "Joe Milton",
+              "2025 R3 Pick (orig. MLSchools12)"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2027 R1 Pick"
+            ],
             "sent": [
-              "Ricky Pearsall"
+              "Ricky Pearsall",
+              "2027 R4 Pick"
             ],
             "trade_partner": "MLSchools12"
           }
@@ -22890,13 +23871,17 @@
             "acquired": [
               "Tyler Boyd"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R2 Pick"
+            ],
             "trade_partner": "mmoodie12"
           },
           {
             "week": 2,
             "acquired": [
-              "James Robinson"
+              "James Robinson",
+              "2021 R3 Pick (orig. tdtd19844)"
             ],
             "sent": [
               "DeSean Jackson",
@@ -22915,7 +23900,8 @@
           {
             "week": 5,
             "acquired": [
-              "Curtis Samuel"
+              "Curtis Samuel",
+              "2021 R1 Pick"
             ],
             "sent": [
               "Tyler Boyd"
@@ -23132,10 +24118,23 @@
           {
             "week": 1,
             "acquired": [
-              "Diontae Johnson"
+              "2021 R2 Pick (orig. Tubes94)",
+              "2022 R2 Pick (orig. MLSchools12)"
             ],
             "sent": [
-              "James Robinson"
+              "2021 R1 Pick (orig. Cogdeill11)"
+            ],
+            "trade_partner": "Cmaleski"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "Diontae Johnson",
+              "2021 R2 Pick (orig. tdtd19844)"
+            ],
+            "sent": [
+              "James Robinson",
+              "2021 R5 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -23145,7 +24144,8 @@
               "A.J. Green"
             ],
             "sent": [
-              "Foster Moreau"
+              "Foster Moreau",
+              "2022 R2 Pick (orig. Grandes)"
             ],
             "trade_partner": "MCSchools"
           }
@@ -23417,7 +24417,11 @@
             "acquired": [
               "Jonathan Taylor"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick",
+              "2023 R1 Pick",
+              "2022 R1 Pick (orig. Escuelas)"
+            ],
             "trade_partner": "Tubes94"
           },
           {
@@ -23425,7 +24429,8 @@
             "acquired": [
               "Zach Ertz",
               "Mike Williams",
-              "James Robinson"
+              "James Robinson",
+              "2023 R4 Pick (orig. MLSchools12)"
             ],
             "sent": [
               "DeVante Parker",
@@ -23608,7 +24613,16 @@
             "team": "TB"
           }
         ],
-        "trades": [],
+        "trades": [
+          {
+            "week": 1,
+            "acquired": [],
+            "sent": [
+              "2023 R4 Pick (orig. MLSchools12)"
+            ],
+            "trade_partner": "Cmaleski"
+          }
+        ],
         "notable_adds": [
           {
             "week": 1,
@@ -23838,7 +24852,9 @@
             "acquired": [
               "Romeo Doubs"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick"
+            ],
             "trade_partner": "SexMachineAndyD"
           }
         ],
@@ -23983,6 +24999,17 @@
           {
             "week": 1,
             "acquired": [
+              "2025 R2 Pick"
+            ],
+            "sent": [
+              "2025 R2 Pick",
+              "2025 R3 Pick"
+            ],
+            "trade_partner": "Grandes"
+          },
+          {
+            "week": 1,
+            "acquired": [
               "Nick Chubb"
             ],
             "sent": [
@@ -23995,7 +25022,9 @@
             "acquired": [
               "DK Metcalf"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R1 Pick"
+            ],
             "trade_partner": "eldridm20"
           }
         ],
@@ -24195,7 +25224,10 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R2 Pick"
+            ],
             "sent": [
               "Tyler Boyd"
             ],
@@ -24208,17 +25240,21 @@
               "Bryce Love"
             ],
             "sent": [
-              "O.J. Howard"
+              "O.J. Howard",
+              "2021 R2 Pick (orig. tdtd19844)",
+              "2021 R3 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
             "acquired": [
-              "Jordan Love"
+              "Jordan Love",
+              "2022 R4 Pick"
             ],
             "sent": [
-              "KJ Hamler"
+              "KJ Hamler",
+              "2021 R2 Pick (orig. Grandes)"
             ],
             "trade_partner": "Cmaleski"
           },
@@ -24227,7 +25263,9 @@
             "acquired": [
               "Damien Harris"
             ],
-            "sent": [],
+            "sent": [
+              "2021 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
@@ -24245,12 +25283,18 @@
             "acquired": [
               "Le'Veon Bell"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R3 Pick",
+              "2021 R3 Pick (orig. Cogdeill11)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 4,
-            "acquired": [],
+            "acquired": [
+              "2021 R3 Pick (orig. eldridsm)",
+              "2021 R3 Pick (orig. mmoodie12)"
+            ],
             "sent": [
               "A.J. Green"
             ],
@@ -24260,18 +25304,21 @@
             "week": 6,
             "acquired": [
               "Jared Goff",
-              "Jonathan Taylor"
+              "Jonathan Taylor",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "sent": [
               "Patrick Mahomes",
-              "Mike Gesicki"
+              "Mike Gesicki",
+              "2021 R3 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 7,
             "acquired": [
-              "Robert Woods"
+              "Robert Woods",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "sent": [
               "Le'Veon Bell",
@@ -24441,7 +25488,9 @@
           {
             "week": 1,
             "acquired": [
-              "Jordan Love"
+              "Jordan Love",
+              "2021 R2 Pick (orig. Grandes)",
+              "2021 R2 Pick (orig. SexMachineAndyD)"
             ],
             "sent": [
               "Noah Fant"
@@ -24452,16 +25501,20 @@
             "week": 1,
             "acquired": [
               "Denzel Mims",
-              "Quintez Cephus"
+              "Quintez Cephus",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "sent": [
-              "Mitchell Trubisky"
+              "Mitchell Trubisky",
+              "2022 R1 Pick"
             ],
             "trade_partner": "eldridm20"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R1 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Zack Moss"
             ],
@@ -24470,10 +25523,14 @@
           {
             "week": 1,
             "acquired": [
-              "Marquez Valdes-Scantling"
+              "Marquez Valdes-Scantling",
+              "2021 R1 Pick (orig. Grandes)",
+              "2021 R1 Pick (orig. rbr)",
+              "2022 R3 Pick"
             ],
             "sent": [
-              "DK Metcalf"
+              "DK Metcalf",
+              "2021 R1 Pick (orig. tdtd19844)"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -24492,7 +25549,11 @@
             "acquired": [
               "Jimmy Garoppolo"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R3 Pick",
+              "2023 R4 Pick",
+              "2021 R3 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -24500,13 +25561,17 @@
             "acquired": [
               "Chase Edmonds"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R1 Pick (orig. MLSchools12)",
+              "2022 R3 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
             "acquired": [
-              "Darnell Mooney"
+              "Darnell Mooney",
+              "2022 R2 Pick"
             ],
             "sent": [
               "Keenan Allen"
@@ -24653,13 +25718,19 @@
             "sent": [
               "Jimmy Garoppolo",
               "Raheem Mostert",
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2022 R2 Pick (orig. SexMachineAndyD)",
+              "2022 R3 Pick (orig. rbr)"
             ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick",
+              "2023 R1 Pick",
+              "2022 R1 Pick (orig. Escuelas)"
+            ],
             "sent": [
               "Jonathan Taylor"
             ],
@@ -24690,7 +25761,9 @@
               "Julio Jones",
               "Khalil Shakir"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
@@ -24698,12 +25771,16 @@
             "acquired": [
               "Gerald Everett"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick"
+            ],
             "trade_partner": "JuicyBussy"
           },
           {
             "week": 8,
-            "acquired": [],
+            "acquired": [
+              "2023 R1 Pick"
+            ],
             "sent": [
               "DeVonta Smith"
             ],
@@ -24715,7 +25792,9 @@
               "Baker Mayfield",
               "Sam Darnold"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick"
+            ],
             "trade_partner": "SexMachineAndyD"
           }
         ],
@@ -24878,7 +25957,8 @@
           {
             "week": 1,
             "acquired": [
-              "Terrace Marshall"
+              "Terrace Marshall",
+              "2023 R2 Pick"
             ],
             "sent": [
               "Baker Mayfield",
@@ -24889,22 +25969,41 @@
           {
             "week": 1,
             "acquired": [
-              "Allen Lazard"
+              "Allen Lazard",
+              "2024 R2 Pick (orig. Escuelas)"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R4 Pick",
+              "2023 R2 Pick (orig. eldridm20)"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 1,
             "acquired": [
-              "Justyn Ross"
+              "Justyn Ross",
+              "2024 R1 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R1 Pick (orig. Cmaleski)"
+            ],
             "trade_partner": "Escuelas"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R1 Pick (orig. eldridsm)"
+            ],
+            "sent": [
+              "2024 R1 Pick"
+            ],
+            "trade_partner": "SexMachineAndyD"
+          },
+          {
+            "week": 1,
+            "acquired": [
+              "2023 R3 Pick (orig. Cmaleski)"
+            ],
             "sent": [
               "Marquez Valdes-Scantling"
             ],
@@ -24930,7 +26029,8 @@
               "Quentin Johnston"
             ],
             "sent": [
-              "Desmond Ridder"
+              "Desmond Ridder",
+              "2025 R1 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -24939,9 +26039,12 @@
             "acquired": [
               "Mike Evans",
               "Jakobi Meyers",
-              "Joshua Palmer"
+              "Joshua Palmer",
+              "2024 R1 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R1 Pick (orig. Escuelas)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
@@ -24949,22 +26052,29 @@
             "acquired": [
               "Puka Nacua"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R1 Pick (orig. eldridsm)"
+            ],
             "trade_partner": "Cogdeill11"
           },
           {
             "week": 5,
             "acquired": [
-              "Tank Bigsby"
+              "Tank Bigsby",
+              "2025 R3 Pick"
             ],
-            "sent": [],
+            "sent": [
+              "2025 R2 Pick"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 14,
             "acquired": [
               "Matthew Stafford",
-              "Brandin Cooks"
+              "Brandin Cooks",
+              "2024 R2 Pick",
+              "2024 R3 Pick"
             ],
             "sent": [
               "Bryce Young"
@@ -25264,7 +26374,10 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2026 R2 Pick",
+              "2025 R3 Pick (orig. SexMachineAndyD)"
+            ],
             "sent": [
               "Jerry Jeudy"
             ],
@@ -25276,7 +26389,8 @@
               "Chig Okonkwo"
             ],
             "sent": [
-              "Quentin Johnston"
+              "Quentin Johnston",
+              "2026 R3 Pick"
             ],
             "trade_partner": "MLSchools12"
           }
@@ -25424,16 +26538,22 @@
             "acquired": [
               "Matt Ryan"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick (orig. Grandes)",
+              "2023 R4 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 1,
             "acquired": [
-              "DK Metcalf"
+              "DK Metcalf",
+              "2022 R1 Pick (orig. Cmaleski)"
             ],
             "sent": [
-              "Cam Akers"
+              "Cam Akers",
+              "2022 R1 Pick (orig. tdtd19844)",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -25444,16 +26564,21 @@
               "Jaylen Waddle"
             ],
             "sent": [
-              "Russell Wilson"
+              "Russell Wilson",
+              "2022 R2 Pick (orig. Cogdeill11)"
             ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 1,
             "acquired": [
-              "Clyde Edwards-Helaire"
+              "Clyde Edwards-Helaire",
+              "2022 R2 Pick (orig. eldridm20)"
             ],
-            "sent": [],
+            "sent": [
+              "2022 R2 Pick (orig. Cmaleski)",
+              "2022 R5 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
@@ -25461,7 +26586,9 @@
             "acquired": [
               "Jimmy Garoppolo",
               "Raheem Mostert",
-              "Laviska Shenault"
+              "Laviska Shenault",
+              "2022 R2 Pick (orig. SexMachineAndyD)",
+              "2022 R3 Pick (orig. rbr)"
             ],
             "sent": [
               "Miles Sanders",
@@ -25471,9 +26598,13 @@
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2022 R2 Pick (orig. eldridsm)"
+            ],
             "sent": [
-              "Sammy Watkins"
+              "Sammy Watkins",
+              "2022 R2 Pick (orig. SexMachineAndyD)",
+              "2023 R3 Pick"
             ],
             "trade_partner": "eldridm20"
           },
@@ -25481,7 +26612,8 @@
             "week": 1,
             "acquired": [
               "Sammy Watkins",
-              "Michael Carter"
+              "Michael Carter",
+              "2023 R1 Pick"
             ],
             "sent": [
               "DK Metcalf"
@@ -25493,12 +26625,17 @@
             "acquired": [
               "Sam Ehlinger"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R2 Pick"
+            ],
             "trade_partner": "Grandes"
           },
           {
             "week": 10,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick",
+              "2023 R4 Pick (orig. Escuelas)"
+            ],
             "sent": [
               "Rondale Moore"
             ],
@@ -25506,7 +26643,9 @@
           },
           {
             "week": 10,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick"
+            ],
             "sent": [
               "Hunter Henry",
               "Allen Lazard"
@@ -25516,18 +26655,26 @@
           {
             "week": 10,
             "acquired": [
-              "Jake Ferguson"
+              "Jake Ferguson",
+              "2023 R3 Pick",
+              "2023 R3 Pick (orig. MLSchools12)"
             ],
             "sent": [
-              "Raheem Mostert"
+              "Raheem Mostert",
+              "2024 R4 Pick"
             ],
             "trade_partner": "Grandes"
           },
           {
             "week": 10,
-            "acquired": [],
+            "acquired": [
+              "2023 R1 Pick (orig. Grandes)",
+              "2023 R1 Pick",
+              "2024 R3 Pick"
+            ],
             "sent": [
-              "Jaylen Waddle"
+              "Jaylen Waddle",
+              "2024 R3 Pick"
             ],
             "trade_partner": "MLSchools12"
           },
@@ -25536,14 +26683,19 @@
             "acquired": [
               "Kareem Hunt"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "MLSchools12"
           },
           {
             "week": 13,
-            "acquired": [],
+            "acquired": [
+              "2023 R2 Pick"
+            ],
             "sent": [
-              "Mike White"
+              "Mike White",
+              "2023 R4 Pick"
             ],
             "trade_partner": "MLSchools12"
           }
@@ -25917,14 +27069,20 @@
             "acquired": [
               "D'Andre Swift"
             ],
-            "sent": [],
+            "sent": [
+              "2023 R2 Pick (orig. Grandes)",
+              "2023 R1 Pick (orig. MLSchools12)"
+            ],
             "trade_partner": "eldridsm"
           },
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2023 R1 Pick (orig. Cmaleski)"
+            ],
             "sent": [
-              "Justyn Ross"
+              "Justyn Ross",
+              "2024 R1 Pick"
             ],
             "trade_partner": "Tubes94"
           },
@@ -25933,7 +27091,8 @@
             "acquired": [
               "Gardner Minshew",
               "Elijah Moore",
-              "Jerome Ford"
+              "Jerome Ford",
+              "2023 R2 Pick"
             ],
             "sent": [
               "Trey Lance"
@@ -25941,8 +27100,21 @@
             "trade_partner": "eldridm20"
           },
           {
+            "week": 1,
+            "acquired": [
+              "2023 R3 Pick (orig. eldridm20)"
+            ],
+            "sent": [
+              "2023 R3 Pick (orig. Grandes)",
+              "2023 R3 Pick (orig. MLSchools12)"
+            ],
+            "trade_partner": "eldridsm"
+          },
+          {
             "week": 5,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick"
+            ],
             "sent": [
               "Jerome Ford"
             ],
@@ -25951,11 +27123,13 @@
           {
             "week": 6,
             "acquired": [
-              "Marquise Brown"
+              "Marquise Brown",
+              "2024 R1 Pick"
             ],
             "sent": [
               "Michael Thomas",
-              "Jordan Addison"
+              "Jordan Addison",
+              "2025 R2 Pick"
             ],
             "trade_partner": "Grandes"
           },
@@ -25969,7 +27143,10 @@
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2024 R3 Pick (orig. Tubes94)",
+              "2024 R3 Pick"
+            ],
             "sent": [
               "David Njoku"
             ],
@@ -25980,12 +27157,16 @@
             "acquired": [
               "Isaiah Likely"
             ],
-            "sent": [],
+            "sent": [
+              "2024 R3 Pick (orig. Tubes94)"
+            ],
             "trade_partner": "Cmaleski"
           },
           {
             "week": 11,
-            "acquired": [],
+            "acquired": [
+              "2024 R1 Pick"
+            ],
             "sent": [
               "D'Andre Swift"
             ],
@@ -26200,7 +27381,9 @@
         "trades": [
           {
             "week": 1,
-            "acquired": [],
+            "acquired": [
+              "2024 R2 Pick (orig. MLSchools12)"
+            ],
             "sent": [
               "Gardner Minshew"
             ],
@@ -26209,7 +27392,8 @@
           {
             "week": 1,
             "acquired": [
-              "Joe Flacco"
+              "Joe Flacco",
+              "2025 R4 Pick (orig. JuicyBussy)"
             ],
             "sent": [
               "Elijah Mitchell"
@@ -26220,7 +27404,8 @@
             "week": 6,
             "acquired": [
               "Ezekiel Elliott",
-              "Drew Lock"
+              "Drew Lock",
+              "2025 R1 Pick"
             ],
             "sent": [
               "Joe Flacco",
@@ -26232,10 +27417,12 @@
             "week": 9,
             "acquired": [
               "Malik Willis",
-              "Braelon Allen"
+              "Braelon Allen",
+              "2025 R1 Pick"
             ],
             "sent": [
-              "Garrett Wilson"
+              "Garrett Wilson",
+              "2025 R3 Pick"
             ],
             "trade_partner": "SexMachineAndyD"
           }
@@ -26460,7 +27647,9 @@
               "Michael Pittman",
               "Juwan Johnson"
             ],
-            "sent": [],
+            "sent": [
+              "2026 R2 Pick"
+            ],
             "trade_partner": "MLSchools12"
           },
           {

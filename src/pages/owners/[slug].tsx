@@ -7,6 +7,7 @@ import { cn } from '@/lib/cn';
 import Badge from '@/components/ui/Badge';
 import StatCard from '@/components/ui/StatCard';
 import PlayerCard from '@/components/players/PlayerCard';
+import PlayerPopup, { type PlayerMeta } from '@/components/players/PlayerPopup';
 
 // ─── Owner Data ───────────────────────────────────────────────────────────────
 
@@ -558,15 +559,24 @@ interface OwnerDraftPick {
   draft_type: string;
   round: number;
   pick_no: number;
+  player_id?: string;
   player_name: string;
   position: string;
   team: string;
+}
+
+interface TradeAsset {
+  name: string;
+  player_id?: string;
+  is_pick?: boolean;
 }
 
 interface OwnerTrade {
   week: number;
   acquired: string[];
   sent: string[];
+  acquired_assets?: TradeAsset[];
+  sent_assets?: TradeAsset[];
   trade_partner: string;
 }
 
@@ -582,10 +592,25 @@ interface OwnerHistoryFile {
   owners: Record<string, Record<string, OwnerSeasonData>>;
 }
 
+/** Lookup: player_id → { name, position, team } */
+type PlayerLookupMap = Record<string, PlayerMeta>;
+
+function usePlayerLookup(): PlayerLookupMap {
+  const [lookup, setLookup] = useState<PlayerLookupMap>({});
+  useEffect(() => {
+    fetch('/data/player-lookup.json')
+      .then(r => r.json())
+      .then((data: PlayerLookupMap) => setLookup(data))
+      .catch(() => {});
+  }, []);
+  return lookup;
+}
+
 function DraftHistorySection({ displayName }: { displayName: string }) {
   const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
   const [loading, setLoading] = useState(true);
   const [openSeason, setOpenSeason] = useState<string | null>(null);
+  const playerLookup = usePlayerLookup();
 
   useEffect(() => {
     fetch('/data/owner-history.json')
@@ -656,6 +681,7 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
               <div className="px-4 pb-4 pt-1 space-y-1">
                 {picks.map((p, i) => {
                   const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                  const meta = p.player_id ? playerLookup[p.player_id] : undefined;
                   return (
                     <div
                       key={i}
@@ -667,7 +693,20 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
                           {p.position}
                         </span>
                       )}
-                      <span className="text-white">{p.player_name}</span>
+                      {p.player_id ? (
+                        <PlayerPopup
+                          playerId={p.player_id}
+                          name={p.player_name}
+                          position={meta?.position ?? p.position}
+                          team={meta?.team ?? p.team}
+                        >
+                          <span className="text-slate-300 hover:text-white underline decoration-dotted decoration-slate-500 underline-offset-2">
+                            {p.player_name}
+                          </span>
+                        </PlayerPopup>
+                      ) : (
+                        <span className="text-white">{p.player_name}</span>
+                      )}
                       {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
                     </div>
                   );
@@ -681,10 +720,38 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
   );
 }
 
+function TradeAssetItem({ asset, lookup }: { asset: TradeAsset; lookup: PlayerLookupMap }) {
+  if (asset.is_pick || !asset.player_id) {
+    // Pick entry — no popup, style differently
+    const isPick = asset.is_pick;
+    return (
+      <div className={cn('text-xs', isPick ? 'text-slate-400 italic' : 'text-slate-300')}>
+        {asset.name}
+      </div>
+    );
+  }
+  const meta = lookup[asset.player_id];
+  return (
+    <div className="text-xs">
+      <PlayerPopup
+        playerId={asset.player_id}
+        name={asset.name}
+        position={meta?.position}
+        team={meta?.team}
+      >
+        <span className="text-slate-300 hover:text-white underline decoration-dotted decoration-slate-500 underline-offset-2 cursor-pointer">
+          {asset.name}
+        </span>
+      </PlayerPopup>
+    </div>
+  );
+}
+
 function TransactionsSection({ displayName }: { displayName: string }) {
   const [data, setData] = useState<Record<string, OwnerSeasonData> | null>(null);
   const [loading, setLoading] = useState(true);
   const [openSeason, setOpenSeason] = useState<string | null>(null);
+  const playerLookup = usePlayerLookup();
 
   useEffect(() => {
     fetch('/data/owner-history.json')
@@ -749,30 +816,35 @@ function TransactionsSection({ displayName }: { displayName: string }) {
 
             {isOpen && (
               <div className="px-4 pb-4 pt-1 space-y-2">
-                {trades.map((trade, i) => (
-                  <div key={i} className="rounded-lg bg-[#0d1b2a] border border-[#2d4a66] p-3 text-sm">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs text-slate-500">Wk {trade.week}</span>
-                      <span className="text-xs text-slate-400">with {trade.trade_partner}</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>
-                        <div className="text-xs text-[#22c55e] font-semibold mb-1">Acquired</div>
-                        {trade.acquired.map((p, j) => (
-                          <div key={j} className="text-slate-300 text-xs">{p}</div>
-                        ))}
-                        {trade.acquired.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                {trades.map((trade, i) => {
+                  // Use enriched assets when available, fall back to plain strings
+                  const acqAssets: TradeAsset[] = trade.acquired_assets ?? trade.acquired.map(n => ({ name: n }));
+                  const sentAssets: TradeAsset[] = trade.sent_assets ?? trade.sent.map(n => ({ name: n }));
+                  return (
+                    <div key={i} className="rounded-lg bg-[#0d1b2a] border border-[#2d4a66] p-3 text-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs text-slate-500">Wk {trade.week}</span>
+                        <span className="text-xs text-slate-400">with {trade.trade_partner}</span>
                       </div>
-                      <div>
-                        <div className="text-xs text-[#e94560] font-semibold mb-1">Sent</div>
-                        {trade.sent.map((p, j) => (
-                          <div key={j} className="text-slate-300 text-xs">{p}</div>
-                        ))}
-                        {trade.sent.length === 0 && <div className="text-slate-600 text-xs italic">picks only</div>}
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <div className="text-xs text-[#22c55e] font-semibold mb-1">Acquired</div>
+                          {acqAssets.length > 0
+                            ? acqAssets.map((a, j) => <TradeAssetItem key={j} asset={a} lookup={playerLookup} />)
+                            : <div className="text-slate-600 text-xs italic">nothing</div>
+                          }
+                        </div>
+                        <div>
+                          <div className="text-xs text-[#e94560] font-semibold mb-1">Sent</div>
+                          {sentAssets.length > 0
+                            ? sentAssets.map((a, j) => <TradeAssetItem key={j} asset={a} lookup={playerLookup} />)
+                            : <div className="text-slate-600 text-xs italic">nothing</div>
+                          }
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
