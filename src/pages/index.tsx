@@ -3,7 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {
   Trophy, Users, ArrowRight, TrendingUp, Repeat2, Calendar,
-  Bot, BarChart2, BookOpen, Gavel, Newspaper, Flame, Star, Shield
+  Bot, BarChart2, BookOpen, Gavel, Newspaper, Flame, Star, Shield,
+  ChevronRight,
 } from 'lucide-react';
 import BimfleWidget from '@/components/BimfleWidget';
 import { cn } from '@/lib/cn';
@@ -79,6 +80,22 @@ const CHAMPION_HISTORY = [
   { year: 2018, owner: 'SexMachineAndyD', team: 'Stand Against Trade Rape', seed: '#2' },
   { year: 2017, owner: 'Cogdeill11', team: 'Team Cogdeill', seed: '#5' },
   { year: 2016, owner: 'MLSchools12', team: 'The Murder Boners', seed: '#1' },
+];
+
+// Ordered by dynasty rank for the owner grid
+const OWNERS_GRID = [
+  { slug: 'mlschools12',   display: 'MLSchools12',   color: '#ffd700', rings: 4, record: '114-21', rank: 1 },
+  { slug: 'tubes94',       display: 'Tubes94',        color: '#e2e8f0', rings: 0, record: '34-36',  rank: 2 },
+  { slug: 'sexmachineandy',display: 'SexMachineAndyD',color: '#c0c0c0', rings: 1, record: '78-57',  rank: 3 },
+  { slug: 'juicybussy',    display: 'JuicyBussy',     color: '#a78bfa', rings: 1, record: '67-68',  rank: 4 },
+  { slug: 'rbr',           display: 'rbr',             color: '#cd7f32', rings: 0, record: '73-62',  rank: 5 },
+  { slug: 'cogdeill11',    display: 'Cogdeill11',     color: '#60a5fa', rings: 2, record: '67-68',  rank: 6 },
+  { slug: 'grandes',       display: 'Grandes',         color: '#e94560', rings: 1, record: '71-64',  rank: 7 },
+  { slug: 'tdtd19844',     display: 'tdtd19844',      color: '#34d399', rings: 1, record: '55-80',  rank: 8 },
+  { slug: 'eldridsm',      display: 'eldridsm',        color: '#7dd3fc', rings: 0, record: '59-76',  rank: 9 },
+  { slug: 'eldridm20',     display: 'eldridm20',      color: '#94a3b8', rings: 0, record: '39-44',  rank: 10 },
+  { slug: 'cmaleski',      display: 'Cmaleski',        color: '#fb923c', rings: 0, record: '55-80',  rank: 11 },
+  { slug: 'escuelas',      display: 'Escuelas',        color: '#6b7280', rings: 0, record: '20-63',  rank: 12 },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -193,6 +210,9 @@ function DomainCard({
 
 export default function HomePage() {
   const [showAllChampions, setShowAllChampions] = useState(false);
+  const [showAllLeaders, setShowAllLeaders] = useState(false);
+
+  const visibleLeaders = showAllLeaders ? ALL_TIME_LEADERS : ALL_TIME_LEADERS.slice(0, 5);
 
   return (
     <>
@@ -347,105 +367,134 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* Champion roll — horizontal ticker below stat strip */}
+        <div className="relative z-10 bg-[#060d16] border-t border-[#1e3347]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center gap-3 overflow-x-auto scrollbar-hide">
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-600 shrink-0">
+                Hall of Champions
+              </span>
+              <div className="w-px h-3 bg-[#2d4a66] shrink-0" />
+              {CHAMPION_HISTORY.map((c, i) => (
+                <div key={c.year} className="flex items-center gap-2 shrink-0">
+                  {i > 0 && <span className="text-slate-700">·</span>}
+                  <span className={cn(
+                    'text-[11px] font-bold tabular-nums',
+                    c.year === 2025 ? 'text-[#ffd700]' : 'text-slate-500'
+                  )}>
+                    {c.year}
+                  </span>
+                  <span className={cn(
+                    'text-[11px] font-bold',
+                    c.year === 2025 ? 'text-white' : 'text-slate-400'
+                  )}>
+                    {c.owner}
+                  </span>
+                  {c.year === 2025 && <Trophy className="w-3 h-3 text-[#ffd700]" />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* ── DYNASTY STANDINGS ─────────────────────────────────────────────── */}
-      <section className="bg-[#090f18] border-b border-[#2d4a66]" aria-labelledby="standings-heading">
+      {/* ── CURRENT SEASON STATUS ─────────────────────────────────────────── */}
+      <section className="bg-[#0d1b2a] border-b border-[#2d4a66]" aria-labelledby="season-status-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Active Now</div>
+              <h2 id="season-status-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+                2026 Season Status
+              </h2>
+            </div>
+            <Link href="/season/offseason-hub"
+              className="text-xs font-bold text-[#ffd700] hover:text-[#fff0a0] transition-colors flex items-center gap-1">
+              Season Hub <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
 
-            {/* All-time leaders (2/3 width) */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">
-                    All-Time Regular Season
-                  </div>
-                  <h2 id="standings-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-                    Dynasty Power Rankings
-                  </h2>
-                </div>
-                <Link href="/analytics/all-time-records"
-                  className="text-xs font-bold text-[#ffd700] hover:text-[#fff0a0] transition-colors flex items-center gap-1">
-                  Full Records <ArrowRight className="w-3 h-3" />
-                </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+            {/* Phase */}
+            <div className="rounded-2xl p-5" style={{ background: '#16213e', border: '1px solid #2d4a66' }}>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2 h-2 rounded-full bg-[#e94560] animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Phase</span>
               </div>
-
-              {/* Owner table */}
-              <div className="flex flex-col gap-1">
-                {ALL_TIME_LEADERS.map((owner, idx) => (
-                  <OwnerRow key={owner.owner} owner={owner} idx={idx} />
-                ))}
-              </div>
-
-              <div className="mt-3 text-[10px] text-slate-600">
-                RS = Regular season only (ESPN 2016–2019 + Sleeper 2020–2025), API-verified. POs = playoff appearances. 🏆 = championship rings.
+              <div className="text-xl font-black text-white mb-1">Offseason</div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                2025 season concluded. Dispersal pool in progress. 2026 Rookie Draft scheduled for June.
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="text-[10px] px-2 py-1 rounded-full font-bold"
+                  style={{ background: '#e9456015', border: '1px solid #e9456030', color: '#e94560' }}>
+                  Dispersal: May 9 deadline
+                </span>
               </div>
             </div>
 
-            {/* Champion history sidebar (1/3 width) */}
-            <div>
-              <div className="mb-5">
-                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Hall of Champions</div>
-                <h2 className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-                  Title History
-                </h2>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                {(showAllChampions ? CHAMPION_HISTORY : CHAMPION_HISTORY.slice(0, 5)).map((c) => (
-                  <div key={c.year}
-                    className={cn(
-                      'flex items-center gap-3 px-4 py-3 rounded-xl border transition-all duration-150 hover:border-[#2d4a66]',
-                      c.year === 2025
-                        ? 'bg-[#ffd700]/5 border-[#ffd700]/20'
-                        : 'bg-[#0d1b2a] border-[#1e3347]'
-                    )}>
-                    <div className={cn(
-                      'text-sm font-black tabular-nums shrink-0 w-10',
-                      c.year === 2025 ? 'text-[#ffd700]' : 'text-slate-500'
-                    )}>
-                      {c.year}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className={cn('text-sm font-bold truncate', c.year === 2025 ? 'text-white' : 'text-slate-300')}>
-                        {c.owner}
-                      </div>
-                      <div className="text-[10px] text-slate-600 truncate">{c.team}</div>
-                    </div>
-                    <div className="shrink-0">
-                      {c.year === 2025 ? <Trophy className="w-4 h-4 text-[#ffd700]" /> :
-                        <span className="text-[10px] text-slate-600 font-bold">{c.seed}</span>}
-                    </div>
+            {/* 2025 Final Top 3 */}
+            <div className="rounded-2xl p-5" style={{ background: '#16213e', border: '1px solid #2d4a66' }}>
+              <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">2025 Final Standings</div>
+              <div className="flex flex-col gap-2">
+                {[
+                  { rank: '🏆', owner: 'tdtd19844', note: 'Champion', color: '#ffd700' },
+                  { rank: '2nd', owner: 'Tubes94',   note: 'Runner-up', color: '#c0c0c0' },
+                  { rank: '3rd', owner: 'Cmaleski',  note: '3rd Place', color: '#cd7f32' },
+                ].map(({ rank, owner, note, color }) => (
+                  <div key={owner} className="flex items-center gap-3">
+                    <span className="text-xs font-black w-8 shrink-0" style={{ color }}>{rank}</span>
+                    <span className="text-sm font-bold text-white">{owner}</span>
+                    <span className="text-[10px] text-slate-600 ml-auto">{note}</span>
                   </div>
                 ))}
               </div>
+              <Link href="/history/2025"
+                className="mt-4 block text-[10px] font-bold text-slate-500 hover:text-[#ffd700] transition-colors">
+                Full 2025 Results →
+              </Link>
+            </div>
 
-              {!showAllChampions && (
-                <button onClick={() => setShowAllChampions(true)}
-                  className="mt-3 w-full text-xs font-bold text-slate-500 hover:text-slate-300 transition-colors py-2 rounded-lg border border-[#1e3347] hover:border-[#2d4a66]">
-                  Show All 10 Champions ↓
-                </button>
-              )}
-
-              {/* Quick facts */}
-              <div className="mt-6 rounded-2xl p-4"
-                style={{ background: '#16213e', border: '1px solid #2d4a66' }}>
-                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-3">League Superlatives</div>
-                <div className="flex flex-col gap-2 text-xs">
-                  {[
-                    { label: 'Most Rings', value: 'MLSchools12 (4)' },
-                    { label: 'Lowest Seed to Win', value: 'JuicyBussy #6 (2023)' },
-                    { label: 'Most Runner-Ups', value: 'rbr & SexMachineAndyD (2×)' },
-                    { label: 'Perfect Reg Season', value: 'MLSchools12 13-1 (2×)' },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex justify-between gap-2">
-                      <span className="text-slate-500">{label}</span>
-                      <span className="text-slate-200 font-bold text-right">{value}</span>
+            {/* Next Up */}
+            <div className="rounded-2xl p-5" style={{ background: '#16213e', border: '1px solid #2d4a66' }}>
+              <div className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">Coming Up</div>
+              <div className="flex flex-col gap-3">
+                {[
+                  {
+                    date: 'May 9',
+                    event: 'Dispersal Pool Deadline',
+                    note: '2 volunteer slots needed',
+                    urgent: true,
+                  },
+                  {
+                    date: 'June 2026',
+                    event: '2026 Rookie Draft',
+                    note: 'First Friday of June',
+                    urgent: false,
+                  },
+                  {
+                    date: 'Sept 2026',
+                    event: 'Season Kickoff',
+                    note: 'NFL Week 1',
+                    urgent: false,
+                  },
+                ].map(({ date, event, note, urgent }) => (
+                  <div key={event} className="flex items-start gap-3">
+                    <span className={cn(
+                      'text-[10px] font-black shrink-0 w-14 pt-0.5',
+                      urgent ? 'text-[#e94560]' : 'text-slate-500'
+                    )}>
+                      {date}
+                    </span>
+                    <div>
+                      <div className="text-xs font-bold text-slate-200">{event}</div>
+                      <div className="text-[10px] text-slate-600">{note}</div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -453,7 +502,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── DOMAIN EXPLORER ──────────────────────────────────────────────── */}
+      {/* ── OWNER QUICK-ACCESS GRID ───────────────────────────────────────── */}
+      <section className="bg-[#090f18] border-b border-[#2d4a66]" aria-labelledby="owners-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">The Franchises</div>
+              <h2 id="owners-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+                12 Dynasty Owners
+              </h2>
+            </div>
+            <Link href="/owners"
+              className="text-xs font-bold text-[#ffd700] hover:text-[#fff0a0] transition-colors flex items-center gap-1">
+              Owner Hub <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {OWNERS_GRID.map((owner) => (
+              <Link
+                key={owner.slug}
+                href={`/owners/${owner.slug}`}
+                className={cn(
+                  'group relative flex flex-col items-center gap-2 p-4 rounded-2xl',
+                  'bg-[#0d1b2a] border border-[#2d4a66] text-center',
+                  'hover:border-opacity-0 transition-all duration-200 hover:-translate-y-0.5',
+                )}
+                style={{ '--owner-color': owner.color } as React.CSSProperties}
+              >
+                {/* Hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none rounded-2xl"
+                  style={{ background: `linear-gradient(135deg, ${owner.color}10 0%, transparent 60%)`, border: `1px solid ${owner.color}35` }}
+                />
+
+                {/* Avatar */}
+                <div
+                  className="relative z-10 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform duration-200"
+                  style={{ background: owner.color + '18', border: `1px solid ${owner.color}40`, color: owner.color }}
+                >
+                  {owner.display[0].toUpperCase()}
+                </div>
+
+                {/* Name */}
+                <div className="relative z-10 w-full">
+                  <div className="text-xs font-black text-white leading-tight truncate group-hover:text-white transition-colors">
+                    {owner.display}
+                  </div>
+                  <div className="text-[10px] text-slate-600 mt-0.5 tabular-nums">{owner.record}</div>
+                </div>
+
+                {/* Rings badge */}
+                {owner.rings > 0 && (
+                  <div
+                    className="relative z-10 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-black"
+                    style={{ background: owner.color + '18', color: owner.color }}
+                  >
+                    🏆 {owner.rings > 1 ? `${owner.rings}×` : ''}
+                  </div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NAVIGATE THE LEAGUE ───────────────────────────────────────────── */}
       <section className="bg-[#0d1b2a] border-b border-[#2d4a66]" aria-labelledby="domains-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-6">
@@ -464,19 +579,60 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { label: 'Season', href: '/season/offseason-hub', icon: Calendar, desc: 'News & matchups', accent: '#e94560' },
-              { label: 'Draft', href: '/nfl-draft/2026', icon: Trophy, desc: 'NFL Draft & rookies', accent: '#ffd700' },
-              { label: 'Analytics', href: '/analytics/all-time-records', icon: BarChart2, desc: 'Stats & records', accent: '#60a5fa' },
-              { label: 'History', href: '/history', icon: BookOpen, desc: 'Past seasons & awards', accent: '#a78bfa' },
-              { label: 'League', href: '/about', icon: Gavel, desc: 'Rules, owners & lore', accent: '#34d399' },
-              { label: 'Articles', href: '/articles', icon: Newspaper, desc: 'Analysis & strategy', accent: '#f97316' },
+              { label: 'Season',    href: '/season/offseason-hub',         icon: Calendar,  desc: 'News & matchups',       accent: '#e94560' },
+              { label: 'Draft',     href: '/nfl-draft/2026',               icon: Trophy,    desc: 'NFL Draft & rookies',   accent: '#ffd700' },
+              { label: 'Analytics', href: '/analytics/all-time-records',   icon: BarChart2, desc: 'Stats & records',       accent: '#60a5fa' },
+              { label: 'History',   href: '/history',                      icon: BookOpen,  desc: 'Past seasons & awards', accent: '#a78bfa' },
+              { label: 'League',    href: '/about',                        icon: Gavel,     desc: 'Rules, owners & lore',  accent: '#34d399' },
+              { label: 'Articles',  href: '/articles',                     icon: Newspaper, desc: 'Analysis & strategy',   accent: '#f97316' },
             ].map((d) => <DomainCard key={d.label} {...d} />)}
           </div>
         </div>
       </section>
 
-      {/* ── BOTTOM ROW: Commissioner's Dispatch + Quick Links ────────────── */}
-      <section className="bg-[#090f18] border-b border-[#2d4a66]" aria-labelledby="dispatch-heading">
+      {/* ── ALL-TIME DYNASTY POWER RANKINGS ──────────────────────────────── */}
+      <section className="bg-[#090f18] border-b border-[#2d4a66]" aria-labelledby="standings-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">
+                All-Time Regular Season
+              </div>
+              <h2 id="standings-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+                Dynasty Power Rankings
+              </h2>
+            </div>
+            <Link href="/analytics/all-time-records"
+              className="text-xs font-bold text-[#ffd700] hover:text-[#fff0a0] transition-colors flex items-center gap-1">
+              Full Records <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          {/* Condensed table */}
+          <div className="flex flex-col gap-1 mb-3">
+            {visibleLeaders.map((owner, idx) => (
+              <OwnerRow key={owner.owner} owner={owner} idx={idx} />
+            ))}
+          </div>
+
+          {!showAllLeaders && (
+            <button
+              onClick={() => setShowAllLeaders(true)}
+              className="w-full text-xs font-bold text-slate-500 hover:text-slate-300 transition-colors py-2 rounded-lg border border-[#1e3347] hover:border-[#2d4a66]"
+            >
+              Show All 11 Owners ↓
+            </button>
+          )}
+
+          <div className="mt-3 text-[10px] text-slate-600">
+            RS = Regular season only (ESPN 2016–2019 + Sleeper 2020–2025), API-verified. POs = playoff appearances. 🏆 = championship rings.
+          </div>
+        </div>
+      </section>
+
+      {/* ── BIMFLÉ DISPATCH + ARTICLES ───────────────────────────────────── */}
+      <section className="bg-[#0d1b2a] border-b border-[#2d4a66]" aria-labelledby="dispatch-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
@@ -508,68 +664,50 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+
+              <Link href="/bimfle"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-[#ffd700] transition-colors">
+                Chat with Bimflé <ChevronRight className="w-3 h-3" />
+              </Link>
             </div>
 
-            {/* 2026 Draft Game spotlight */}
+            {/* Articles */}
             <div>
               <div className="mb-5">
-                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Now Open</div>
-                <h2 className="text-lg font-black text-white">2026 Draft Game</h2>
+                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Latest</div>
+                <h2 className="text-lg font-black text-white">League Analysis</h2>
               </div>
 
-              <div className="rounded-2xl p-6 mb-4"
-                style={{ background: 'linear-gradient(135deg, #1a2d42 0%, #16213e 100%)', border: '1px solid #ffd700/30', borderColor: 'rgba(255,215,0,0.2)' }}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
-                  style={{ background: '#ffd70015', border: '1px solid #ffd70030', color: '#ffd700' }}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ffd700]" />
-                  NFL Draft — April 23, 2026
-                </div>
-                <h3 className="text-xl font-black text-white mb-2">35 Questions. One Trophy.</h3>
-                <p className="text-sm text-slate-400 mb-5">
-                  Pick your answers before the NFL Draft starts. Bimflé scores everything live. Highest points wins BMFFFL glory and bragging rights.
-                </p>
-                <div className="flex gap-3">
-                  <Link href="/nfl-draft-game"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black text-[#0d1b2a] transition-all hover:scale-105 active:scale-100"
-                    style={{ background: 'linear-gradient(135deg, #ffd700, #ffb700)' }}>
-                    <Trophy className="w-4 h-4" />
-                    Draft Game
+              <div className="flex flex-col gap-2 mb-6">
+                {[
+                  { title: 'State of the League: March 2026',   tag: 'Analysis', href: '/articles/state-of-the-league-march-2026' },
+                  { title: '2026 Rookie Draft Preview',          tag: 'Preview',  href: '/articles/2026-rookie-draft-preview' },
+                  { title: 'Buyers and Sellers: March 2026',     tag: 'Strategy', href: '/articles/buyers-sellers-2026' },
+                  { title: '2025 Season Recap: Year of the Sack',tag: 'Recap',    href: '/articles/2025-season-recap' },
+                ].map((a) => (
+                  <Link key={a.title} href={a.href}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-[#16213e] hover:border-[#2d4a66] transition-all duration-150 group">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-600 w-14 shrink-0 group-hover:text-slate-500">
+                      {a.tag}
+                    </span>
+                    <span className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors truncate">
+                      {a.title}
+                    </span>
+                    <ArrowRight className="w-3 h-3 text-slate-600 shrink-0 group-hover:text-[#ffd700] transition-colors ml-auto" />
                   </Link>
-                </div>
+                ))}
               </div>
 
-              {/* Latest articles mini-list */}
-              <div>
-                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-3">Latest Analysis</div>
-                <div className="flex flex-col gap-2">
-                  {[
-                    { title: 'State of the League: March 2026', tag: 'Analysis', href: '/articles/state-of-the-league-march-2026' },
-                    { title: '2026 Rookie Draft Preview', tag: 'Preview', href: '/articles/2026-rookie-draft-preview' },
-                    { title: 'Buyers and Sellers: March 2026', tag: 'Strategy', href: '/articles/buyers-sellers-2026' },
-                  ].map((a) => (
-                    <Link key={a.title} href={a.href}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:bg-[#16213e] hover:border-[#2d4a66] transition-all duration-150 group">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-slate-600 w-14 shrink-0 group-hover:text-slate-500">
-                        {a.tag}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors truncate">
-                        {a.title}
-                      </span>
-                      <ArrowRight className="w-3 h-3 text-slate-600 shrink-0 group-hover:text-[#ffd700] transition-colors ml-auto" />
-                    </Link>
-                  ))}
-                </div>
-                <Link href="/articles"
-                  className="mt-2 block text-center text-xs font-bold text-slate-600 hover:text-[#ffd700] transition-colors py-2">
-                  All Articles →
-                </Link>
-              </div>
+              <Link href="/articles"
+                className="block text-center text-xs font-bold text-slate-600 hover:text-[#ffd700] transition-colors py-2 rounded-lg border border-[#1e3347] hover:border-[#2d4a66]">
+                All Articles →
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER CTA ───────────────────────────────────────────────────── */}
+      {/* ── JOIN CTA ─────────────────────────────────────────────────────── */}
       <section className="bg-[#060d16] border-t border-[#2d4a66]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-4">Est. 2016</div>
