@@ -173,6 +173,15 @@ function OwnerRow({ owner, idx }: { owner: typeof ALL_TIME_LEADERS[0]; idx: numb
   );
 }
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400 mb-1">
+      <span className="block w-4 h-px opacity-70" style={{ background: 'linear-gradient(90deg, #ffd700, #ffb70000)' }} aria-hidden="true" />
+      {children}
+    </div>
+  );
+}
+
 function DomainCard({
   label, href, icon: Icon, desc, accent
 }: {
@@ -244,13 +253,12 @@ export default function HomePage() {
             style={{ background: 'radial-gradient(circle, #3b82f6 0%, transparent 70%)' }} />
         </div>
 
-        {/* Season pill — top right */}
-        <div className="absolute top-6 right-6 z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest"
-            style={{ background: '#e9456012', border: '1px solid #e9456030', color: '#e94560' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#e94560] animate-pulse" />
+        {/* Season status — top right, broadcast chyron style */}
+        <div className="absolute top-6 right-6 z-10 flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#e94560] animate-pulse" />
+          <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#e94560]">
             2026 Offseason
-          </div>
+          </span>
         </div>
 
         {/* Main hero content */}
@@ -313,8 +321,13 @@ export default function HomePage() {
                 <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #ffd700, #ffb700)' }} />
 
                 <div className="p-6">
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-3">
-                    Reigning Champion
+                  {/* Banner-style champion label */}
+                  <div className="flex items-center gap-2 mb-4"
+                    style={{ borderLeft: '3px solid #ffd700', paddingLeft: '10px' }}>
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ffd700]">
+                      Reigning Champion
+                    </span>
+                    <span className="text-[10px] text-slate-600">· 2025</span>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-black shrink-0"
@@ -323,16 +336,10 @@ export default function HomePage() {
                     </div>
                     <div>
                       <div className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>tdtd19844</div>
-                      <div className="text-xs text-slate-400 font-medium">THE Shameful Saggy sack</div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <span className="text-xs px-2 py-0.5 rounded-full font-bold"
-                          style={{ background: '#ffd70015', border: '1px solid #ffd70030', color: '#ffd700' }}>
-                          2025 🏆
-                        </span>
-                        <span className="text-xs px-2 py-0.5 rounded-full font-bold"
-                          style={{ background: '#e9456015', border: '1px solid #e9456030', color: '#e94560' }}>
-                          #4 Seed
-                        </span>
+                      <div className="text-xs text-slate-400 font-medium mb-2">THE Shameful Saggy sack</div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-black text-[#ffd700]">🏆 Champion</span>
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">#4 Seed</span>
                       </div>
                     </div>
                   </div>
@@ -405,7 +412,7 @@ export default function HomePage() {
 
           <div className="flex items-center justify-between mb-6">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Active Now</div>
+              <SectionLabel>Active Now</SectionLabel>
               <h2 id="season-status-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
                 2026 Season Status
               </h2>
@@ -428,10 +435,9 @@ export default function HomePage() {
               <p className="text-xs text-slate-400 leading-relaxed">
                 2025 season concluded. Dispersal pool in progress. 2026 Rookie Draft scheduled for June.
               </p>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="text-[10px] px-2 py-1 rounded-full font-bold"
-                  style={{ background: '#e9456015', border: '1px solid #e9456030', color: '#e94560' }}>
-                  Dispersal: May 9 deadline
+              <div className="mt-4" style={{ borderLeft: '2px solid #e94560', paddingLeft: '8px' }}>
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#e94560]">
+                  Dispersal · May 9 deadline
                 </span>
               </div>
             </div>
@@ -508,7 +514,7 @@ export default function HomePage() {
 
           <div className="flex items-center justify-between mb-6">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">The Franchises</div>
+              <SectionLabel>The Franchises</SectionLabel>
               <h2 id="owners-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
                 12 Dynasty Owners
               </h2>
@@ -553,13 +559,13 @@ export default function HomePage() {
                   <div className="text-[10px] text-slate-600 mt-0.5 tabular-nums">{owner.record}</div>
                 </div>
 
-                {/* Rings badge */}
+                {/* Rings indicator — typographic, no pill */}
                 {owner.rings > 0 && (
                   <div
-                    className="relative z-10 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-black"
-                    style={{ background: owner.color + '18', color: owner.color }}
+                    className="relative z-10 text-[9px] font-black tracking-wider"
+                    style={{ color: owner.color, borderBottom: `1px solid ${owner.color}50`, paddingBottom: '1px' }}
                   >
-                    🏆 {owner.rings > 1 ? `${owner.rings}×` : ''}
+                    🏆{owner.rings > 1 ? ` ${owner.rings}×` : ''}
                   </div>
                 )}
               </Link>
@@ -572,7 +578,7 @@ export default function HomePage() {
       <section className="bg-[#0d1b2a] border-b border-[#2d4a66]" aria-labelledby="domains-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-6">
-            <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Navigate the League</div>
+            <SectionLabel>Navigate the League</SectionLabel>
             <h2 id="domains-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               Explore BMFFFL
             </h2>
@@ -596,9 +602,7 @@ export default function HomePage() {
 
           <div className="flex items-center justify-between mb-5">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">
-                All-Time Regular Season
-              </div>
+              <SectionLabel>All-Time Regular Season</SectionLabel>
               <h2 id="standings-heading" className="text-2xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
                 Dynasty Power Rankings
               </h2>
@@ -674,7 +678,7 @@ export default function HomePage() {
             {/* Articles */}
             <div>
               <div className="mb-5">
-                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-1">Latest</div>
+                <SectionLabel>Latest</SectionLabel>
                 <h2 className="text-lg font-black text-white">League Analysis</h2>
               </div>
 
@@ -722,10 +726,11 @@ export default function HomePage() {
           {/* Orphan spot CTA */}
           <div className="inline-block rounded-2xl p-6 mb-2 text-left max-w-md mx-auto"
             style={{ background: 'linear-gradient(135deg, #16213e, #1a2d42)', border: '1px solid rgba(255,215,0,0.2)' }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3"
-              style={{ background: '#e9456015', border: '1px solid #e9456030', color: '#e94560' }}>
+            <div className="flex items-center gap-2 mb-3" style={{ borderLeft: '2px solid #e94560', paddingLeft: '8px' }}>
               <span className="w-1.5 h-1.5 rounded-full bg-[#e94560] animate-pulse" />
-              1 Roster Spot Open — Apply by May 9
+              <span className="text-[10px] font-black uppercase tracking-wider text-[#e94560]">
+                1 Roster Spot Open — Apply by May 9
+              </span>
             </div>
             <p className="text-sm text-slate-300 mb-4 leading-relaxed">
               A dynasty roster is available. Apply to join the league or refer someone — referrals earn up to $50 FAAB.
