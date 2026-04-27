@@ -1,0 +1,992 @@
+{
+  "formula": {
+    "champion": 10,
+    "runner_up": 6,
+    "third": 4,
+    "fourth": 2,
+    "made_playoffs": 1,
+    "rs_win_bonus": 0.1,
+    "playoff_win_bonus": 0.25
+  },
+  "data_sources": {
+    "espn": {
+      "seasons": "2016-2019",
+      "endpoint": "v3/games/ffl",
+      "note": "ESPN Fantasy API"
+    },
+    "sleeper": {
+      "seasons": "2020-2025",
+      "endpoint": "sleeper.app/v1",
+      "note": "Sleeper API"
+    }
+  },
+  "generated_at": "2026-04-27T21:00:00.000Z",
+  "rankings": [
+    {
+      "rank": 1,
+      "owner": "mlschools12",
+      "combined_total": 78.9,
+      "espn_total": 33.85,
+      "sleeper_total": 45.05,
+      "seasons": {
+        "2016": {
+          "rs_wins": 11,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 2,
+          "season_score": 11.6
+        },
+        "2017": {
+          "rs_wins": 12,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 0,
+          "season_score": 3.2
+        },
+        "2018": {
+          "rs_wins": 11,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.35
+        },
+        "2019": {
+          "rs_wins": 12,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 2,
+          "season_score": 11.7
+        },
+        "2020": {
+          "rs_wins": 11,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 1,
+          "season_score": 5.35
+        },
+        "2021": {
+          "rs_wins": 11,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 2,
+          "season_score": 11.6
+        },
+        "2022": {
+          "rs_wins": 10,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 1,
+          "season_score": 5.25
+        },
+        "2023": {
+          "rs_wins": 13,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 1,
+          "season_score": 5.55
+        },
+        "2024": {
+          "rs_wins": 10,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 3,
+          "season_score": 11.75
+        },
+        "2025": {
+          "rs_wins": 13,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 1,
+          "season_score": 5.55
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "owner": "sexmachineandyd",
+      "combined_total": 37.55,
+      "espn_total": 17.8,
+      "sleeper_total": 19.75,
+      "seasons": {
+        "2016": {
+          "rs_wins": 3,
+          "rank": 10,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2017": {
+          "rs_wins": 9,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 2,
+          "season_score": 5.4
+        },
+        "2018": {
+          "rs_wins": 9,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 2,
+          "season_score": 11.4
+        },
+        "2019": {
+          "rs_wins": 7,
+          "rank": 8,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2020": {
+          "rs_wins": 9,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.9
+        },
+        "2021": {
+          "rs_wins": 10,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.25
+        },
+        "2022": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2023": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2024": {
+          "rs_wins": 11,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.35
+        },
+        "2025": {
+          "rs_wins": 9,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.15
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "owner": "cogdeill11",
+      "combined_total": 34.7,
+      "espn_total": 19.4,
+      "sleeper_total": 15.3,
+      "seasons": {
+        "2016": {
+          "rs_wins": 5,
+          "rank": 12,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2017": {
+          "rs_wins": 7,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 3,
+          "season_score": 11.45
+        },
+        "2018": {
+          "rs_wins": 9,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 2,
+          "season_score": 5.4
+        },
+        "2019": {
+          "rs_wins": 8,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.05
+        },
+        "2020": {
+          "rs_wins": 10,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 2,
+          "season_score": 11.5
+        },
+        "2021": {
+          "rs_wins": 9,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.9
+        },
+        "2022": {
+          "rs_wins": 7,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2023": {
+          "rs_wins": 3,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2024": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2025": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "owner": "grandes",
+      "combined_total": 32.85,
+      "espn_total": 11.4,
+      "sleeper_total": 21.45,
+      "seasons": {
+        "2016": {
+          "rs_wins": 8,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.05
+        },
+        "2017": {
+          "rs_wins": 6,
+          "rank": 7,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2018": {
+          "rs_wins": 7,
+          "rank": 8,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2019": {
+          "rs_wins": 8,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 3.05
+        },
+        "2020": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2021": {
+          "rs_wins": 10,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 2,
+          "season_score": 5.5
+        },
+        "2022": {
+          "rs_wins": 8,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 3,
+          "season_score": 11.55
+        },
+        "2023": {
+          "rs_wins": 9,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 0,
+          "season_score": 2.9
+        },
+        "2024": {
+          "rs_wins": 7,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2025": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "owner": "rbr",
+      "combined_total": 31.8,
+      "espn_total": 16.15,
+      "sleeper_total": 15.65,
+      "seasons": {
+        "2016": {
+          "rs_wins": 7,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 2,
+          "season_score": 5.2
+        },
+        "2017": {
+          "rs_wins": 8,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.8
+        },
+        "2018": {
+          "rs_wins": 8,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.05
+        },
+        "2019": {
+          "rs_wins": 6,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 2,
+          "season_score": 7.1
+        },
+        "2020": {
+          "rs_wins": 6,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 1.85
+        },
+        "2021": {
+          "rs_wins": 9,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 3.15
+        },
+        "2022": {
+          "rs_wins": 10,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 2,
+          "season_score": 7.5
+        },
+        "2023": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2024": {
+          "rs_wins": 8,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.05
+        },
+        "2025": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "owner": "eldridsm",
+      "combined_total": 27.75,
+      "espn_total": 15.15,
+      "sleeper_total": 12.6,
+      "seasons": {
+        "2016": {
+          "rs_wins": 6,
+          "rank": 9,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2017": {
+          "rs_wins": 11,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.35
+        },
+        "2018": {
+          "rs_wins": 7,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.7
+        },
+        "2019": {
+          "rs_wins": 10,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 2,
+          "season_score": 5.5
+        },
+        "2020": {
+          "rs_wins": 8,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 2,
+          "season_score": 7.3
+        },
+        "2021": {
+          "rs_wins": 7,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2022": {
+          "rs_wins": 8,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.8
+        },
+        "2023": {
+          "rs_wins": 9,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.9
+        },
+        "2024": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2025": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        }
+      }
+    },
+    {
+      "rank": 7,
+      "owner": "juicybussy",
+      "combined_total": 23.7,
+      "espn_total": 3.1,
+      "sleeper_total": 20.6,
+      "seasons": {
+        "2016": {
+          "rs_wins": 9,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.9
+        },
+        "2017": {
+          "rs_wins": 4,
+          "rank": 11,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2018": {
+          "rs_wins": 2,
+          "rank": 11,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2019": {
+          "rs_wins": 6,
+          "rank": 9,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2020": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2021": {
+          "rs_wins": 8,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.8
+        },
+        "2022": {
+          "rs_wins": 10,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 0,
+          "season_score": 3.0
+        },
+        "2023": {
+          "rs_wins": 8,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 3,
+          "season_score": 11.55
+        },
+        "2024": {
+          "rs_wins": 8,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 3.05
+        },
+        "2025": {
+          "rs_wins": 7,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.7
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "owner": "tdtd19844",
+      "combined_total": 20.75,
+      "espn_total": 3.15,
+      "sleeper_total": 17.6,
+      "seasons": {
+        "2016": {
+          "rs_wins": 7,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 1.95
+        },
+        "2017": {
+          "rs_wins": 4,
+          "rank": 10,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2018": {
+          "rs_wins": 5,
+          "rank": 10,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2019": {
+          "rs_wins": 3,
+          "rank": 12,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2020": {
+          "rs_wins": 6,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 2.85
+        },
+        "2021": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2022": {
+          "rs_wins": 3,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2023": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2024": {
+          "rs_wins": 8,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.8
+        },
+        "2025": {
+          "rs_wins": 8,
+          "rank": 1,
+          "place_pts": 10,
+          "playoff_wins": 3,
+          "season_score": 11.55
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "owner": "eldridm20",
+      "combined_total": 15.7,
+      "espn_total": 2.8,
+      "sleeper_total": 12.9,
+      "seasons": {
+        "2016": {
+          "rs_wins": 3,
+          "rank": 8,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2017": {
+          "rs_wins": 2,
+          "rank": 12,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2018": {
+          "rs_wins": 6,
+          "rank": 7,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2019": {
+          "rs_wins": 7,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 0,
+          "season_score": 1.7
+        },
+        "2020": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2021": {
+          "rs_wins": 8,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.05
+        },
+        "2022": {
+          "rs_wins": 7,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 1.95
+        },
+        "2023": {
+          "rs_wins": 8,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 2,
+          "season_score": 7.3
+        },
+        "2024": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2025": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "owner": "tubes94",
+      "combined_total": 13.9,
+      "espn_total": 0,
+      "sleeper_total": 13.9,
+      "seasons": {
+        "2021": {
+          "rs_wins": 2,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2022": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2023": {
+          "rs_wins": 7,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2024": {
+          "rs_wins": 11,
+          "rank": 3,
+          "place_pts": 4,
+          "playoff_wins": 1,
+          "season_score": 5.35
+        },
+        "2025": {
+          "rs_wins": 10,
+          "rank": 2,
+          "place_pts": 6,
+          "playoff_wins": 1,
+          "season_score": 7.25
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "owner": "cmaleski",
+      "combined_total": 12.5,
+      "espn_total": 5.4,
+      "sleeper_total": 7.1,
+      "seasons": {
+        "2016": {
+          "rs_wins": 8,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 3.05
+        },
+        "2017": {
+          "rs_wins": 7,
+          "rank": 5,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 1.95
+        },
+        "2018": {
+          "rs_wins": 2,
+          "rank": 9,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2019": {
+          "rs_wins": 2,
+          "rank": 7,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2020": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2021": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2022": {
+          "rs_wins": 7,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.7
+        },
+        "2023": {
+          "rs_wins": 9,
+          "rank": 6,
+          "place_pts": 1,
+          "playoff_wins": 1,
+          "season_score": 2.15
+        },
+        "2024": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2025": {
+          "rs_wins": 6,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 2.85
+        }
+      }
+    },
+    {
+      "rank": 12,
+      "owner": "mmoodie12",
+      "combined_total": 4.95,
+      "espn_total": 4.55,
+      "sleeper_total": 0.4,
+      "seasons": {
+        "2016": {
+          "rs_wins": 6,
+          "rank": 11,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        },
+        "2017": {
+          "rs_wins": 4,
+          "rank": 8,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2018": {
+          "rs_wins": 9,
+          "rank": 4,
+          "place_pts": 2,
+          "playoff_wins": 1,
+          "season_score": 3.15
+        },
+        "2019": {
+          "rs_wins": 4,
+          "rank": 11,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2020": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "owner": "escuelas",
+      "combined_total": 2.0,
+      "espn_total": 0,
+      "sleeper_total": 2.0,
+      "seasons": {
+        "2020": {
+          "rs_wins": 5,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2021": {
+          "rs_wins": 0,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.0
+        },
+        "2022": {
+          "rs_wins": 4,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2023": {
+          "rs_wins": 2,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.2
+        },
+        "2024": {
+          "rs_wins": 3,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2025": {
+          "rs_wins": 6,
+          "rank": null,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.6
+        }
+      }
+    },
+    {
+      "rank": 14,
+      "owner": "miroslav081",
+      "combined_total": 1.7,
+      "espn_total": 1.7,
+      "sleeper_total": 0,
+      "seasons": {
+        "2016": {
+          "rs_wins": 5,
+          "rank": 7,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        },
+        "2017": {
+          "rs_wins": 4,
+          "rank": 9,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.4
+        },
+        "2018": {
+          "rs_wins": 3,
+          "rank": 12,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.3
+        },
+        "2019": {
+          "rs_wins": 5,
+          "rank": 10,
+          "place_pts": 0,
+          "playoff_wins": 0,
+          "season_score": 0.5
+        }
+      }
+    }
+  ]
+}

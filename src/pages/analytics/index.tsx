@@ -204,6 +204,14 @@ function ComingSoonCard({ title, description, icon: Icon, plannedPhase, teaser }
 export default function AnalyticsPage() {
   const liveTools: LiveTool[] = [
     {
+      id: 'dynasty-score',
+      title: 'Dynasty Score',
+      description: 'All-time BMFFFL franchise rankings — 10 seasons (2016–2025) of championship finishes, playoff wins, and RS performance combined into a single dynasty score.',
+      href: '/analytics/dynasty-score',
+      icon: Trophy,
+      badge: 'New',
+    },
+    {
       id: 'rosters',
       title: 'Dynasty Roster Values',
       description: 'Dynasty tier breakdowns and value scores for all 12 BMFFFL rosters. See who is contending vs. rebuilding.',
