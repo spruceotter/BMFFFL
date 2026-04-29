@@ -715,9 +715,9 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/analytics/manager-efficiency': {
     path: '/analytics/manager-efficiency',
-    status: 'placeholder',
+    status: 'validated',
     label: 'Manager Efficiency',
-    notes: 'Efficiency metrics not sourced from DB',
+    notes: 'Wired to analytics_v_efficiency_scores view — Sleeper era 2020-2025',
     category: 'Analytics',
   },
   '/analytics/news-feed': {
