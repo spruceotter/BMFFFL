@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "generate": "npx tsx scripts/generate-all.ts",
     "fetch-data": "npx tsx scripts/fetch-sleeper-snapshot.ts",
     "generate-index": "npx tsx scripts/generate-data-index.ts",
     "import-transactions": "npx tsx scripts/import-transactions.ts",
