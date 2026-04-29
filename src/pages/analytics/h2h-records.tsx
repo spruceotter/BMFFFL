@@ -13,6 +13,7 @@ import {
 // ─── Active owners (exclude alumni) ──────────────────────────────────────────
 
 const ALUMNI_SLUGS = new Set(['mmoodie12', 'escuelas', 'miroslav081']);
+// Tubes94 joined 2021 (Sleeper era only — no ESPN era data)
 const ACTIVE_SLUGS = (H2H_OWNER_SLUGS as readonly string[]).filter(s => !ALUMNI_SLUGS.has(s));
 
 // Sort order: by overall H2H win% descending (H2H_SUMMARIES already sorted)
@@ -39,7 +40,7 @@ const OWNER_COLORS: Record<string, string> = {
 
 // ─── Matrix Cell ──────────────────────────────────────────────────────────────
 
-function MatrixCell({ rowSlug, colSlug }: { rowSlug: string; colSlug: string }) {
+function MatrixCell({ rowSlug, colSlug, era }: { rowSlug: string; colSlug: string; era: 'all' | 'espn' | 'sleeper' }) {
   if (rowSlug === colSlug) {
     return (
       <td className="w-14 h-10 bg-slate-800/60 border border-slate-700/30" aria-label="self" />
@@ -53,7 +54,18 @@ function MatrixCell({ rowSlug, colSlug }: { rowSlug: string; colSlug: string }) 
       </td>
     );
   }
-  const { wins, losses } = rec;
+
+  let wins: number, losses: number;
+  if (era === 'espn') {
+    if (!rec.espn) return <td className="w-14 h-10 text-center text-xs text-slate-700 border border-slate-700/30 bg-slate-900/20">—</td>;
+    wins = rec.espn.wins; losses = rec.espn.losses;
+  } else if (era === 'sleeper') {
+    if (!rec.sleeper) return <td className="w-14 h-10 text-center text-xs text-slate-700 border border-slate-700/30 bg-slate-900/20">—</td>;
+    wins = rec.sleeper.wins; losses = rec.sleeper.losses;
+  } else {
+    wins = rec.wins; losses = rec.losses;
+  }
+
   const isPositive = wins > losses;
   const isEven = wins === losses;
   const isNegative = wins < losses;
@@ -66,7 +78,7 @@ function MatrixCell({ rowSlug, colSlug }: { rowSlug: string; colSlug: string }) 
         isEven && 'bg-slate-800/40 text-slate-400',
         isNegative && 'bg-red-900/25 text-red-400',
       )}
-      title={`${H2H_DISPLAY_NAMES[rowSlug]} vs ${H2H_DISPLAY_NAMES[colSlug]}: ${wins}-${losses} (${rec.games} games)`}
+      title={`${H2H_DISPLAY_NAMES[rowSlug]} vs ${H2H_DISPLAY_NAMES[colSlug]}: ${wins}-${losses} (${era} era)`}
     >
       {wins}-{losses}
     </td>
@@ -132,8 +144,11 @@ function SummaryCard({ summary }: { summary: typeof H2H_SUMMARIES[0] }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+type EraFilter = 'all' | 'espn' | 'sleeper';
+
 export default function H2HRecords() {
   const [showAlumni, setShowAlumni] = useState(false);
+  const [era, setEra] = useState<EraFilter>('all');
 
   const matrixSlugs = showAlumni
     ? H2H_SUMMARIES.map(s => s.slug)
@@ -175,8 +190,25 @@ export default function H2HRecords() {
             </p>
           </div>
 
-          {/* Toggle alumni */}
-          <div className="flex items-center gap-3 mb-6">
+          {/* Toggles */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            {/* Era filter */}
+            <div className="flex items-center gap-1 bg-slate-800/60 rounded border border-slate-700/50 p-1">
+              {(['all', 'espn', 'sleeper'] as EraFilter[]).map(e => (
+                <button
+                  key={e}
+                  onClick={() => setEra(e)}
+                  className={cn(
+                    'text-xs px-3 py-1 rounded transition-colors',
+                    era === e
+                      ? 'bg-violet-600/70 text-white'
+                      : 'text-slate-400 hover:text-slate-200'
+                  )}
+                >
+                  {e === 'all' ? 'All-time' : e === 'espn' ? 'ESPN 2016–19' : 'Sleeper 2020–25'}
+                </button>
+              ))}
+            </div>
             <button
               onClick={() => setShowAlumni(v => !v)}
               className={cn(
@@ -235,7 +267,7 @@ export default function H2HRecords() {
                       </td>
                       {/* H2H cells */}
                       {matrixSlugs.map(colSlug => (
-                        <MatrixCell key={colSlug} rowSlug={rowSlug} colSlug={colSlug} />
+                        <MatrixCell key={colSlug} rowSlug={rowSlug} colSlug={colSlug} era={era} />
                       ))}
                       {/* Overall */}
                       {summary ? (
@@ -271,15 +303,19 @@ export default function H2HRecords() {
           </div>
 
           {/* Notes */}
-          <div className="border border-slate-700/40 rounded-lg p-4 bg-slate-800/20 text-xs text-slate-500">
-            <p className="mb-1">
-              <span className="text-slate-400 font-medium">Data source:</span>{' '}
-              Sleeper matchups database, regular season games only, 2020–2025.
-              Playoff matchups are included.
-            </p>
+          <div className="border border-slate-700/40 rounded-lg p-4 bg-slate-800/20 text-xs text-slate-500 space-y-1.5">
             <p>
               <span className="text-slate-400 font-medium">ESPN era (2016–2019):</span>{' '}
-              Head-to-head records not available — ESPN API does not expose individual game results by matchup ID.
+              From ESPN Fantasy API (mMatchupScore view). Includes regular season + all playoff matchups.
+            </p>
+            <p>
+              <span className="text-slate-400 font-medium">Sleeper era (2020–2025):</span>{' '}
+              From sleeper.db matchups table. All game weeks including playoffs.
+            </p>
+            <p>
+              <span className="text-slate-400 font-medium">Tubes94</span> joined 2021 (Sleeper era only).{' '}
+              <span className="text-slate-400 font-medium">Miroslav081</span> left before 2020 (ESPN era only).{' '}
+              <span className="text-slate-400 font-medium">MCSchools</span> joined 2020, left after 2025.
             </p>
           </div>
 
