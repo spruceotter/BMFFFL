@@ -99,6 +99,7 @@ interface EspnMatchup {
   away_pts: number;
   home_pts: number;
   is_playoff: boolean;
+  bracket_type: 'winners' | 'consolation' | null;  // null = regular season
 }
 
 const espnMatchupsPath = '/home/bimfle/bimfle-data/espn-era/h2h-matchups.json';
@@ -120,7 +121,14 @@ for (const [, matchups] of Object.entries(espnMatchups)) {
     const keyAWins = a < b ? ap > hp : hp > ap;
 
     accumulate(espnH2H, key, keyAWins, ptsA, ptsB);
-    accumulateGT(m.is_playoff ? poH2H : rsH2H, key, keyAWins);
+    // Winners bracket → playoff. Regular season (null) → RS. Consolation → excluded entirely.
+    if (m.bracket_type === 'winners') {
+      accumulateGT(poH2H, key, keyAWins);
+    } else if (!m.is_playoff) {
+      // bracket_type === null means regular season
+      accumulateGT(rsH2H, key, keyAWins);
+    }
+    // bracket_type === 'consolation' → omitted from both RS and PO counts
   }
 }
 
@@ -163,7 +171,8 @@ const sleeperRSRows = db.prepare(`
   GROUP BY u1.user_id, u2.user_id
 `).all() as SleeperH2HRow[];
 
-// Playoff only (week >= playoffs_start_week)
+// Playoff only — winners bracket only (JOIN playoffs table, bracket_type = 'winners')
+// Excludes losers/consolation/moodie bowl games
 const sleeperPORows = db.prepare(`
   SELECT u1.display_name as owner1_name, u2.display_name as owner2_name,
     SUM(CASE WHEN m1.points > m2.points THEN 1 ELSE 0 END) as w1,
@@ -180,8 +189,11 @@ const sleeperPORows = db.prepare(`
   JOIN users u2 ON r2.owner_id = u2.user_id
   JOIN leagues l ON m1.league_id = l.league_id
   JOIN league_settings ls ON m1.league_id = ls.league_id
+  JOIN playoffs p ON m1.league_id = p.league_id
+    AND m1.matchup_id = p.matchup_id
+    AND (r1.roster_id = p.team_1_roster_id OR r1.roster_id = p.team_2_roster_id)
   WHERE l.season BETWEEN 2020 AND 2025
-    AND m1.week >= ls.playoffs_start_week
+    AND p.bracket_type = 'winners'
   GROUP BY u1.user_id, u2.user_id
 `).all() as SleeperH2HRow[];
 
