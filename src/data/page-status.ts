@@ -271,9 +271,10 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/analytics/h2h-records': {
     path: '/analytics/h2h-records',
-    status: 'placeholder',
+    status: 'validated',
     label: 'H2H Records',
-    notes: 'H2H matrix with invented data — needs getH2HMatrix() wiring',
+    notes: 'Full H2H matrix wired to sleeper.db (exp-006). 77 pairings across 13 owners, 2020-2025. MLSchools12 leads at 77-19 (80.2%). Generate script: scripts/generate-h2h-data.ts',
+    validatedAt: '2026-04-29',
     category: 'Analytics',
   },
   '/seasons': {
@@ -708,9 +709,10 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
   },
   '/analytics/manager-compare': {
     path: '/analytics/manager-compare',
-    status: 'placeholder',
+    status: 'partial',
     label: 'Manager Compare',
-    notes: 'StatTooltip demo — data needs validation against DB',
+    notes: 'StatTooltip refactored (exp-004) — now imports from league-data.ts (DB-sourced). Hover stats show real career W-L, dynasty score, championships. Manager comparison UI still needs wiring.',
+    validatedAt: '2026-04-29',
     category: 'Analytics',
   },
   '/analytics/manager-efficiency': {
