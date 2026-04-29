@@ -3,6 +3,9 @@
  * Pure-CSS hover popover that shows quick career stats for a manager.
  * No useState / useEffect — visibility is driven by Tailwind group-hover.
  *
+ * Data source: src/lib/league-data.ts (auto-generated from dynasty-scores.json + sleeper.db)
+ * Run `scripts/generate-league-data.ts` to refresh stats.
+ *
  * Usage:
  *   <StatTooltip managerSlug="cogdeill11">
  *     <span>Cogdeill11</span>
@@ -12,41 +15,7 @@
 import { Trophy } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { getManagerColor } from '@/data/manager-colors';
-
-// ─── Inline stat registry ─────────────────────────────────────────────────────
-
-interface ManagerStat {
-  displayName: string;
-  wins: number;
-  losses: number;
-  pointsScored: number;  // career total
-  championships: number;
-  currentRank: number;   // 2025 final rank
-}
-
-const MANAGER_STATS: Record<string, ManagerStat> = {
-  cogdeill11:        { displayName: 'Cogdeill11',       wins: 68, losses: 22, pointsScored: 14820, championships: 2, currentRank: 4  },
-  mlschools12:       { displayName: 'MLSchools12',      wins: 55, losses: 35, pointsScored: 13450, championships: 1, currentRank: 2  },
-  rbr:               { displayName: 'rbr',              wins: 52, losses: 38, pointsScored: 13100, championships: 1, currentRank: 1  },
-  juicybussy:        { displayName: 'JuicyBussy',       wins: 48, losses: 42, pointsScored: 12780, championships: 1, currentRank: 6  },
-  tdtd19844:         { displayName: 'tdtd19844',        wins: 45, losses: 45, pointsScored: 12210, championships: 1, currentRank: 5  },
-  sexmachineandy:    { displayName: 'SexMachineAndyD',  wins: 44, losses: 46, pointsScored: 12050, championships: 0, currentRank: 7  },
-  eldridm20:         { displayName: 'eldridm20',        wins: 42, losses: 48, pointsScored: 11870, championships: 0, currentRank: 8  },
-  tubes94:           { displayName: 'Tubes94',          wins: 35, losses: 35, pointsScored: 9640,  championships: 0, currentRank: 3  },
-  grandes:           { displayName: 'Grandes',          wins: 40, losses: 50, pointsScored: 11420, championships: 0, currentRank: 9  },
-  bro_set:           { displayName: 'Bro_Set',          wins: 32, losses: 58, pointsScored: 10800, championships: 0, currentRank: 11 },
-  cheeseandcrackers: { displayName: 'CheeseAndCrackers', wins: 30, losses: 60, pointsScored: 10350, championships: 0, currentRank: 12 },
-  jimmyeatwurld:     { displayName: 'JimmyEatWurld',    wins: 10, losses: 20, pointsScored: 3820,  championships: 0, currentRank: 10 },
-};
-
-const FALLBACK_STAT: ManagerStat = {
-  displayName: 'Unknown',
-  wins: 0,
-  losses: 0,
-  pointsScored: 0,
-  championships: 0,
-  currentRank: 0,
-};
+import { getManager, getWinPct } from '@/lib/league-data';
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -64,13 +33,17 @@ export default function StatTooltip({
   position = 'above',
   className,
 }: StatTooltipProps) {
-  const stat = MANAGER_STATS[managerSlug] ?? FALLBACK_STAT;
+  const manager = getManager(managerSlug);
   const colors = getManagerColor(managerSlug);
-  const winPct = stat.wins + stat.losses > 0
-    ? ((stat.wins / (stat.wins + stat.losses)) * 100).toFixed(1)
-    : '0.0';
-
   const isAbove = position === 'above';
+
+  if (!manager) {
+    // Unknown slug — render children without tooltip
+    return <>{children}</>;
+  }
+
+  const winPct = getWinPct(manager.careerWins, manager.careerLosses);
+  const champCount = manager.championships.length;
 
   return (
     <span
@@ -103,11 +76,11 @@ export default function StatTooltip({
         {/* Header */}
         <span className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold tracking-wide uppercase" style={{ color: colors.accent }}>
-            {stat.displayName}
+            {manager.displayName}
           </span>
-          {stat.championships > 0 && (
+          {champCount > 0 && (
             <span className="flex items-center gap-0.5">
-              {Array.from({ length: stat.championships }).map((_, i) => (
+              {Array.from({ length: champCount }).map((_, i) => (
                 <Trophy key={i} size={12} className="text-yellow-400" />
               ))}
             </span>
@@ -120,35 +93,37 @@ export default function StatTooltip({
           <span className="flex justify-between">
             <span className="text-slate-400">Record</span>
             <span className="font-mono font-semibold text-white">
-              {stat.wins}–{stat.losses}
+              {manager.careerWins}–{manager.careerLosses}
               <span className="text-slate-500 ml-1">({winPct}%)</span>
             </span>
           </span>
 
-          {/* Points */}
+          {/* Dynasty Score */}
           <span className="flex justify-between">
-            <span className="text-slate-400">Career Pts</span>
+            <span className="text-slate-400">Dynasty Score</span>
             <span className="font-mono font-semibold text-white">
-              {stat.pointsScored.toLocaleString()}
+              {manager.dynastyScore.toFixed(2)}
             </span>
           </span>
 
           {/* Championships */}
           <span className="flex justify-between">
             <span className="text-slate-400">Championships</span>
-            <span className="font-mono font-semibold" style={{ color: stat.championships > 0 ? '#ffd700' : '#94a3b8' }}>
-              {stat.championships > 0 ? `${stat.championships}x 🏆` : '—'}
+            <span className="font-mono font-semibold" style={{ color: champCount > 0 ? '#ffd700' : '#94a3b8' }}>
+              {champCount > 0
+                ? `${champCount}x 🏆 (${manager.championships.join(', ')})`
+                : '—'}
             </span>
           </span>
 
-          {/* Current rank */}
+          {/* Dynasty Rank */}
           <span className="flex justify-between">
-            <span className="text-slate-400">2025 Rank</span>
+            <span className="text-slate-400">Dynasty Rank</span>
             <span
               className="font-mono font-semibold"
-              style={{ color: stat.currentRank <= 3 ? colors.accent : '#94a3b8' }}
+              style={{ color: manager.dynastyRank <= 3 ? colors.accent : '#94a3b8' }}
             >
-              #{stat.currentRank}
+              #{manager.dynastyRank}
             </span>
           </span>
         </span>
