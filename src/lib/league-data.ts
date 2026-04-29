@@ -1,7 +1,7 @@
 /**
  * BMFFFL League Data — AUTO-GENERATED
  * Source: public/data/dynasty-scores.json + bimfle-data/sleeper.db
- * Generated: 2026-04-29T02:12:22.363Z
+ * Generated: 2026-04-29T19:39:59.753Z
  *
  * DO NOT EDIT BY HAND — run scripts/generate-league-data.ts to regenerate.
  * ESPN W-L records are approximate (rs_wins from dynasty-scores.json, losses estimated
@@ -18,6 +18,8 @@ export interface Manager {
   playoffApps: number;
   careerWins: number;
   careerLosses: number;
+  /** Career fantasy points scored in Sleeper era (2020–2025). Excludes ESPN era (data not available). */
+  sleeperCareerPts: number;
   joinedYear: number;
   isAlumni?: boolean;
 }
@@ -33,6 +35,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 10,
     careerWins: 123,
     careerLosses: 25,
+    sleeperCareerPts: 16549.7,
     // espn: 46–6 (approx) | sleeper: 77–19
     joinedYear: 2016,
   },
@@ -46,6 +49,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 6,
     careerWins: 82,
     careerLosses: 66,
+    sleeperCareerPts: 14491.1,
     // espn: 28–24 (approx) | sleeper: 54–42
     joinedYear: 2016,
   },
@@ -59,6 +63,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 5,
     careerWins: 75,
     careerLosses: 74,
+    sleeperCareerPts: 13283.6,
     // espn: 29–23 (approx) | sleeper: 46–51
     joinedYear: 2016,
   },
@@ -72,6 +77,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 5,
     careerWins: 79,
     careerLosses: 71,
+    sleeperCareerPts: 14304.2,
     // espn: 29–23 (approx) | sleeper: 50–48
     joinedYear: 2016,
   },
@@ -85,6 +91,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 8,
     careerWins: 81,
     careerLosses: 70,
+    sleeperCareerPts: 14358.6,
     // espn: 29–23 (approx) | sleeper: 52–47
     joinedYear: 2016,
   },
@@ -98,6 +105,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 6,
     careerWins: 81,
     careerLosses: 68,
+    sleeperCareerPts: 13823.6,
     // espn: 34–18 (approx) | sleeper: 47–50
     joinedYear: 2016,
   },
@@ -111,6 +119,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 5,
     careerWins: 74,
     careerLosses: 75,
+    sleeperCareerPts: 14878.5,
     // espn: 21–31 (approx) | sleeper: 53–44
     joinedYear: 2016,
   },
@@ -124,6 +133,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 4,
     careerWins: 62,
     careerLosses: 87,
+    sleeperCareerPts: 13427.8,
     // espn: 19–33 (approx) | sleeper: 43–54
     joinedYear: 2016,
   },
@@ -137,6 +147,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 4,
     careerWins: 66,
     careerLosses: 83,
+    sleeperCareerPts: 13920.4,
     // espn: 18–34 (approx) | sleeper: 48–49
     joinedYear: 2016,
   },
@@ -150,6 +161,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 2,
     careerWins: 38,
     careerLosses: 42,
+    sleeperCareerPts: 10891.3,
     // espn: 0–0 | sleeper: 38–42
     joinedYear: 2021,
   },
@@ -163,6 +175,7 @@ export const MANAGERS: Manager[] = [
     playoffApps: 4,
     careerWins: 64,
     careerLosses: 85,
+    sleeperCareerPts: 13621.9,
     // espn: 19–33 (approx) | sleeper: 45–52
     joinedYear: 2016,
   }
@@ -179,6 +192,7 @@ export const ALUMNI: Manager[] = [
     playoffApps: 1,
     careerWins: 28,
     careerLosses: 39,
+    sleeperCareerPts: 1862.8,
     // espn: 23–29 (approx) | sleeper: 5–10
     joinedYear: 2016,
     isAlumni: true,
@@ -193,6 +207,7 @@ export const ALUMNI: Manager[] = [
     playoffApps: 0,
     careerWins: 24,
     careerLosses: 74,
+    sleeperCareerPts: 10980.1,
     // espn: 0–0 | sleeper: 24–74
     joinedYear: 2020,
     isAlumni: true,
@@ -207,6 +222,7 @@ export const ALUMNI: Manager[] = [
     playoffApps: 0,
     careerWins: 17,
     careerLosses: 35,
+    sleeperCareerPts: 0,
     // espn: 17–35 (approx) | sleeper: 0–0
     joinedYear: 2016,
     isAlumni: true,

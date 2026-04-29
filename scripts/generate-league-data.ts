@@ -90,6 +90,21 @@ const sleeperWL: WLRow[] = db.prepare(`
 
 const sleeperWLByDisplayName = new Map(sleeperWL.map(r => [r.display_name, r]));
 
+interface CareerPtsRow { display_name: string; career_pts: number; }
+const careerPts: CareerPtsRow[] = db.prepare(`
+  SELECT u.display_name,
+    ROUND(SUM(m1.points), 2) as career_pts
+  FROM matchups m1
+  JOIN rosters r ON m1.roster_id = r.roster_id AND m1.league_id = r.league_id
+  JOIN users u ON r.owner_id = u.user_id
+  JOIN leagues l ON m1.league_id = l.league_id
+  WHERE l.season BETWEEN 2020 AND 2025
+  AND m1.points > 0
+  GROUP BY u.user_id
+`).all() as CareerPtsRow[];
+
+const careerPtsByDisplayName = new Map(careerPts.map(r => [r.display_name, r]));
+
 // ─── Build Manager Records ─────────────────────────────────────────────────────
 
 const ESPN_SEASONS = ['2016', '2017', '2018', '2019'];
@@ -109,6 +124,7 @@ interface ManagerRecord {
   sleeperLosses: number;
   careerWins: number;
   careerLosses: number;
+  sleeperCareerPts: number;
   joinedYear: number;
   isAlumni: boolean;
   note?: string;
@@ -150,9 +166,11 @@ for (const owner of OWNERS) {
   }
   const espnLosses = Math.max(0, (espnSeasonsPlayed * ESPN_RS_GAMES_PER_SEASON) - espnWins);
 
-  // Sleeper-era W-L from DB
+  // Sleeper-era W-L and career points from DB
   const sleeperWins = sleeper?.wins ?? 0;
   const sleeperLosses = sleeper?.losses ?? 0;
+  const pts = careerPtsByDisplayName.get(owner.dbDisplayName);
+  const sleeperCareerPts = Math.round((pts?.career_pts ?? 0) * 10) / 10;
 
   const note = espnSeasonsPlayed > 0
     ? `ESPN W-L approx (${espnSeasonsPlayed} seasons × ${ESPN_RS_GAMES_PER_SEASON} games − rs_wins). Sleeper W-L from DB.`
@@ -172,6 +190,7 @@ for (const owner of OWNERS) {
     sleeperLosses,
     careerWins: espnWins + sleeperWins,
     careerLosses: espnLosses + sleeperLosses,
+    sleeperCareerPts,
     joinedYear: owner.joinedYear,
     isAlumni: owner.isAlumni ?? false,
     note,
@@ -194,6 +213,7 @@ ${indent}  runnerUps: [${m.runnerUps.join(', ')}],
 ${indent}  playoffApps: ${m.playoffApps},
 ${indent}  careerWins: ${m.careerWins},
 ${indent}  careerLosses: ${m.careerLosses},
+${indent}  sleeperCareerPts: ${m.sleeperCareerPts},
 ${indent}  // espn: ${m.espnWins}–${m.espnLosses}${m.espnLosses > 0 ? ' (approx)' : ''} | sleeper: ${m.sleeperWins}–${m.sleeperLosses}
 ${indent}  joinedYear: ${m.joinedYear},${m.isAlumni ? '\n' + indent + '  isAlumni: true,' : ''}
 ${indent}}`;
@@ -222,6 +242,8 @@ export interface Manager {
   playoffApps: number;
   careerWins: number;
   careerLosses: number;
+  /** Career fantasy points scored in Sleeper era (2020–2025). Excludes ESPN era (data not available). */
+  sleeperCareerPts: number;
   joinedYear: number;
   isAlumni?: boolean;
 }
