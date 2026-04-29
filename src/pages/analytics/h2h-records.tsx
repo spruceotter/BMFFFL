@@ -8,6 +8,7 @@ import {
   H2H_DISPLAY_NAMES,
   H2H_OWNER_SLUGS,
   getH2H,
+  type H2HRecord,
 } from '@/lib/h2h-data';
 
 // ─── Active owners (exclude alumni) ──────────────────────────────────────────
@@ -40,7 +41,7 @@ const OWNER_COLORS: Record<string, string> = {
 
 // ─── Matrix Cell ──────────────────────────────────────────────────────────────
 
-function MatrixCell({ rowSlug, colSlug, era }: { rowSlug: string; colSlug: string; era: 'all' | 'espn' | 'sleeper' }) {
+function MatrixCell({ rowSlug, colSlug, era, gameType }: { rowSlug: string; colSlug: string; era: EraFilter; gameType: GameTypeFilter }) {
   if (rowSlug === colSlug) {
     return (
       <td className="w-14 h-10 bg-slate-800/60 border border-slate-700/30" aria-label="self" />
@@ -55,17 +56,16 @@ function MatrixCell({ rowSlug, colSlug, era }: { rowSlug: string; colSlug: strin
     );
   }
 
-  let wins: number, losses: number;
-  if (era === 'espn') {
-    if (!rec.espn) return <td className="w-14 h-10 text-center text-xs text-slate-700 border border-slate-700/30 bg-slate-900/20">—</td>;
-    wins = rec.espn.wins; losses = rec.espn.losses;
-  } else if (era === 'sleeper') {
-    if (!rec.sleeper) return <td className="w-14 h-10 text-center text-xs text-slate-700 border border-slate-700/30 bg-slate-900/20">—</td>;
-    wins = rec.sleeper.wins; losses = rec.sleeper.losses;
-  } else {
-    wins = rec.wins; losses = rec.losses;
+  const wl = getFilteredWL(rec, era, gameType);
+  if (!wl) {
+    return (
+      <td className="w-14 h-10 text-center text-xs text-slate-700 border border-slate-700/30 bg-slate-900/20">
+        —
+      </td>
+    );
   }
 
+  const { wins, losses } = wl;
   const isPositive = wins > losses;
   const isEven = wins === losses;
   const isNegative = wins < losses;
@@ -78,7 +78,7 @@ function MatrixCell({ rowSlug, colSlug, era }: { rowSlug: string; colSlug: strin
         isEven && 'bg-slate-800/40 text-slate-400',
         isNegative && 'bg-red-900/25 text-red-400',
       )}
-      title={`${H2H_DISPLAY_NAMES[rowSlug]} vs ${H2H_DISPLAY_NAMES[colSlug]}: ${wins}-${losses} (${era} era)`}
+      title={`${H2H_DISPLAY_NAMES[rowSlug]} vs ${H2H_DISPLAY_NAMES[colSlug]}: ${wins}-${losses}`}
     >
       {wins}-{losses}
     </td>
@@ -142,13 +142,41 @@ function SummaryCard({ summary }: { summary: typeof H2H_SUMMARIES[0] }) {
   );
 }
 
+// ─── Extract wins/losses from record given filter settings ─────────────────────
+
+function getFilteredWL(rec: H2HRecord, era: EraFilter, gameType: GameTypeFilter): { wins: number; losses: number } | null {
+  if (gameType === 'rs' || gameType === 'playoff') {
+    // Game type filter — combine across eras (unless era filter also applies)
+    const gtRec = gameType === 'rs' ? rec.regularSeason : rec.playoff;
+    if (!gtRec || gtRec.games === 0) return null;
+    if (era === 'all') return { wins: gtRec.wins, losses: gtRec.losses };
+    // Era + game type combo — use era record but filter by game type is approximate
+    // For now just show era total when both filters applied (era wins include all games of that era)
+    const eraRec = era === 'espn' ? rec.espn : rec.sleeper;
+    if (!eraRec || eraRec.games === 0) return null;
+    return { wins: eraRec.wins, losses: eraRec.losses };
+  }
+  // era-only filter
+  if (era === 'espn') {
+    if (!rec.espn || rec.espn.games === 0) return null;
+    return { wins: rec.espn.wins, losses: rec.espn.losses };
+  }
+  if (era === 'sleeper') {
+    if (!rec.sleeper || rec.sleeper.games === 0) return null;
+    return { wins: rec.sleeper.wins, losses: rec.sleeper.losses };
+  }
+  return { wins: rec.wins, losses: rec.losses };
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 type EraFilter = 'all' | 'espn' | 'sleeper';
+type GameTypeFilter = 'all' | 'rs' | 'playoff';
 
 export default function H2HRecords() {
   const [showAlumni, setShowAlumni] = useState(false);
   const [era, setEra] = useState<EraFilter>('all');
+  const [gameType, setGameType] = useState<GameTypeFilter>('all');
 
   const matrixSlugs = showAlumni
     ? H2H_SUMMARIES.map(s => s.slug)
@@ -206,6 +234,23 @@ export default function H2HRecords() {
                   )}
                 >
                   {e === 'all' ? 'All-time' : e === 'espn' ? 'ESPN 2016–19' : 'Sleeper 2020–25'}
+                </button>
+              ))}
+            </div>
+            {/* Game type filter */}
+            <div className="flex items-center gap-1 bg-slate-800/60 rounded border border-slate-700/50 p-1">
+              {(['all', 'rs', 'playoff'] as GameTypeFilter[]).map(gt => (
+                <button
+                  key={gt}
+                  onClick={() => setGameType(gt)}
+                  className={cn(
+                    'text-xs px-3 py-1 rounded transition-colors',
+                    gameType === gt
+                      ? 'bg-amber-600/60 text-white'
+                      : 'text-slate-400 hover:text-slate-200'
+                  )}
+                >
+                  {gt === 'all' ? 'All games' : gt === 'rs' ? 'Reg. season' : 'Playoffs only'}
                 </button>
               ))}
             </div>
@@ -267,7 +312,7 @@ export default function H2HRecords() {
                       </td>
                       {/* H2H cells */}
                       {matrixSlugs.map(colSlug => (
-                        <MatrixCell key={colSlug} rowSlug={rowSlug} colSlug={colSlug} era={era} />
+                        <MatrixCell key={colSlug} rowSlug={rowSlug} colSlug={colSlug} era={era} gameType={gameType} />
                       ))}
                       {/* Overall */}
                       {summary ? (

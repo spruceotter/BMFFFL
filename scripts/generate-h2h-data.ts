@@ -64,7 +64,31 @@ interface EraRecord {
   ptsAgainst: number;
 }
 
+interface GameTypeRecord {
+  wins: number;
+  losses: number;
+  games: number;
+}
+
 type H2HKey = string; // 'slugA:slugB' where slugA < slugB
+
+// ─── Helper: accumulate into a record ────────────────────────────────────────
+
+function accumulate(map: Map<H2HKey, EraRecord>, key: H2HKey, aWins: boolean, ptsFor: number, ptsAgainst: number) {
+  if (!map.has(key)) map.set(key, { wins: 0, losses: 0, games: 0, ptsFor: 0, ptsAgainst: 0 });
+  const rec = map.get(key)!;
+  rec.games++;
+  rec.ptsFor += ptsFor;
+  rec.ptsAgainst += ptsAgainst;
+  if (aWins) rec.wins++; else rec.losses++;
+}
+
+function accumulateGT(map: Map<H2HKey, GameTypeRecord>, key: H2HKey, aWins: boolean) {
+  if (!map.has(key)) map.set(key, { wins: 0, losses: 0, games: 0 });
+  const rec = map.get(key)!;
+  rec.games++;
+  if (aWins) rec.wins++; else rec.losses++;
+}
 
 // ─── Load ESPN Era H2H ────────────────────────────────────────────────────────
 
@@ -81,6 +105,8 @@ const espnMatchupsPath = '/home/bimfle/bimfle-data/espn-era/h2h-matchups.json';
 const espnMatchups: Record<string, EspnMatchup[]> = JSON.parse(fs.readFileSync(espnMatchupsPath, 'utf-8'));
 
 const espnH2H = new Map<H2HKey, EraRecord>();
+const rsH2H = new Map<H2HKey, GameTypeRecord>();   // all-time regular season (ESPN + Sleeper)
+const poH2H = new Map<H2HKey, GameTypeRecord>();   // all-time playoff (ESPN + Sleeper)
 
 for (const [, matchups] of Object.entries(espnMatchups)) {
   for (const m of matchups) {
@@ -89,23 +115,12 @@ for (const [, matchups] of Object.entries(espnMatchups)) {
     const ap = m.away_pts;
     const hp = m.home_pts;
     const key: H2HKey = a < b ? `${a}:${b}` : `${b}:${a}`;
+    const ptsA = a < b ? ap : hp;
+    const ptsB = a < b ? hp : ap;
+    const keyAWins = a < b ? ap > hp : hp > ap;
 
-    if (!espnH2H.has(key)) {
-      espnH2H.set(key, { wins: 0, losses: 0, games: 0, ptsFor: 0, ptsAgainst: 0 });
-    }
-    const rec = espnH2H.get(key)!;
-    rec.games++;
-
-    if (a < b) {
-      // wins = a's wins
-      if (ap > hp) { rec.wins++; rec.ptsFor += ap; rec.ptsAgainst += hp; }
-      else { rec.losses++; rec.ptsFor += ap; rec.ptsAgainst += hp; }
-    } else {
-      // wins = b's wins (since key is b:a... wait no, key is always min:max)
-      // key = b:a since b < a here, so wins = b's wins
-      if (hp > ap) { rec.wins++; rec.ptsFor += hp; rec.ptsAgainst += ap; }
-      else { rec.losses++; rec.ptsFor += hp; rec.ptsAgainst += ap; }
-    }
+    accumulate(espnH2H, key, keyAWins, ptsA, ptsB);
+    accumulateGT(m.is_playoff ? poH2H : rsH2H, key, keyAWins);
   }
 }
 
@@ -126,6 +141,51 @@ interface SleeperH2HRow {
   pts2: number;
 }
 
+// Regular season only (week < playoffs_start_week)
+const sleeperRSRows = db.prepare(`
+  SELECT u1.display_name as owner1_name, u2.display_name as owner2_name,
+    SUM(CASE WHEN m1.points > m2.points THEN 1 ELSE 0 END) as w1,
+    SUM(CASE WHEN m1.points < m2.points THEN 1 ELSE 0 END) as l1,
+    COUNT(*) as games,
+    ROUND(SUM(m1.points), 2) as pts1,
+    ROUND(SUM(m2.points), 2) as pts2
+  FROM matchups m1
+  JOIN matchups m2 ON m1.league_id = m2.league_id AND m1.week = m2.week
+    AND m1.matchup_id = m2.matchup_id AND m1.roster_id < m2.roster_id
+  JOIN rosters r1 ON m1.roster_id = r1.roster_id AND m1.league_id = r1.league_id
+  JOIN rosters r2 ON m2.roster_id = r2.roster_id AND m2.league_id = r2.league_id
+  JOIN users u1 ON r1.owner_id = u1.user_id
+  JOIN users u2 ON r2.owner_id = u2.user_id
+  JOIN leagues l ON m1.league_id = l.league_id
+  JOIN league_settings ls ON m1.league_id = ls.league_id
+  WHERE l.season BETWEEN 2020 AND 2025
+    AND m1.week < ls.playoffs_start_week
+  GROUP BY u1.user_id, u2.user_id
+`).all() as SleeperH2HRow[];
+
+// Playoff only (week >= playoffs_start_week)
+const sleeperPORows = db.prepare(`
+  SELECT u1.display_name as owner1_name, u2.display_name as owner2_name,
+    SUM(CASE WHEN m1.points > m2.points THEN 1 ELSE 0 END) as w1,
+    SUM(CASE WHEN m1.points < m2.points THEN 1 ELSE 0 END) as l1,
+    COUNT(*) as games,
+    ROUND(SUM(m1.points), 2) as pts1,
+    ROUND(SUM(m2.points), 2) as pts2
+  FROM matchups m1
+  JOIN matchups m2 ON m1.league_id = m2.league_id AND m1.week = m2.week
+    AND m1.matchup_id = m2.matchup_id AND m1.roster_id < m2.roster_id
+  JOIN rosters r1 ON m1.roster_id = r1.roster_id AND m1.league_id = r1.league_id
+  JOIN rosters r2 ON m2.roster_id = r2.roster_id AND m2.league_id = r2.league_id
+  JOIN users u1 ON r1.owner_id = u1.user_id
+  JOIN users u2 ON r2.owner_id = u2.user_id
+  JOIN leagues l ON m1.league_id = l.league_id
+  JOIN league_settings ls ON m1.league_id = ls.league_id
+  WHERE l.season BETWEEN 2020 AND 2025
+    AND m1.week >= ls.playoffs_start_week
+  GROUP BY u1.user_id, u2.user_id
+`).all() as SleeperH2HRow[];
+
+// All games (existing query for era record)
 const sleeperRows = db.prepare(`
   SELECT u1.display_name as owner1_name, u2.display_name as owner2_name,
     SUM(CASE WHEN m1.points > m2.points THEN 1 ELSE 0 END) as w1,
@@ -143,7 +203,6 @@ const sleeperRows = db.prepare(`
   JOIN leagues l ON m1.league_id = l.league_id
   WHERE l.season BETWEEN 2020 AND 2025
   GROUP BY u1.user_id, u2.user_id
-  ORDER BY u1.display_name, u2.display_name
 `).all() as SleeperH2HRow[];
 
 db.close();
@@ -151,23 +210,50 @@ db.close();
 const sleeperH2H = new Map<H2HKey, EraRecord>();
 let unmapped = 0;
 
-for (const row of sleeperRows) {
+function mapSleeperRows(rows: SleeperH2HRow[], targetMap: Map<H2HKey, EraRecord> | Map<H2HKey, GameTypeRecord>, isEraRecord: boolean) {
+  for (const row of rows) {
+    const slug1 = DB_NAME_TO_SLUG[row.owner1_name];
+    const slug2 = DB_NAME_TO_SLUG[row.owner2_name];
+    if (!slug1 || !slug2) { if (isEraRecord) unmapped++; return; }
+
+    const [keyA, , wins, losses, pts1, pts2] = slug1 < slug2
+      ? [slug1, slug2, row.w1, row.l1, row.pts1, row.pts2]
+      : [slug2, slug1, row.l1, row.w1, row.pts2, row.pts1];
+    const key = `${keyA}:${slug1 < slug2 ? slug2 : slug1}`;
+
+    if (isEraRecord) {
+      (targetMap as Map<H2HKey, EraRecord>).set(key, { wins, losses, games: row.games, ptsFor: pts1, ptsAgainst: pts2 });
+    } else {
+      (targetMap as Map<H2HKey, GameTypeRecord>).set(key, { wins, losses, games: row.games });
+    }
+  }
+}
+
+mapSleeperRows(sleeperRows, sleeperH2H, true);
+
+// Accumulate Sleeper RS/PO into the all-time game-type maps
+for (const row of sleeperRSRows) {
   const slug1 = DB_NAME_TO_SLUG[row.owner1_name];
   const slug2 = DB_NAME_TO_SLUG[row.owner2_name];
+  if (!slug1 || !slug2) continue;
+  const [keyA, keyB, wins, losses] = slug1 < slug2
+    ? [slug1, slug2, row.w1, row.l1] : [slug2, slug1, row.l1, row.w1];
+  const key = `${keyA}:${keyB}`;
+  if (!rsH2H.has(key)) rsH2H.set(key, { wins: 0, losses: 0, games: 0 });
+  const r = rsH2H.get(key)!;
+  r.wins += wins; r.losses += losses; r.games += row.games;
+}
 
-  if (!slug1 || !slug2) {
-    console.warn(`⚠️  Unmapped display name: ${!slug1 ? row.owner1_name : row.owner2_name}`);
-    unmapped++;
-    continue;
-  }
-
-  const [keyA, keyB, wins, losses, ptsFor, ptsAgainst] = slug1 < slug2
-    ? [slug1, slug2, row.w1, row.l1, row.pts1, row.pts2]
-    : [slug2, slug1, row.l1, row.w1, row.pts2, row.pts1];
-
-  sleeperH2H.set(`${keyA}:${keyB}`, {
-    wins, losses, games: row.games, ptsFor, ptsAgainst,
-  });
+for (const row of sleeperPORows) {
+  const slug1 = DB_NAME_TO_SLUG[row.owner1_name];
+  const slug2 = DB_NAME_TO_SLUG[row.owner2_name];
+  if (!slug1 || !slug2) continue;
+  const [keyA, keyB, wins, losses] = slug1 < slug2
+    ? [slug1, slug2, row.w1, row.l1] : [slug2, slug1, row.l1, row.w1];
+  const key = `${keyA}:${keyB}`;
+  if (!poH2H.has(key)) poH2H.set(key, { wins: 0, losses: 0, games: 0 });
+  const p = poH2H.get(key)!;
+  p.wins += wins; p.losses += losses; p.games += row.games;
 }
 
 if (unmapped > 0) {
@@ -175,20 +261,22 @@ if (unmapped > 0) {
   process.exit(1);
 }
 
-console.log(`Sleeper era: ${sleeperH2H.size} H2H pairings`);
+console.log(`Sleeper era: ${sleeperH2H.size} H2H pairings (RS: ${sleeperRSRows.length} pairs, PO: ${sleeperPORows.length} pairs)`);
 
 // ─── Merge into Combined H2H ──────────────────────────────────────────────────
 
 const allKeys = new Set<H2HKey>([...espnH2H.keys(), ...sleeperH2H.keys()]);
 
 interface CombinedH2HRecord {
-  wins: number;      // overall wins (keyA's wins)
+  wins: number;
   losses: number;
   games: number;
   avgPtsFor: number;
   avgPtsAgainst: number;
   espn: EraRecord | null;
   sleeper: EraRecord | null;
+  regularSeason: GameTypeRecord | null;  // combined ESPN RS + Sleeper RS
+  playoff: GameTypeRecord | null;         // combined ESPN PO + Sleeper PO
 }
 
 const combined = new Map<H2HKey, CombinedH2HRecord>();
@@ -196,6 +284,8 @@ const combined = new Map<H2HKey, CombinedH2HRecord>();
 for (const key of allKeys) {
   const espn = espnH2H.get(key) ?? null;
   const sleeper = sleeperH2H.get(key) ?? null;
+  const rs = rsH2H.get(key) ?? null;
+  const po = poH2H.get(key) ?? null;
 
   const totalWins = (espn?.wins ?? 0) + (sleeper?.wins ?? 0);
   const totalLosses = (espn?.losses ?? 0) + (sleeper?.losses ?? 0);
@@ -211,6 +301,8 @@ for (const key of allKeys) {
     avgPtsAgainst: totalGames > 0 ? Math.round((totalPtsAgainst / totalGames) * 10) / 10 : 0,
     espn: espn ? { ...espn, ptsFor: Math.round(espn.ptsFor * 10) / 10, ptsAgainst: Math.round(espn.ptsAgainst * 10) / 10 } : null,
     sleeper: sleeper ? { ...sleeper, ptsFor: Math.round(sleeper.ptsFor * 10) / 10, ptsAgainst: Math.round(sleeper.ptsAgainst * 10) / 10 } : null,
+    regularSeason: rs,
+    playoff: po,
   });
 }
 
@@ -286,8 +378,13 @@ function renderEraRecord(rec: EraRecord | null): string {
   return `{ wins: ${rec.wins}, losses: ${rec.losses}, games: ${rec.games}, ptsFor: ${rec.ptsFor}, ptsAgainst: ${rec.ptsAgainst} }`;
 }
 
+function renderGTRecord(rec: GameTypeRecord | null): string {
+  if (!rec) return 'null';
+  return `{ wins: ${rec.wins}, losses: ${rec.losses}, games: ${rec.games} }`;
+}
+
 function renderCombined(key: string, rec: CombinedH2HRecord): string {
-  return `  '${key}': { wins: ${rec.wins}, losses: ${rec.losses}, games: ${rec.games}, avgPtsFor: ${rec.avgPtsFor}, avgPtsAgainst: ${rec.avgPtsAgainst}, espn: ${renderEraRecord(rec.espn)}, sleeper: ${renderEraRecord(rec.sleeper)} },`;
+  return `  '${key}': { wins: ${rec.wins}, losses: ${rec.losses}, games: ${rec.games}, avgPtsFor: ${rec.avgPtsFor}, avgPtsAgainst: ${rec.avgPtsAgainst}, espn: ${renderEraRecord(rec.espn)}, sleeper: ${renderEraRecord(rec.sleeper)}, regularSeason: ${renderGTRecord(rec.regularSeason)}, playoff: ${renderGTRecord(rec.playoff)} },`;
 }
 
 function renderSummary(s: OwnerH2HSummary): string {
@@ -325,6 +422,12 @@ export interface EraRecord {
   ptsAgainst: number; // total points allowed
 }
 
+export interface GameTypeRecord {
+  wins: number;
+  losses: number;
+  games: number;
+}
+
 export interface H2HRecord {
   wins: number;           // slugA wins (all-time)
   losses: number;         // slugA losses (all-time)
@@ -333,6 +436,8 @@ export interface H2HRecord {
   avgPtsAgainst: number;  // slugB avg pts per game
   espn: EraRecord | null;    // ESPN era 2016-2019
   sleeper: EraRecord | null; // Sleeper era 2020-2025
+  regularSeason: GameTypeRecord | null;  // all-time regular season only
+  playoff: GameTypeRecord | null;         // all-time playoff only
 }
 
 export interface OwnerH2HSummary {
@@ -371,6 +476,7 @@ export function getH2H(slugA: string, slugB: string): H2HRecord | null {
   const entry = H2H_RECORDS[\`\${keyA}:\${keyB}\`];
   if (!entry) return null;
   if (!flip) return entry;
+  const flipGT = (r: GameTypeRecord | null) => r ? { wins: r.losses, losses: r.wins, games: r.games } : null;
   return {
     wins: entry.losses,
     losses: entry.wins,
@@ -379,6 +485,8 @@ export function getH2H(slugA: string, slugB: string): H2HRecord | null {
     avgPtsAgainst: entry.avgPtsFor,
     espn: entry.espn ? { wins: entry.espn.losses, losses: entry.espn.wins, games: entry.espn.games, ptsFor: entry.espn.ptsAgainst, ptsAgainst: entry.espn.ptsFor } : null,
     sleeper: entry.sleeper ? { wins: entry.sleeper.losses, losses: entry.sleeper.wins, games: entry.sleeper.games, ptsFor: entry.sleeper.ptsAgainst, ptsAgainst: entry.sleeper.ptsFor } : null,
+    regularSeason: flipGT(entry.regularSeason),
+    playoff: flipGT(entry.playoff),
   };
 }
 
