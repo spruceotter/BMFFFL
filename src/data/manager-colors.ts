@@ -20,9 +20,11 @@ export const MANAGER_COLORS: Record<string, ManagerColors> = {
   tdtd19844:         { primary: '#1e1b4b', accent: '#818cf8', name: 'Indigo' },
   eldridm20:         { primary: '#881337', accent: '#fb7185', name: 'Rose' },
   rbr:               { primary: '#0c4a6e', accent: '#38bdf8', name: 'Sky Blue' },
-  bro_set:           { primary: '#064e3b', accent: '#34d399', name: 'Emerald' },
-  cheeseandcrackers: { primary: '#78350f', accent: '#f59e0b', name: 'Orange' },
-  jimmyeatwurld:     { primary: '#3b0764', accent: '#a855f7', name: 'Violet' },
+  eldridsm:          { primary: '#064e3b', accent: '#34d399', name: 'Emerald' },
+  cmaleski:          { primary: '#78350f', accent: '#f59e0b', name: 'Orange' },
+  escuelas:          { primary: '#3b0764', accent: '#a855f7', name: 'Violet' },
+  mmoodie12:         { primary: '#1e293b', accent: '#64748b', name: 'Slate' },
+  miroslav081:       { primary: '#0f172a', accent: '#475569', name: 'Charcoal' },
 };
 
 /** Returns the color pair for a given manager slug, falling back to league default. */

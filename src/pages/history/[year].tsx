@@ -677,9 +677,6 @@ export default function YearPage({ season }: YearPageProps) {
             <h2 id="standings-heading" className="text-2xl font-black text-white mb-5">
               Final Standings
             </h2>
-            <p className="text-xs text-yellow-500/70 mb-2 italic">
-              Standings are historical estimates — real data coming soon.
-            </p>
             <StandingsTable
               standings={season.standings}
               champion={season.champion}
