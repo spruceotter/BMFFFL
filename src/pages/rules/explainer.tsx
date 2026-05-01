@@ -51,7 +51,7 @@ const QUICK_FAQS: QuickFaq[] = [
   },
   {
     question: 'Is it full PPR or half PPR?',
-    answer: 'Half PPR — each reception scores 0.5 points.',
+    answer: 'Full PPR — each reception scores 1.0 point.',
   },
   {
     question: 'When is the trade deadline?',
@@ -140,7 +140,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
       },
       {
         rule: 'Receiving TD',
-        detail: '6 points. Every 10 receiving yards = 1 point. Reception = 0.5 points (half PPR).',
+        detail: '6 points. Every 10 receiving yards = 1 point. Reception = 1.0 point (Full PPR).',
       },
       {
         rule: 'Receiving bonus',
@@ -161,7 +161,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
       text: 'QB throws for 320 yards (12.8 pts for yardage + 3 bonus = 15.8), 2 TDs (+8), 1 INT (−2) = 21.8 points from passing alone.',
     },
     bimfle:
-      "Half PPR — because full PPR rewards the checkdown merchant and this league refuses to celebrate mediocrity. Every point here is earned, not gifted.",
+      "Full PPR — because every target caught is a decision made. The reception point rewards the receiver who fought for position, ran the route correctly, and held on. This league values completeness.",
   },
   {
     id: 'draft',
@@ -360,7 +360,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
     ],
     example: {
       label: 'Rule change example',
-      text: 'At the 2026 Owners Meeting, 7+ owners vote to change the scoring from half PPR to full PPR. The change takes effect the following season.',
+      text: 'At the 2026 Owners Meeting, 7+ owners vote to add a new 5-point bonus for 400-yard passing games. The change takes effect the following season.',
     },
     bimfle:
       "The commissioner is not a tyrant — merely a necessary arbiter in a league of strong opinions. Respect the office, even when you disagree with the ruling. That is what separates a dynasty from anarchy.",
