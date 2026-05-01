@@ -13,7 +13,7 @@
  */
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const Database = require('/home/bimfle/bimfle/node_modules/better-sqlite3') as typeof import('better-sqlite3').default;
+const Database = require('/home/bimfle/bimfle/node_modules/better-sqlite3') as typeof import('better-sqlite3');
 import * as fs from 'fs';
 import * as path from 'path';
 
