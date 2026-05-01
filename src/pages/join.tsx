@@ -10,8 +10,8 @@ const LEAGUE_FACTS = [
   { label: 'Format',        value: 'Dynasty — full PPR, Superflex' },
   { label: 'Founded',       value: '2016 (Season 10 in 2026)' },
   { label: 'Owners',        value: '12 teams, 3 divisions' },
-  { label: 'Roster size',   value: '15 active + 3 taxi + 1 IR' },
-  { label: 'FAAB budget',   value: '$100 / season' },
+  { label: 'Roster size',   value: '22 active + 5 taxi + 3 IR' },
+  { label: 'FAAB budget',   value: 'DogeFAAB — dynamic, Dogecoin-backed' },
   { label: 'Annual dues',   value: '$110 / year' },
   { label: 'Rookie draft',  value: 'Annual — 5 rounds, spring' },
 ];
