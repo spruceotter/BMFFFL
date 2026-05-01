@@ -47,7 +47,7 @@ interface QuickFaq {
 const QUICK_FAQS: QuickFaq[] = [
   {
     question: 'How many players on a roster?',
-    answer: '24 total: 9 starters, 10 bench, 3 taxi squad, 2 IR.',
+    answer: '30 total: 10 starters, 12 bench, 5 taxi squad, 3 IR.',
   },
   {
     question: 'Is it full PPR or half PPR?',
@@ -59,7 +59,7 @@ const QUICK_FAQS: QuickFaq[] = [
   },
   {
     question: 'How much FAAB do I get per season?',
-    answer: '$100, resets every year. Minimum bid is $1.',
+    answer: 'DogeFAAB — a dynamic, Dogecoin-backed budget. Refreshes each offseason.',
   },
   {
     question: 'How many teams make the playoffs?',
@@ -87,19 +87,23 @@ const RULES_CATEGORIES: RulesCategory[] = [
     rules: [
       {
         rule: 'Total roster size',
-        detail: '24 players — 9 starters, 10 bench spots, 3 taxi squad, 2 IR slots.',
+        detail: '30 players — 10 starters, 12 bench spots, 5 taxi squad, 3 IR slots.',
       },
       {
         rule: 'Starting lineup',
-        detail: '1 QB · 2 RB · 2 WR · 1 TE · 1 FLEX (RB/WR/TE) · 1 K · 1 DEF — 9 starters total.',
+        detail: '1 QB · 2 RB · 3 WR · 1 TE · 2 FLEX (RB/WR/TE) · 1 SF (QB/RB/WR/TE) — 10 starters total.',
       },
       {
-        rule: 'Taxi squad (3 spots)',
-        detail: 'Players with fewer than 2 years of NFL experience only. Taxi squad players do not count against your active roster limit.',
+        rule: 'Taxi squad (5 spots)',
+        detail: 'Players in their first 2 NFL seasons only. Taxi squad players do not count against your active roster limit.',
       },
       {
-        rule: 'IR slots (2 spots)',
+        rule: 'IR/Reserve slots (3 spots)',
         detail: 'Player must carry an official Injured Reserve designation. If a player is activated off IR by their NFL team, you have one week to move them to your bench or drop them.',
+      },
+      {
+        rule: 'QB limit',
+        detail: 'Maximum 4 quarterbacks on your active roster during the regular season. IR and taxi squad slots do not count toward this limit.',
       },
       {
         rule: 'FLEX eligibility',
@@ -182,7 +186,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
       },
       {
         rule: 'Auction FAAB for waivers',
-        detail: '$100 budget per season for free agent pickups via blind bid. Resets to $100 each new season.',
+        detail: 'DogeFAAB — dynamic Dogecoin-backed budget for free agent pickups via blind bid. Refreshes each offseason.',
       },
     ],
     example: {
@@ -236,7 +240,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
     rules: [
       {
         rule: 'FAAB budget',
-        detail: '$100 per team per season. Resets to $100 each year. Minimum bid: $1.',
+        detail: 'DogeFAAB — dynamic Dogecoin-backed budget per team. Refreshes each offseason. Minimum bid: $0.',
       },
       {
         rule: 'Waiver processing',
@@ -248,7 +252,7 @@ const RULES_CATEGORIES: RulesCategory[] = [
       },
       {
         rule: 'After FAAB is exhausted',
-        detail: 'Once your $100 is spent, you can still claim players who clear waivers with a $0 bid — if no one with FAAB remaining also wants them.',
+        detail: 'Once your DogeFAAB is spent, you can still claim players who clear waivers with a $0 bid — if no one with FAAB remaining also wants them.',
       },
       {
         rule: 'Free agents',

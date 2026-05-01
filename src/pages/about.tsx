@@ -16,13 +16,13 @@ import { cn } from '@/lib/cn';
 const ROSTER_SLOTS = [
   { slot: 'QB',   count: 1,  label: 'Quarterback' },
   { slot: 'RB',   count: 2,  label: 'Running Back' },
-  { slot: 'WR',   count: 2,  label: 'Wide Receiver' },
+  { slot: 'WR',   count: 3,  label: 'Wide Receiver' },
   { slot: 'TE',   count: 1,  label: 'Tight End' },
-  { slot: 'FLEX', count: 1,  label: 'Flex (RB/WR/TE)' },
+  { slot: 'FLEX', count: 2,  label: 'Flex (RB/WR/TE)' },
   { slot: 'SF',   count: 1,  label: 'Superflex (QB/RB/WR/TE)' },
-  { slot: 'BN',   count: 6,  label: 'Bench' },
-  { slot: 'IR',   count: 1,  label: 'Injured Reserve' },
-  { slot: 'TAXI', count: 3,  label: 'Taxi Squad' },
+  { slot: 'BN',   count: 12, label: 'Bench' },
+  { slot: 'IR',   count: 3,  label: 'Injured Reserve' },
+  { slot: 'TAXI', count: 5,  label: 'Taxi Squad' },
 ] as const;
 
 const SLOT_COLORS: Record<string, string> = {
@@ -187,8 +187,18 @@ export default function AboutPage() {
             <Info className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" aria-hidden="true" />
             <p className="text-xs text-orange-300 leading-relaxed">
               <strong className="font-semibold">Taxi Squad:</strong> players in their first 2 NFL
-              seasons (rookies and second-year players) are eligible for the 3-man taxi squad.
+              seasons (rookies and second-year players) are eligible for the 5-man taxi squad.
               Taxi players cannot be activated mid-season once locked.
+            </p>
+          </div>
+
+          {/* QB limit note */}
+          <div className="mt-2 flex items-start gap-2 rounded-lg bg-purple-900/20 border border-purple-700/30 px-4 py-3">
+            <Info className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" aria-hidden="true" />
+            <p className="text-xs text-purple-300 leading-relaxed">
+              <strong className="font-semibold">QB Limit:</strong> maximum 4 quarterbacks on your
+              active roster during the regular season. IR and taxi squad slots do not count toward
+              this limit.
             </p>
           </div>
         </section>
@@ -265,8 +275,8 @@ export default function AboutPage() {
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">
                   FAAB Budget
                 </p>
-                <p className="text-3xl font-black text-[#ffd700] font-mono">$10,000</p>
-                <p className="text-xs text-slate-400 mt-1">Per season, does not carry over</p>
+                <p className="text-lg font-black text-[#ffd700]">DogeFAAB</p>
+                <p className="text-xs text-slate-400 mt-1">Dynamic budget backed by Dogecoin — refreshes each offseason</p>
               </div>
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-2">

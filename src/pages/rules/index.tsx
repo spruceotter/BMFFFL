@@ -15,23 +15,27 @@ const GENERAL_RULES: RuleEntry[] = [
   },
   {
     term: 'Roster Size',
-    definition: '9 starters + 7 bench spots + 3 taxi squad spots + 2 IR spots = 21 total.',
+    definition: '10 starters + 12 bench spots + 5 taxi squad spots + 3 IR spots = 30 total.',
   },
   {
     term: 'Starting Lineup',
-    definition: '1 QB, 2 RB, 2 WR, 1 TE, 1 Flex (RB/WR/TE), 1 Superflex (QB/RB/WR/TE), 1 K, 1 DEF.',
+    definition: '1 QB, 2 RB, 3 WR, 1 TE, 2 Flex (RB/WR/TE), 1 Superflex (QB/RB/WR/TE) — 10 starters total.',
   },
   {
     term: 'Taxi Squad',
-    definition: '3 spots for players in their first 3 seasons of NFL eligibility. Must declare taxi squad players before Week 1 each season.',
+    definition: '5 spots for players in their first 2 seasons of NFL eligibility. Must declare taxi squad players before Week 1 each season.',
   },
   {
     term: 'IR Spots',
-    definition: '2 IR spots. Player must have an official IR designation to be eligible.',
+    definition: '3 IR/Reserve spots. Player must have an official IR designation to be eligible.',
+  },
+  {
+    term: 'QB Limit',
+    definition: 'Maximum 4 quarterbacks on active roster during the regular season. IR and taxi squad slots do not count toward this limit.',
   },
   {
     term: 'FAAB',
-    definition: '$10,000 blind bid budget per season. Resets each year. Minimum bid is $0.',
+    definition: 'DogeFAAB — dynamic Dogecoin-backed blind bid budget. Refreshes each offseason. Minimum bid is $0.',
   },
   {
     term: 'Waiver Priority',
@@ -240,7 +244,7 @@ export default function RulesPage() {
                 <span className="text-[#ffd700] font-bold">4 pts</span> passing TDs
               </span>
               <span className="text-slate-300">
-                <span className="text-[#ffd700] font-bold">$10,000</span> FAAB/season
+                <span className="text-[#ffd700] font-bold">DogeFAAB</span> Dogecoin-backed
               </span>
               <span className="text-slate-300">
                 <span className="text-[#ffd700] font-bold">6-team</span> playoffs
@@ -278,7 +282,7 @@ export default function RulesPage() {
 
               {/* Roster breakdown card */}
               <section>
-                <SectionHeader title="Roster Breakdown" subtitle="21 total slots" />
+                <SectionHeader title="Roster Breakdown" subtitle="30 total slots" />
                 <div className="rounded-xl overflow-hidden border border-[#2d4a66]">
                   <table className="w-full text-sm">
                     <thead>
@@ -292,15 +296,13 @@ export default function RulesPage() {
                       {[
                         { slot: 'QB', eligible: 'QB', count: '1' },
                         { slot: 'RB', eligible: 'RB', count: '2' },
-                        { slot: 'WR', eligible: 'WR', count: '2' },
+                        { slot: 'WR', eligible: 'WR', count: '3' },
                         { slot: 'TE', eligible: 'TE', count: '1' },
-                        { slot: 'Flex', eligible: 'RB / WR / TE', count: '1' },
+                        { slot: 'Flex', eligible: 'RB / WR / TE', count: '2' },
                         { slot: 'Superflex', eligible: 'QB / RB / WR / TE', count: '1' },
-                        { slot: 'K', eligible: 'K', count: '1' },
-                        { slot: 'DEF', eligible: 'Team Defense', count: '1' },
-                        { slot: 'Bench', eligible: 'Any', count: '7' },
-                        { slot: 'Taxi Squad', eligible: 'Yr 1–3 rookies', count: '3' },
-                        { slot: 'IR', eligible: 'IR-designated', count: '2' },
+                        { slot: 'Bench', eligible: 'Any', count: '12' },
+                        { slot: 'Taxi Squad', eligible: 'Yr 1–2 rookies', count: '5' },
+                        { slot: 'IR', eligible: 'IR-designated', count: '3' },
                       ].map((row, i) => (
                         <tr
                           key={row.slot}
