@@ -3,7 +3,7 @@
  * Sources:
  *   ESPN era (2016–2019): bimfle-data/espn-era/h2h-matchups.json (from ESPN API)
  *   Sleeper era (2020–2025): bimfle-data/sleeper.db matchups table
- * Generated: 2026-04-29T21:18:45.175Z
+ * Generated: 2026-05-01T00:24:27.045Z
  *
  * DO NOT EDIT BY HAND — run scripts/generate-h2h-data.ts to regenerate.
  *

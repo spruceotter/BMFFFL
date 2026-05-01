@@ -1,7 +1,7 @@
 /**
  * BMFFFL League Data — AUTO-GENERATED
  * Source: public/data/dynasty-scores.json + bimfle-data/sleeper.db
- * Generated: 2026-04-29T19:39:59.753Z
+ * Generated: 2026-05-01T00:24:24.773Z
  *
  * DO NOT EDIT BY HAND — run scripts/generate-league-data.ts to regenerate.
  * ESPN W-L records are approximate (rs_wins from dynasty-scores.json, losses estimated

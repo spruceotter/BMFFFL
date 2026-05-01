@@ -2,7 +2,7 @@
  * BMFFFL Manager Efficiency Data — AUTO-GENERATED
  * Source: bimfle-data/sleeper.db → analytics_v_efficiency_scores
  * Covers: Sleeper era 2020–2025 (6 seasons)
- * Generated: 2026-04-29T21:58:01.410Z
+ * Generated: 2026-05-01T00:24:39.756Z
  *
  * DO NOT EDIT BY HAND — run scripts/generate-manager-efficiency.ts to regenerate.
  *
