@@ -1190,7 +1190,12 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
           <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
             <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
               <h2 className="text-base font-bold text-white">Trade History</h2>
-              <span className="text-xs text-slate-500">All trades · 2020–present</span>
+              <Link
+                href={`/trades?owner=${encodeURIComponent(owner.displayName)}`}
+                className="text-xs text-[#ffd700]/70 hover:text-[#ffd700] transition-colors flex items-center gap-1"
+              >
+                Full history + how it aged <ExternalLink className="w-3 h-3" />
+              </Link>
             </div>
             <TransactionsSection displayName={owner.displayName} />
           </div>
