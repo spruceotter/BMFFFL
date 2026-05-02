@@ -82,6 +82,14 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     validatedAt: '2026-04-14',
     category: 'History',
   },
+  '/trades': {
+    path: '/trades',
+    status: 'validated',
+    label: 'Trade History',
+    notes: '291 trades 2018–2025. ESPN API (2018-2019) + Sleeper DB (2020-2025). Filterable by season, owner, player. "How it aged" layer planned for Phase 2.',
+    validatedAt: '2026-05-02',
+    category: 'History',
+  },
   '/history/divisions': {
     path: '/history/divisions',
     status: 'validated',

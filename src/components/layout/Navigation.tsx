@@ -49,6 +49,7 @@ const NAV_LINKS: NavLink[] = [
       { label: 'Playoff Brackets',      href: '/history/playoff-brackets' },
       { label: 'Shame Board',           href: '/history/shame-board' },
       { label: 'League Encyclopedia',   href: '/history/encyclopedia' },
+      { label: 'Trade History',         href: '/trades' },
     ],
   },
   {
