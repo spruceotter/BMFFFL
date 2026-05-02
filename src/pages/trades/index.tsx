@@ -46,6 +46,8 @@ interface RealizedPtsDetail {
   pts: number;
   span: string;
   end: 'traded' | 'held';
+  flip: 'quick' | 'medium' | 'long' | 'held';
+  flip_wks: number | null;
 }
 
 interface RealizedPts {
@@ -519,9 +521,18 @@ function TradeCard({
                       {p.pts.toFixed(1)}
                     </span>
                     <span className="text-[9px] text-slate-600">{p.span}</span>
-                    {p.end === 'traded' && (
-                      <span className="text-[9px] text-sky-600">→flipped</span>
-                    )}
+                    {p.end === 'traded' && (() => {
+                      const label =
+                        p.flip === 'quick'  ? `⚡ quick flip${p.flip_wks != null ? ` (${p.flip_wks}w)` : ''}` :
+                        p.flip === 'medium' ? `→ flipped${p.flip_wks != null ? ` wk ${p.flip_wks}` : ''}` :
+                        p.flip === 'long'   ? '→ eventually flipped' :
+                        '→ flipped';
+                      const color =
+                        p.flip === 'quick'  ? 'text-amber-400' :
+                        p.flip === 'medium' ? 'text-sky-500' :
+                                              'text-sky-600';
+                      return <span className={cn('text-[9px]', color)}>{label}</span>;
+                    })()}
                   </div>
                 ))}
                 {detail.length === 0 && (
