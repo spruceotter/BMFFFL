@@ -19,6 +19,19 @@ interface PickGot {
   description?: string;
 }
 
+interface PointsParty {
+  owner: string;
+  roster_id: number;
+  total_post_trade_points: number;
+  players_received: {
+    player_id: string;
+    name: string;
+    position: string;
+    post_trade_points: number;
+    weeks_remaining: number;
+  }[];
+}
+
 interface Trade {
   id: string;
   season: number;
@@ -31,6 +44,7 @@ interface Trade {
   p2gets: PlayerGot[];
   p1picks: PickGot[];
   p2picks: PickGot[];
+  points_delivered?: PointsParty[];
 }
 
 interface TradeHistoryData {
@@ -268,6 +282,77 @@ function TradeCard({
               />
             </div>
           </div>
+
+          {/* ── How It Aged: points delivered ───────────────────────── */}
+          {trade.points_delivered && trade.points_delivered.length > 0 && (() => {
+            const parties = trade.points_delivered;
+            const sorted = [...parties].sort((a, b) => b.total_post_trade_points - a.total_post_trade_points);
+            const winner = sorted[0];
+            const loser = sorted[sorted.length - 1];
+            const spread = winner.total_post_trade_points - loser.total_post_trade_points;
+            const winnerPct = winner.total_post_trade_points > 0
+              ? Math.round((winner.total_post_trade_points / (winner.total_post_trade_points + loser.total_post_trade_points)) * 100)
+              : 50;
+
+            return (
+              <div className="mt-4 rounded-lg bg-[#0d1b2a] border border-[#ffd700]/20 p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold text-[#ffd700] uppercase tracking-widest">
+                    How It Aged
+                  </span>
+                  <span className="text-[10px] text-slate-600">— fantasy points delivered rest of season</span>
+                </div>
+                <div className="space-y-2">
+                  {sorted.map((party) => {
+                    const pts = party.total_post_trade_points;
+                    const isWinner = party.owner === winner.owner;
+                    const barPct = winner.total_post_trade_points > 0
+                      ? (pts / winner.total_post_trade_points) * 100
+                      : 50;
+                    return (
+                      <div key={party.owner} className="space-y-1">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className={cn(
+                            'font-semibold',
+                            isWinner ? 'text-[#ffd700]' : 'text-slate-400'
+                          )}>
+                            {party.owner}
+                          </span>
+                          <span className={cn(
+                            'font-mono font-bold tabular-nums',
+                            isWinner ? 'text-[#ffd700]' : 'text-slate-400'
+                          )}>
+                            {pts.toFixed(1)} pts
+                          </span>
+                        </div>
+                        <div className="h-1.5 bg-[#1a2d42] rounded-full overflow-hidden">
+                          <div
+                            className={cn('h-full rounded-full transition-all', isWinner ? 'bg-[#ffd700]' : 'bg-slate-600')}
+                            style={{ width: `${Math.max(barPct, 3)}%` }}
+                          />
+                        </div>
+                        <div className="text-[10px] text-slate-600">
+                          {party.players_received.map(p => `${p.name} (${p.post_trade_points.toFixed(0)})`).join(' · ') || '—'}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {spread > 10 && (
+                  <p className="mt-3 text-[10px] text-slate-500">
+                    {winner.owner} won the deal by{' '}
+                    <span className="text-[#ffd700] font-bold">{spread.toFixed(1)} pts</span>
+                    {' '}({winnerPct}% of combined production)
+                  </p>
+                )}
+                {sorted[0].players_received[0] && (
+                  <p className="text-[10px] text-slate-600 mt-1">
+                    {sorted[0].players_received[0].weeks_remaining} weeks of season remaining at time of trade
+                  </p>
+                )}
+              </div>
+            );
+          })()}
 
           {/* Meta row */}
           <div className="mt-4 pt-3 border-t border-[#1e3347] flex items-center gap-4 text-[10px] text-slate-600 uppercase tracking-wider">
