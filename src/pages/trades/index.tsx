@@ -50,12 +50,27 @@ interface RealizedPtsDetail {
   flip_wks: number | null;
 }
 
+interface PickCompact {
+  r: number;          // round
+  s: string;          // season year
+  orig: string;       // original owner
+  name: string | null;  // player drafted (null if future)
+  pos: string | null;
+  pts: number | null;   // PPR pts from draft forward
+  note: string | null;
+}
+
 interface RealizedPts {
   p1_pts: number;
   p2_pts: number;
   p1_detail: RealizedPtsDetail[];
   p2_detail: RealizedPtsDetail[];
   winner: 'p1' | 'p2' | 'even' | null;
+  // Phase 5 additions
+  p1_picks?: PickCompact[];
+  p2_picks?: PickCompact[];
+  p1_total?: number;  // players + picks combined
+  p2_total?: number;
 }
 
 interface Trade {
@@ -499,11 +514,16 @@ function TradeCard({
           {/* ── Multi-Season Realized Points ──────────────────────── */}
           {trade.realized_pts && (() => {
             const rp = trade.realized_pts;
-            const hasData = rp.p1_detail.length > 0 || rp.p2_detail.length > 0;
+            const p1Picks = rp.p1_picks ?? [];
+            const p2Picks = rp.p2_picks ?? [];
+            const hasData =
+              rp.p1_detail.length > 0 || rp.p2_detail.length > 0 ||
+              p1Picks.length > 0 || p2Picks.length > 0;
             if (!hasData) return null;
 
-            const p1Total = rp.p1_pts;
-            const p2Total = rp.p2_pts;
+            // Use combined totals (players + picks) if available
+            const p1Total = rp.p1_total ?? rp.p1_pts;
+            const p2Total = rp.p2_total ?? rp.p2_pts;
             const combined = p1Total + p2Total;
             const p1Pct = combined > 0 ? Math.round((p1Total / combined) * 100) : 50;
             const p2Pct = 100 - p1Pct;
@@ -535,11 +555,38 @@ function TradeCard({
                     })()}
                   </div>
                 ))}
-                {detail.length === 0 && (
-                  <span className="text-[10px] text-slate-600 italic">picks only</span>
-                )}
               </div>
             );
+
+            const renderPicks = (picks: PickCompact[], isWinner: boolean) => {
+              if (picks.length === 0) return null;
+              return (
+                <div className="space-y-0.5 mt-1">
+                  {picks.map((pk, i) => (
+                    <div key={i} className="flex items-center gap-1 flex-wrap">
+                      <span className="text-[9px] text-slate-500 font-mono">
+                        {pk.s} R{pk.r}
+                      </span>
+                      <span className="text-[9px] text-slate-600">({pk.orig})</span>
+                      {pk.name ? (
+                        <>
+                          <span className="text-xs text-white/70">→ {pk.name}</span>
+                          <span className="text-[9px] text-slate-500">{pk.pos}</span>
+                          <span className={cn('text-[10px] font-mono font-bold tabular-nums', isWinner ? 'text-emerald-400' : 'text-slate-400')}>
+                            {(pk.pts ?? 0).toFixed(1)}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-[9px] text-slate-600 italic">{pk.note ?? 'unresolved'}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              );
+            };
+
+            const p1HasAny = rp.p1_detail.length > 0 || p1Picks.length > 0;
+            const p2HasAny = rp.p2_detail.length > 0 || p2Picks.length > 0;
 
             return (
               <div className="mt-4 rounded-lg bg-[#0a1a10] border border-emerald-900/30 p-4">
@@ -547,7 +594,7 @@ function TradeCard({
                   <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
                     Full Realized Value
                   </span>
-                  <span className="text-[10px] text-slate-600">— PPR pts while on roster (multi-season)</span>
+                  <span className="text-[10px] text-slate-600">— PPR pts incl. picks (multi-season)</span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-3">
@@ -557,9 +604,10 @@ function TradeCard({
                       {isP1Winner && <span className="ml-1">★</span>}
                     </p>
                     {renderDetail(rp.p1_detail, isP1Winner)}
-                    {rp.p1_detail.length > 0 && (
+                    {renderPicks(p1Picks, isP1Winner)}
+                    {p1HasAny && (
                       <p className={cn('text-xs font-mono font-bold mt-1.5', isP1Winner ? 'text-emerald-400' : 'text-slate-400')}>
-                        {p1Total.toFixed(1)} pts total
+                        {p1Total.toFixed(1)} pts
                       </p>
                     )}
                   </div>
@@ -569,9 +617,10 @@ function TradeCard({
                       {isP2Winner && <span className="ml-1">★</span>}
                     </p>
                     {renderDetail(rp.p2_detail, isP2Winner)}
-                    {rp.p2_detail.length > 0 && (
+                    {renderPicks(p2Picks, isP2Winner)}
+                    {p2HasAny && (
                       <p className={cn('text-xs font-mono font-bold mt-1.5', isP2Winner ? 'text-emerald-400' : 'text-slate-400')}>
-                        {p2Total.toFixed(1)} pts total
+                        {p2Total.toFixed(1)} pts
                       </p>
                     )}
                   </div>
