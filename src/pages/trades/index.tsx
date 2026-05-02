@@ -32,6 +32,15 @@ interface PointsParty {
   }[];
 }
 
+interface DynastyValue {
+  year: number;
+  p1_ranks: (number | null)[];
+  p2_ranks: (number | null)[];
+  p1_top: number | null;
+  p2_top: number | null;
+  winner: 'p1' | 'p2' | 'even' | null;
+}
+
 interface Trade {
   id: string;
   season: number;
@@ -45,6 +54,7 @@ interface Trade {
   p1picks: PickGot[];
   p2picks: PickGot[];
   points_delivered?: PointsParty[];
+  dynasty_value?: DynastyValue;
 }
 
 interface TradeHistoryData {
@@ -282,6 +292,120 @@ function TradeCard({
               />
             </div>
           </div>
+
+          {/* ── Dynasty Value at Time of Trade ───────────────────────── */}
+          {trade.dynasty_value && (() => {
+            const dv = trade.dynasty_value;
+            const p1Ranks = dv.p1_ranks;
+            const p2Ranks = dv.p2_ranks;
+            const p1ValidRanks = p1Ranks.filter((r): r is number => r !== null);
+            const p2ValidRanks = p2Ranks.filter((r): r is number => r !== null);
+            const hasAny = p1ValidRanks.length > 0 || p2ValidRanks.length > 0;
+            if (!hasAny) return null;
+
+            // For the bar chart: lower rank = higher value
+            // Score = 1/rank (so rank 1 = 1.0, rank 100 = 0.01)
+            const p1Score = p1ValidRanks.reduce((s, r) => s + (1 / r), 0);
+            const p2Score = p2ValidRanks.reduce((s, r) => s + (1 / r), 0);
+            const totalScore = p1Score + p2Score;
+            const p1Pct = totalScore > 0 ? Math.round((p1Score / totalScore) * 100) : 50;
+            const p2Pct = 100 - p1Pct;
+
+            const isP1Winner = dv.winner === 'p1';
+            const isP2Winner = dv.winner === 'p2';
+            const isEven = dv.winner === 'even';
+
+            function rankBadge(rank: number | null) {
+              if (rank === null) return null;
+              const tier = rank <= 12 ? 'text-[#ffd700] font-bold' :
+                           rank <= 36 ? 'text-emerald-400' :
+                           rank <= 72 ? 'text-sky-400' :
+                           'text-slate-500';
+              return (
+                <span className={cn('text-[9px] font-mono ml-1 shrink-0', tier)}>
+                  #{rank}
+                </span>
+              );
+            }
+
+            return (
+              <div className="mt-4 rounded-lg bg-[#0d1b2a] border border-sky-900/30 p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">
+                    Dynasty Value at Time of Trade
+                  </span>
+                  <span className="text-[10px] text-slate-600">— {dv.year} dynasty ADP rankings</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-3">
+                  {/* P1 haul */}
+                  <div>
+                    <p className={cn('text-xs font-semibold mb-1.5', isP1Winner ? 'text-[#ffd700]' : 'text-slate-400')}>
+                      {trade.p1} received
+                      {isP1Winner && <span className="ml-1 text-[9px]">★</span>}
+                    </p>
+                    <div className="space-y-0.5">
+                      {trade.p1gets.map((p, i) => (
+                        <div key={i} className="flex items-center gap-1">
+                          <span className={cn('text-[10px] font-bold uppercase', posColor(p.pos))}>{p.pos}</span>
+                          <span className="text-xs text-white/80">{p.n}</span>
+                          {rankBadge(p1Ranks[i] ?? null)}
+                        </div>
+                      ))}
+                      {p1ValidRanks.length === 0 && <span className="text-[10px] text-slate-600 italic">no rank data</span>}
+                    </div>
+                  </div>
+
+                  {/* P2 haul */}
+                  <div>
+                    <p className={cn('text-xs font-semibold mb-1.5', isP2Winner ? 'text-[#ffd700]' : 'text-slate-400')}>
+                      {trade.p2} received
+                      {isP2Winner && <span className="ml-1 text-[9px]">★</span>}
+                    </p>
+                    <div className="space-y-0.5">
+                      {trade.p2gets.map((p, i) => (
+                        <div key={i} className="flex items-center gap-1">
+                          <span className={cn('text-[10px] font-bold uppercase', posColor(p.pos))}>{p.pos}</span>
+                          <span className="text-xs text-white/80">{p.n}</span>
+                          {rankBadge(p2Ranks[i] ?? null)}
+                        </div>
+                      ))}
+                      {p2ValidRanks.length === 0 && <span className="text-[10px] text-slate-600 italic">no rank data</span>}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Value bar */}
+                {p1ValidRanks.length > 0 && p2ValidRanks.length > 0 && (
+                  <div className="mt-2">
+                    <div className="flex text-[9px] text-slate-500 justify-between mb-1">
+                      <span className={isP1Winner ? 'text-[#ffd700] font-bold' : ''}>{trade.p1} {p1Pct}%</span>
+                      <span className={isP2Winner ? 'text-[#ffd700] font-bold' : ''}>{trade.p2} {p2Pct}%</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-[#1a2d42] overflow-hidden flex">
+                      <div
+                        className={cn('h-full transition-all', isP1Winner ? 'bg-[#ffd700]' : 'bg-sky-700')}
+                        style={{ width: `${p1Pct}%` }}
+                      />
+                      <div
+                        className={cn('h-full transition-all', isP2Winner ? 'bg-[#ffd700]' : 'bg-indigo-700')}
+                        style={{ width: `${p2Pct}%` }}
+                      />
+                    </div>
+                    {isEven && (
+                      <p className="text-[10px] text-slate-500 mt-1">Roughly even value at time of trade</p>
+                    )}
+                    {(isP1Winner || isP2Winner) && (
+                      <p className="text-[10px] text-slate-500 mt-1">
+                        {isP1Winner ? trade.p1 : trade.p2}{' '}
+                        had the edge in dynasty value (top asset: #{isP1Winner ? dv.p1_top : dv.p2_top})
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
 
           {/* ── How It Aged: points delivered ───────────────────────── */}
           {trade.points_delivered && trade.points_delivered.length > 0 && (() => {
