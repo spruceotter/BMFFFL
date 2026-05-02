@@ -41,6 +41,21 @@ interface DynastyValue {
   winner: 'p1' | 'p2' | 'even' | null;
 }
 
+interface RealizedPtsDetail {
+  n: string;
+  pts: number;
+  span: string;
+  end: 'traded' | 'held';
+}
+
+interface RealizedPts {
+  p1_pts: number;
+  p2_pts: number;
+  p1_detail: RealizedPtsDetail[];
+  p2_detail: RealizedPtsDetail[];
+  winner: 'p1' | 'p2' | 'even' | null;
+}
+
 interface Trade {
   id: string;
   season: number;
@@ -55,6 +70,7 @@ interface Trade {
   p2picks: PickGot[];
   points_delivered?: PointsParty[];
   dynasty_value?: DynastyValue;
+  realized_pts?: RealizedPts;
 }
 
 interface TradeHistoryData {
@@ -473,6 +489,108 @@ function TradeCard({
                   <p className="text-[10px] text-slate-600 mt-1">
                     {sorted[0].players_received[0].weeks_remaining} weeks of season remaining at time of trade
                   </p>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* ── Multi-Season Realized Points ──────────────────────── */}
+          {trade.realized_pts && (() => {
+            const rp = trade.realized_pts;
+            const hasData = rp.p1_detail.length > 0 || rp.p2_detail.length > 0;
+            if (!hasData) return null;
+
+            const p1Total = rp.p1_pts;
+            const p2Total = rp.p2_pts;
+            const combined = p1Total + p2Total;
+            const p1Pct = combined > 0 ? Math.round((p1Total / combined) * 100) : 50;
+            const p2Pct = 100 - p1Pct;
+            const spread = Math.abs(p1Total - p2Total);
+            const isP1Winner = rp.winner === 'p1';
+            const isP2Winner = rp.winner === 'p2';
+            const isEven = rp.winner === 'even';
+
+            const renderDetail = (detail: RealizedPtsDetail[], isWinner: boolean) => (
+              <div className="space-y-0.5">
+                {detail.map((p, i) => (
+                  <div key={i} className="flex items-center gap-1 flex-wrap">
+                    <span className="text-xs text-white/80">{p.n}</span>
+                    <span className={cn('text-[10px] font-mono font-bold tabular-nums', isWinner ? 'text-emerald-400' : 'text-slate-400')}>
+                      {p.pts.toFixed(1)}
+                    </span>
+                    <span className="text-[9px] text-slate-600">{p.span}</span>
+                    {p.end === 'traded' && (
+                      <span className="text-[9px] text-sky-600">→flipped</span>
+                    )}
+                  </div>
+                ))}
+                {detail.length === 0 && (
+                  <span className="text-[10px] text-slate-600 italic">picks only</span>
+                )}
+              </div>
+            );
+
+            return (
+              <div className="mt-4 rounded-lg bg-[#0a1a10] border border-emerald-900/30 p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
+                    Full Realized Value
+                  </span>
+                  <span className="text-[10px] text-slate-600">— PPR pts while on roster (multi-season)</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-3">
+                  <div>
+                    <p className={cn('text-xs font-semibold mb-1.5', isP1Winner ? 'text-emerald-400' : 'text-slate-400')}>
+                      {trade.p1} received
+                      {isP1Winner && <span className="ml-1">★</span>}
+                    </p>
+                    {renderDetail(rp.p1_detail, isP1Winner)}
+                    {rp.p1_detail.length > 0 && (
+                      <p className={cn('text-xs font-mono font-bold mt-1.5', isP1Winner ? 'text-emerald-400' : 'text-slate-400')}>
+                        {p1Total.toFixed(1)} pts total
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <p className={cn('text-xs font-semibold mb-1.5', isP2Winner ? 'text-emerald-400' : 'text-slate-400')}>
+                      {trade.p2} received
+                      {isP2Winner && <span className="ml-1">★</span>}
+                    </p>
+                    {renderDetail(rp.p2_detail, isP2Winner)}
+                    {rp.p2_detail.length > 0 && (
+                      <p className={cn('text-xs font-mono font-bold mt-1.5', isP2Winner ? 'text-emerald-400' : 'text-slate-400')}>
+                        {p2Total.toFixed(1)} pts total
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Realized pts bar */}
+                {p1Total > 0 && p2Total > 0 && (
+                  <div className="mt-1">
+                    <div className="flex text-[9px] text-slate-500 justify-between mb-1">
+                      <span className={isP1Winner ? 'text-emerald-400 font-bold' : ''}>{trade.p1} {p1Pct}%</span>
+                      <span className={isP2Winner ? 'text-emerald-400 font-bold' : ''}>{trade.p2} {p2Pct}%</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-[#1a2d42] overflow-hidden flex">
+                      <div
+                        className={cn('h-full transition-all', isP1Winner ? 'bg-emerald-500' : 'bg-emerald-900')}
+                        style={{ width: `${p1Pct}%` }}
+                      />
+                      <div
+                        className={cn('h-full transition-all', isP2Winner ? 'bg-emerald-500' : 'bg-emerald-900')}
+                        style={{ width: `${p2Pct}%` }}
+                      />
+                    </div>
+                    {spread > 10 && (
+                      <p className="text-[10px] text-slate-500 mt-1">
+                        {isP1Winner ? trade.p1 : isP2Winner ? trade.p2 : null}{' '}
+                        {(isP1Winner || isP2Winner) && <>won by <span className="text-emerald-400 font-bold">{spread.toFixed(1)} pts</span> across all seasons</>}
+                        {isEven && 'Roughly even production across all seasons'}
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             );
