@@ -315,12 +315,13 @@ export const PAGE_STATUS: Record<string, PageStatusEntry> = {
     notes: 'Draft history not from Sleeper DB',
     category: 'History',
   },
-  '/trades': {
-    path: '/trades',
-    status: 'placeholder',
-    label: 'Trades',
-    notes: 'Trade history not from DB',
-    category: 'History',
+  '/draft-picks': {
+    path: '/draft-picks',
+    status: 'validated',
+    label: 'Draft Pick Tracker',
+    notes: 'Pick holdings for 2026-2028 from Sleeper traded_picks table. Shows original vs current owner per slot/round. Generate: scripts/generate-draft-picks-data.ts',
+    validatedAt: '2026-05-02',
+    category: 'Season',
   },
   '/search': {
     path: '/search',

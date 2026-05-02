@@ -35,6 +35,7 @@ const NAV_LINKS: NavLink[] = [
       { label: '2026 Season',             href: '/season/current' },
       { label: 'NFL Draft Hub 2026',      href: '/nfl-draft/2026' },
       { label: '🏆 Draft Game',           href: '/nfl-draft-game' },
+      { label: 'Draft Pick Tracker',      href: '/draft-picks' },
     ],
   },
   {
