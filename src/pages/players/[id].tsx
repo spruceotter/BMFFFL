@@ -312,7 +312,7 @@ export default function PlayerPage({ player }: Props) {
                     {/* Superflex Rankings (Chris's CSV) */}
                     {player.sflex && (
                       <div className="bg-amber-900/20 border border-amber-700/30 rounded-lg px-4 py-2 text-center">
-                        <p className="text-xs text-amber-400 mb-0.5">SF Rankings</p>
+                        <p className="text-xs text-amber-400 mb-0.5">DTC</p>
                         <p className="text-white font-bold">
                           {player.sflex.sflex_value != null ? player.sflex.sflex_value.toLocaleString() : '—'}
                         </p>
@@ -336,7 +336,7 @@ export default function PlayerPage({ player }: Props) {
                       </div>
                     )}
                   </div>
-                  <p className="text-xs text-gray-600 mt-2">SF Rankings · KTC · as of 2026-05-03</p>
+                  <p className="text-xs text-gray-600 mt-2">DTC · KTC · as of 2026-05-03</p>
                 </div>
               )}
             </Section>
