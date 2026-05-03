@@ -699,7 +699,7 @@
             "pick_no": 115,
             "player_id": "",
             "player_name": "[Roster Limit - no pick]",
-            "position": "—",
+            "position": "\u2014",
             "team": ""
           },
           {
@@ -25092,849 +25092,6 @@
         "notable_adds": []
       }
     },
-    "MCSchools": {
-      "2020": {
-        "season": "2020",
-        "draft_picks": [
-          {
-            "season": "2020",
-            "draft_type": "rookie",
-            "round": 3,
-            "pick_no": 30,
-            "player_id": "6805",
-            "player_name": "K.J. Hamler",
-            "position": "WR",
-            "team": "DEN"
-          },
-          {
-            "season": "2020",
-            "draft_type": "rookie",
-            "round": 4,
-            "pick_no": 37,
-            "player_id": "1911",
-            "player_name": "Willie Snead IV",
-            "position": "WR",
-            "team": "BAL"
-          },
-          {
-            "season": "2020",
-            "draft_type": "rookie",
-            "round": 4,
-            "pick_no": 42,
-            "player_id": "6823",
-            "player_name": "Jacob Eason",
-            "position": "QB",
-            "team": "IND"
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 1,
-            "pick_no": 2,
-            "player_id": "",
-            "player_name": "Russell Wilson",
-            "position": "QB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 2,
-            "pick_no": 5,
-            "player_id": "",
-            "player_name": "Tyreek Hill",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 3,
-            "pick_no": 8,
-            "player_id": "",
-            "player_name": "Cam Akers",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 4,
-            "pick_no": 11,
-            "player_id": "",
-            "player_name": "Jerry Jeudy",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 5,
-            "pick_no": 14,
-            "player_id": "",
-            "player_name": "JuJu Smith-Schuster",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 6,
-            "pick_no": 17,
-            "player_id": "",
-            "player_name": "N'Keal Harry",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 7,
-            "pick_no": 20,
-            "player_id": "",
-            "player_name": "Teddy Bridgewater",
-            "position": "QB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 8,
-            "pick_no": 23,
-            "player_id": "",
-            "player_name": "Hunter Henry",
-            "position": "TE",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 9,
-            "pick_no": 26,
-            "player_id": "",
-            "player_name": "2021 1st Rd (Grandes)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 10,
-            "pick_no": 29,
-            "player_id": "",
-            "player_name": "Dwayne Haskins",
-            "position": "QB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 11,
-            "pick_no": 32,
-            "player_id": "",
-            "player_name": "2022 1st Rd (Tyler)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 12,
-            "pick_no": 35,
-            "player_id": "",
-            "player_name": "2022 1st Rd (1.13)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 13,
-            "pick_no": 38,
-            "player_id": "",
-            "player_name": "Sony Michel",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 29,
-            "pick_no": 86,
-            "player_id": "",
-            "player_name": "Auden Tate",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 30,
-            "pick_no": 89,
-            "player_id": "",
-            "player_name": "Ryquell Armstead",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 31,
-            "pick_no": 92,
-            "player_id": "",
-            "player_name": "2021 4th Rd (Grandes)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 32,
-            "pick_no": 95,
-            "player_id": "",
-            "player_name": "Brycen Hopkins",
-            "position": "TE",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 33,
-            "pick_no": 98,
-            "player_id": "",
-            "player_name": "Brian Hill",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 34,
-            "pick_no": 101,
-            "player_id": "",
-            "player_name": "Keke Coutee",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 35,
-            "pick_no": 104,
-            "player_id": "",
-            "player_name": "Allen Hurns",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 36,
-            "pick_no": 107,
-            "player_id": "",
-            "player_name": "Jaylen Samuels",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 37,
-            "pick_no": 110,
-            "player_id": "",
-            "player_name": "Salvon Ahmed",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 38,
-            "pick_no": 113,
-            "player_id": "",
-            "player_name": "Dan Arnold",
-            "position": "TE",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 39,
-            "pick_no": 116,
-            "player_id": "",
-            "player_name": "Mason Rudolph",
-            "position": "QB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 14,
-            "pick_no": 41,
-            "player_id": "",
-            "player_name": "Tarik Cohen",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 15,
-            "pick_no": 44,
-            "player_id": "",
-            "player_name": "2021 2nd Rd (Matt S.)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 16,
-            "pick_no": 47,
-            "player_id": "",
-            "player_name": "Sammy Watkins",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 17,
-            "pick_no": 50,
-            "player_id": "",
-            "player_name": "Lamar Miller",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 18,
-            "pick_no": 53,
-            "player_id": "",
-            "player_name": "Jamison Crowder",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 19,
-            "pick_no": 56,
-            "player_id": "",
-            "player_name": "Jack Doyle",
-            "position": "TE",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 20,
-            "pick_no": 59,
-            "player_id": "",
-            "player_name": "Dede Westbrook",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 21,
-            "pick_no": 62,
-            "player_id": "",
-            "player_name": "LeSean McCoy",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 22,
-            "pick_no": 65,
-            "player_id": "",
-            "player_name": "Randall Cobb",
-            "position": "WR",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 23,
-            "pick_no": 68,
-            "player_id": "",
-            "player_name": "2021 3rd Rd (Matt S.)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 24,
-            "pick_no": 71,
-            "player_id": "",
-            "player_name": "Anthony McFarland",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 25,
-            "pick_no": 74,
-            "player_id": "",
-            "player_name": "Eno Benjamin",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 26,
-            "pick_no": 77,
-            "player_id": "",
-            "player_name": "2022 3rd Rd (Tyler)",
-            "position": "Pick",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 27,
-            "pick_no": 80,
-            "player_id": "",
-            "player_name": "Mike Davis",
-            "position": "RB",
-            "team": ""
-          },
-          {
-            "season": "2020",
-            "draft_type": "dispersal",
-            "round": 28,
-            "pick_no": 83,
-            "player_id": "",
-            "player_name": "2022 3rd Rd (Matt S.)",
-            "position": "Pick",
-            "team": ""
-          }
-        ],
-        "trades": [
-          {
-            "week": 1,
-            "acquired": [
-              "Sammy Watkins",
-              "2020 R4 Pick (orig. Cmaleski)"
-            ],
-            "sent": [
-              "Benny Snell",
-              "2020 R2 Pick"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "T.Y. Hilton",
-              "JuJu Smith-Schuster"
-            ],
-            "sent": [
-              "David Montgomery",
-              "2020 R1 Pick"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "Kenny Stills"
-            ],
-            "sent": [],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "John Brown",
-              "Melvin Gordon",
-              "2022 R2 Pick"
-            ],
-            "sent": [
-              "Jerry Jeudy"
-            ],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 1,
-            "acquired": [],
-            "sent": [
-              "Auden Tate"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 5,
-            "acquired": [
-              "Kyle Allen"
-            ],
-            "sent": [
-              "2021 R3 Pick (orig. Grandes)"
-            ],
-            "trade_partner": "MLSchools12"
-          }
-        ],
-        "notable_adds": [
-          {
-            "week": 2,
-            "type": "waiver",
-            "player_name": "Chris Hogan",
-            "position": "WR"
-          },
-          {
-            "week": 4,
-            "type": "waiver",
-            "player_name": "D'Ernest Johnson",
-            "position": "RB"
-          },
-          {
-            "week": 9,
-            "type": "waiver",
-            "player_name": "Matt Breida",
-            "position": "RB"
-          },
-          {
-            "week": 10,
-            "type": "waiver",
-            "player_name": "Olamide Zaccheaus",
-            "position": "WR"
-          }
-        ]
-      },
-      "2021": {
-        "season": "2021",
-        "draft_picks": [
-          {
-            "season": "2021",
-            "draft_type": "rookie",
-            "round": 1,
-            "pick_no": 3,
-            "player_id": "7610",
-            "player_name": "Trey Lance",
-            "position": "QB",
-            "team": "SF"
-          },
-          {
-            "season": "2021",
-            "draft_type": "rookie",
-            "round": 2,
-            "pick_no": 14,
-            "player_id": "7601",
-            "player_name": "Rondale Moore",
-            "position": "WR",
-            "team": "ARI"
-          },
-          {
-            "season": "2021",
-            "draft_type": "rookie",
-            "round": 3,
-            "pick_no": 36,
-            "player_id": "2711",
-            "player_name": "Taylor Heinicke",
-            "position": "QB",
-            "team": "WAS"
-          },
-          {
-            "season": "2021",
-            "draft_type": "rookie",
-            "round": 4,
-            "pick_no": 42,
-            "player_id": "7794",
-            "player_name": "Chris Evans",
-            "position": "RB",
-            "team": "CIN"
-          }
-        ],
-        "trades": [
-          {
-            "week": 1,
-            "acquired": [
-              "Joe Mixon",
-              "2021 R2 Pick (orig. Tubes94)",
-              "2021 R4 Pick (orig. MLSchools12)"
-            ],
-            "sent": [
-              "Tyreek Hill"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "Mike Davis"
-            ],
-            "sent": [
-              "2021 R4 Pick (orig. MLSchools12)",
-              "2021 R3 Pick"
-            ],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "Julian Edelman"
-            ],
-            "sent": [],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "Eric Ebron",
-              "Keke Coutee",
-              "Allen Lazard",
-              "Jerry Jeudy",
-              "2021 R3 Pick (orig. Cogdeill11)",
-              "2021 R3 Pick (orig. MCSchools)"
-            ],
-            "sent": [
-              "2021 R1 Pick (orig. Grandes)"
-            ],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "2021 R1 Pick (orig. eldridm20)"
-            ],
-            "sent": [
-              "Joe Mixon",
-              "2021 R2 Pick (orig. Tubes94)",
-              "2022 R2 Pick (orig. MLSchools12)",
-              "2021 R3 Pick"
-            ],
-            "trade_partner": "Cmaleski"
-          },
-          {
-            "week": 1,
-            "acquired": [
-              "A.J. Green",
-              "Julio Jones",
-              "Marcus Mariota"
-            ],
-            "sent": [
-              "JuJu Smith-Schuster",
-              "Dwayne Haskins",
-              "N'Keal Harry"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 2,
-            "acquired": [
-              "2022 R2 Pick"
-            ],
-            "sent": [
-              "Taylor Heinicke"
-            ],
-            "trade_partner": "Cogdeill11"
-          },
-          {
-            "week": 4,
-            "acquired": [
-              "Chuba Hubbard",
-              "2022 R2 Pick",
-              "2022 R2 Pick (orig. eldridm20)"
-            ],
-            "sent": [
-              "Julio Jones",
-              "2022 R3 Pick"
-            ],
-            "trade_partner": "eldridsm"
-          },
-          {
-            "week": 5,
-            "acquired": [
-              "David Njoku"
-            ],
-            "sent": [
-              "2022 R3 Pick (orig. tdtd19844)"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 9,
-            "acquired": [
-              "Foster Moreau",
-              "2022 R2 Pick (orig. Grandes)"
-            ],
-            "sent": [
-              "A.J. Green"
-            ],
-            "trade_partner": "tdtd19844"
-          },
-          {
-            "week": 9,
-            "acquired": [
-              "Miles Sanders"
-            ],
-            "sent": [
-              "2022 R2 Pick (orig. eldridsm)",
-              "2023 R2 Pick"
-            ],
-            "trade_partner": "MLSchools12"
-          },
-          {
-            "week": 11,
-            "acquired": [
-              "2022 R3 Pick (orig. MLSchools12)"
-            ],
-            "sent": [
-              "Matt Breida"
-            ],
-            "trade_partner": "Grandes"
-          },
-          {
-            "week": 12,
-            "acquired": [
-              "Michael Thomas",
-              "Elijah Mitchell",
-              "2022 R2 Pick (orig. Cmaleski)"
-            ],
-            "sent": [
-              "Melvin Gordon",
-              "Jerry Jeudy"
-            ],
-            "trade_partner": "Grandes"
-          }
-        ],
-        "notable_adds": [
-          {
-            "week": 1,
-            "type": "waiver",
-            "player_name": "Josh Gordon",
-            "position": "WR"
-          },
-          {
-            "week": 1,
-            "type": "waiver",
-            "player_name": "Michael Strachan",
-            "position": "WR"
-          },
-          {
-            "week": 1,
-            "type": "waiver",
-            "player_name": "Ty'Son Williams",
-            "position": "RB"
-          },
-          {
-            "week": 1,
-            "type": "waiver",
-            "player_name": "Chester Rogers",
-            "position": "WR"
-          },
-          {
-            "week": 2,
-            "type": "waiver",
-            "player_name": "Jacques Patrick",
-            "position": "RB"
-          },
-          {
-            "week": 2,
-            "type": "waiver",
-            "player_name": "Braxton Berrios",
-            "position": "WR"
-          },
-          {
-            "week": 5,
-            "type": "waiver",
-            "player_name": "Geno Smith",
-            "position": "QB"
-          },
-          {
-            "week": 5,
-            "type": "waiver",
-            "player_name": "Devontae Booker",
-            "position": "RB"
-          },
-          {
-            "week": 6,
-            "type": "waiver",
-            "player_name": "DeSean Jackson",
-            "position": "WR"
-          },
-          {
-            "week": 6,
-            "type": "waiver",
-            "player_name": "KhaDarel Hodge",
-            "position": "WR"
-          },
-          {
-            "week": 7,
-            "type": "waiver",
-            "player_name": "Equanimeous St. Brown",
-            "position": "WR"
-          },
-          {
-            "week": 8,
-            "type": "waiver",
-            "player_name": "Adrian Peterson",
-            "position": "RB"
-          },
-          {
-            "week": 8,
-            "type": "waiver",
-            "player_name": "Tajae Sharpe",
-            "position": "WR"
-          },
-          {
-            "week": 10,
-            "type": "waiver",
-            "player_name": "Ray-Ray McCloud",
-            "position": "WR"
-          },
-          {
-            "week": 10,
-            "type": "waiver",
-            "player_name": "D'Onta Foreman",
-            "position": "RB"
-          },
-          {
-            "week": 11,
-            "type": "waiver",
-            "player_name": "Keelan Cole",
-            "position": "WR"
-          },
-          {
-            "week": 11,
-            "type": "waiver",
-            "player_name": "Albert Wilson",
-            "position": "WR"
-          },
-          {
-            "week": 11,
-            "type": "waiver",
-            "player_name": "Qadree Ollison",
-            "position": "RB"
-          },
-          {
-            "week": 12,
-            "type": "waiver",
-            "player_name": "Austin Walter",
-            "position": "RB"
-          },
-          {
-            "week": 13,
-            "type": "waiver",
-            "player_name": "JaMycal Hasty",
-            "position": "RB"
-          },
-          {
-            "week": 14,
-            "type": "waiver",
-            "player_name": "James Washington",
-            "position": "WR"
-          }
-        ]
-      }
-    },
     "eldridsm": {
       "2016": {
         "season": "2016",
@@ -33891,6 +33048,476 @@
             "position": "TE"
           }
         ]
+      },
+      "2020": {
+        "draft_picks": [
+          {
+            "season": "2020",
+            "draft_type": "rookie",
+            "round": 3,
+            "pick_no": 30,
+            "player_id": "6805",
+            "player_name": "K.J. Hamler",
+            "position": "WR",
+            "team": "DEN"
+          },
+          {
+            "season": "2020",
+            "draft_type": "rookie",
+            "round": 4,
+            "pick_no": 37,
+            "player_id": "1911",
+            "player_name": "Willie Snead IV",
+            "position": "WR",
+            "team": "BAL"
+          },
+          {
+            "season": "2020",
+            "draft_type": "rookie",
+            "round": 4,
+            "pick_no": 42,
+            "player_id": "6823",
+            "player_name": "Jacob Eason",
+            "position": "QB",
+            "team": "IND"
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 2,
+            "player_id": "",
+            "player_name": "Russell Wilson",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 5,
+            "player_id": "",
+            "player_name": "Tyreek Hill",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 8,
+            "player_id": "",
+            "player_name": "Cam Akers",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 11,
+            "player_id": "",
+            "player_name": "Jerry Jeudy",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 14,
+            "player_id": "",
+            "player_name": "JuJu Smith-Schuster",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 17,
+            "player_id": "",
+            "player_name": "N'Keal Harry",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 20,
+            "player_id": "",
+            "player_name": "Teddy Bridgewater",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 23,
+            "player_id": "",
+            "player_name": "Hunter Henry",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 26,
+            "player_id": "",
+            "player_name": "2021 1st Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 29,
+            "player_id": "",
+            "player_name": "Dwayne Haskins",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 32,
+            "player_id": "",
+            "player_name": "2022 1st Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 35,
+            "player_id": "",
+            "player_name": "2022 1st Rd (1.13)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 38,
+            "player_id": "",
+            "player_name": "Sony Michel",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 86,
+            "player_id": "",
+            "player_name": "Auden Tate",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 89,
+            "player_id": "",
+            "player_name": "Ryquell Armstead",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 92,
+            "player_id": "",
+            "player_name": "2021 4th Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 95,
+            "player_id": "",
+            "player_name": "Brycen Hopkins",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 33,
+            "pick_no": 98,
+            "player_id": "",
+            "player_name": "Brian Hill",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 34,
+            "pick_no": 101,
+            "player_id": "",
+            "player_name": "Keke Coutee",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 35,
+            "pick_no": 104,
+            "player_id": "",
+            "player_name": "Allen Hurns",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 36,
+            "pick_no": 107,
+            "player_id": "",
+            "player_name": "Jaylen Samuels",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 37,
+            "pick_no": 110,
+            "player_id": "",
+            "player_name": "Salvon Ahmed",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 38,
+            "pick_no": 113,
+            "player_id": "",
+            "player_name": "Dan Arnold",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 39,
+            "pick_no": 116,
+            "player_id": "",
+            "player_name": "Mason Rudolph",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 14,
+            "pick_no": 41,
+            "player_id": "",
+            "player_name": "Tarik Cohen",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 15,
+            "pick_no": 44,
+            "player_id": "",
+            "player_name": "2021 2nd Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 16,
+            "pick_no": 47,
+            "player_id": "",
+            "player_name": "Sammy Watkins",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 17,
+            "pick_no": 50,
+            "player_id": "",
+            "player_name": "Lamar Miller",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 18,
+            "pick_no": 53,
+            "player_id": "",
+            "player_name": "Jamison Crowder",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 19,
+            "pick_no": 56,
+            "player_id": "",
+            "player_name": "Jack Doyle",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 20,
+            "pick_no": 59,
+            "player_id": "",
+            "player_name": "Dede Westbrook",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 21,
+            "pick_no": 62,
+            "player_id": "",
+            "player_name": "LeSean McCoy",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 22,
+            "pick_no": 65,
+            "player_id": "",
+            "player_name": "Randall Cobb",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 23,
+            "pick_no": 68,
+            "player_id": "",
+            "player_name": "2021 3rd Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 24,
+            "pick_no": 71,
+            "player_id": "",
+            "player_name": "Anthony McFarland",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 25,
+            "pick_no": 74,
+            "player_id": "",
+            "player_name": "Eno Benjamin",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 26,
+            "pick_no": 77,
+            "player_id": "",
+            "player_name": "2022 3rd Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 27,
+            "pick_no": 80,
+            "player_id": "",
+            "player_name": "Mike Davis",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 28,
+            "pick_no": 83,
+            "player_id": "",
+            "player_name": "2022 3rd Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          }
+        ],
+        "transactions": []
+      },
+      "2021": {
+        "draft_picks": [
+          {
+            "season": "2021",
+            "draft_type": "rookie",
+            "round": 1,
+            "pick_no": 3,
+            "player_id": "7610",
+            "player_name": "Trey Lance",
+            "position": "QB",
+            "team": "SF"
+          },
+          {
+            "season": "2021",
+            "draft_type": "rookie",
+            "round": 2,
+            "pick_no": 14,
+            "player_id": "7601",
+            "player_name": "Rondale Moore",
+            "position": "WR",
+            "team": "ARI"
+          },
+          {
+            "season": "2021",
+            "draft_type": "rookie",
+            "round": 3,
+            "pick_no": 36,
+            "player_id": "2711",
+            "player_name": "Taylor Heinicke",
+            "position": "QB",
+            "team": "WAS"
+          },
+          {
+            "season": "2021",
+            "draft_type": "rookie",
+            "round": 4,
+            "pick_no": 42,
+            "player_id": "7794",
+            "player_name": "Chris Evans",
+            "position": "RB",
+            "team": "CIN"
+          }
+        ],
+        "transactions": []
       }
     },
     "Bimfle": {
