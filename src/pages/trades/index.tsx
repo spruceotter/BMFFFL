@@ -1,7 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { GetStaticProps } from 'next';
-import { ArrowLeftRight, Search, Filter, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import { ArrowLeftRight, Search, Filter, ChevronDown, ChevronUp, ArrowRight, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -302,6 +303,17 @@ function TradeCard({
             COUNTER
           </span>
         )}
+
+        {/* Deep dive link */}
+        <Link
+          href={`/trades/${trade.id}`}
+          onClick={e => e.stopPropagation()}
+          className="shrink-0 hidden sm:inline-flex items-center gap-0.5 text-[9px] text-slate-600 hover:text-[#ffd700] transition-colors ml-1"
+          title="Full trade analysis"
+          aria-label={`Full analysis for this trade`}
+        >
+          <ExternalLink className="w-3 h-3" />
+        </Link>
 
         {/* Expand icon */}
         <div className="shrink-0 ml-auto text-slate-500">
@@ -707,6 +719,13 @@ function TradeCard({
             {dateStr && <span>{dateStr}</span>}
             {weekStr && !dateStr && <span>Week {trade.week}</span>}
             <span className="font-mono opacity-50">{trade.id.slice(0, 8)}</span>
+            <Link
+              href={`/trades/${trade.id}`}
+              className="ml-auto flex items-center gap-1 text-[10px] text-slate-600 hover:text-[#ffd700] transition-colors normal-case tracking-normal"
+            >
+              <ExternalLink className="w-3 h-3" />
+              Full analysis
+            </Link>
           </div>
         </div>
       )}
