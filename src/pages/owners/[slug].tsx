@@ -312,6 +312,10 @@ interface OwnerSeason {
   era?: 'espn';
 }
 
+interface OwnerSeasonStats {
+  season_pts: Record<string, Record<string, number>>;
+}
+
 type Owner = Omit<typeof OWNERS[number], 'seasons'> & { seasons: OwnerSeason[] };
 
 interface LivePlayer {
@@ -960,6 +964,18 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
   const winPct = total > 0 ? (owner.wins / total) : 0;
   const winPctStr = winPct.toFixed(3).replace(/^0/, '');
 
+  // Season points (Sleeper era 2020+)
+  const [seasonPts, setSeasonPts] = useState<Record<string, number>>({});
+  useEffect(() => {
+    fetch('/data/owner-season-stats.json')
+      .then(r => r.json())
+      .then((data: OwnerSeasonStats) => {
+        const pts = data.season_pts[owner.displayName] ?? {};
+        setSeasonPts(pts);
+      })
+      .catch(() => {});
+  }, [owner.displayName]);
+
   return (
     <>
       <Head>
@@ -1073,7 +1089,7 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
           </div>
 
           {/* ── Section 2: Career Stats ───────────────────────────────────── */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
             <StatCard
               label="All-Time Record"
               value={`${owner.wins}-${owner.losses}`}
@@ -1094,6 +1110,15 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
               value={owner.championships.length}
               subtext={owner.championships.length > 0 ? owner.championships.join(', ') : 'No titles yet'}
             />
+            <StatCard
+              label="Sleeper Pts"
+              value={
+                Object.keys(seasonPts).length > 0
+                  ? Object.values(seasonPts).reduce((a, b) => a + b, 0).toFixed(1)
+                  : '—'
+              }
+              subtext="2020–2025 total"
+            />
           </div>
 
           {/* ── Section 3: Season-by-Season ───────────────────────────────── */}
@@ -1112,6 +1137,7 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
                     <th className="px-4 py-3 text-left font-semibold">Team Name</th>
                     <th className="px-4 py-3 text-left font-semibold">Seed</th>
                     <th className="px-4 py-3 text-left font-semibold">Record</th>
+                    <th className="px-4 py-3 text-right font-semibold">Pts</th>
                     <th className="px-4 py-3 text-center font-semibold">🏆</th>
                   </tr>
                 </thead>
@@ -1144,6 +1170,13 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
                       </td>
                       <td className="px-4 py-3 font-mono text-slate-300">
                         {season.wins}-{season.losses}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono text-sm">
+                        {seasonPts[String(season.year)] != null ? (
+                          <span className="text-slate-300">{seasonPts[String(season.year)].toFixed(1)}</span>
+                        ) : (
+                          <span className="text-slate-700">—</span>
+                        )}
                       </td>
                       <td className="px-4 py-3 text-center">
                         {season.champion ? (
