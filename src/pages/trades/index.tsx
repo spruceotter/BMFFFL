@@ -73,6 +73,12 @@ interface RealizedPts {
   p2_total?: number;
 }
 
+interface FaabItem {
+  amount: number;
+  receiver: string;
+  sender: string;
+}
+
 interface Trade {
   id: string;
   season: number;
@@ -85,6 +91,9 @@ interface Trade {
   p2gets: PlayerGot[];
   p1picks: PickGot[];
   p2picks: PickGot[];
+  faab?: FaabItem[];
+  no_counters?: boolean;
+  is_counter?: boolean;
   points_delivered?: PointsParty[];
   dynasty_value?: DynastyValue;
   realized_pts?: RealizedPts;
@@ -282,6 +291,18 @@ function TradeCard({
           <p className="text-xs text-slate-400 truncate">{label}</p>
         </div>
 
+        {/* No-counters / counter badge */}
+        {trade.no_counters && (
+          <span className="shrink-0 hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-900/40 text-emerald-400 border border-emerald-700/30">
+            NO CTR
+          </span>
+        )}
+        {trade.is_counter && !trade.no_counters && (
+          <span className="shrink-0 hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-indigo-900/40 text-indigo-400 border border-indigo-700/30">
+            COUNTER
+          </span>
+        )}
+
         {/* Expand icon */}
         <div className="shrink-0 ml-auto text-slate-500">
           {expanded
@@ -325,6 +346,28 @@ function TradeCard({
               />
             </div>
           </div>
+
+          {/* ── FAAB / Counter-offer metadata ────────────────────────── */}
+          {((trade.faab && trade.faab.length > 0) || trade.no_counters || trade.is_counter) && (
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-[10px]">
+              {trade.no_counters && (
+                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-emerald-900/20 border border-emerald-700/30 text-emerald-400 font-bold">
+                  ✓ No counters — mutual consent
+                </span>
+              )}
+              {trade.is_counter && (
+                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-indigo-900/20 border border-indigo-700/30 text-indigo-400 font-bold">
+                  ↩ Counter-offer accepted
+                </span>
+              )}
+              {trade.faab && trade.faab.filter(f => !(trade.no_counters && f.amount === 1)).map((f, i) => (
+                <span key={i} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-amber-900/20 border border-amber-700/30 text-amber-400">
+                  <span className="font-bold">${f.amount} FAAB</span>
+                  <span className="text-slate-500">{f.sender} → {f.receiver}</span>
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* ── Dynasty Value at Time of Trade ───────────────────────── */}
           {trade.dynasty_value && (() => {
