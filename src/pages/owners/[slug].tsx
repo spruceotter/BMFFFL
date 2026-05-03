@@ -449,6 +449,19 @@ interface RosterHistory {
   history: Record<string, Record<string, HistoricalSeasonRoster>>;
 }
 
+interface RosterStatPlayer {
+  player_id: string;
+  full_name: string;
+  position: string;
+  team: string;
+  starter_pts: number;
+  bench_pts: number;
+  starter_weeks: number;
+  bench_weeks: number;
+}
+
+type RosterStats = Record<string, Record<string, RosterStatPlayer[]>>;
+
 const POS_BADGE: Record<string, string> = {
   QB: 'bg-[#e94560]/20 text-[#e94560]',
   RB: 'bg-[#22c55e]/20 text-[#22c55e]',
@@ -458,18 +471,23 @@ const POS_BADGE: Record<string, string> = {
 };
 
 function RosterHistorySection({ displayName }: { displayName: string }) {
-  const [data, setData] = useState<Record<string, HistoricalSeasonRoster> | null>(null);
+  const [rosterMeta, setRosterMeta] = useState<Record<string, HistoricalSeasonRoster> | null>(null);
+  const [rosterStats, setRosterStats] = useState<Record<string, RosterStatPlayer[]> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [openSeason, setOpenSeason] = useState<string | null>(null);
+  const [showDepth, setShowDepth] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    fetch('/data/roster-history.json')
-      .then(r => r.json())
-      .then((json: RosterHistory) => {
-        const ownerHistory = json.history[displayName] ?? null;
-        setData(ownerHistory);
-        // Default open: most recent season
+    Promise.all([
+      fetch('/data/roster-history.json').then(r => r.json() as Promise<RosterHistory>),
+      fetch('/data/roster-stats.json').then(r => r.json() as Promise<RosterStats>),
+    ])
+      .then(([history, stats]) => {
+        const ownerHistory = history.history[displayName] ?? null;
+        const ownerStats = stats[displayName] ?? null;
+        setRosterMeta(ownerHistory);
+        setRosterStats(ownerStats);
         if (ownerHistory) {
           const seasons = Object.keys(ownerHistory).sort((a, b) => Number(b) - Number(a));
           setOpenSeason(seasons[0] ?? null);
@@ -488,7 +506,7 @@ function RosterHistorySection({ displayName }: { displayName: string }) {
     );
   }
 
-  if (error || !data) {
+  if (error || !rosterMeta) {
     return (
       <div className="p-4 text-sm text-slate-500 italic">
         {error ?? 'No roster history available.'}
@@ -496,14 +514,18 @@ function RosterHistorySection({ displayName }: { displayName: string }) {
     );
   }
 
-  const seasons = Object.keys(data).sort((a, b) => Number(b) - Number(a));
+  const seasons = Object.keys(rosterMeta).sort((a, b) => Number(b) - Number(a));
 
   return (
     <div className="divide-y divide-[#2d4a66]">
       {seasons.map(season => {
-        const roster = data[season];
+        const roster = rosterMeta[season];
         const isOpen = openSeason === season;
         const record = `${roster.wins}-${roster.losses}`;
+        const statPlayers = rosterStats?.[season] ?? [];
+        const top10 = statPlayers.slice(0, 10);
+        const depth = statPlayers.slice(10);
+        const isDepthOpen = showDepth[season] ?? false;
 
         return (
           <div key={season}>
@@ -527,26 +549,102 @@ function RosterHistorySection({ displayName }: { displayName: string }) {
             </button>
 
             {isOpen && (
-              <div className="px-4 pb-4 pt-1 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                {roster.players.map(p => {
-                  const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
-                  return (
-                    <div
-                      key={p.player_id}
-                      className={cn(
-                        'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm',
-                        'bg-[#0d1b2a] border border-[#2d4a66]',
-                        p.is_starter && 'border-[#ffd700]/30'
-                      )}
-                    >
-                      <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono', badgeClass)}>
-                        {p.position}
-                      </span>
-                      <span className="text-white truncate">{p.full_name}</span>
-                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+              <div className="px-4 pb-4 pt-1">
+                {statPlayers.length > 0 ? (
+                  <>
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-3 pb-1.5 pt-0.5">
+                      <span className="text-xs font-semibold text-[#ffd700] uppercase tracking-wide">Top Starters</span>
+                      <div className="flex gap-3 text-xs text-slate-500 font-mono">
+                        <span className="w-16 text-right">Starter</span>
+                        <span className="w-14 text-right">Bench</span>
+                      </div>
                     </div>
-                  );
-                })}
+
+                    {/* Top 10 starters */}
+                    <div className="space-y-1 mb-2">
+                      {top10.map((p, i) => {
+                        const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                        return (
+                          <div
+                            key={p.player_id}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0d1b2a] border border-[#ffd700]/20 text-sm"
+                          >
+                            <span className="text-slate-600 font-mono text-xs w-4 shrink-0">{i + 1}</span>
+                            <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono shrink-0', badgeClass)}>
+                              {p.position}
+                            </span>
+                            <span className="text-white truncate flex-1">{p.full_name}</span>
+                            <div className="flex gap-3 text-xs font-mono shrink-0">
+                              <span className="w-16 text-right text-[#ffd700]">{p.starter_pts > 0 ? p.starter_pts.toFixed(1) : '—'}</span>
+                              <span className="w-14 text-right text-slate-500">{p.bench_pts > 0 ? p.bench_pts.toFixed(1) : '—'}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Depth section toggle */}
+                    {depth.length > 0 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => setShowDepth(prev => ({ ...prev, [season]: !isDepthOpen }))}
+                          className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors"
+                        >
+                          <span className="font-semibold uppercase tracking-wide">Depth / Bench ({depth.length})</span>
+                          <ChevronLeft className={cn('w-3.5 h-3.5 transition-transform', isDepthOpen ? '-rotate-90' : 'rotate-180')} aria-hidden="true" />
+                        </button>
+
+                        {isDepthOpen && (
+                          <div className="space-y-1 mt-1">
+                            {depth.map(p => {
+                              const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                              return (
+                                <div
+                                  key={p.player_id}
+                                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-sm opacity-75"
+                                >
+                                  <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono shrink-0', badgeClass)}>
+                                    {p.position}
+                                  </span>
+                                  <span className="text-slate-300 truncate flex-1">{p.full_name}</span>
+                                  <div className="flex gap-3 text-xs font-mono shrink-0">
+                                    <span className="w-16 text-right text-slate-400">{p.starter_pts > 0 ? p.starter_pts.toFixed(1) : '—'}</span>
+                                    <span className="w-14 text-right text-slate-600">{p.bench_pts > 0 ? p.bench_pts.toFixed(1) : '—'}</span>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </>
+                ) : (
+                  // Fallback: no stats, just show player list
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                    {roster.players.map(p => {
+                      const badgeClass = POS_BADGE[p.position] ?? 'bg-slate-700 text-slate-300';
+                      return (
+                        <div
+                          key={p.player_id}
+                          className={cn(
+                            'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm',
+                            'bg-[#0d1b2a] border border-[#2d4a66]',
+                            p.is_starter && 'border-[#ffd700]/30'
+                          )}
+                        >
+                          <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono', badgeClass)}>
+                            {p.position}
+                          </span>
+                          <span className="text-white truncate">{p.full_name}</span>
+                          {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             )}
           </div>
