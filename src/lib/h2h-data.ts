@@ -265,7 +265,7 @@ export const H2H_SUMMARIES: OwnerH2HSummary[] = [
     biggestRivalry: 'eldridsm',
   },
   {
-    slug: 'escuelas', displayName: 'MCSchools',
+    slug: 'escuelas', displayName: 'Escuelas',
     totalWins: 24, totalLosses: 74, totalGames: 98,
     winPct: 0.245, espnWins: 0, espnLosses: 0,
     sleeperWins: 24, sleeperLosses: 74,
@@ -316,6 +316,6 @@ export const H2H_DISPLAY_NAMES: Record<string, string> = {
   "tubes94": "Tubes94",
   "cmaleski": "Cmaleski",
   "mmoodie12": "MMoodie12",
-  "escuelas": "MCSchools",
+  "escuelas": "Escuelas",
   "miroslav081": "Miroslav081"
 };

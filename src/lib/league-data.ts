@@ -199,7 +199,7 @@ export const ALUMNI: Manager[] = [
   },
   {
     slug: 'escuelas',
-    displayName: 'MCSchools',
+    displayName: 'Escuelas',
     dynastyRank: 13,
     dynastyScore: 2,
     championships: [],

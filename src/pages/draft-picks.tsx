@@ -43,7 +43,7 @@ const OWNER_COLORS: Record<string, string> = {
   Cmaleski:       'bg-orange-900/80 text-orange-200 border-orange-700/50',
   eldridm20:      'bg-yellow-900/80 text-yellow-200 border-yellow-700/50',
   JuicyBussy:     'bg-pink-900/80 text-pink-200 border-pink-700/50',
-  MCSchools:      'bg-cyan-900/80 text-cyan-200 border-cyan-700/50',
+  Escuelas:       'bg-cyan-900/80 text-cyan-200 border-cyan-700/50',
   eldridsm:       'bg-indigo-900/80 text-indigo-200 border-indigo-700/50',
   tdtd19844:      'bg-red-900/80 text-red-200 border-red-700/50',
   Tubes94:        'bg-violet-900/80 text-violet-200 border-violet-700/50',

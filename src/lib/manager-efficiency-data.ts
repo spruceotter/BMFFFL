@@ -177,7 +177,7 @@ export const MANAGER_EFFICIENCY: ManagerEfficiencyRecord[] = [
     },
   },
   {
-    slug: 'escuelas', displayName: 'MCSchools',
+    slug: 'escuelas', displayName: 'Escuelas',
     careerAvgEfficiency: 83.6,
     careerBenchMistakes: 473,
     careerGamesLostToLineup: 73,
