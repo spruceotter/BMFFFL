@@ -58,6 +58,16 @@ interface CareerStats {
   avg_pts_benched: number;
 }
 
+interface KtcData {
+  ktc_value_sf: number | null;
+  ktc_rank_sf: number | null;
+  ktc_pos_rank_sf: number | null;
+  ktc_value_1qb: number | null;
+  ktc_rank_1qb: number | null;
+  ktc_age: number | null;
+  ktc_as_of: string;
+}
+
 interface PlayerProfile {
   player_id: string;
   name: string;
@@ -68,6 +78,7 @@ interface PlayerProfile {
   weekly_performance: WeeklyRecord[];
   dynasty_adp_history: Record<string, DynastyAdpEntry>;
   career_bmfffl: CareerStats;
+  ktc: KtcData | null;
 }
 
 interface Props {
@@ -284,6 +295,28 @@ export default function PlayerPage({ player }: Props) {
                   </div>
                 ))}
               </div>
+
+              {/* KTC current trade value */}
+              {player.ktc && player.ktc.ktc_value_sf !== null && (
+                <div className="mt-4 pt-4 border-t border-gray-800">
+                  <p className="text-xs text-gray-500 mb-2">Current Trade Value (KTC)</p>
+                  <div className="flex gap-3 flex-wrap">
+                    <div className="bg-indigo-900/30 border border-indigo-700/40 rounded-lg px-4 py-2 text-center">
+                      <p className="text-xs text-indigo-400 mb-0.5">Superflex</p>
+                      <p className="text-white font-bold">{player.ktc.ktc_value_sf.toLocaleString()}</p>
+                      <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_sf} overall</p>
+                    </div>
+                    {player.ktc.ktc_value_1qb !== null && (
+                      <div className="bg-gray-800 border border-gray-700/40 rounded-lg px-4 py-2 text-center">
+                        <p className="text-xs text-gray-400 mb-0.5">1QB</p>
+                        <p className="text-white font-bold">{player.ktc.ktc_value_1qb.toLocaleString()}</p>
+                        <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_1qb} overall</p>
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-600 mt-2">via KTC · as of {player.ktc.ktc_as_of}</p>
+                </div>
+              )}
             </Section>
           )}
 
