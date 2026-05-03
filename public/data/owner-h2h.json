@@ -1,0 +1,1252 @@
+{
+  "generated_at": "2026-05-03",
+  "source": "Sleeper DB 2020-2025 regular season (wks 1-14)",
+  "h2h": {
+    "Cmaleski": {
+      "Escuelas": {
+        "wins": 8,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 1442.8,
+        "pts_against": 1133.9
+      },
+      "eldridsm": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 808.4,
+        "pts_against": 757.5
+      },
+      "JuicyBussy": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 809.1,
+        "pts_against": 800.5
+      },
+      "Cogdeill11": {
+        "wins": 3,
+        "losses": 9,
+        "ties": 2,
+        "pts_for": 1459.0,
+        "pts_against": 1593.4
+      },
+      "Grandes": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 908.2,
+        "pts_against": 922.6
+      },
+      "rbr": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 875.2,
+        "pts_against": 868.2
+      },
+      "SexMachineAndyD": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 793.1,
+        "pts_against": 843.8
+      },
+      "MLSchools12": {
+        "wins": 2,
+        "losses": 9,
+        "ties": 0,
+        "pts_for": 1476.1,
+        "pts_against": 1706.3
+      },
+      "Tubes94": {
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 609.5,
+        "pts_against": 609.7
+      },
+      "tdtd19844": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 731.0,
+        "pts_against": 771.6
+      },
+      "mmoodie12": {
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 254.6,
+        "pts_against": 198.2
+      },
+      "eldridm20": {
+        "wins": 1,
+        "losses": 5,
+        "ties": 2,
+        "pts_for": 686.4,
+        "pts_against": 796.2
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "Cogdeill11": {
+      "Cmaleski": {
+        "wins": 9,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 1593.4,
+        "pts_against": 1459.0
+      },
+      "Escuelas": {
+        "wins": 6,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 1399.3,
+        "pts_against": 1209.9
+      },
+      "eldridm20": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 793.9,
+        "pts_against": 794.6
+      },
+      "tdtd19844": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 713.1,
+        "pts_against": 686.3
+      },
+      "rbr": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 930.1,
+        "pts_against": 1004.2
+      },
+      "Grandes": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 804.6,
+        "pts_against": 861.3
+      },
+      "MLSchools12": {
+        "wins": 2,
+        "losses": 9,
+        "ties": 0,
+        "pts_for": 1279.1,
+        "pts_against": 1675.1
+      },
+      "eldridsm": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 747.8,
+        "pts_against": 866.4
+      },
+      "Tubes94": {
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 507.8,
+        "pts_against": 523.8
+      },
+      "SexMachineAndyD": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 2,
+        "pts_for": 662.8,
+        "pts_against": 781.2
+      },
+      "JuicyBussy": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 825.2,
+        "pts_against": 950.0
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 164.0,
+        "pts_against": 100.8
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "Escuelas": {
+      "Cogdeill11": {
+        "wins": 5,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 1209.9,
+        "pts_against": 1399.3
+      },
+      "Cmaleski": {
+        "wins": 3,
+        "losses": 8,
+        "ties": 0,
+        "pts_for": 1133.9,
+        "pts_against": 1442.8
+      },
+      "eldridm20": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 726.1,
+        "pts_against": 860.1
+      },
+      "tdtd19844": {
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 872.6,
+        "pts_against": 1029.4
+      },
+      "Grandes": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 533.2,
+        "pts_against": 754.0
+      },
+      "JuicyBussy": {
+        "wins": 2,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 923.0,
+        "pts_against": 1086.7
+      },
+      "rbr": {
+        "wins": 1,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 585.2,
+        "pts_against": 694.6
+      },
+      "Tubes94": {
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 527.4,
+        "pts_against": 624.3
+      },
+      "eldridsm": {
+        "wins": 1,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 596.0,
+        "pts_against": 874.0
+      },
+      "MLSchools12": {
+        "wins": 0,
+        "losses": 11,
+        "ties": 0,
+        "pts_for": 1194.9,
+        "pts_against": 1780.9
+      },
+      "SexMachineAndyD": {
+        "wins": 0,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 685.4,
+        "pts_against": 819.1
+      },
+      "mmoodie12": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 116.3,
+        "pts_against": 137.6
+      }
+    },
+    "Grandes": {
+      "JuicyBussy": {
+        "wins": 5,
+        "losses": 6,
+        "ties": 1,
+        "pts_for": 1401.5,
+        "pts_against": 1434.7
+      },
+      "SexMachineAndyD": {
+        "wins": 5,
+        "losses": 7,
+        "ties": 1,
+        "pts_for": 1653.8,
+        "pts_against": 1727.1
+      },
+      "Cmaleski": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 922.6,
+        "pts_against": 908.2
+      },
+      "Escuelas": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 754.0,
+        "pts_against": 533.2
+      },
+      "tdtd19844": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 835.1,
+        "pts_against": 700.8
+      },
+      "eldridsm": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 2,
+        "pts_for": 914.4,
+        "pts_against": 777.7
+      },
+      "rbr": {
+        "wins": 3,
+        "losses": 8,
+        "ties": 1,
+        "pts_for": 1532.8,
+        "pts_against": 1599.9
+      },
+      "MLSchools12": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 961.7,
+        "pts_against": 1126.3
+      },
+      "Cogdeill11": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 861.3,
+        "pts_against": 804.6
+      },
+      "eldridm20": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 834.1,
+        "pts_against": 849.8
+      },
+      "Tubes94": {
+        "wins": 3,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 653.6,
+        "pts_against": 587.3
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 139.0,
+        "pts_against": 75.3
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "JuicyBussy": {
+      "rbr": {
+        "wins": 7,
+        "losses": 4,
+        "ties": 2,
+        "pts_for": 1577.4,
+        "pts_against": 1492.1
+      },
+      "Grandes": {
+        "wins": 6,
+        "losses": 5,
+        "ties": 1,
+        "pts_for": 1434.7,
+        "pts_against": 1401.5
+      },
+      "Escuelas": {
+        "wins": 6,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 1086.7,
+        "pts_against": 923.0
+      },
+      "SexMachineAndyD": {
+        "wins": 5,
+        "losses": 6,
+        "ties": 1,
+        "pts_for": 1542.0,
+        "pts_against": 1630.6
+      },
+      "Tubes94": {
+        "wins": 4,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 683.9,
+        "pts_against": 610.4
+      },
+      "eldridm20": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 912.7,
+        "pts_against": 751.3
+      },
+      "Cogdeill11": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 950.0,
+        "pts_against": 825.2
+      },
+      "eldridsm": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 917.9,
+        "pts_against": 916.3
+      },
+      "tdtd19844": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 756.6,
+        "pts_against": 764.2
+      },
+      "Cmaleski": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 800.5,
+        "pts_against": 809.1
+      },
+      "MLSchools12": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 875.4,
+        "pts_against": 935.4
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 154.9,
+        "pts_against": 108.4
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "MLSchools12": {
+      "Escuelas": {
+        "wins": 11,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 1780.9,
+        "pts_against": 1194.9
+      },
+      "Cmaleski": {
+        "wins": 9,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 1706.3,
+        "pts_against": 1476.1
+      },
+      "Cogdeill11": {
+        "wins": 9,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 1675.1,
+        "pts_against": 1279.1
+      },
+      "eldridsm": {
+        "wins": 6,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 979.0,
+        "pts_against": 648.7
+      },
+      "eldridm20": {
+        "wins": 6,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 1068.3,
+        "pts_against": 878.3
+      },
+      "tdtd19844": {
+        "wins": 6,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 948.3,
+        "pts_against": 761.8
+      },
+      "SexMachineAndyD": {
+        "wins": 5,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 945.4,
+        "pts_against": 769.2
+      },
+      "rbr": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 1021.7,
+        "pts_against": 886.4
+      },
+      "Grandes": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 1126.3,
+        "pts_against": 961.7
+      },
+      "JuicyBussy": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 935.4,
+        "pts_against": 875.4
+      },
+      "Tubes94": {
+        "wins": 3,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 680.7,
+        "pts_against": 642.8
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 165.3,
+        "pts_against": 106.9
+      }
+    },
+    "SexMachineAndyD": {
+      "rbr": {
+        "wins": 8,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 1593.5,
+        "pts_against": 1468.8
+      },
+      "Grandes": {
+        "wins": 7,
+        "losses": 5,
+        "ties": 1,
+        "pts_for": 1727.1,
+        "pts_against": 1653.8
+      },
+      "JuicyBussy": {
+        "wins": 6,
+        "losses": 5,
+        "ties": 1,
+        "pts_for": 1630.6,
+        "pts_against": 1542.0
+      },
+      "Escuelas": {
+        "wins": 6,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 819.1,
+        "pts_against": 685.4
+      },
+      "Tubes94": {
+        "wins": 4,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 652.0,
+        "pts_against": 610.9
+      },
+      "tdtd19844": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 876.8,
+        "pts_against": 885.3
+      },
+      "Cogdeill11": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 2,
+        "pts_for": 781.2,
+        "pts_against": 662.8
+      },
+      "eldridsm": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 751.6,
+        "pts_against": 771.2
+      },
+      "eldridm20": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 2,
+        "pts_for": 930.2,
+        "pts_against": 964.6
+      },
+      "Cmaleski": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 843.8,
+        "pts_against": 793.1
+      },
+      "MLSchools12": {
+        "wins": 1,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 769.2,
+        "pts_against": 945.4
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 158.2,
+        "pts_against": 123.1
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "Tubes94": {
+      "eldridsm": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 1124.8,
+        "pts_against": 1256.1
+      },
+      "tdtd19844": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 1178.3,
+        "pts_against": 1209.8
+      },
+      "eldridm20": {
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 1136.2,
+        "pts_against": 1225.4
+      },
+      "Escuelas": {
+        "wins": 4,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 624.3,
+        "pts_against": 527.4
+      },
+      "rbr": {
+        "wins": 4,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 729.3,
+        "pts_against": 530.4
+      },
+      "Cmaleski": {
+        "wins": 3,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 609.7,
+        "pts_against": 609.5
+      },
+      "Cogdeill11": {
+        "wins": 3,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 523.8,
+        "pts_against": 507.8
+      },
+      "MLSchools12": {
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 642.8,
+        "pts_against": 680.7
+      },
+      "Grandes": {
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 587.3,
+        "pts_against": 653.6
+      },
+      "JuicyBussy": {
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 610.4,
+        "pts_against": 683.9
+      },
+      "SexMachineAndyD": {
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 610.9,
+        "pts_against": 652.0
+      }
+    },
+    "eldridm20": {
+      "tdtd19844": {
+        "wins": 7,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 1504.4,
+        "pts_against": 1346.1
+      },
+      "Tubes94": {
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 1225.4,
+        "pts_against": 1136.2
+      },
+      "Cmaleski": {
+        "wins": 5,
+        "losses": 1,
+        "ties": 2,
+        "pts_for": 796.2,
+        "pts_against": 686.4
+      },
+      "eldridsm": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 1,
+        "pts_for": 1387.9,
+        "pts_against": 1503.8
+      },
+      "SexMachineAndyD": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 964.6,
+        "pts_against": 930.2
+      },
+      "Cogdeill11": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 794.6,
+        "pts_against": 793.9
+      },
+      "Escuelas": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 0,
+        "pts_for": 860.1,
+        "pts_against": 726.1
+      },
+      "Grandes": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 849.8,
+        "pts_against": 834.1
+      },
+      "JuicyBussy": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 751.3,
+        "pts_against": 912.7
+      },
+      "MLSchools12": {
+        "wins": 1,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 878.3,
+        "pts_against": 1068.3
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 108.4,
+        "pts_against": 103.3
+      },
+      "rbr": {
+        "wins": 0,
+        "losses": 6,
+        "ties": 1,
+        "pts_for": 744.0,
+        "pts_against": 876.0
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "eldridsm": {
+      "eldridm20": {
+        "wins": 7,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 1503.8,
+        "pts_against": 1387.9
+      },
+      "tdtd19844": {
+        "wins": 6,
+        "losses": 6,
+        "ties": 1,
+        "pts_for": 1709.9,
+        "pts_against": 1695.6
+      },
+      "Tubes94": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 1256.1,
+        "pts_against": 1124.8
+      },
+      "Escuelas": {
+        "wins": 5,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 874.0,
+        "pts_against": 596.0
+      },
+      "JuicyBussy": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 916.3,
+        "pts_against": 917.9
+      },
+      "Cogdeill11": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 866.4,
+        "pts_against": 747.8
+      },
+      "SexMachineAndyD": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 771.2,
+        "pts_against": 751.6
+      },
+      "rbr": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 889.2,
+        "pts_against": 964.3
+      },
+      "Cmaleski": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 757.5,
+        "pts_against": 808.4
+      },
+      "Grandes": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 2,
+        "pts_for": 777.7,
+        "pts_against": 914.4
+      },
+      "mmoodie12": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 120.2,
+        "pts_against": 106.4
+      },
+      "MLSchools12": {
+        "wins": 0,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 648.7,
+        "pts_against": 979.0
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "miroslav081": {
+      "tdtd19844": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "rbr": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "JuicyBussy": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "Cogdeill11": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "eldridm20": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "Cmaleski": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "SexMachineAndyD": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "Grandes": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "mmoodie12": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "eldridsm": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      }
+    },
+    "mmoodie12": {
+      "rbr": {
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 270.2,
+        "pts_against": 238.8
+      },
+      "tdtd19844": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 153.6,
+        "pts_against": 102.1
+      },
+      "Escuelas": {
+        "wins": 1,
+        "losses": 0,
+        "ties": 0,
+        "pts_for": 137.6,
+        "pts_against": 116.3
+      },
+      "Grandes": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 2,
+        "pts_for": 75.3,
+        "pts_against": 139.0
+      },
+      "eldridsm": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 2,
+        "pts_for": 106.4,
+        "pts_against": 120.2
+      },
+      "JuicyBussy": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "pts_for": 108.4,
+        "pts_against": 154.9
+      },
+      "eldridm20": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "pts_for": 103.3,
+        "pts_against": 108.4
+      },
+      "Cogdeill11": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "pts_for": 100.8,
+        "pts_against": 164.0
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "SexMachineAndyD": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "pts_for": 123.1,
+        "pts_against": 158.2
+      },
+      "Cmaleski": {
+        "wins": 0,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 198.2,
+        "pts_against": 254.6
+      },
+      "MLSchools12": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 106.9,
+        "pts_against": 165.3
+      }
+    },
+    "rbr": {
+      "Grandes": {
+        "wins": 8,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 1599.9,
+        "pts_against": 1532.8
+      },
+      "eldridm20": {
+        "wins": 6,
+        "losses": 0,
+        "ties": 1,
+        "pts_for": 876.0,
+        "pts_against": 744.0
+      },
+      "Escuelas": {
+        "wins": 5,
+        "losses": 1,
+        "ties": 0,
+        "pts_for": 694.6,
+        "pts_against": 585.2
+      },
+      "JuicyBussy": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 2,
+        "pts_for": 1492.1,
+        "pts_against": 1577.4
+      },
+      "Cogdeill11": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 1004.2,
+        "pts_against": 930.1
+      },
+      "tdtd19844": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 2,
+        "pts_for": 791.0,
+        "pts_against": 696.4
+      },
+      "eldridsm": {
+        "wins": 4,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 964.3,
+        "pts_against": 889.2
+      },
+      "SexMachineAndyD": {
+        "wins": 3,
+        "losses": 8,
+        "ties": 1,
+        "pts_for": 1468.8,
+        "pts_against": 1593.5
+      },
+      "Cmaleski": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 868.2,
+        "pts_against": 875.2
+      },
+      "MLSchools12": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 886.4,
+        "pts_against": 1021.7
+      },
+      "Tubes94": {
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "pts_for": 530.4,
+        "pts_against": 729.3
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "mmoodie12": {
+        "wins": 0,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 238.8,
+        "pts_against": 270.2
+      }
+    },
+    "tdtd19844": {
+      "eldridsm": {
+        "wins": 6,
+        "losses": 6,
+        "ties": 1,
+        "pts_for": 1695.6,
+        "pts_against": 1709.9
+      },
+      "Tubes94": {
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "pts_for": 1209.8,
+        "pts_against": 1178.3
+      },
+      "Escuelas": {
+        "wins": 5,
+        "losses": 2,
+        "ties": 0,
+        "pts_for": 1029.4,
+        "pts_against": 872.6
+      },
+      "eldridm20": {
+        "wins": 4,
+        "losses": 7,
+        "ties": 1,
+        "pts_for": 1346.1,
+        "pts_against": 1504.4
+      },
+      "Cmaleski": {
+        "wins": 4,
+        "losses": 2,
+        "ties": 1,
+        "pts_for": 771.6,
+        "pts_against": 731.0
+      },
+      "Cogdeill11": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "pts_for": 686.3,
+        "pts_against": 713.1
+      },
+      "JuicyBussy": {
+        "wins": 3,
+        "losses": 3,
+        "ties": 2,
+        "pts_for": 764.2,
+        "pts_against": 756.6
+      },
+      "SexMachineAndyD": {
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 885.3,
+        "pts_against": 876.8
+      },
+      "Grandes": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 1,
+        "pts_for": 700.8,
+        "pts_against": 835.1
+      },
+      "rbr": {
+        "wins": 2,
+        "losses": 4,
+        "ties": 2,
+        "pts_for": 696.4,
+        "pts_against": 791.0
+      },
+      "MLSchools12": {
+        "wins": 0,
+        "losses": 6,
+        "ties": 0,
+        "pts_for": 761.8,
+        "pts_against": 948.3
+      },
+      "miroslav081": {
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "pts_for": 0.0,
+        "pts_against": 0.0
+      },
+      "mmoodie12": {
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "pts_for": 102.1,
+        "pts_against": 153.6
+      }
+    }
+  }
+}

@@ -858,6 +858,118 @@ function TransactionsSection({ displayName }: { displayName: string }) {
   );
 }
 
+// ─── H2H Records Section ──────────────────────────────────────────────────────
+
+interface H2HRecord {
+  wins: number;
+  losses: number;
+  ties: number;
+  pts_for: number;
+  pts_against: number;
+}
+
+interface H2HData {
+  h2h: Record<string, Record<string, H2HRecord>>;
+}
+
+function H2HSection({ displayName }: { displayName: string }) {
+  const [records, setRecords] = useState<Record<string, H2HRecord> | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/data/owner-h2h.json')
+      .then(r => r.json())
+      .then((data: H2HData) => {
+        setRecords(data.h2h[displayName] ?? null);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [displayName]);
+
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center gap-3 text-slate-400">
+        <Loader2 className="w-4 h-4 animate-spin text-[#ffd700]" aria-hidden="true" />
+        <span className="text-sm">Loading H2H records…</span>
+      </div>
+    );
+  }
+
+  if (!records || Object.keys(records).length === 0) {
+    return <div className="p-4 text-sm text-slate-500 italic">No head-to-head data available.</div>;
+  }
+
+  // Sort by wins desc, then losses asc
+  const sorted = Object.entries(records).sort((a, b) =>
+    b[1].wins - a[1].wins || a[1].losses - b[1].losses
+  );
+
+  const totalW = sorted.reduce((s, [, r]) => s + r.wins, 0);
+  const totalL = sorted.reduce((s, [, r]) => s + r.losses, 0);
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-[#0d1b2a] text-slate-500 text-xs uppercase tracking-wider">
+            <th className="px-4 py-3 text-left font-semibold">Opponent</th>
+            <th className="px-4 py-3 text-center font-semibold">Record</th>
+            <th className="px-4 py-3 text-right font-semibold">Pts For</th>
+            <th className="px-4 py-3 text-right font-semibold">Pts Against</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-[#2d4a66]">
+          {sorted.map(([opp, rec]) => {
+            const total = rec.wins + rec.losses + rec.ties;
+            const winPct = total > 0 ? (rec.wins / total) : 0;
+            const dominant = winPct >= 0.7 && total >= 3;
+            const struggles = winPct <= 0.35 && total >= 3;
+            return (
+              <tr key={opp} className="bg-[#16213e] hover:bg-[#1a2d42] transition-colors">
+                <td className="px-4 py-2.5">
+                  <Link
+                    href={`/owners/${opp.toLowerCase().replace(/[^a-z0-9]/g, '')}`}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {opp}
+                  </Link>
+                </td>
+                <td className="px-4 py-2.5 text-center">
+                  <span className={cn(
+                    'font-mono font-bold text-sm',
+                    dominant ? 'text-[#22c55e]' : struggles ? 'text-[#e94560]' : 'text-slate-300'
+                  )}>
+                    {rec.wins}–{rec.losses}{rec.ties > 0 ? `–${rec.ties}` : ''}
+                  </span>
+                </td>
+                <td className="px-4 py-2.5 text-right font-mono text-xs text-slate-400">
+                  {rec.pts_for.toFixed(1)}
+                </td>
+                <td className="px-4 py-2.5 text-right font-mono text-xs text-slate-400">
+                  {rec.pts_against.toFixed(1)}
+                </td>
+              </tr>
+            );
+          })}
+          {/* Summary row */}
+          <tr className="bg-[#0d1b2a]">
+            <td className="px-4 py-2 text-xs text-slate-500 font-semibold uppercase tracking-wider">Overall</td>
+            <td className="px-4 py-2 text-center font-mono font-bold text-white text-sm">
+              {totalW}–{totalL}
+            </td>
+            <td className="px-4 py-2 text-right font-mono text-xs text-slate-400">
+              {sorted.reduce((s, [, r]) => s + r.pts_for, 0).toFixed(1)}
+            </td>
+            <td className="px-4 py-2 text-right font-mono text-xs text-slate-400">
+              {sorted.reduce((s, [, r]) => s + r.pts_against, 0).toFixed(1)}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function getRankLabel(rank: number): string {
@@ -1233,7 +1345,16 @@ export default function OwnerDetailPage({ owner }: { owner: Owner }) {
             <TransactionsSection displayName={owner.displayName} />
           </div>
 
-          {/* ── Section 8: Owner Profile ──────────────────────────────────── */}
+          {/* ── Section 8: Head-to-Head Records ──────────────────────────── */}
+          <div className="rounded-xl overflow-hidden border border-[#2d4a66] mb-6">
+            <div className="bg-[#16213e] px-5 py-3 border-b border-[#2d4a66] flex items-center justify-between">
+              <h2 className="text-base font-bold text-white">Head-to-Head Records</h2>
+              <span className="text-xs text-slate-500">Regular season · 2020–2025</span>
+            </div>
+            <H2HSection displayName={owner.displayName} />
+          </div>
+
+          {/* ── Section 9: Owner Profile ──────────────────────────────────── */}
           <div className="rounded-xl p-5 bg-[#16213e] border border-[#2d4a66] mb-6">
             <h2 className="text-base font-bold text-white mb-3">Owner Profile</h2>
             <p className="text-slate-300 leading-relaxed">{owner.status}</p>
