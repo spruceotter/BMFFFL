@@ -623,9 +623,9 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
         const ownerData = json.owners[displayName] ?? null;
         setData(ownerData);
         if (ownerData) {
-          // Default open: most recent season with non-ESPN picks
+          // Default open: most recent season with any picks
           const seasonsWithPicks = Object.entries(ownerData)
-            .filter(([, d]) => d.draft_picks.filter(p => p.draft_type !== 'espn_startup').length > 0)
+            .filter(([, d]) => d.draft_picks.length > 0)
             .map(([s]) => s)
             .sort((a, b) => Number(b) - Number(a));
           setOpenSeason(seasonsWithPicks[0] ?? null);
@@ -646,22 +646,26 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
 
   if (!data) return <div className="p-4 text-sm text-slate-500 italic">No draft history available.</div>;
 
-  // Exclude ESPN mRoster artifact picks — the real 2016 startup draft data isn't in the system.
-  // espn_startup picks (2017-2019) are roster snapshots, not the actual startup draft.
+  // espn_startup = ESPN-era rookie draft picks (2017-2019) — include them, label correctly.
+  // dispersal = 2020/2021 dispersal draft picks.
+  // startup = actual startup draft.
+  // rookie = Sleeper-era rookie picks (2020+).
   const seasons = Object.entries(data)
-    .filter(([, d]) => d.draft_picks.filter(p => p.draft_type !== 'espn_startup').length > 0)
+    .filter(([, d]) => d.draft_picks.length > 0)
     .map(([s]) => s)
     .sort((a, b) => Number(b) - Number(a));
 
-  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No draft picks recorded (Sleeper era 2020–present).</div>;
+  if (seasons.length === 0) return <div className="p-4 text-sm text-slate-500 italic">No draft picks recorded.</div>;
 
   return (
     <div className="divide-y divide-[#2d4a66]">
       {seasons.map(season => {
         const isOpen = openSeason === season;
-        const picks = data[season].draft_picks.filter(p => p.draft_type !== 'espn_startup');
-        const label = picks[0]?.draft_type === 'startup' ? 'startup' :
-                      picks[0]?.draft_type === 'dispersal' ? 'dispersal' : 'rookie';
+        const picks = data[season].draft_picks;
+        const firstType = picks[0]?.draft_type;
+        const label = firstType === 'startup' ? 'startup' :
+                      firstType === 'dispersal' ? 'dispersal' :
+                      firstType === 'espn_startup' ? 'rookie (ESPN)' : 'rookie';
 
         return (
           <div key={season}>
