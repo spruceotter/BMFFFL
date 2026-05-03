@@ -567,6 +567,8 @@ interface OwnerDraftPick {
   player_name: string;
   position: string;
   team: string;
+  bid_amount?: number | null;
+  keeper?: boolean;
 }
 
 interface TradeAsset {
@@ -663,8 +665,9 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
         const isOpen = openSeason === season;
         const picks = data[season].draft_picks;
         const firstType = picks[0]?.draft_type;
-        const label = firstType === 'startup' ? 'startup' :
-                      firstType === 'dispersal' ? 'dispersal' :
+        const hasDispersal = picks.some(p => p.draft_type === 'dispersal');
+        const label = firstType === 'startup' ? 'startup auction' :
+                      hasDispersal ? 'dispersal' :
                       firstType === 'espn_startup' ? 'rookie (ESPN)' : 'rookie';
 
         return (
@@ -679,7 +682,7 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
                 <span className="text-xs text-slate-500 capitalize">{label} draft</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-500">{picks.length} picks</span>
+                <span className="text-xs text-slate-500">{picks.filter(p => p.player_name && !p.player_name.startsWith('[Roster')).length} picks</span>
                 <ChevronLeft
                   className={cn('w-4 h-4 text-slate-500 transition-transform', isOpen ? '-rotate-90' : 'rotate-180')}
                   aria-hidden="true"
@@ -697,8 +700,14 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
                       key={i}
                       className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0d1b2a] border border-[#2d4a66] text-sm"
                     >
-                      <span className="text-xs text-slate-500 font-mono w-10 shrink-0">R{p.round}</span>
-                      {p.position && (
+                      {p.draft_type === 'startup' && p.bid_amount != null ? (
+                        <span className="text-xs text-[#ffd700] font-mono w-10 shrink-0">${p.bid_amount}</span>
+                      ) : p.keeper ? (
+                        <span className="text-xs text-purple-400 font-mono w-10 shrink-0">K</span>
+                      ) : (
+                        <span className="text-xs text-slate-500 font-mono w-10 shrink-0">R{p.round}</span>
+                      )}
+                      {p.position && p.position !== '—' && (
                         <span className={cn('text-xs font-bold px-1.5 py-0.5 rounded font-mono shrink-0', badgeClass)}>
                           {p.position}
                         </span>
@@ -717,7 +726,8 @@ function DraftHistorySection({ displayName }: { displayName: string }) {
                       ) : (
                         <span className="text-white">{p.player_name}</span>
                       )}
-                      {p.team && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
+                      {p.keeper && <span className="text-xs text-purple-400 ml-auto">keeper</span>}
+                      {p.team && !p.keeper && <span className="text-slate-500 text-xs ml-auto">{p.team}</span>}
                     </div>
                   );
                 })}
