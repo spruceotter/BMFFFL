@@ -1,6 +1,8 @@
 node_modules/
 .next/
 # out/ is committed — pre-built static export for Vercel deployment
+# out/players/ excluded — 1207 pre-built HTML files (42MB); Vercel builds these from source
+out/players/
 .env
 .env.local
 .env*.local
