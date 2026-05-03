@@ -68,6 +68,13 @@ interface KtcData {
   ktc_as_of: string;
 }
 
+interface SflexData {
+  sflex_rank: number;
+  sflex_pos_rank: string;
+  sflex_value: number | null;
+  sflex_as_of: string;
+}
+
 interface PlayerProfile {
   player_id: string;
   name: string;
@@ -79,6 +86,7 @@ interface PlayerProfile {
   dynasty_adp_history: Record<string, DynastyAdpEntry>;
   career_bmfffl: CareerStats;
   ktc: KtcData | null;
+  sflex: SflexData | null;
 }
 
 interface Props {
@@ -296,25 +304,39 @@ export default function PlayerPage({ player }: Props) {
                 ))}
               </div>
 
-              {/* KTC current trade value */}
-              {player.ktc && player.ktc.ktc_value_sf !== null && (
+              {/* Current dynasty trade values */}
+              {(player.ktc?.ktc_value_sf != null || player.sflex != null) && (
                 <div className="mt-4 pt-4 border-t border-gray-800">
-                  <p className="text-xs text-gray-500 mb-2">Current Trade Value (KTC)</p>
+                  <p className="text-xs text-gray-500 mb-2">Current Dynasty Value</p>
                   <div className="flex gap-3 flex-wrap">
-                    <div className="bg-indigo-900/30 border border-indigo-700/40 rounded-lg px-4 py-2 text-center">
-                      <p className="text-xs text-indigo-400 mb-0.5">Superflex</p>
-                      <p className="text-white font-bold">{player.ktc.ktc_value_sf.toLocaleString()}</p>
-                      <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_sf} overall</p>
-                    </div>
-                    {player.ktc.ktc_value_1qb !== null && (
+                    {/* Superflex Rankings (Chris's CSV) */}
+                    {player.sflex && (
+                      <div className="bg-amber-900/20 border border-amber-700/30 rounded-lg px-4 py-2 text-center">
+                        <p className="text-xs text-amber-400 mb-0.5">SF Rankings</p>
+                        <p className="text-white font-bold">
+                          {player.sflex.sflex_value != null ? player.sflex.sflex_value.toLocaleString() : '—'}
+                        </p>
+                        <p className="text-xs text-gray-500">#{player.sflex.sflex_rank} · {player.sflex.sflex_pos_rank}</p>
+                      </div>
+                    )}
+                    {/* KTC Superflex */}
+                    {player.ktc?.ktc_value_sf != null && (
+                      <div className="bg-indigo-900/30 border border-indigo-700/40 rounded-lg px-4 py-2 text-center">
+                        <p className="text-xs text-indigo-400 mb-0.5">KTC SF</p>
+                        <p className="text-white font-bold">{player.ktc.ktc_value_sf.toLocaleString()}</p>
+                        <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_sf} · {player.ktc.ktc_pos_rank_sf}</p>
+                      </div>
+                    )}
+                    {/* KTC 1QB */}
+                    {player.ktc?.ktc_value_1qb != null && (
                       <div className="bg-gray-800 border border-gray-700/40 rounded-lg px-4 py-2 text-center">
-                        <p className="text-xs text-gray-400 mb-0.5">1QB</p>
+                        <p className="text-xs text-gray-400 mb-0.5">KTC 1QB</p>
                         <p className="text-white font-bold">{player.ktc.ktc_value_1qb.toLocaleString()}</p>
-                        <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_1qb} overall</p>
+                        <p className="text-xs text-gray-500">#{player.ktc.ktc_rank_1qb}</p>
                       </div>
                     )}
                   </div>
-                  <p className="text-xs text-gray-600 mt-2">via KTC · as of {player.ktc.ktc_as_of}</p>
+                  <p className="text-xs text-gray-600 mt-2">SF Rankings · KTC · as of 2026-05-03</p>
                 </div>
               )}
             </Section>
