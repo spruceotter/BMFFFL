@@ -343,7 +343,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -9730,7 +9731,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -12966,7 +12968,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -14347,7 +14350,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -16439,7 +16443,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -19086,7 +19091,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -21284,7 +21290,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -24005,7 +24012,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -25433,7 +25441,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -27736,7 +27745,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2017": {
         "season": "2017",
@@ -29938,7 +29948,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2020": {
         "season": "2020",
@@ -33472,7 +33483,8 @@
             "team": ""
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       },
       "2021": {
         "draft_picks": [
@@ -33517,7 +33529,8 @@
             "team": "CIN"
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       }
     },
     "Bimfle": {
@@ -33869,7 +33882,8 @@
             "keeper": false
           }
         ],
-        "transactions": []
+        "trades": [],
+        "notable_adds": []
       }
     }
   }
