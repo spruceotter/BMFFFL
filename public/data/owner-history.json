@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T17:00:58.092Z",
+  "generated_at": "2026-05-03",
   "note": "Draft picks (Sleeper 2020+, ESPN 2017-2019). Trades and adds (Sleeper 2020+).",
   "owners": {
     "Grandes": {
@@ -119,6 +119,246 @@
             "player_name": "J.J. Taylor",
             "position": "RB",
             "team": "NE"
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 1,
+            "player_id": "",
+            "player_name": "Nick Chubb",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 6,
+            "player_id": "",
+            "player_name": "Chris Godwin",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 7,
+            "player_id": "",
+            "player_name": "Jonathan Taylor",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 12,
+            "player_id": "",
+            "player_name": "Jared Goff",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 13,
+            "player_id": "",
+            "player_name": "DJ Moore",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 18,
+            "player_id": "",
+            "player_name": "Kirk Cousins",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 19,
+            "player_id": "",
+            "player_name": "DJ Chark",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 24,
+            "player_id": "",
+            "player_name": "2021 1st Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 25,
+            "player_id": "",
+            "player_name": "2021 1st Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 30,
+            "player_id": "",
+            "player_name": "Mike Williams",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 31,
+            "player_id": "",
+            "player_name": "KeShawn Vaughn",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 36,
+            "player_id": "",
+            "player_name": "Diontae Johnson",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 37,
+            "player_id": "",
+            "player_name": "Christian Kirk",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 85,
+            "player_id": "",
+            "player_name": "Kelvin Harmon",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 90,
+            "player_id": "",
+            "player_name": "2021 4th Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 91,
+            "player_id": "",
+            "player_name": "2021 4th Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 96,
+            "player_id": "",
+            "player_name": "2022 4th Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 33,
+            "pick_no": 97,
+            "player_id": "",
+            "player_name": "Rex Burkhead",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 34,
+            "pick_no": 102,
+            "player_id": "",
+            "player_name": "CJ Uzomah",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 35,
+            "pick_no": 103,
+            "player_id": "",
+            "player_name": "Jamycal Hasty",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 36,
+            "pick_no": 108,
+            "player_id": "",
+            "player_name": "JJ Taylor",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 37,
+            "pick_no": 109,
+            "player_id": "",
+            "player_name": "Trent Taylor",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 38,
+            "pick_no": 114,
+            "player_id": "",
+            "player_name": "Josh Hill",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 39,
+            "pick_no": 115,
+            "player_id": "",
+            "player_name": "[Roster Limit - no pick]",
+            "position": "—",
+            "team": ""
           }
         ],
         "trades": [
@@ -11840,6 +12080,348 @@
             "player_name": "Tutu Atwell",
             "position": "WR",
             "team": "LAR"
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "Derrick Henry",
+            "position": "RB",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "Travis Kelce",
+            "position": "TE",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 2,
+            "player_id": "",
+            "player_name": "Justin Jefferson",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 5,
+            "player_id": "",
+            "player_name": "Kenny Golladay",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 8,
+            "player_id": "",
+            "player_name": "Tom Brady",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 11,
+            "player_id": "",
+            "player_name": "Daniel Jones",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 14,
+            "player_id": "",
+            "player_name": "Robert Woods",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 17,
+            "player_id": "",
+            "player_name": "Jared Goff",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 20,
+            "player_id": "",
+            "player_name": "James Conner",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 23,
+            "player_id": "",
+            "player_name": "2022 1st Round (RBR)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 26,
+            "player_id": "",
+            "player_name": "Ronald Jones",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 29,
+            "player_id": "",
+            "player_name": "2022 2nd Round (RBR)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 32,
+            "player_id": "",
+            "player_name": "Cole Beasley",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 35,
+            "player_id": "",
+            "player_name": "Gabriel Davis",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 38,
+            "player_id": "",
+            "player_name": "2022 2nd Round (Tubes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 14,
+            "pick_no": 41,
+            "player_id": "",
+            "player_name": "Christian Kirk",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 15,
+            "pick_no": 44,
+            "player_id": "",
+            "player_name": "Hayden Hurst",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 16,
+            "pick_no": 47,
+            "player_id": "",
+            "player_name": "Sterling Shepard",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 17,
+            "pick_no": 50,
+            "player_id": "",
+            "player_name": "Latavius Murray",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 18,
+            "pick_no": 53,
+            "player_id": "",
+            "player_name": "Gus Edwards",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 19,
+            "pick_no": 56,
+            "player_id": "",
+            "player_name": "Ito Smith",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 20,
+            "pick_no": 59,
+            "player_id": "",
+            "player_name": "2021 Pick 4.01",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 21,
+            "pick_no": 62,
+            "player_id": "",
+            "player_name": "2022 3rd Round (Chad)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 22,
+            "pick_no": 65,
+            "player_id": "",
+            "player_name": "James White",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 23,
+            "pick_no": 68,
+            "player_id": "",
+            "player_name": "Darrynton Evans",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 24,
+            "pick_no": 71,
+            "player_id": "",
+            "player_name": "LeVeon Bell",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 25,
+            "pick_no": 74,
+            "player_id": "",
+            "player_name": "Jordan Wilkins",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 26,
+            "pick_no": 77,
+            "player_id": "",
+            "player_name": "Dante Pettis",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 27,
+            "pick_no": 80,
+            "player_id": "",
+            "player_name": "Chris Thompson",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 28,
+            "pick_no": 83,
+            "player_id": "",
+            "player_name": "Malcolm Perry",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 86,
+            "player_id": "",
+            "player_name": "Cedrick Wilson",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 89,
+            "player_id": "",
+            "player_name": "Jace Sternberger",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 92,
+            "player_id": "",
+            "player_name": "Chris Conley",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 95,
+            "player_id": "",
+            "player_name": "Andy Isabella",
+            "position": "WR",
+            "team": ""
           }
         ],
         "trades": [
@@ -16831,6 +17413,348 @@
             "player_name": "Brevin Jordan",
             "position": "TE",
             "team": "HOU"
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "2021 Pick 1.04",
+            "position": "Pick",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "Aaron Jones",
+            "position": "RB",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 3,
+            "player_id": "",
+            "player_name": "Michael Thomas",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 4,
+            "player_id": "",
+            "player_name": "Jalen Hurts",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 9,
+            "player_id": "",
+            "player_name": "2021 Pick 1.09",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 10,
+            "player_id": "",
+            "player_name": "Derek Carr",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 15,
+            "player_id": "",
+            "player_name": "Drew Lock",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 16,
+            "player_id": "",
+            "player_name": "Julio Jones",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 21,
+            "player_id": "",
+            "player_name": "Jalen Reagor",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 22,
+            "player_id": "",
+            "player_name": "AJ Dillon",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 27,
+            "player_id": "",
+            "player_name": "2021 Pick 2.08",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 28,
+            "player_id": "",
+            "player_name": "2022 Pick 1.14",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 33,
+            "player_id": "",
+            "player_name": "Austin Hooper",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 34,
+            "player_id": "",
+            "player_name": "Jamison Crowder",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 39,
+            "player_id": "",
+            "player_name": "Damien Harris",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 14,
+            "pick_no": 40,
+            "player_id": "",
+            "player_name": "2022 2nd Round (Chad)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 15,
+            "pick_no": 45,
+            "player_id": "",
+            "player_name": "Ryan Fitzpatrick",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 16,
+            "pick_no": 46,
+            "player_id": "",
+            "player_name": "KJ Hamler",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 17,
+            "pick_no": 51,
+            "player_id": "",
+            "player_name": "Jordan Love",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 18,
+            "pick_no": 52,
+            "player_id": "",
+            "player_name": "Albert Okwuegbunam",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 19,
+            "pick_no": 57,
+            "player_id": "",
+            "player_name": "Tim Patrick",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 20,
+            "pick_no": 58,
+            "player_id": "",
+            "player_name": "2021 Pick 3.11",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 21,
+            "pick_no": 63,
+            "player_id": "",
+            "player_name": "2021 Pick 4.07",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 22,
+            "pick_no": 64,
+            "player_id": "",
+            "player_name": "2022 4th Round (Tubes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 23,
+            "pick_no": 69,
+            "player_id": "",
+            "player_name": "2022 4th Round (Chad)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 24,
+            "pick_no": 70,
+            "player_id": "",
+            "player_name": "2022 4th Round (RBR)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 25,
+            "pick_no": 75,
+            "player_id": "",
+            "player_name": "Quez Watkins",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 26,
+            "pick_no": 76,
+            "player_id": "",
+            "player_name": "Royce Freeman",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 27,
+            "pick_no": 81,
+            "player_id": "",
+            "player_name": "Phillip Dorsett",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 28,
+            "pick_no": 82,
+            "player_id": "",
+            "player_name": "John Ross",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 87,
+            "player_id": "",
+            "player_name": "Alex Smith",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 88,
+            "player_id": "",
+            "player_name": "Devonta Freeman",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 93,
+            "player_id": "",
+            "player_name": "Jake Fromm",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 94,
+            "player_id": "",
+            "player_name": "Dion Lewis",
+            "position": "RB",
+            "team": ""
           }
         ],
         "trades": [
@@ -21315,6 +22239,246 @@
             "player_name": "Jacob Eason",
             "position": "QB",
             "team": "IND"
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 2,
+            "player_id": "",
+            "player_name": "Russell Wilson",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 5,
+            "player_id": "",
+            "player_name": "Tyreek Hill",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 8,
+            "player_id": "",
+            "player_name": "Cam Akers",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 11,
+            "player_id": "",
+            "player_name": "Jerry Jeudy",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 14,
+            "player_id": "",
+            "player_name": "JuJu Smith-Schuster",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 17,
+            "player_id": "",
+            "player_name": "N'Keal Harry",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 20,
+            "player_id": "",
+            "player_name": "Teddy Bridgewater",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 23,
+            "player_id": "",
+            "player_name": "Hunter Henry",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 26,
+            "player_id": "",
+            "player_name": "2021 1st Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 29,
+            "player_id": "",
+            "player_name": "Dwayne Haskins",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 32,
+            "player_id": "",
+            "player_name": "2022 1st Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 35,
+            "player_id": "",
+            "player_name": "2022 1st Rd (1.13)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 38,
+            "player_id": "",
+            "player_name": "Sony Michel",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 86,
+            "player_id": "",
+            "player_name": "Auden Tate",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 89,
+            "player_id": "",
+            "player_name": "Ryquell Armstead",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 92,
+            "player_id": "",
+            "player_name": "2021 4th Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 95,
+            "player_id": "",
+            "player_name": "Brycen Hopkins",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 33,
+            "pick_no": 98,
+            "player_id": "",
+            "player_name": "Brian Hill",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 34,
+            "pick_no": 101,
+            "player_id": "",
+            "player_name": "Keke Coutee",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 35,
+            "pick_no": 104,
+            "player_id": "",
+            "player_name": "Allen Hurns",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 36,
+            "pick_no": 107,
+            "player_id": "",
+            "player_name": "Jaylen Samuels",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 37,
+            "pick_no": 110,
+            "player_id": "",
+            "player_name": "Salvon Ahmed",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 38,
+            "pick_no": 113,
+            "player_id": "",
+            "player_name": "Dan Arnold",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 39,
+            "pick_no": 116,
+            "player_id": "",
+            "player_name": "Mason Rudolph",
+            "position": "QB",
+            "team": ""
           }
         ],
         "trades": [
@@ -23863,6 +25027,246 @@
             "player_name": "Eno Benjamin",
             "position": "RB",
             "team": "ARI"
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 3,
+            "player_id": "",
+            "player_name": "Cam Newton",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 4,
+            "player_id": "",
+            "player_name": "Aaron Rodgers",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 9,
+            "player_id": "",
+            "player_name": "Tua Tagovailoa",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 10,
+            "player_id": "",
+            "player_name": "Tyler Boyd",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 15,
+            "player_id": "",
+            "player_name": "Mecole Hardman",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 16,
+            "player_id": "",
+            "player_name": "Leonard Fournette",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 21,
+            "player_id": "",
+            "player_name": "David Montgomery",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 22,
+            "player_id": "",
+            "player_name": "Devante Parker",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 27,
+            "player_id": "",
+            "player_name": "2021 1st Rd (1.13)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 28,
+            "player_id": "",
+            "player_name": "Marlon Mack",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 33,
+            "player_id": "",
+            "player_name": "2022 1st Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 34,
+            "player_id": "",
+            "player_name": "2022 1st Rd (Grandes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 39,
+            "player_id": "",
+            "player_name": "Dallas Goedert",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 14,
+            "pick_no": 40,
+            "player_id": "",
+            "player_name": "Will Fuller",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 87,
+            "player_id": "",
+            "player_name": "Jordan Reed",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 88,
+            "player_id": "",
+            "player_name": "Joe Flacco",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 93,
+            "player_id": "",
+            "player_name": "2022 4th Rd (Matt S.)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 94,
+            "player_id": "",
+            "player_name": "2022 4th Rd (Tyler)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 33,
+            "pick_no": 99,
+            "player_id": "",
+            "player_name": "Marquise Goodwin",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 34,
+            "pick_no": 100,
+            "player_id": "",
+            "player_name": "Willie Snead",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 35,
+            "pick_no": 105,
+            "player_id": "",
+            "player_name": "Ty Johnson",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 36,
+            "pick_no": 106,
+            "player_id": "",
+            "player_name": "Marqise Lee",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 37,
+            "pick_no": 111,
+            "player_id": "",
+            "player_name": "Richie James",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2020",
+            "draft_type": "dispersal",
+            "round": 38,
+            "pick_no": 112,
+            "player_id": "",
+            "player_name": "Cameron Meredith",
+            "position": "WR",
+            "team": ""
           }
         ],
         "trades": [
@@ -25482,6 +26886,358 @@
             "player_name": "Amari Rodgers",
             "position": "WR",
             "team": "GB"
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "2021 Pick 1.01",
+            "position": "Pick",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 0,
+            "pick_no": 0,
+            "player_id": "",
+            "player_name": "Jonathan Taylor",
+            "position": "RB",
+            "team": "",
+            "keeper": true
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 1,
+            "pick_no": 1,
+            "player_id": "",
+            "player_name": "DK Metcalf",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 2,
+            "pick_no": 6,
+            "player_id": "",
+            "player_name": "Keenan Allen",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 3,
+            "pick_no": 7,
+            "player_id": "",
+            "player_name": "Noah Fant",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 4,
+            "pick_no": 12,
+            "player_id": "",
+            "player_name": "2021 Pick 1.14",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 5,
+            "pick_no": 13,
+            "player_id": "",
+            "player_name": "Laviska Shenault",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 6,
+            "pick_no": 18,
+            "player_id": "",
+            "player_name": "Raheem Mostert",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 7,
+            "pick_no": 19,
+            "player_id": "",
+            "player_name": "Zack Moss",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 8,
+            "pick_no": 24,
+            "player_id": "",
+            "player_name": "2022 1st Round (Tubes)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 9,
+            "pick_no": 25,
+            "player_id": "",
+            "player_name": "Joshua Kelley",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 10,
+            "pick_no": 30,
+            "player_id": "",
+            "player_name": "Logan Thomas",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 11,
+            "pick_no": 31,
+            "player_id": "",
+            "player_name": "Darius Slayton",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 12,
+            "pick_no": 36,
+            "player_id": "",
+            "player_name": "Malcolm Brown",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 13,
+            "pick_no": 37,
+            "player_id": "",
+            "player_name": "Antonio Gandy-Golden",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 14,
+            "pick_no": 42,
+            "player_id": "",
+            "player_name": "2021 Pick 3.10",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 15,
+            "pick_no": 43,
+            "player_id": "",
+            "player_name": "Travis Fulgham",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 16,
+            "pick_no": 48,
+            "player_id": "",
+            "player_name": "Jared Cook",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 17,
+            "pick_no": 49,
+            "player_id": "",
+            "player_name": "Kerryon Johnson",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 18,
+            "pick_no": 54,
+            "player_id": "",
+            "player_name": "Gardner Minshew",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 19,
+            "pick_no": 55,
+            "player_id": "",
+            "player_name": "Boston Scott",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 20,
+            "pick_no": 60,
+            "player_id": "",
+            "player_name": "2022 3rd Round (RBR)",
+            "position": "Pick",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 21,
+            "pick_no": 61,
+            "player_id": "",
+            "player_name": "Jamaal Williams",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 22,
+            "pick_no": 66,
+            "player_id": "",
+            "player_name": "DeSean Jackson",
+            "position": "WR",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 23,
+            "pick_no": 67,
+            "player_id": "",
+            "player_name": "Mitchell Trubisky",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 24,
+            "pick_no": 72,
+            "player_id": "",
+            "player_name": "Kyle Rudolph",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 25,
+            "pick_no": 73,
+            "player_id": "",
+            "player_name": "Jalen Richard",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 26,
+            "pick_no": 78,
+            "player_id": "",
+            "player_name": "Chad Henne",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 27,
+            "pick_no": 79,
+            "player_id": "",
+            "player_name": "Adrian Peterson",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 28,
+            "pick_no": 84,
+            "player_id": "",
+            "player_name": "Jeremy McNichols",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 29,
+            "pick_no": 85,
+            "player_id": "",
+            "player_name": "Bryce Love",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 30,
+            "pick_no": 90,
+            "player_id": "",
+            "player_name": "Artavis Pierce",
+            "position": "RB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 31,
+            "pick_no": 91,
+            "player_id": "",
+            "player_name": "Mike Glennon",
+            "position": "QB",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 32,
+            "pick_no": 96,
+            "player_id": "",
+            "player_name": "Kaden Smith",
+            "position": "TE",
+            "team": ""
+          },
+          {
+            "season": "2021",
+            "draft_type": "dispersal",
+            "round": 33,
+            "pick_no": 97,
+            "player_id": "",
+            "player_name": "Isaiah Hodgins",
+            "position": "WR",
+            "team": ""
           }
         ],
         "trades": [
