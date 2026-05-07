@@ -61,6 +61,7 @@ const NAV_LINKS: NavLink[] = [
       { label: 'All Articles',      href: '/articles' },
       { label: 'All-Time Records',  href: '/analytics/all-time-records' },
       { label: 'Owner Dashboard',   href: '/analytics/owners' },
+      { label: 'Lineup Regrets',    href: '/lineup-regrets' },
     ],
   },
   { label: '🆕 Join the League', href: '/join' },
