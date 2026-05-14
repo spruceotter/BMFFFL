@@ -35,7 +35,7 @@ const DISPERSAL_STEPS = [
   {
     step: '1',
     title: 'Apply & Express Interest',
-    body: 'Submit the application form below with your name, phone, and Sleeper username. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit. Deadline: May 9, 2026.',
+    body: 'Submit the application form below with your name, phone, and Sleeper username. The Commissioner reviews all candidates and selects based on commitment level, dynasty knowledge, and fit. Deadline: May 20, 2026.',
   },
   {
     step: '2',
@@ -154,7 +154,7 @@ export default function JoinPage() {
             <ChevronRight size={15} />
           </a>
           <p className="text-xs text-slate-500 mt-4">
-            Deadline to apply: <span className="text-slate-400 font-semibold">May 9, 2026</span> — Dispersal draft to follow in May, before the Owners Meeting.
+            Deadline to apply: <span className="text-slate-400 font-semibold">May 20, 2026</span> — Dispersal draft to follow in May, before the Owners Meeting.
           </p>
         </div>
       </section>
@@ -339,7 +339,7 @@ export default function JoinPage() {
           <h2 className="text-2xl font-bold text-white mb-2">Apply to Join</h2>
           <p className="text-sm text-slate-400 leading-relaxed mb-8 max-w-xl">
             Applications go directly to the league assistant and are reviewed by the Commissioner.
-            Deadline: <span className="text-white font-semibold">May 9, 2026</span>.
+            Deadline: <span className="text-white font-semibold">May 20, 2026</span>.
           </p>
 
           {formState === 'done' ? (
