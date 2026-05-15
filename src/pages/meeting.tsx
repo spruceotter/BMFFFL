@@ -78,13 +78,14 @@ async function submitResponse(owner_name: string, available_dates: string[]): Pr
 }
 
 async function fetchResponses(): Promise<PollResponse[]> {
+  // Use getPendingTasksFor (by_to_pending index) which reliably returns web_form submissions
   const resp = await fetch(`${CONVEX_URL}/api/query`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      path: 'bmfffl:getTasksFromAgent',
+      path: 'bmfffl:getPendingTasksFor',
       format: 'json',
-      args: { from_agent: 'web_form' },
+      args: { to_agent: 'bimfle' },
     }),
   });
   if (!resp.ok) return [];
