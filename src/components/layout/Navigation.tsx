@@ -36,6 +36,8 @@ const NAV_LINKS: NavLink[] = [
       { label: 'NFL Draft Hub 2026',      href: '/nfl-draft/2026' },
       { label: '🏆 Draft Game',           href: '/nfl-draft-game' },
       { label: 'Draft Pick Tracker',      href: '/draft-picks' },
+      { label: '🎲 Schedule Draw',        href: '/schedule-draw' },
+      { label: '📅 Owners Meeting',       href: '/meeting' },
     ],
   },
   {
@@ -61,7 +63,8 @@ const NAV_LINKS: NavLink[] = [
       { label: 'All Articles',      href: '/articles' },
       { label: 'All-Time Records',  href: '/analytics/all-time-records' },
       { label: 'Owner Dashboard',   href: '/analytics/owners' },
-      { label: 'Lineup Regrets',    href: '/lineup-regrets' },
+      { label: 'Lineup Regrets',       href: '/lineup-regrets' },
+      { label: '📅 NFL Schedule 2026', href: '/nfl-schedule-2026' },
     ],
   },
   { label: '🆕 Join the League', href: '/join' },
