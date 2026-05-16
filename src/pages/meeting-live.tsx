@@ -63,12 +63,19 @@ interface Commentary {
   submitted_at: string;
 }
 
+interface MeetingState {
+  current_proposal_index: number;
+  decision: 'passed' | 'failed' | null;
+  submitted_at: string;
+}
+
 // ─── Convex helpers ───────────────────────────────────────────────────────────
 
 async function fetchLiveData(): Promise<{
   proposals: RuleProposal[];
   votes: RuleVote[];
   commentary: Commentary[];
+  meetingState: MeetingState | null;
 }> {
   try {
     const resp = await fetch(`${CONVEX_URL}/api/query`, {
@@ -80,18 +87,20 @@ async function fetchLiveData(): Promise<{
         args: { to_agent: 'bimfle' },
       }),
     });
-    if (!resp.ok) return { proposals: [], votes: [], commentary: [] };
+    if (!resp.ok) return { proposals: [], votes: [], commentary: [], meetingState: null };
     const json = await resp.json();
     const tasks = (json.value ?? []) as { task_type: string; payload: unknown }[];
 
     const proposals: RuleProposal[] = [];
     const votes: RuleVote[] = [];
     const commentary: Commentary[] = [];
+    const meetingStates: MeetingState[] = [];
 
     for (const t of tasks) {
       if (t.task_type === 'rule_proposal') proposals.push(t.payload as RuleProposal);
       if (t.task_type === 'rule_vote') votes.push(t.payload as RuleVote);
       if (t.task_type === 'bimfle_commentary') commentary.push(t.payload as Commentary);
+      if (t.task_type === 'meeting_state') meetingStates.push(t.payload as MeetingState);
     }
 
     // Sort proposals: category order then time
@@ -104,9 +113,13 @@ async function fetchLiveData(): Promise<{
     // Sort commentary newest last
     commentary.sort((a, b) => a.submitted_at.localeCompare(b.submitted_at));
 
-    return { proposals, votes, commentary };
+    // Latest meeting state
+    meetingStates.sort((a, b) => a.submitted_at.localeCompare(b.submitted_at));
+    const meetingState = meetingStates.length > 0 ? meetingStates[meetingStates.length - 1] : null;
+
+    return { proposals, votes, commentary, meetingState };
   } catch {
-    return { proposals: [], votes: [], commentary: [] };
+    return { proposals: [], votes: [], commentary: [], meetingState: null };
   }
 }
 
@@ -188,6 +201,7 @@ export default function MeetingLivePage() {
   const [votes, setVotes] = useState<RuleVote[]>([]);
   const [commentary, setCommentary] = useState<Commentary[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [decision, setDecision] = useState<'passed' | 'failed' | null>(null);
   const [agendaItems, setAgendaItems] = useState(AGENDA_ITEMS);
   const [activeAgenda, setActiveAgenda] = useState(0);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
@@ -212,6 +226,12 @@ export default function MeetingLivePage() {
     setProposals(data.proposals);
     setVotes(data.votes);
     setCommentary(data.commentary);
+    // Sync to admin-controlled index if present
+    if (data.meetingState !== null) {
+      const idx = Math.max(0, Math.min(data.meetingState.current_proposal_index, data.proposals.length - 1));
+      setCurrentIdx(idx);
+      setDecision(data.meetingState.decision);
+    }
     setLastRefresh(new Date());
   }, []);
 
@@ -318,6 +338,16 @@ export default function MeetingLivePage() {
                       {currentProposal?.category}
                     </span>
                     <span className="text-gray-500 text-sm">by {currentProposal?.owner_name}</span>
+                    {decision === 'passed' && (
+                      <span className="text-xs font-bold px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 uppercase tracking-wider">
+                        ✓ Passed
+                      </span>
+                    )}
+                    {decision === 'failed' && (
+                      <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-wider">
+                        ✗ Failed
+                      </span>
+                    )}
                   </div>
                   <div className="flex items-center gap-3">
                     <button
