@@ -1,13 +1,13 @@
 /**
  * BMFFFL 2026 Rookie Draft — /rookie-draft
  *
- * Live draft board for the June 5 rookie draft.
- * Commissioner controls the draft via ?admin=1 mode.
- * All 12 owners watch picks in real-time (auto-refresh 30s).
+ * Live tracking board for the June 5 rookie draft (conducted in Sleeper).
+ * Bimflé uses this to follow along and present picks live.
+ * Actual picks are made in Sleeper — this is a display/commentary surface.
  *
  * Convex task types:
- *   rookie_draft_setup  — pick order + player pool configured by commissioner
- *   rookie_pick         — each pick made during the draft
+ *   rookie_draft_setup  — pick order + player pool configured for tracking
+ *   rookie_pick         — picks tracked as they happen in Sleeper
  */
 
 import Head from 'next/head';
@@ -27,38 +27,38 @@ const POSITION_COLORS: Record<string, string> = {
   TE: '#a855f7',
 };
 
-// Default prospect pool — 2026 NFL Draft class top prospects (dynasty value)
+// Default prospect pool — 2026 NFL Draft class top prospects (dynasty value, post-draft)
 const DEFAULT_PROSPECTS: Omit<Prospect, 'id'>[] = [
-  { name: "Ashton Jeanty", position: "RB", nfl_team: "Las Vegas Raiders", college: "Boise State", rank: 1, notes: "Heisman finalist, elite vision + contact balance" },
-  { name: "Travis Hunter", position: "WR", nfl_team: "Jacksonville Jaguars", college: "Colorado", rank: 2, notes: "Two-way Heisman winner, elite separation" },
-  { name: "Tetairoa McMillan", position: "WR", nfl_team: "Carolina Panthers", college: "Arizona", rank: 3, notes: "6'5\" monster, elite route runner" },
-  { name: "Cam Ward", position: "QB", nfl_team: "Tennessee Titans", college: "Miami", rank: 4, notes: "Big arm, mobility, top QB off the board" },
-  { name: "Luther Burden III", position: "WR", nfl_team: "Chicago Bears", college: "Missouri", rank: 5, notes: "YAC machine, rare burst after the catch" },
-  { name: "Omarion Hampton", position: "RB", nfl_team: "Los Angeles Chargers", college: "North Carolina", rank: 6, notes: "Big back with speed, great pass protection" },
-  { name: "Colston Loveland", position: "TE", nfl_team: "Chicago Bears", college: "Michigan", rank: 7, notes: "Top TE, route runner + red zone threat" },
-  { name: "Tyler Warren", position: "TE", nfl_team: "Indianapolis Colts", college: "Penn State", rank: 8, notes: "Swiss army knife TE, massive catch radius" },
-  { name: "Emeka Egbuka", position: "WR", nfl_team: "Tampa Bay Buccaneers", college: "Ohio State", rank: 9, notes: "Complete WR, tremendous hands + routes" },
-  { name: "Dillon Gabriel", position: "QB", nfl_team: "Cleveland Browns", college: "Oregon", rank: 10, notes: "Elite accuracy, processed defenses well in college" },
-  { name: "TreVeyon Henderson", position: "RB", nfl_team: "New England Patriots", college: "Ohio State", rank: 11, notes: "Explosive, plus receiver, limited tread" },
-  { name: "Shedeur Sanders", position: "QB", nfl_team: "New Orleans Saints", college: "Colorado", rank: 12, notes: "Accuracy, poise under pressure; line concerns" },
-  { name: "Quinshon Judkins", position: "RB", nfl_team: "Cleveland Browns", college: "Ohio State", rank: 13, notes: "Power/speed hybrid, great broken tackle rate" },
-  { name: "Ollie Gordon II", position: "RB", nfl_team: "New York Jets", college: "Oklahoma State", rank: 14, notes: "Heisman winner 2023, physical runner" },
-  { name: "Elic Ayomanor", position: "WR", nfl_team: "Las Vegas Raiders", college: "Stanford", rank: 15, notes: "Long strider, big play ability" },
-  { name: "Jack Bech", position: "WR", nfl_team: "Pittsburgh Steelers", college: "TCU", rank: 16, notes: "Technically sound, strong hands" },
-  { name: "Matthew Golden", position: "WR", nfl_team: "Green Bay Packers", college: "Texas", rank: 17, notes: "Elite speed, YAC threat" },
-  { name: "Jaylen Higgins", position: "WR", nfl_team: "Minnesota Vikings", college: "Iowa State", rank: 18, notes: "Route runner, reliable in traffic" },
-  { name: "Isaac TeSlaa", position: "WR", nfl_team: "Baltimore Ravens", college: "Arkansas", rank: 19, notes: "Big slot, exceptional catch radius" },
-  { name: "RJ Harvey", position: "RB", nfl_team: "Denver Broncos", college: "UCF", rank: 20, notes: "Explosive, great after contact" },
-  { name: "Josh Simmons", position: "QB", nfl_team: "Philadelphia Eagles", college: "Ohio State", rank: 21, notes: "Deep sleeper QB, upside pick" },
-  { name: "Jaydon Blue", position: "RB", nfl_team: "Dallas Cowboys", college: "Texas", rank: 22, notes: "Speed back, receiving specialist" },
-  { name: "Kaleb Johnson", position: "RB", nfl_team: "Pittsburgh Steelers", college: "Iowa", rank: 23, notes: "Big back, excellent balance" },
-  { name: "Kyle Williams", position: "WR", nfl_team: "Arizona Cardinals", college: "Washington State", rank: 24, notes: "Route tech, YAC upside" },
-  { name: "Drew Allar", position: "QB", nfl_team: "San Francisco 49ers", college: "Penn State", rank: 25, notes: "Strong arm, good decision-maker" },
-  { name: "Nick Emmanwori", position: "TE", nfl_team: "Carolina Panthers", college: "South Carolina", rank: 26, notes: "Hybrid S/TE with receiving upside" },
-  { name: "Harold Fannin Jr.", position: "TE", nfl_team: "Cleveland Browns", college: "Bowling Green", rank: 27, notes: "Elite receiving TE from MAC, needs adjusting" },
-  { name: "Jordyn Tyson", position: "WR", nfl_team: "Arizona Cardinals", college: "Arizona State", rank: 28, notes: "Speed + size combo, upside play" },
-  { name: "Tez Johnson", position: "WR", nfl_team: "Seattle Seahawks", college: "Oregon", rank: 29, notes: "Tiny but electric, slot specialist" },
-  { name: "Savion Williams", position: "WR", nfl_team: "Chicago Bears", college: "TCU", rank: 30, notes: "6'4\" physical freak, raw" },
+  { name: "Jeremiyah Love", position: "RB", nfl_team: "Arizona Cardinals", college: "Notre Dame", rank: 1, notes: "#3 overall pick. Elite burst + contact balance, leads ARI backfield immediately" },
+  { name: "Carnell Tate", position: "WR", nfl_team: "Tennessee Titans", college: "Ohio State", rank: 2, notes: "#4 overall. Titans believe he's a top WR — elite separation, contested catch ability" },
+  { name: "Jordyn Tyson", position: "WR", nfl_team: "New Orleans Saints", college: "Arizona State", rank: 3, notes: "#8 overall. Creates separation at all levels, excellent YAC, ideal slot/outside hybrid" },
+  { name: "Makai Lemon", position: "WR", nfl_team: "Philadelphia Eagles", college: "USC", rank: 4, notes: "#20 overall. Blazing speed, instant deep threat in PHI's prolific offense" },
+  { name: "Jadarian Price", position: "RB", nfl_team: "Seattle Seahawks", college: "Notre Dame", rank: 5, notes: "#32 overall. Complementary to Zach Charbonnet but has long-term starter upside" },
+  { name: "KC Concepcion", position: "WR", nfl_team: "Cleveland Browns", college: "Texas A&M", rank: 6, notes: "#24 overall. Big bodied WR, excels in contested catch situations, great hands" },
+  { name: "Kenyon Sadiq", position: "TE", nfl_team: "New York Jets", college: "Oregon", rank: 7, notes: "#16 overall. Athletic mismatch TE, excellent receiving chops, good blocker" },
+  { name: "Eli Stowers", position: "TE", nfl_team: "Philadelphia Eagles", college: "Vanderbilt", rank: 8, notes: "Day 2 pick. QB-turned-TE, savvy route runner, heir to Dallas Goedert" },
+  { name: "Omar Cooper Jr.", position: "WR", nfl_team: "New York Jets", college: "Indiana", rank: 9, notes: "#30 overall. Excellent route runner, reliable in traffic, should see targets early" },
+  { name: "Denzel Boston", position: "WR", nfl_team: "Cleveland Browns", college: "Washington", rank: 10, notes: "Day 2. Big WR with elite catch radius, fits CLE's rebuild long term" },
+  { name: "Fernando Mendoza", position: "QB", nfl_team: "Las Vegas Raiders", college: "Indiana", rank: 11, notes: "#1 overall. Heisman winner. Comps to Matt Ryan. Long-term QB1 ceiling" },
+  { name: "Germie Bernard", position: "WR", nfl_team: "Pittsburgh Steelers", college: "Louisville", rank: 12, notes: "Round 2. Excellent routes + hands, PIT traded up to get him" },
+  { name: "Antonio Williams", position: "WR", nfl_team: "Washington Commanders", college: "Florida State", rank: 13, notes: "Day 2. Physical WR with strong hands, lands in a pass-heavy offense" },
+  { name: "Jonah Coleman", position: "RB", nfl_team: "Denver Broncos", college: "Auburn", rank: 14, notes: "Day 2. Explosive cut-back runner, receiving ability makes him relevant PPR" },
+  { name: "De'Zhaun Stribling", position: "WR", nfl_team: "San Francisco 49ers", college: "Michigan State", rank: 15, notes: "#33 overall. Kyle Shanahan loves his WRs — immediate target share candidate" },
+  { name: "Chris Bell", position: "WR", nfl_team: "Miami Dolphins", college: "Memphis", rank: 16, notes: "Day 2. MIA offense gives him a high ceiling; quick after the catch" },
+  { name: "Nicholas Singleton", position: "RB", nfl_team: "Tennessee Titans", college: "Penn State", rank: 17, notes: "Day 2. Explosive back alongside Love pick — dynasty hold" },
+  { name: "Ty Simpson", position: "QB", nfl_team: "Los Angeles Rams", college: "Alabama", rank: 18, notes: "#13 overall. Heir to Matthew Stafford in LA — long-term QB1 ceiling" },
+  { name: "Zachariah Branch", position: "WR", nfl_team: "Atlanta Falcons", college: "Oregon", rank: 19, notes: "Day 2. Elite speed, ATL offense needs weapons" },
+  { name: "Kaytron Allen", position: "RB", nfl_team: "Washington Commanders", college: "Penn State", rank: 20, notes: "Day 2. Physical runner, good pass pro, should compete for touches" },
+  { name: "Mike Washington Jr.", position: "RB", nfl_team: "Las Vegas Raiders", college: "Texas", rank: 21, notes: "Day 2. Complements Mendoza — receiving RB in LV's offense" },
+  { name: "Emmett Johnson", position: "RB", nfl_team: "Kansas City Chiefs", college: "Wisconsin", rank: 22, notes: "Day 2. KC lands a reliable rusher — could see touches in their run game" },
+  { name: "Ted Hurst", position: "WR", nfl_team: "Tampa Bay Buccaneers", college: "Cincinnati", rank: 23, notes: "Day 2-3. Good size and route running, fits TB's offense" },
+  { name: "Chris Brazzell II", position: "WR", nfl_team: "Carolina Panthers", college: "Louisville", rank: 24, notes: "Day 2-3. Long strider, big play potential, young CAR offense" },
+  { name: "Bryce Lance", position: "WR", nfl_team: "New Orleans Saints", college: "NC State", rank: 25, notes: "Day 2-3. Lands with Tyson in NO — two dynasty WRs in same offense" },
+  { name: "Ja'Kobi Lane", position: "WR", nfl_team: "Baltimore Ravens", college: "Oklahoma", rank: 26, notes: "Day 2-3. Ravens add a speed receiver to their offense" },
+  { name: "Max Klare", position: "TE", nfl_team: "Los Angeles Rams", college: "Missouri", rank: 27, notes: "Day 2-3. Solid TE prospect alongside Ty Simpson in LA's offense" },
+  { name: "Oscar Delp", position: "TE", nfl_team: "New Orleans Saints", college: "Georgia", rank: 28, notes: "Day 2-3. Athletic TE in NO's offense with multiple dynasty assets" },
+  { name: "Demond Claiborne", position: "RB", nfl_team: "Minnesota Vikings", college: "Louisville", rank: 29, notes: "Day 3. Physical runner with receiving upside in MIN's offense" },
+  { name: "Malachi Fields", position: "WR", nfl_team: "New York Giants", college: "South Carolina", rank: 30, notes: "Round 3. Giants traded up. Big-bodied WR, contested catch specialist" },
 ];
 
 // ─── Types ────────────────────────────────────────────────────────────────────
