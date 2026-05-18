@@ -330,7 +330,7 @@ export default function DogeFaabPage({ data }: Props) {
                   </tfoot>
                 </table>
                 <p className="text-xs text-slate-600 px-4 py-2">
-                  FAAB spent on winning waiver bids. Note: budget scale differs by era (2020–2021 used 1,000/team; current scale is 10,000/team).
+                  FAAB spent on winning waiver bids per season. FAAB carries over year-to-year with no fixed annual budget — new FAAB enters only via the annual refresh buy window.
                 </p>
               </div>
             )}
