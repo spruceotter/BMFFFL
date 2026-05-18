@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T22:15:00.000Z",
-  "note": "2017–2019 confirmed from Facebook group archive. 2020 partial (meeting confirmed Apr 9, outcomes in Sleeper). 2021 DogeFAAB confirmed from league context. 2025 confirmed from Google Doc transcript (May 28, 2025). 2022–2024 still need Commissioner transcripts.",
+  "generatedAt": "2026-05-18T22:25:00.000Z",
+  "note": "2017–2019 confirmed from Facebook archive. 2019 Props A-J confirmed from official PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF — DogeFAAB (Prop D) passed; other outcomes unknown. 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript. 2022–2023 still need Commissioner PDFs.",
   "meetings": [
     {
       "year": 2026,
@@ -45,7 +45,7 @@
       "year": 2025,
       "date": "May 28, 2025",
       "status": "confirmed",
-      "summary": "Six propositions voted on. Major outcomes: QB roster capped at 4, roster cut by 2 more spots (to 26/22), and the loser punishment expanded to three selectable options — including the Moody Mile, the Wax, and the Golf Skirt. Treasury diversification (Trump coin/meme coins) and unlimited FAAB purchases both failed. Heading into Season 10.",
+      "summary": "Six propositions voted on. Major outcomes: QB roster capped at 4, roster cut by 2 more spots (to 26/22), and the loser punishment expanded to three selectable options — including the Moody Mile, the Wax, and the Golf Skirt. Treasury diversification (Trump coin/meme coins) and unlimited FAAB purchases both failed.",
       "context": "MLSchools12 won Season 9 (2024 champion). MCSchools still in the league. Meeting chaired by Commissioner Chris Rioux. Attendees included Schoolcraft, DeLaura, Eldridge, Vieyra, Maleski, Cogdeill, and others. Chris Rioux's brother attended via proxy.",
       "propositions": [
         {
@@ -57,7 +57,7 @@
         {
           "letter": "B",
           "title": "Starting Lineup Changes — Reduce RBs, Add Flex",
-          "description": "Proposed reducing required starting RBs from two to one and adding flex positions. Michael Schoolcraft opposed, citing experience in another league where 'running backs were worthless.'",
+          "description": "Proposed reducing required starting RBs from two to one and adding flex positions. Schoolcraft opposed, citing experience in another league where 'running backs were worthless.'",
           "outcome": "failed"
         },
         {
@@ -69,7 +69,7 @@
         {
           "letter": "D",
           "title": "Treasury Diversification — Meme Coins / Collectibles",
-          "description": "Proposed diversifying DogeFAAB treasury from Dogecoin into Trump coin, meme coins, or sports card collectibles. Failed to pass.",
+          "description": "Proposed diversifying DogeFAAB treasury from Dogecoin into Trump coin, meme coins, or sports card collectibles.",
           "outcome": "failed"
         },
         {
@@ -81,7 +81,7 @@
         {
           "letter": "F",
           "title": "Remove FAAB Refresh Cap — Unlimited Purchases",
-          "description": "Matthew DeLaura proposed unlimited FAAB refresh purchases ('print the money'). Commissioner Rioux opposed, explaining the current cap prevents inflation based on prior spending history.",
+          "description": "Matthew DeLaura proposed unlimited FAAB refresh purchases ('print the money'). Commissioner Rioux opposed, explaining the cap prevents inflation based on prior spending history.",
           "outcome": "failed"
         }
       ]
@@ -89,39 +89,161 @@
     {
       "year": 2024,
       "date": "TBD (Spring 2024)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
-      "context": "Heading into Season 9. JuicyBussy was defending champion (2023).",
-      "propositions": []
+      "status": "confirmed",
+      "summary": "Nine propositions plus two special votes. Major passes: 'STEAL' taxi squad mechanic, Core Four mini-league side competition, Plan B trade abort window, and the landmark Ultimate Championship Tournament (every 4 years, first in 2025). No-shows Cogdeill and Tyler had their teams renamed by the league. SexMachine fined 5 FAAB for being 1 minute late.",
+      "context": "Heading into Season 9. JuicyBussy was defending champion (2023). No-shows: Cogdeill11 and tdtd19844 (Tyler). Late arrival: SexMachineAndyD (1 minute). The 2024 meeting references amending '2022-PropJ,' confirming the Ultimate Championship concept originated at the 2022 meeting.",
+      "propositions": [
+        {
+          "letter": "SV-A",
+          "title": "Late Arrival Punishment — $5 FAAB per Minute",
+          "description": "For every minute an owner is late to the Owners Meeting, they are fined $5 FAAB. SexMachine arrived 1 minute late and was fined $5 FAAB on the spot.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "SV-B",
+          "title": "No-Show Punishment — Team Renamed by League",
+          "description": "Owners who are absent without a proxy must have their team name chosen by the league. Cogdeill and Tyler were no-shows — their teams were renamed by the attending owners.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "A",
+          "title": "Ultimate Championship Tournament — Every 4 Years (First in 2025)",
+          "description": "Amendment to 2022 Prop J. Every 4 years, all dues-paying owners participate in a season-long elimination tournament running alongside the main league (Weeks 1–16). Ultimate Champion wins $300 trophy prize; runner-up wins $50; high-score week ($80) and high-score player ($50) side pots. Everyone contributes $10/year in extra dues to build the jackpot.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "B",
+          "title": "Division Winner Award — Banner",
+          "description": "Proposed awarding a banner or recognition to the division winner each season.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "C",
+          "title": "Taxi Squad Stealing Rules — 'STEAL!' Protocol",
+          "description": "Any owner may attempt to steal a taxi squad player by announcing 'STEAL!' in group chat with the target. The responding owner has 48 hours to promote the player, accept pick compensation (one round higher than the player was drafted), or trade the player to someone else. Failure to respond = auto-steal. FA/FAAB-acquired taxi players cost a 3rd round pick to steal.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "D(OGE) 3.0",
+          "title": "FAAB Purchases at Fair Market Value — Anytime",
+          "description": "Proposed allowing FAAB to be purchased at any time at 10x the current Dogecoin fair market value (removing the offseason-only refresh window restriction).",
+          "outcome": "failed"
+        },
+        {
+          "letter": "E",
+          "title": "Core Four Challenge — Season-Long Mini-League",
+          "description": "Each owner designates a 'Core Four' mini-team (QB + RB + WR + TE + 2 subs) from their main roster. Weekly rankings of Core Four scores earn Core Points (1st=10, 2nd=7, down to last=-5). Captain mechanic doubles one player's score weekly. One free swap per week; extra swaps cost 10 pts. The Core Four champion wins a separate prize.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "F",
+          "title": "Dual Back Bonus (DBB) — Same-Team RB Stacking Slot",
+          "description": "A team may start an extra RB in a special DBB slot if that RB is from the same NFL team as the RB starting in their Superflex position. Usable a maximum of 3 times per season, must be declared publicly before the week's games.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "G",
+          "title": "Plan B — 24-Hour Trade Abort Window for Pushed Trades",
+          "description": "After a 'pushed' (immediately processed) trade, any owner can call for a 'Plan B Vote.' If 4+ owners indicate they have a better offer, either party in the original trade may invoke Plan B and accept a counteroffer. All of this must happen within 24 hours. There is no Plan C.",
+          "outcome": "passed"
+        }
+      ]
     },
     {
       "year": 2023,
       "date": "TBD (Spring 2023)",
       "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
-      "context": "Heading into Season 8. Grandes was defending champion (2022) — Commissioner's ring year.",
+      "summary": "TBD — transcript/PDF needed from Commissioner.",
+      "context": "Heading into Season 8. Grandes was defending champion (2022) — Commissioner's ring year. The 2024 meeting references '2022-PropJ' (Ultimate Championship), suggesting 2022 introduced that concept; 2023 may have made further amendments.",
       "propositions": []
     },
     {
       "year": 2022,
       "date": "TBD (Spring 2022)",
       "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "summary": "TBD — transcript/PDF needed from Commissioner. Known: Prop J at this meeting introduced the BMFFFL Ultimate Championship concept (every 4 years tournament), later amended at the 2024 meeting.",
       "context": "Heading into Season 7. MLSchools12 was defending champion (2021). DogeFAAB in its first full season.",
-      "propositions": []
+      "propositions": [
+        {
+          "letter": "J",
+          "title": "BMFFFL Ultimate Championship Tournament (original proposal)",
+          "description": "Original proposal for a periodic all-owner championship tournament. Details refined and amended at the 2024 meeting. Referenced as '2022-PropJ' in the 2024 official results document.",
+          "outcome": "passed"
+        }
+      ]
     },
     {
       "year": 2021,
-      "date": "TBD (Spring 2021)",
+      "date": "May 5, 2021",
       "status": "partial",
-      "summary": "The meeting that created the DogeFAAB system — FAAB backed by Dogecoin held in Commissioner escrow. Owners can buy FAAB via annual refresh window at a fixed rate (5 FAAB = 1 DOGE). This fundamentally changed the economic stakes of waiver wire bidding.",
-      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second full season. Rising crypto interest provided the creative spark for the DogeFAAB concept.",
+      "summary": "Eleven propositions — the landmark one being Prop D(OGE), which created the DogeFAAB system: FAAB backed by real Dogecoin held in Commissioner escrow, with tiered annual refresh windows. This fundamentally changed the economic stakes of the waiver wire. Outcomes for most other propositions not recovered.",
+      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second season. The 2021 crypto bull run provided the creative spark for the DogeFAAB concept. Meeting held May 5, 8pm ET.",
       "propositions": [
         {
-          "letter": "—",
-          "title": "Introduce DogeFAAB System",
-          "description": "Back all FAAB with Dogecoin held in Commissioner escrow. Annual refresh buy window lets owners purchase FAAB at a fixed rate. FAAB carries over year to year.",
+          "letter": "A",
+          "title": "Adjustments to Starting Roster Requirements",
+          "description": "Proposed by JuicyBussy: Reduce designated RB starter positions from 2 to 1. Reduce WR starter positions from 3 to 2. Add two additional Flex (WR/RB/TE) starter positions.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "B",
+          "title": "Name the Trophies After Moodie",
+          "description": "Proposed by JuicyBussy: Name the Toilet Bowl Trophy after Moodie. Name the Championship Trophy after Moodie's wife.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "C",
+          "title": "Regular Season Loser's Punishment — Add Variety",
+          "description": "Proposed by JuicyBussy: Add a variety of punishments from which the loser may choose (rather than a single mandatory penalty).",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "D(OGE)",
+          "title": "Dogecoin as Official FAAB Currency of the BMFFFL",
+          "description": "Proposed by Commissioner Grandes: Create Dogecoin as the reserve currency backing every team's FAAB budget. Each team receives 10 DOGE (held in Commissioner escrow) = $1,000 FAAB at passage. Rate: $100 FAAB = 1 DOGE. Annual refresh window lets bad teams buy more DogeFAAB than good teams (Last Place: +$1,000 FAAB; 1st Place: +$100 FAAB). Cash-out allowed up to $500 FAAB (5 DOGE) per offseason.",
           "outcome": "passed"
+        },
+        {
+          "letter": "E",
+          "title": "Tiered FAAB — Fallback if Prop D Fails",
+          "description": "Proposed by David Cogdeill: If Prop D failed, implement a tiered FAAB budget where teams finishing outside the playoffs receive more FAAB to start the following year than playoff teams. Rendered moot by Prop D passing.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "F",
+          "title": "Penalties for Last Place — Punishment Variety + Pick Forfeiture",
+          "description": "Proposed by Chad Maleski and Matthew DeLaura: Part 1 (DeLaura) — add punishment variety instead of single mandatory option. Part 2 (Chad) — if last place loser fails to complete punishment: forfeit their best pick; second violation = forced to leave the league.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "G",
+          "title": "Penalties for League Violations — FAAB Fines",
+          "description": "Proposed by JuicyBussy: Impose fines for league violations paid in DogeFAAB, deposited into a pot for the champion (or rolled over if the champion committed violations).",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "H",
+          "title": "Required Owners Meeting Attendance + Proxy Rules",
+          "description": "Proposed by Grandes: Owners meeting becomes mandatory annual attendance. Owners unable to attend must assign a proxy voter or submit votes ahead of time. No-shows with no proxy or pre-submitted votes will be penalized.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "I",
+          "title": "Mix Up Divisions Each Offseason",
+          "description": "Proposed by Grandes: Part 1 — mix up who is in what division each offseason (randomly or by prior year's finish). Part 2 — make this permanent (annual redivisioning).",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "J",
+          "title": "Expand Taxi Squad Usefulness — Multi-Year + Unlimited",
+          "description": "Proposed by Vieyra and Grandes: Part 1 — allow taxi players to remain on taxi for multiple years (suggest 3 years) to reward drafting rookies. Part 2 — expand or make taxi unlimited so owners can stash more drafted rookies.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "K",
+          "title": "Rookie Draft Lottery Structure",
+          "description": "Proposed by Vieyra: Replace straight inverse-standings draft order with a lottery. Lowest potential points gets 10 lottery tickets, 2nd lowest gets 9, etc. Championship game teams ineligible for the 1.01. All positions (1.01 through 1.12) selected via lottery.",
+          "outcome": "outcome unknown"
         }
       ]
     },
@@ -129,13 +251,73 @@
       "year": 2020,
       "date": "April 9, 2020",
       "status": "partial",
-      "summary": "First virtual-only meeting due to COVID-19. Rule change proposals were posted in Sleeper rather than Facebook. Known outcomes: Matt Moodie was replaced by Joe Tuberdyke (Tubes94), completing a roster of active owners for the new Sleeper era. Full proposition list and votes not yet recovered from archive.",
-      "context": "COVID year. League had migrated from ESPN to Sleeper in December 2019 — Season 5 would be the first fully on Sleeper. Schedule-related proposals from 2019 (Props F and G) were carried over to this meeting for re-vote.",
+      "summary": "Eleven propositions on the ballot — a major COVID-era virtual meeting, the first on Sleeper. Notably included the original Dispersal Draft Rules (Prop K), which were eventually adopted by the league and are now being invoked for the first time in 2026. Outcomes for individual propositions not yet recovered.",
+      "context": "COVID year. League migrated from ESPN to Sleeper in December 2019 — Season 5 was the first fully on Sleeper. Matt Moodie was replaced by Joe Tuberdyke (Tubes94). Schedule-related proposals from 2019 (Props F and G) carried over to this ballot.",
       "propositions": [
         {
-          "letter": "—",
-          "title": "Schedule Rule Changes (carried from 2019 Props F & G)",
-          "description": "Schedule/division-related proposals from the 2019 meeting that showed interest but needed a platform transition to implement. Specific terms not yet recovered from archive.",
+          "letter": "A",
+          "title": "Eliminate Superflex",
+          "description": "Proposed by JuicyBussy: Remove the Superflex starting position from all lineups.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "B",
+          "title": "Make Interceptions More Costly",
+          "description": "Proposed by Grandes: Increase interception penalty from -2 to -3 points. 'Pick 6' interceptions worth -4 points. Designed to better separate elite QBs from turnover-prone ones.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "C",
+          "title": "IR Restricted to Injured Players Only",
+          "description": "Proposed by JuicyBussy: IR slots should only be allowed for players with Sleeper IR or Out (O) designations. Non-injury tags (SSPD, Did-not-report, Not active) would no longer qualify.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "D",
+          "title": "IR Should Include Doubtful-Tagged Players",
+          "description": "Proposed by Grandes: Players listed as 'Doubtful' should be IR-eligible, since a Doubtful player is almost never going to play. Sleeper supports the 'D' tag for IR eligibility.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "E",
+          "title": "IR Eliminated in the Offseason",
+          "description": "Proposed by Grandes: No IR slots allowed in the offseason until 1 week before Week 1. Prevents the common tactic of stashing extra players in IR spots over the off-season.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "F",
+          "title": "Unlimited Taxi Squad",
+          "description": "Proposed by 'Lockett or Load it' (Gun SAFE): Unlimited taxi squad positions for players you personally drafted. Designed to make draft picks more valuable and support full team rebuilds without being forced to cut prospects.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "G",
+          "title": "Team Name Restoration for Trophy Purposes",
+          "description": "Proposed by 'Locked and Loaded': Change a team's name back to the name listed on the league trophy.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "H",
+          "title": "Move to Two Divisions Instead of Three",
+          "description": "Proposed by 'Alvin and the Chipmunks': Two divisions, with division winners seeded 1 and 2 (both get a first-round bye). Seeds 3–6 based on best records across the rest of the league.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "I",
+          "title": "Redivision — Mix Up the 3 Divisions (if H Fails)",
+          "description": "Proposed by Grandes: If Prop H fails, mix up who is in each of the 3 divisions — either randomly, or using a 'division captain' selection (top 3 teams of 2019 pick their divisions).",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "J",
+          "title": "24-Hour Trade Counter Period",
+          "description": "Proposed by Grandes: Institute a 24-hour trade counter period during the offseason. Once a trade is accepted in Sleeper and made public, other teams may reach out with counter offers. Both parties may waive the period ('push' the trade immediately). Trial offseason run to determine if owners want it in the regular season too.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "K",
+          "title": "Dispersal Draft Rules — The Full Framework",
+          "description": "Proposed by Grandes: Defines when and how dispersal drafts occur. Required whenever a new owner joins; optional every even year (2020, 2022, etc.). 3–4 teams minimum/maximum. Each entrant puts all players and 2 years of picks into a pool; snake draft determines new teams. Two supplemental first-round picks added to the pool as incentive. Teams may not enter two consecutive dispersal drafts.",
           "outcome": "outcome unknown"
         }
       ]
@@ -144,62 +326,68 @@
       "year": 2019,
       "date": "April 8, 2019",
       "status": "confirmed",
-      "summary": "Landmark governance year: the Taxi Squad was created, a formal loser punishment was established, and free agents were made eligible for the Rookie Draft. The controversial anti-trade rape rule (Prop I) was defeated — Commissioner Grandes declared he'd 'beat any trade that is offered to you. *probably.'",
-      "context": "Heading into Season 4 on ESPN. Cogdeill11 defending champion (2018). Dan Gaudy still in league (would be replaced by Escuelas around this time). Google Meet virtual meeting with full 11-owner rollcall.",
+      "summary": "Ten propositions, 3 passed: Taxi Squad created (Prop D), loser punishment established (Prop E, later known as the Beer Mile), and free agents made eligible in the Rookie Draft (Prop H). The anti-trade rape rule — actually a 24-hour countertrade period (Prop I) — was defeated. Supporter 'Stand Against Trade Rape' (SexMachineAndyD) proposed Props A, F, G, and J.",
+      "context": "Heading into Season 4 on ESPN. Cogdeill11 defending champion (2018). Dan Gaudy still in league. Google Meet virtual meeting with all 11 active owners invited. Meeting from 2019 Official Rule Change Propositions PDF.",
       "propositions": [
         {
           "letter": "A",
-          "title": "Unknown Proposition",
-          "description": "Proposition A details not recovered from archive.",
+          "title": "Le'Veon Bell Rule — No IR for Players Not Under Contract",
+          "description": "Proposed by Stand Against Trade Rape (SexMachineAndyD): Players not under contract with an NFL team are not eligible for IR slots. Inspired by Le'Veon Bell's 2018 hold-out season.",
           "outcome": "failed"
         },
         {
           "letter": "B",
-          "title": "Unknown Proposition",
-          "description": "Proposition B details not recovered from archive.",
+          "title": "QB Roster Limit — Max 3 Starting QBs",
+          "description": "Proposed by JuicyBussy: Limit each team to a maximum of 3 starting quarterbacks (as defined by Week 1 NFL depth charts). Up to 2 QBs exempt if they are Rookies. QBs on IR are exempt.",
           "outcome": "failed"
         },
         {
           "letter": "C",
-          "title": "Unknown Proposition",
-          "description": "Proposition C details not recovered from archive.",
+          "title": "FAAB Balancing Rule — Redistribution at Weeks 6, 9, 12",
+          "description": "Proposed by Commissioner Grandes: After weeks 6, 9, and 12, the top 4 teams lose 10% of their current FAAB; the bottom 3 teams each gain $100 FAAB. A competitive-balance mechanism proposed as an alternative to waiver order by standings.",
           "outcome": "failed"
         },
         {
           "letter": "D",
-          "title": "Taxi Squad",
-          "description": "Each team may designate 2 roster spots as taxi squad, for rookies only. Players may be activated off taxi during the season but cannot return to taxi unless dropped and re-claimed via waivers. Owners cannot claim players directly off another team's taxi squad.",
+          "title": "Practice/Taxi Squad — 2 Rookie Spots",
+          "description": "Proposed by Commissioner Grandes: Add 2 taxi squad spots (rookies only). Players activated off taxi cannot return unless dropped and re-claimed via waivers. Rookies can be drafted directly to taxi. Other owners may claim taxi players — the owner has 48 hours to activate or trade for a compensatory pick.",
           "outcome": "modified"
         },
         {
           "letter": "E",
-          "title": "Annual Loser Punishment",
-          "description": "The team finishing last place (defined annually) must perform a punishment set before the season start. In 2019: last place in the regular season had to complete a Beer Mile — video evidence required before the 2020 Rookie Draft.",
+          "title": "Loser Punishment — 'PUNISH THE LOSER'",
+          "description": "Proposed by Murder Boners (MLSchools12/Schoolcraft): The league's last-place finisher must wear a sandwich board or embarrassing shirt on a street corner. Defined as last place in the regular season (first pick in 2020 draft). Commissioner note: punishment details needed before vote.",
           "outcome": "passed"
         },
         {
           "letter": "F",
-          "title": "Schedule Change (details TBD)",
-          "description": "Schedule-related proposal that showed interest but needed further details. Deferred for re-vote at the 2020 meeting.",
+          "title": "Drastic Scheduling Changes — Double-Header Weeks",
+          "description": "Proposed by Stand Against Trade Rape: 16-game season with double-header weeks — one lineup set, two matchups. Every team plays each opponent at least once. Commissioner flagged as needing clarification before vote.",
           "outcome": "tabled"
         },
         {
           "letter": "G",
-          "title": "Schedule Change (details TBD)",
-          "description": "Second schedule-related proposal deferred from 2019 for re-vote at the 2020 meeting after platform migration.",
+          "title": "Championship Matchup Extended to 2 Weeks (15 and 16)",
+          "description": "Proposed by Stand Against Trade Rape: Championship spans weeks 15 and 16. Dependent on Prop F being implemented. Commissioner note: would require shortening regular season to accommodate.",
           "outcome": "tabled"
         },
         {
           "letter": "H",
-          "title": "Free Agents Eligible in Rookie Draft",
-          "description": "Allow free agent rookies (undrafted) to be selected in the Rookie Draft using standard draft picks. Previously only already-rostered rookies could be traded; this change dramatically improved undrafted rookie value.",
+          "title": "Non-Rookie Free Agents Eligible in Rookie Draft",
+          "description": "Proposed by Commissioner Grandes: Allow unrostered veteran free agents to be signed during the Rookie Draft when an owner is on the clock. Increases draftable player pool and makes late-round picks more valuable.",
           "outcome": "passed"
         },
         {
           "letter": "I",
-          "title": "Anti-Trade Rape Rule",
-          "description": "Proposed protection against exploitative one-sided trades — would have given the Commissioner or league broader power to block or penalize egregious trades.",
+          "title": "24-Hour League Optional Countertrade Period",
+          "description": "Proposed by Commissioner Grandes: After any accepted trade, the full league has 24 hours to submit counter-offers to either side (unless both trade parties opt out). Counters must match one side of the trade — no adding new pieces. Both sides can declare 'No Counters' to push a trade immediately. Grandes called this the most important proposal on the ballot; its defeat led to his famous post: 'In the tragedy of the defeat of Prop I, I am here for you. I will beat any trade offered to you. *probably.'",
           "outcome": "failed"
+        },
+        {
+          "letter": "J",
+          "title": "Eliminate Trade Processing Time",
+          "description": "Proposed by Stand Against Trade Rape: Make all trades process immediately. Commissioner noted there is no formal processing time — trades are already processed immediately upon notification — so Prop J was deemed unnecessary and not voted on.",
+          "outcome": "tabled"
         }
       ]
     },
@@ -208,12 +396,12 @@
       "date": "March 10, 2018",
       "status": "confirmed",
       "summary": "The most transformative single meeting in league history: IDP removed, Superflex added, roster sizes cut, dues raised to $50, a loser punishment codified, trade restrictions on future picks enacted, and trades during the playoffs banned. Eight owners attended in person in Cleveland; four dialed in.",
-      "context": "Heading into Season 3 on ESPN. MLSchools12 (Schoolcraft) won the inaugural championship (2016) and was defending champion after MLSchools' 2017 title. Meeting held in-person at Commissioner Grandes' home in Cleveland.",
+      "context": "Heading into Season 3 on ESPN. MLSchools12 (Schoolcraft) was defending champion. Meeting held in-person at Commissioner Grandes' apartment in Cleveland, Ohio (1965 E 6th St). Dial-in: 1-800-504-8071, code 7530014#.",
       "propositions": [
         {
           "letter": "—",
           "title": "Remove IDP Players",
-          "description": "Individual Defensive Players eliminated from all rosters. Roster management had become too complex and stat corrections from IDP were creating ongoing disputes.",
+          "description": "Individual Defensive Players eliminated from all rosters. Roster management had become too complex and stat corrections were creating ongoing disputes.",
           "outcome": "passed"
         },
         {
@@ -225,19 +413,19 @@
         {
           "letter": "—",
           "title": "Superflex Position Added",
-          "description": "A Superflex starting spot (QB/RB/WR/TE eligible) was added to lineups, dramatically increasing QB value in trades and the Rookie Draft.",
+          "description": "A Superflex starting spot (QB/RB/WR/TE eligible) added to lineups, dramatically increasing QB value in trades and the Rookie Draft.",
           "outcome": "passed"
         },
         {
           "letter": "—",
           "title": "Annual Dues Increase to $50",
-          "description": "Entry fee raised from $40 to $50 per year. $40 was not generating a large enough prize pool to sustain engagement.",
+          "description": "Entry fee raised from $40 to $50 per year to generate a more compelling prize pool.",
           "outcome": "passed"
         },
         {
           "letter": "—",
           "title": "Future Pick Trade Restriction",
-          "description": "Trading future draft picks requires the trading team to pay 50% of the annual dues for every year prior to and including the year of the traded pick. Prevents owners from trading away picks for years they haven't yet paid for.",
+          "description": "Trading future draft picks requires the trading team to pay 50% of annual dues for every year prior to and including the year of the traded pick. Prevents trading away picks for years not yet paid for.",
           "outcome": "passed"
         },
         {
@@ -249,7 +437,7 @@
         {
           "letter": "—",
           "title": "No Trades During Playoffs",
-          "description": "Trading prohibited beginning the last regular season week through the end of the playoffs (deadline: Thursday after the final regular season week at 12:00pm).",
+          "description": "Trading prohibited from the last regular season week through end of playoffs (deadline: Thursday of final regular season week at 12:00pm ET).",
           "outcome": "passed"
         }
       ]
@@ -258,8 +446,8 @@
       "year": 2017,
       "date": "February 26, 2017",
       "status": "confirmed",
-      "summary": "The first Owners Meeting — a call-in / WebEx session with 9 of 12 owners (Moodie, Drysdale, and Gaudy absent). Three scoring changes passed immediately. A wave of offseason rule change proposals was submitted in December 2017 for the 2018 meeting.",
-      "context": "Heading into Season 2 on ESPN. MLSchools12 (Michael Schoolcraft) was defending inaugural champion (2016). The league was still finding its governance rhythm — this was the first formal meeting, dialed into 1-800-504-8071 with passcode 7530014#.",
+      "summary": "The first Owners Meeting — a call-in / WebEx session with 9 of 12 owners (Moodie, Drysdale, and Gaudy absent). Three IDP scoring changes passed immediately. A wave of rule proposals was submitted in December 2017 for the 2018 ballot.",
+      "context": "Heading into Season 2 on ESPN. MLSchools12 (Michael Schoolcraft) was defending inaugural champion (2016). Dial-in: 1-800-504-8071, passcode 7530014#. WebEx: https://join.me/bmffflmeeting.",
       "propositions": [
         {
           "letter": "—",
