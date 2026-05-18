@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { cn } from '@/lib/cn';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -23,7 +24,7 @@ const GENERAL_RULES: RuleEntry[] = [
   },
   {
     term: 'Taxi Squad',
-    definition: '5 spots for players in their first 2 seasons of NFL eligibility. Must declare taxi squad players before Week 1 each season.',
+    definition: '5 spots. Players may remain on taxi for up to 3 seasons of NFL eligibility. Must declare taxi squad players before Week 1 each season.',
   },
   {
     term: 'IR Spots',
@@ -90,6 +91,52 @@ const DRAFT_RULES: RuleEntry[] = [
   {
     term: 'Future Pick Trading',
     definition: 'Future draft picks (up to 2 years out) may be included in trades year-round.',
+  },
+];
+
+const PUNISHMENT_RULES: RuleEntry[] = [
+  {
+    term: 'Last Place — Loser Punishment',
+    definition: 'The Moodie Bowl loser selects one of three punishments before the season: (1) Run the Matt Moodie Memorial Mile (beer mile), (2) Wax their hairiest body part (excluding head/face), or (3) Play 18 holes of golf in a skirt. Established 2019 · Renamed 2023 · Selectable options added 2025.',
+  },
+  {
+    term: 'Moodie Bowl Trophy',
+    definition: 'The last-place finisher must display a framed photo of Matt Moodie in a bathroom in their home for the entire following season. Must prove compliance if asked. Non-compliance = $100 FAAB fine per the Inactivity rules. Source: 2022 Meeting, Prop G.',
+  },
+  {
+    term: 'No-Call / No-Show',
+    definition: 'Owners absent from the Owners Meeting without a proxy or advance notice have their team name chosen by the league via group poll, effective for the entire following season. Source: 2022 Meeting, Prop B / 2024 Meeting, SV-B.',
+  },
+  {
+    term: 'Late to Meeting',
+    definition: '$5 FAAB fine per minute late after the scheduled meeting start time. Source: 2024 Meeting, SV-A.',
+  },
+  {
+    term: 'Inactivity Fine — The Mercy System',
+    definition: 'After Tax Day, these are $100 FAAB punishable infractions: not voting on official polls, not responding to a trade offer within 5 days (offseason) or 3 days (in-season), starting a player on a BYE. The reporting owner must contact the offender first. The accused gets one Mercy plea — if 7+ owners vote No Mercy the fine stands. Third offense = possible expulsion vote. Source: 2022 Meeting, Prop B.',
+  },
+];
+
+const SPECIAL_MECHANIC_RULES: RuleEntry[] = [
+  {
+    term: "STEAL!",
+    definition: "Any owner may attempt to steal a taxi squad player by announcing 'STEAL!' in group chat with the target player named. The targeted owner has 48 hours to promote the player to their active roster, accept pick compensation (one round higher than the player's draft round), or trade the player elsewhere. Failure to respond = auto-steal. FA/FAAB-acquired taxi players cost a 3rd-round pick to steal. Source: 2024 Meeting, Prop C.",
+  },
+  {
+    term: 'Plan B — Trade Counter Window',
+    definition: "After a 'pushed' (immediately processed) trade, any owner may call for a Plan B Vote. If 4+ owners signal they have a better offer, either party may invoke Plan B and accept a counteroffer within 24 hours. There is no Plan C. Source: 2024 Meeting, Prop G.",
+  },
+  {
+    term: 'Division Naming',
+    definition: 'After each season, the top 2 divisions (by total combined team points) vote on whether to rename their division. If 75% of teams in a division agree on a new name, it becomes official. The top division also votes to name the bottom division. Source: 2022 Meeting, Prop A.',
+  },
+  {
+    term: 'Core Four Challenge',
+    definition: 'Season-long mini-league. Each owner designates a Core Four roster (QB + RB + WR + TE + 2 subs). Weekly Core Four rankings earn Core Points (1st = 10 pts down to last = −5 pts). One captain-doubler and one free swap per week. The Core Four champion earns a separate prize. Source: 2024 Meeting, Prop E.',
+  },
+  {
+    term: 'Ultimate Championship',
+    definition: 'Every 4 years, all dues-paying owners compete in a season-long survivor elimination tournament running alongside the main league (Weeks 1–16). Low scorer each week is eliminated. The first was held during the 2025 BMFFFL season. All owners contribute $10/year extra toward the jackpot (Champ: $300, Runner-up: $50). Source: 2022 Meeting, Prop J (amended 2024).',
   },
 ];
 
@@ -252,6 +299,14 @@ export default function RulesPage() {
             </div>
           </div>
 
+          {/* Meeting history link */}
+          <div className="mb-8 text-sm text-slate-500">
+            Rules are derived from annual Owners Meeting votes.{' '}
+            <Link href="/history/meetings" className="text-[#ffd700] hover:underline">
+              View full meeting history →
+            </Link>
+          </div>
+
           {/* Two-column layout on desktop */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-start">
 
@@ -271,6 +326,11 @@ export default function RulesPage() {
                 <SectionHeader title="Rookie Draft Rules" subtitle="Linear format, 4 rounds" />
                 <RuleTable rules={DRAFT_RULES} />
               </section>
+
+              <section>
+                <SectionHeader title="Punishments & Governance" subtitle="Established by Owners Meeting vote" />
+                <RuleTable rules={PUNISHMENT_RULES} />
+              </section>
             </div>
 
             {/* Right column */}
@@ -278,6 +338,11 @@ export default function RulesPage() {
               <section>
                 <SectionHeader title="Scoring System" subtitle="Full PPR · 4-pt passing TDs · -2 fumble lost" />
                 <ScoringTable />
+              </section>
+
+              <section>
+                <SectionHeader title="Special Mechanics" subtitle="Unique rules voted in by Owners Meeting" />
+                <RuleTable rules={SPECIAL_MECHANIC_RULES} />
               </section>
 
               {/* Roster breakdown card */}
@@ -301,7 +366,7 @@ export default function RulesPage() {
                         { slot: 'Flex', eligible: 'RB / WR / TE', count: '2' },
                         { slot: 'Superflex', eligible: 'QB / RB / WR / TE', count: '1' },
                         { slot: 'Bench', eligible: 'Any', count: '12' },
-                        { slot: 'Taxi Squad', eligible: 'Yr 1–2 rookies', count: '5' },
+                        { slot: 'Taxi Squad', eligible: 'Yr 1–3 rookies/draftees', count: '5' },
                         { slot: 'IR', eligible: 'IR-designated', count: '3' },
                       ].map((row, i) => (
                         <tr
@@ -324,8 +389,14 @@ export default function RulesPage() {
           </div>
 
           {/* Footer note */}
-          <div className="mt-10 pt-6 border-t border-[#2d4a66] text-xs text-slate-500">
-            Rules last reviewed March 2026. All disputes subject to commissioner ruling within 48 hours of the scoring event.
+          <div className="mt-10 pt-6 border-t border-[#2d4a66] text-xs text-slate-500 space-y-1">
+            <p>Rules last updated May 2026 — sourced from 10 years of Owners Meeting votes (2017–2026).</p>
+            <p>All disputes subject to commissioner ruling within 48 hours of the scoring event.</p>
+            <p>
+              <Link href="/history/meetings" className="text-[#ffd700]/70 hover:text-[#ffd700]">
+                Full meeting history →
+              </Link>
+            </p>
           </div>
         </div>
       </main>
