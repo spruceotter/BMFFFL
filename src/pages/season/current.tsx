@@ -25,7 +25,7 @@ const OWNER_SLUGS: Record<string, string> = {
   'rbr':             'rbr',
   'Cogdeill11':      'cogdeill11',
   'Grandes':         'grandes',
-  'Bimfle':          'bimfle',
+  'TBD - Orphan Roster': 'bimfle',
 };
 
 // Pre-season power ranking (2025 final standing → 2026 projected strength)
@@ -42,7 +42,7 @@ const PRESEASON_POWER: Record<string, { rank: number; note: string }> = {
   'rbr':             { rank: 9,  note: '5-9 in 2025. Strong draft capital.' },
   'Cogdeill11':      { rank: 10, note: '5-9 in 2025. 2× all-time champion (2017, 2020).' },
   'Grandes':         { rank: 11, note: '4-10 in 2025. Commissioner\'s bounce-back year.' },
-  'Bimfle':          { rank: 12, note: 'Steward roster (Escuelas). Developmental.' },
+  'TBD - Orphan Roster': { rank: 12, note: 'Steward roster (Escuelas). Developmental.' },
 };
 
 // ─── Types ────────────────────────────────────────────────────────────────────

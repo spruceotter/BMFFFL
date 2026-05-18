@@ -413,7 +413,7 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
     category: 'FAAB / Waivers',
     title: 'Disposition of Orphan FAAB Balance (MCSchools / Escuelas)',
     context:
-      'The departing Escuelas team left behind ~986 FAAB currently held in stewardship (mapped to Bimflé pending new owner placement). ' +
+      'The departing Escuelas team left behind ~986 FAAB currently held in stewardship (mapped to TBD - Orphan Roster pending new owner placement). ' +
       'The league must decide what happens to these funds before the new owner joins.',
     options: [
       {

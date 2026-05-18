@@ -98,7 +98,7 @@ const OWNER_COLORS: Record<string, { bar: string; text: string; bg: string }> = 
   Tubes94:         { bar: 'bg-violet-500',  text: 'text-violet-300',  bg: 'bg-violet-900/30' },
   MCSchools:       { bar: 'bg-cyan-500',    text: 'text-cyan-300',    bg: 'bg-cyan-900/30' },
   MMoodie12:       { bar: 'bg-sky-500',     text: 'text-sky-300',     bg: 'bg-sky-900/30' },
-  'Bimflé':        { bar: 'bg-slate-500',   text: 'text-slate-300',   bg: 'bg-slate-900/30' },
+  'TBD - Orphan Roster': { bar: 'bg-slate-500',   text: 'text-slate-300',   bg: 'bg-slate-900/30' },
 };
 
 function ownerColor(name: string) {

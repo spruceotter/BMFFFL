@@ -158,7 +158,7 @@ const OWNERS: OwnerCardData[] = [
     winPct: 0.333,
   },
   {
-    name: 'Bimfle',
+    name: 'TBD - Orphan Roster',
     teamName: 'Developing Roster',
     allTimeRecord: { wins: 8, losses: 34, ties: 0, winPct: 0.19 },
     championships: 0,
