@@ -349,28 +349,29 @@ export default function DogeFaabPage({ data }: Props) {
           {/* ── Refresh Limits ───────────────────────────────────────────── */}
           <section className="mb-8">
             <h2 className="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
-              <CalendarDays className="w-4 h-4 text-yellow-400" /> {currentSeason} Annual Refresh Buy Limits
+              <CalendarDays className="w-4 h-4 text-yellow-400" /> {currentSeason} Rookie Draft Order — FAAB Refresh Caps
             </h2>
             <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
-                    <th className="text-left px-4 py-3 w-8">#</th>
+                    <th className="text-left px-4 py-3 w-16">Draft Pick</th>
                     <th className="text-left px-4 py-3">Owner</th>
-                    <th className="text-right px-4 py-3 hidden sm:table-cell">2025 Finish</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">2025 Result</th>
                     <th className="text-right px-4 py-3 hidden md:table-cell">Pool %</th>
                     <th className="text-right px-4 py-3">Max FAAB</th>
                     <th className="text-right px-4 py-3 hidden sm:table-cell">Max DOGE</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {refreshLimits.map((r, i) => {
+                  {[...refreshLimits].sort((a, b) => b.finishPosition - a.finishPosition).map((r, i) => {
                     const c = ownerColor(r.displayName);
                     const dogeCost = r.limit !== null ? Math.round(r.limit / 5) : null;
                     const isPlayoff = r.finishPosition <= 6;
+                    const draftPick = 13 - r.finishPosition;
                     return (
                       <tr key={r.username} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
-                        <td className="px-4 py-3 text-slate-600 text-xs">{r.finishPosition}</td>
+                        <td className="px-4 py-3 text-slate-400 text-xs font-semibold">#{draftPick}</td>
                         <td className="px-4 py-3">
                           <span className={`font-medium ${c.text}`}>{r.displayName}</span>
                         </td>
@@ -413,7 +414,7 @@ export default function DogeFaabPage({ data }: Props) {
                 </tfoot>
               </table>
               <p className="text-xs text-slate-500 px-4 py-2 border-t border-slate-700/50 bg-amber-950/20">
-                ⚠️ 2026 refresh pool = <strong className="text-amber-400">4,744 FAAB</strong> — notably smaller than prior seasons (2025 had one of the lowest waiver markets on record). Champion–3rd place share equally at 1.75% each. Window opens after Owners Meeting.
+                ⚠️ 2026 refresh pool = <strong className="text-amber-400">4,744 FAAB</strong> — notably smaller than prior seasons. Draft pick #1 (worst finish) gets the highest FAAB cap. Non-playoff teams ranked by potential points (not W/L). Window opens after Owners Meeting.
               </p>
             </div>
           </section>
