@@ -1,0 +1,876 @@
+{
+  "generatedAt": "2026-05-18T15:48:36.978Z",
+  "treasury": {
+    "totalDoge": 2530,
+    "totalFaabOutstanding": 14283,
+    "buyRate": 5,
+    "sellRate": 5.65,
+    "balancesPulledAt": "2026-05-18"
+  },
+  "currentBalances": [
+    {
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "faabRemaining": 4005,
+      "pctOfPool": 28,
+      "dogeShare": 709.4
+    },
+    {
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "faabRemaining": 2167,
+      "pctOfPool": 15.2,
+      "dogeShare": 383.8
+    },
+    {
+      "username": "rbr",
+      "displayName": "rbr",
+      "faabRemaining": 1289,
+      "pctOfPool": 9,
+      "dogeShare": 228.3
+    },
+    {
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "faabRemaining": 1285,
+      "pctOfPool": 9,
+      "dogeShare": 227.6
+    },
+    {
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "faabRemaining": 1156,
+      "pctOfPool": 8.1,
+      "dogeShare": 204.8
+    },
+    {
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "faabRemaining": 1020,
+      "pctOfPool": 7.1,
+      "dogeShare": 180.7
+    },
+    {
+      "username": "bimfle",
+      "displayName": "Bimflé",
+      "faabRemaining": 986,
+      "pctOfPool": 6.9,
+      "dogeShare": 174.7
+    },
+    {
+      "username": "grandes",
+      "displayName": "Grandes",
+      "faabRemaining": 752,
+      "pctOfPool": 5.3,
+      "dogeShare": 133.2
+    },
+    {
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "faabRemaining": 681,
+      "pctOfPool": 4.8,
+      "dogeShare": 120.6
+    },
+    {
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "faabRemaining": 505,
+      "pctOfPool": 3.5,
+      "dogeShare": 89.5
+    },
+    {
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "faabRemaining": 253,
+      "pctOfPool": 1.8,
+      "dogeShare": 44.8
+    },
+    {
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "faabRemaining": 184,
+      "pctOfPool": 1.3,
+      "dogeShare": 32.6
+    }
+  ],
+  "historicalSpend": [
+    {
+      "season": "2020",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 1000,
+      "claims": 17,
+      "biggestBid": 520
+    },
+    {
+      "season": "2020",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 1000,
+      "claims": 16,
+      "biggestBid": 499
+    },
+    {
+      "season": "2020",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 962,
+      "claims": 25,
+      "biggestBid": 107
+    },
+    {
+      "season": "2020",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 947,
+      "claims": 7,
+      "biggestBid": 550
+    },
+    {
+      "season": "2020",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 923,
+      "claims": 21,
+      "biggestBid": 280
+    },
+    {
+      "season": "2020",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "totalSpent": 901,
+      "claims": 11,
+      "biggestBid": 200
+    },
+    {
+      "season": "2020",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 881,
+      "claims": 33,
+      "biggestBid": 215
+    },
+    {
+      "season": "2020",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 862,
+      "claims": 41,
+      "biggestBid": 215
+    },
+    {
+      "season": "2020",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 770,
+      "claims": 21,
+      "biggestBid": 201
+    },
+    {
+      "season": "2020",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 525,
+      "claims": 9,
+      "biggestBid": 508
+    },
+    {
+      "season": "2020",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 358,
+      "claims": 3,
+      "biggestBid": 269
+    },
+    {
+      "season": "2020",
+      "username": "mmoodie12",
+      "displayName": "MMoodie12",
+      "totalSpent": 205,
+      "claims": 12,
+      "biggestBid": 125
+    },
+    {
+      "season": "2021",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 1506,
+      "claims": 16,
+      "biggestBid": 420
+    },
+    {
+      "season": "2021",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "totalSpent": 1450,
+      "claims": 8,
+      "biggestBid": 500
+    },
+    {
+      "season": "2021",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 1237,
+      "claims": 7,
+      "biggestBid": 480
+    },
+    {
+      "season": "2021",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 1134,
+      "claims": 37,
+      "biggestBid": 425
+    },
+    {
+      "season": "2021",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "totalSpent": 1128,
+      "claims": 11,
+      "biggestBid": 319
+    },
+    {
+      "season": "2021",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 1043,
+      "claims": 50,
+      "biggestBid": 369
+    },
+    {
+      "season": "2021",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 767,
+      "claims": 14,
+      "biggestBid": 311
+    },
+    {
+      "season": "2021",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 759,
+      "claims": 23,
+      "biggestBid": 100
+    },
+    {
+      "season": "2021",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 283,
+      "claims": 7,
+      "biggestBid": 88
+    },
+    {
+      "season": "2021",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 183,
+      "claims": 22,
+      "biggestBid": 31
+    },
+    {
+      "season": "2021",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 154,
+      "claims": 23,
+      "biggestBid": 51
+    },
+    {
+      "season": "2021",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 0,
+      "claims": 17,
+      "biggestBid": 0
+    },
+    {
+      "season": "2022",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 966,
+      "claims": 28,
+      "biggestBid": 220
+    },
+    {
+      "season": "2022",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 877,
+      "claims": 13,
+      "biggestBid": 359
+    },
+    {
+      "season": "2022",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "totalSpent": 716,
+      "claims": 13,
+      "biggestBid": 169
+    },
+    {
+      "season": "2022",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "totalSpent": 597,
+      "claims": 10,
+      "biggestBid": 200
+    },
+    {
+      "season": "2022",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 463,
+      "claims": 5,
+      "biggestBid": 219
+    },
+    {
+      "season": "2022",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 351,
+      "claims": 30,
+      "biggestBid": 92
+    },
+    {
+      "season": "2022",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 269,
+      "claims": 82,
+      "biggestBid": 69
+    },
+    {
+      "season": "2022",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 266,
+      "claims": 34,
+      "biggestBid": 49
+    },
+    {
+      "season": "2022",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 213,
+      "claims": 19,
+      "biggestBid": 81
+    },
+    {
+      "season": "2022",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 213,
+      "claims": 5,
+      "biggestBid": 110
+    },
+    {
+      "season": "2022",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 0,
+      "claims": 15,
+      "biggestBid": 0
+    },
+    {
+      "season": "2022",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 0,
+      "claims": 7,
+      "biggestBid": 0
+    },
+    {
+      "season": "2023",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 1406,
+      "claims": 12,
+      "biggestBid": 429
+    },
+    {
+      "season": "2023",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "totalSpent": 824,
+      "claims": 18,
+      "biggestBid": 375
+    },
+    {
+      "season": "2023",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 736,
+      "claims": 9,
+      "biggestBid": 300
+    },
+    {
+      "season": "2023",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 671,
+      "claims": 26,
+      "biggestBid": 325
+    },
+    {
+      "season": "2023",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 599,
+      "claims": 22,
+      "biggestBid": 175
+    },
+    {
+      "season": "2023",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 537,
+      "claims": 81,
+      "biggestBid": 169
+    },
+    {
+      "season": "2023",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 350,
+      "claims": 4,
+      "biggestBid": 220
+    },
+    {
+      "season": "2023",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 224,
+      "claims": 32,
+      "biggestBid": 41
+    },
+    {
+      "season": "2023",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "totalSpent": 175,
+      "claims": 2,
+      "biggestBid": 125
+    },
+    {
+      "season": "2023",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 160,
+      "claims": 10,
+      "biggestBid": 69
+    },
+    {
+      "season": "2023",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 128,
+      "claims": 18,
+      "biggestBid": 111
+    },
+    {
+      "season": "2023",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 116,
+      "claims": 29,
+      "biggestBid": 111
+    },
+    {
+      "season": "2024",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 595,
+      "claims": 31,
+      "biggestBid": 187
+    },
+    {
+      "season": "2024",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "totalSpent": 541,
+      "claims": 10,
+      "biggestBid": 255
+    },
+    {
+      "season": "2024",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 450,
+      "claims": 60,
+      "biggestBid": 77
+    },
+    {
+      "season": "2024",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 446,
+      "claims": 11,
+      "biggestBid": 165
+    },
+    {
+      "season": "2024",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 349,
+      "claims": 13,
+      "biggestBid": 145
+    },
+    {
+      "season": "2024",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "totalSpent": 229,
+      "claims": 4,
+      "biggestBid": 79
+    },
+    {
+      "season": "2024",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 132,
+      "claims": 2,
+      "biggestBid": 69
+    },
+    {
+      "season": "2024",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 118,
+      "claims": 14,
+      "biggestBid": 72
+    },
+    {
+      "season": "2024",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 116,
+      "claims": 16,
+      "biggestBid": 36
+    },
+    {
+      "season": "2024",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 113,
+      "claims": 4,
+      "biggestBid": 60
+    },
+    {
+      "season": "2024",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 79,
+      "claims": 13,
+      "biggestBid": 36
+    },
+    {
+      "season": "2024",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 6,
+      "claims": 15,
+      "biggestBid": 6
+    },
+    {
+      "season": "2025",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "totalSpent": 1281,
+      "claims": 22,
+      "biggestBid": 239
+    },
+    {
+      "season": "2025",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "totalSpent": 835,
+      "claims": 25,
+      "biggestBid": 301
+    },
+    {
+      "season": "2025",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "totalSpent": 711,
+      "claims": 9,
+      "biggestBid": 169
+    },
+    {
+      "season": "2025",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "totalSpent": 455,
+      "claims": 5,
+      "biggestBid": 301
+    },
+    {
+      "season": "2025",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "totalSpent": 394,
+      "claims": 57,
+      "biggestBid": 123
+    },
+    {
+      "season": "2025",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "totalSpent": 379,
+      "claims": 26,
+      "biggestBid": 83
+    },
+    {
+      "season": "2025",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "totalSpent": 364,
+      "claims": 12,
+      "biggestBid": 169
+    },
+    {
+      "season": "2025",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "totalSpent": 157,
+      "claims": 28,
+      "biggestBid": 42
+    },
+    {
+      "season": "2025",
+      "username": "rbr",
+      "displayName": "rbr",
+      "totalSpent": 111,
+      "claims": 6,
+      "biggestBid": 81
+    },
+    {
+      "season": "2025",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "totalSpent": 57,
+      "claims": 15,
+      "biggestBid": 26
+    },
+    {
+      "season": "2025",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "totalSpent": 0,
+      "claims": 10,
+      "biggestBid": 0
+    }
+  ],
+  "topBids": [
+    {
+      "season": "2020",
+      "week": 1,
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "bidAmount": 550,
+      "transactionId": "585571396051050496"
+    },
+    {
+      "season": "2020",
+      "week": 15,
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "bidAmount": 520,
+      "transactionId": "647134983311400960"
+    },
+    {
+      "season": "2020",
+      "week": 5,
+      "username": "rbr",
+      "displayName": "rbr",
+      "bidAmount": 508,
+      "transactionId": "622275655274401792"
+    },
+    {
+      "season": "2021",
+      "week": 1,
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "bidAmount": 500,
+      "transactionId": "725558029356969984"
+    },
+    {
+      "season": "2020",
+      "week": 16,
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "bidAmount": 499,
+      "transactionId": "647479774033293312"
+    },
+    {
+      "season": "2021",
+      "week": 12,
+      "username": "rbr",
+      "displayName": "rbr",
+      "bidAmount": 480,
+      "transactionId": "769579071876280320"
+    },
+    {
+      "season": "2021",
+      "week": 8,
+      "username": "rbr",
+      "displayName": "rbr",
+      "bidAmount": 469,
+      "transactionId": "761349489230462976"
+    },
+    {
+      "season": "2023",
+      "week": 7,
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "bidAmount": 429,
+      "transactionId": "1020550150898520064"
+    },
+    {
+      "season": "2021",
+      "week": 1,
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "bidAmount": 425,
+      "transactionId": "717401224466472960"
+    },
+    {
+      "season": "2021",
+      "week": 8,
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "bidAmount": 420,
+      "transactionId": "761012942509568000"
+    },
+    {
+      "season": "2021",
+      "week": 5,
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "bidAmount": 400,
+      "transactionId": "752962178134712320"
+    },
+    {
+      "season": "2023",
+      "week": 9,
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "bidAmount": 375,
+      "transactionId": "1025394143251570688"
+    },
+    {
+      "season": "2021",
+      "week": 2,
+      "username": "grandes",
+      "displayName": "Grandes",
+      "bidAmount": 369,
+      "transactionId": "746299088907210752"
+    },
+    {
+      "season": "2022",
+      "week": 13,
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "bidAmount": 359,
+      "transactionId": "905260850947395584"
+    },
+    {
+      "season": "2023",
+      "week": 9,
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "bidAmount": 325,
+      "transactionId": "1027450322924625920"
+    },
+    {
+      "season": "2021",
+      "week": 8,
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "bidAmount": 319,
+      "transactionId": "761428251951378432"
+    },
+    {
+      "season": "2021",
+      "week": 5,
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "bidAmount": 311,
+      "transactionId": "753861449050390528"
+    },
+    {
+      "season": "2025",
+      "week": 2,
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "bidAmount": 301,
+      "transactionId": "1273691941229301760"
+    },
+    {
+      "season": "2025",
+      "week": 9,
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "bidAmount": 301,
+      "transactionId": "1291612437992214529"
+    },
+    {
+      "season": "2023",
+      "week": 1,
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "bidAmount": 300,
+      "transactionId": "990628219428605952"
+    },
+    {
+      "season": "2020",
+      "week": 1,
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "bidAmount": 280,
+      "transactionId": "611255269044871168"
+    },
+    {
+      "season": "2020",
+      "week": 4,
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "bidAmount": 278,
+      "transactionId": "618517491471425536"
+    },
+    {
+      "season": "2021",
+      "week": 1,
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "bidAmount": 275,
+      "transactionId": "738188677871747072"
+    },
+    {
+      "season": "2020",
+      "week": 9,
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "bidAmount": 269,
+      "transactionId": "629764886557171712"
+    },
+    {
+      "season": "2024",
+      "week": 9,
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "bidAmount": 255,
+      "transactionId": "1159730085822529536"
+    }
+  ],
+  "leagueTotalsBySeasonFaab": {
+    "2020": 9334,
+    "2021": 9644,
+    "2022": 4931,
+    "2023": 5926,
+    "2024": 3174,
+    "2025": 4744
+  }
+}
