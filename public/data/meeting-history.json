@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T18:44:00.000Z",
-  "note": "Scaffold — propositions/outcomes for 2016-2020 need source files from Commissioner. 2021+ partially confirmed.",
+  "generatedAt": "2026-05-18T20:30:00.000Z",
+  "note": "2017–2019 confirmed from Facebook group archive (888 messages, 2016–2020). 2020 meeting happened April 9, 2020 — outcomes were posted in Sleeper (not Facebook); partial record. 2021 DogeFAAB confirmed from league context. 2022–2025 need Commissioner transcripts/Drive access.",
   "meetings": [
     {
       "year": 2026,
@@ -78,7 +78,7 @@
       "date": "TBD (Spring 2021)",
       "status": "partial",
       "summary": "The meeting that created the DogeFAAB system — FAAB backed by Dogecoin held in Commissioner escrow. Owners can buy FAAB via annual refresh window at a fixed rate (5 FAAB = 1 DOGE). This fundamentally changed the economic stakes of waiver wire bidding.",
-      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League migrated to Sleeper the previous year. Rising crypto interest provided the creative spark for the DogeFAAB concept.",
+      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second full season. Rising crypto interest provided the creative spark for the DogeFAAB concept.",
       "propositions": [
         {
           "letter": "—",
@@ -90,39 +90,156 @@
     },
     {
       "year": 2020,
-      "date": "TBD (Spring 2020)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner. Transition year: league migrated from ESPN to Sleeper. Matt Moodie replaced by Joe Tuberdyke (Tubes94).",
-      "context": "ESPN era ends after 4 seasons. COVID year. Platform migration to Sleeper. New owner added.",
-      "propositions": []
-    },
-    {
-      "year": 2019,
-      "date": "TBD (Spring 2019)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
-      "context": "Season 4 on ESPN. MLSchools12 defending champion (2018 runner-up, won 2019). Dan Gaudy still in league (replaced by Escuelas ~2019).",
-      "propositions": []
-    },
-    {
-      "year": 2018,
-      "date": "TBD (Spring 2018)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
-      "context": "Season 3 on ESPN. Cogdeill11 defending champion (2017). SexMachineAndyD played as 'Stand Against Trade Rape' this year.",
-      "propositions": []
-    },
-    {
-      "year": 2017,
-      "date": "TBD (Spring 2017)",
+      "date": "April 9, 2020",
       "status": "partial",
-      "summary": "Scoring system adjustments approved. Only 9 of 12 owners attended (missing: Moodie, Drysdale, Gaudy).",
-      "context": "Season 2 on ESPN. MLSchools12 defending inaugural champion (2016). Matt Moodie was still active — went 8-1 through Week 9 but eventually left the league.",
+      "summary": "First virtual-only meeting due to COVID-19. Rule change proposals were posted in Sleeper rather than Facebook. Known outcomes: Matt Moodie was replaced by Joe Tuberdyke (Tubes94), completing a roster of active owners for the new Sleeper era. Full proposition list and votes not yet recovered from archive.",
+      "context": "COVID year. League had migrated from ESPN to Sleeper in December 2019 — Season 5 would be the first fully on Sleeper. Schedule-related proposals from 2019 (Props F and G) were carried over to this meeting for re-vote.",
       "propositions": [
         {
           "letter": "—",
-          "title": "Scoring Rule Changes",
-          "description": "Passes Defended: +1 point added. Sacks: increased from 2 to 3 points. Interceptions: increased from 2 to 4 points.",
+          "title": "Schedule Rule Changes (carried from 2019 Props F & G)",
+          "description": "Schedule/division-related proposals from the 2019 meeting that showed interest but needed a platform transition to implement. Specific terms not yet recovered from archive.",
+          "outcome": "outcome unknown"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "date": "April 8, 2019",
+      "status": "confirmed",
+      "summary": "Landmark governance year: the Taxi Squad was created, a formal loser punishment was established, and free agents were made eligible for the Rookie Draft. The controversial anti-trade rape rule (Prop I) was defeated — Commissioner Grandes declared he'd 'beat any trade that is offered to you. *probably.'",
+      "context": "Heading into Season 4 on ESPN. Cogdeill11 defending champion (2018). Dan Gaudy still in league (would be replaced by Escuelas around this time). Google Meet virtual meeting with full 11-owner rollcall.",
+      "propositions": [
+        {
+          "letter": "A",
+          "title": "Unknown Proposition",
+          "description": "Proposition A details not recovered from archive.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "B",
+          "title": "Unknown Proposition",
+          "description": "Proposition B details not recovered from archive.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "C",
+          "title": "Unknown Proposition",
+          "description": "Proposition C details not recovered from archive.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "D",
+          "title": "Taxi Squad",
+          "description": "Each team may designate 2 roster spots as taxi squad, for rookies only. Players may be activated off taxi during the season but cannot return to taxi unless dropped and re-claimed via waivers. Owners cannot claim players directly off another team's taxi squad.",
+          "outcome": "modified"
+        },
+        {
+          "letter": "E",
+          "title": "Annual Loser Punishment",
+          "description": "The team finishing last place (defined annually) must perform a punishment set before the season start. In 2019: last place in the regular season had to complete a Beer Mile — video evidence required before the 2020 Rookie Draft.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "F",
+          "title": "Schedule Change (details TBD)",
+          "description": "Schedule-related proposal that showed interest but needed further details. Deferred for re-vote at the 2020 meeting.",
+          "outcome": "tabled"
+        },
+        {
+          "letter": "G",
+          "title": "Schedule Change (details TBD)",
+          "description": "Second schedule-related proposal deferred from 2019 for re-vote at the 2020 meeting after platform migration.",
+          "outcome": "tabled"
+        },
+        {
+          "letter": "H",
+          "title": "Free Agents Eligible in Rookie Draft",
+          "description": "Allow free agent rookies (undrafted) to be selected in the Rookie Draft using standard draft picks. Previously only already-rostered rookies could be traded; this change dramatically improved undrafted rookie value.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "I",
+          "title": "Anti-Trade Rape Rule",
+          "description": "Proposed protection against exploitative one-sided trades — would have given the Commissioner or league broader power to block or penalize egregious trades.",
+          "outcome": "failed"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "date": "March 10, 2018",
+      "status": "confirmed",
+      "summary": "The most transformative single meeting in league history: IDP removed, Superflex added, roster sizes cut, dues raised to $50, a loser punishment codified, trade restrictions on future picks enacted, and trades during the playoffs banned. Eight owners attended in person in Cleveland; four dialed in.",
+      "context": "Heading into Season 3 on ESPN. MLSchools12 (Schoolcraft) won the inaugural championship (2016) and was defending champion after MLSchools' 2017 title. Meeting held in-person at Commissioner Grandes' home in Cleveland.",
+      "propositions": [
+        {
+          "letter": "—",
+          "title": "Remove IDP Players",
+          "description": "Individual Defensive Players eliminated from all rosters. Roster management had become too complex and stat corrections from IDP were creating ongoing disputes.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Roster Size Reduction",
+          "description": "Active roster cut from 28 to 24 players (offseason roster from 32 to 28). Designed to tighten the talent pool and make waiver wire more competitive.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Superflex Position Added",
+          "description": "A Superflex starting spot (QB/RB/WR/TE eligible) was added to lineups, dramatically increasing QB value in trades and the Rookie Draft.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Annual Dues Increase to $50",
+          "description": "Entry fee raised from $40 to $50 per year. $40 was not generating a large enough prize pool to sustain engagement.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Future Pick Trade Restriction",
+          "description": "Trading future draft picks requires the trading team to pay 50% of the annual dues for every year prior to and including the year of the traded pick. Prevents owners from trading away picks for years they haven't yet paid for.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Loser Punishment Established",
+          "description": "The team with the lowest total potential (optimal) points scored through the end of the playoffs is designated as the loser and must perform a punishment determined before the season starts.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "No Trades During Playoffs",
+          "description": "Trading prohibited beginning the last regular season week through the end of the playoffs (deadline: Thursday after the final regular season week at 12:00pm).",
+          "outcome": "passed"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "date": "February 26, 2017",
+      "status": "confirmed",
+      "summary": "The first Owners Meeting — a call-in / WebEx session with 9 of 12 owners (Moodie, Drysdale, and Gaudy absent). Three scoring changes passed immediately. A wave of offseason rule change proposals was submitted in December 2017 for the 2018 meeting.",
+      "context": "Heading into Season 2 on ESPN. MLSchools12 (Michael Schoolcraft) was defending inaugural champion (2016). The league was still finding its governance rhythm — this was the first formal meeting, dialed into 1-800-504-8071 with passcode 7530014#.",
+      "propositions": [
+        {
+          "letter": "—",
+          "title": "Passes Defended: +1 Point",
+          "description": "Added 1 point for each pass defended by an IDP player. Effective immediately for the 2017 season.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Sacks: 2 → 3 Points",
+          "description": "Increased the point value of a sack from 2 to 3 points. Effective immediately for the 2017 season.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "—",
+          "title": "Interceptions: 2 → 4 Points",
+          "description": "Increased the point value of a defensive interception from 2 to 4 points. Effective immediately for the 2017 season.",
           "outcome": "passed"
         }
       ]
