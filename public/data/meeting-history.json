@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T22:25:00.000Z",
-  "note": "2017–2019 confirmed from Facebook archive. 2019 Props A-J confirmed from official PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF — DogeFAAB (Prop D) passed; other outcomes unknown. 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript. 2022–2023 still need Commissioner PDFs.",
+  "generatedAt": "2026-05-18T22:30:00.000Z",
+  "note": "2017–2019 confirmed from Facebook archive. 2019 Props A-J confirmed from official PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF + 2023 appendix slides — DogeFAAB (Prop D) passed; Prop K failed; Props L and M passed. 2022 fully confirmed from official results PDF. 2023 partial — only Prop D(oge) outcome confirmed FAIL. 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript.",
   "meetings": [
     {
       "year": 2026,
@@ -152,22 +152,143 @@
     {
       "year": 2023,
       "date": "TBD (Spring 2023)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/PDF needed from Commissioner.",
-      "context": "Heading into Season 8. Grandes was defending champion (2022) — Commissioner's ring year. The 2024 meeting references '2022-PropJ' (Ultimate Championship), suggesting 2022 introduced that concept; 2023 may have made further amendments.",
-      "propositions": []
+      "status": "partial",
+      "summary": "Seven propositions plus a special vote punishing Tyler Drysdale for his no-call/no-show. Key highlights: DogeFAAB Adjustments (Prop D, three parts) failed. Vieyra proposed renaming the Beer Mile to the 'Matt Moodie Memorial Mile.' Outcomes for most propositions not confirmed in the proposals PDF.",
+      "context": "Heading into Season 8. Grandes was defending champion (2022 season). Tyler Drysdale was a no-call, no-show (the only NCNS). Mike Schoolcraft arrived at 8:31, Mike Rioux at 8:37. Props K, L, M from the 2021 meeting included in appendix for reference.",
+      "propositions": [
+        {
+          "letter": "SV",
+          "title": "Tyler Drysdale No-Call/No-Show Punishment",
+          "description": "For every 5 minutes late after 8:30pm start time, Tyler Drysdale would have a 1-week penalty in which the league names his team. As a no-call/no-show, the team-naming punishment applied for the entire 2023 season.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "A",
+          "title": "Mulligan Rule",
+          "description": "One time per year, an owner may replace a starter with a bench player after the game and have the score recalculated. Only one Mulligan allowed per season; usable in the playoffs.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "B",
+          "title": "Rename the Beer Mile — 'The Matt Moodie Memorial Mile'",
+          "description": "Proposed by Vieyra: Rename the Beer Mile (the loser punishment run) to 'The Matt Moodie Memorial Mile' in honor of the league's founder.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "C",
+          "title": "Waiver Clearance Day — Move from Wednesday to Tuesday",
+          "description": "Adjust the first weekly waiver clearance after games from Wednesday morning to Tuesday evenings.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "D(OGE)",
+          "title": "DogeFAAB Adjustments — Three-Part Proposal",
+          "description": "Proposed by Grandes. Part 1: Spent FAAB returns to treasury; only prior-year spent FAAB available to refresh. Part 2: Fixed-supply FAAB system (e.g., 12,000 or 18,000 total, prorated refresh). Part 3: Increase FAAB purchase price from 3 Doge per $100 to 10 Doge per $100.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "E",
+          "title": "Expand Usefulness of Taxi Squads",
+          "description": "Proposed by Vieyra and Grandes. Part 1: Expand taxi to unlimited number of players. Part 2: Extend taxi eligibility from 2 years to 3 years — allowing more time for rookies to develop before forced activation.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "F",
+          "title": "Weekly Best Player Jackpot",
+          "description": "Proposed by Grandes: Commit $20 to join a weekly best-player side game for 4 weeks. $5 accrues toward the jackpot each week, keeping a rolling pot instead of clearing it out entirely each week.",
+          "outcome": "outcome unknown"
+        },
+        {
+          "letter": "G",
+          "title": "Mac Jones? Who?",
+          "description": "Proposed by Matt S.: Mac Jones may only be referred to by a code word. No real name allowed.",
+          "outcome": "outcome unknown"
+        }
+      ]
     },
     {
       "year": 2022,
-      "date": "TBD (Spring 2022)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/PDF needed from Commissioner. Known: Prop J at this meeting introduced the BMFFFL Ultimate Championship concept (every 4 years tournament), later amended at the 2024 meeting.",
-      "context": "Heading into Season 7. MLSchools12 was defending champion (2021). DogeFAAB in its first full season.",
+      "date": "May 25, 2022",
+      "status": "confirmed",
+      "summary": "Thirteen items voted on — the most consequential single meeting since 2018. League dues doubled to $100/season (payouts $800/$300/$100). Inactivity officially codified: $100 FAAB fines for missing polls, ignoring trades, or starting BYE players, with a 'Mercy' vote before punishment is levied. Moodie Bowl loser required to keep a framed Moodie photo in their bathroom all season. Prop J established the BMFFFL Ultimate Championship — the 4-year elimination tournament later held in 2025. Tubes and Matt S (NCNS) had their teams renamed by the league.",
+      "context": "Heading into Season 7. MLSchools12 was defending champion (2021). DogeFAAB in its second year. No-call/no-shows: Tuberdyke (Tubes) and Matt Schoolcraft (Matt S). Results documented in 'Final 2022 Official BMFFFL Rule Changes' PDF.",
       "propositions": [
         {
+          "letter": "SV-A",
+          "title": "No Call / No Show Punishments — Team Renamed",
+          "description": "Tubes and Matt S did not show up to the Owners Meeting without warning or sending a proxy. The league voted on new names and logos they were required to use in Sleeper from the opening of Free Agency through Week 7 of the 2022 regular season.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "A",
+          "title": "Division Naming Changes",
+          "description": "The top 2 divisions from the prior year (by total points scored by all 4 teams) may vote to change their division name. If 75% of a division agrees on a new name, it becomes official. The top division also votes to name the bottom division.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "B",
+          "title": "Inactivity Punishments — The Mercy System",
+          "description": "Quiet period official: end of Championship Game through Tax Day in April. After Tax Day, these are $100 FAAB punishable infractions: not voting on official league polls, not responding to a trade offer within 5 days (offseason) or 3 days (in-season), starting a player on a BYE. Reporting owner must first contact offender directly. Accused gets one 'Mercy' plea; if 7+ owners vote 'No Mercy' the fine stands. Third offense = possible expulsion vote.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "C",
+          "title": "Taxi Squad FA Acquisitions Require Open Active Roster Spot",
+          "description": "Owners must have an open active roster spot before a waiver claim processes into the taxi squad. Eliminates the workaround of having the Commish manually add eligible free agents to taxi when an owner lacked an open spot.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "D(OGE) 2.0",
+          "title": "Additional DogeFAAB Trading Windows",
+          "description": "Added a mid-season Buy Window (after Week 8, before Week 11 games): bottom 6 teams can buy up to $300 FAAB at the fixed buy rate. Added Sell/Liquidity Windows: all teams can sell FAAB to the treasury at the current variable sell rate during short windows after the final game of Weeks 4, 8, 12, and 16. Fixed Buy Rate increased to 3 Doge per $100 FAAB.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "SV-2",
+          "title": "League Fees Increase to $100 — Payouts Updated",
+          "description": "Annual dues raised from $50 to $100 per season. New prize structure: 1st place $800, 2nd place $300, 3rd place $100.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "SV-3",
+          "title": "Draft Power Hour — 5-Minute Pick Clock",
+          "description": "Set the Rookie Draft clock to 5 minutes per pick to move through the first round faster.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "E",
+          "title": "New Starting Roster Positions — D/ST and Kicker",
+          "description": "Proposed adding a Defense/Special Teams starting slot and a Kicker starting slot to the lineup.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "F",
+          "title": "Offseason Roster Size Requirements",
+          "description": "Prior-year playoff teams must cut to 26 players before offseason free agency opens in July. All teams must cut to 24 players one week before the regular season kickoff.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "G",
+          "title": "Moodie Bowl Winner Punishment — Framed Photo in the Bathroom",
+          "description": "The 'winner' of the Moodie Bowl (last place) must keep a framed photo of Moodie in a bathroom in their home for the entire following season until a new Moodie Bowl winner is named. Must prove compliance if asked. Non-compliance subject to Prop B FAAB fines.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "H",
+          "title": "Offensive Trade Punishments — Anti-Moodie/Grandes Trade Rule",
+          "description": "If a team believes a proposed trade is laughably lopsided, the trade is made public and the league votes on its absurdity. If deemed absurd: offending party banned from free agency one week. If not absurd: the complaining party is banned one week.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "I",
+          "title": "Expand Usefulness of Taxi Squad — 3-Year Term + Unlimited",
+          "description": "Part 1: Extend taxi eligibility from 2 to 3 years so rookies have more time to develop. Part 2: Make taxi unlimited (own-drafted rookies only). Both parts voted on separately.",
+          "outcome": "failed"
+        },
+        {
           "letter": "J",
-          "title": "BMFFFL Ultimate Championship Tournament (original proposal)",
-          "description": "Original proposal for a periodic all-owner championship tournament. Details refined and amended at the 2024 meeting. Referenced as '2022-PropJ' in the 2024 official results document.",
+          "title": "Ultimate Championship Eliminator Tournament — First in 2025",
+          "description": "Every 4 years, a season-long survivor elimination tournament runs alongside the main league. The first Ultimate Championship would run concurrently with the 2025 BMFFFL season. Weekly eliminations (lowest scorer out) until 2 finalists remain in Week 16. Everyone pays $10/year extra in dues. Payouts: Ultimate Champ $300, Runner-up $50, highest single-week team score $80, highest single-week player score $50. Originally passed here; amended at the 2024 meeting.",
           "outcome": "passed"
         }
       ]
@@ -176,7 +297,7 @@
       "year": 2021,
       "date": "May 5, 2021",
       "status": "partial",
-      "summary": "Eleven propositions — the landmark one being Prop D(OGE), which created the DogeFAAB system: FAAB backed by real Dogecoin held in Commissioner escrow, with tiered annual refresh windows. This fundamentally changed the economic stakes of the waiver wire. Outcomes for most other propositions not recovered.",
+      "summary": "Thirteen propositions — the landmark one being Prop D(OGE), which created the DogeFAAB system: FAAB backed by real Dogecoin held in Commissioner escrow, with tiered annual refresh windows. Also passed: Prop L (Rookie Draft power-hour, modified to 10-min clock) and Prop M (mandatory full dues pre-payment + official ledger). Prop K (Rookie Draft lottery) failed. Outcomes for Props A–C and E–J not recovered.",
       "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second season. The 2021 crypto bull run provided the creative spark for the DogeFAAB concept. Meeting held May 5, 8pm ET.",
       "propositions": [
         {
@@ -243,7 +364,19 @@
           "letter": "K",
           "title": "Rookie Draft Lottery Structure",
           "description": "Proposed by Vieyra: Replace straight inverse-standings draft order with a lottery. Lowest potential points gets 10 lottery tickets, 2nd lowest gets 9, etc. Championship game teams ineligible for the 1.01. All positions (1.01 through 1.12) selected via lottery.",
-          "outcome": "outcome unknown"
+          "outcome": "failed"
+        },
+        {
+          "letter": "L",
+          "title": "Power-Hour During the Rookie Draft",
+          "description": "Proposed by Chad Maleski: For one hour, reduce the draft clock from 12 hours per pick to 5 minutes per pick. Passed in modified form — the clock was set to 10 minutes rather than 5.",
+          "outcome": "modified"
+        },
+        {
+          "letter": "M",
+          "title": "League Dues — Full Annual Pre-Payment Required",
+          "description": "Proposed by Rioux: Simplify dues by paying 100% of the annual fee before the Rookie Draft for the upcoming season AND 100% for the season after that. Any draft pick traded for a year not yet paid for is an invalid trade until fully paid up. Commissioner tracks dues (and DogeFAAB portfolio) in an official ledger viewable by all owners.",
+          "outcome": "passed"
         }
       ]
     },
