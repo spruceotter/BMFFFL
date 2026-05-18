@@ -268,11 +268,13 @@ function ProposalCard({
   votes,
   activeVoter,
   onVote,
+  propositionLabel,
 }: {
   proposal: RuleProposal;
   votes: RuleVote[];
   activeVoter: string;
   onVote: (proposalId: string, vote: 'yes' | 'no' | 'abstain') => void;
+  propositionLabel?: string;
 }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -307,14 +309,23 @@ function ProposalCard({
     <div className="bg-gray-900/60 border border-gray-700 rounded-xl p-4">
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            <span className={`text-xs px-2 py-0.5 rounded border font-medium ${catClass}`}>
-              {proposal.category}
+        <div className="flex items-start gap-3 flex-1 min-w-0">
+          {propositionLabel && (
+            <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-[#ffd700]/10 border border-[#ffd700]/30 flex items-center justify-center text-xs font-black text-[#ffd700]">
+              {propositionLabel}
             </span>
-            <span className="text-gray-500 text-xs">{proposal.owner_name}</span>
+          )}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <span className={`text-xs px-2 py-0.5 rounded border font-medium ${catClass}`}>
+                {proposal.category}
+              </span>
+              <span className="text-gray-500 text-xs">{proposal.owner_name}</span>
+            </div>
+            <h3 className="text-white font-semibold text-sm leading-snug">
+              {propositionLabel ? `Proposition ${propositionLabel} — ` : ''}{proposal.title}
+            </h3>
           </div>
-          <h3 className="text-white font-semibold text-sm leading-snug">{proposal.title}</h3>
         </div>
         <button
           onClick={() => setExpanded((e) => !e)}
@@ -460,7 +471,7 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
       {
         label: 'Option 4 — Zero FAAB',
         description:
-          'New owner starts with $0 and must purchase their starting FAAB at the annual refresh. Only viable if refresh happens BEFORE the season — see Proposition E.',
+          'New owner starts with $0 and must purchase their starting FAAB at the annual refresh. Only viable if refresh happens BEFORE the dispersal draft — see Proposition D.',
       },
     ],
     recommendation:
@@ -495,10 +506,33 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
   {
     id: 'D',
     category: 'FAAB / Waivers',
+    title: 'Annual Refresh Timing — Before or After Dispersal Draft?',
+    context:
+      'The 2026 DogeFAAB annual refresh buy window is currently on hold pending this decision. ' +
+      'Whether the refresh opens before or after the dispersal draft has cascading effects on what FAAB teams have available and when the new owner gets their initial refresh. ' +
+      'This must be decided before Proposition E (refresh caps) can be finalized.',
+    options: [
+      {
+        label: 'Option 1 — Refresh BEFORE dispersal draft',
+        description:
+          'All active owners (excluding the orphan slot) buy their annual refresh first. Then the dispersal draft occurs. New owner gets their refresh cap after joining, as a separate one-time event.',
+      },
+      {
+        label: 'Option 2 — Dispersal draft FIRST, then refresh for all',
+        description:
+          'Complete the dispersal draft and install the new owner. Then open the annual refresh buy window for all 12 owners simultaneously — including the new owner at their assigned cap. Clean and symmetrical.',
+      },
+    ],
+    recommendation:
+      'Option 2 — dispersal first, then refresh. This lets the new owner participate in the same refresh window as everyone else on equal footing, and avoids edge cases around refreshed FAAB interacting with dispersal contributions.',
+  },
+  {
+    id: 'E',
+    category: 'FAAB / Waivers',
     title: 'Annual Refresh Buy Limit — New Owner & Dispersal Teams',
     context:
-      'The 2026 annual refresh assigns a buy cap to each team based on their 2025 finish. The orphan team finished 8th (500 FAAB cap). Dispersal teams have their own assigned caps. ' +
-      'The league needs to decide whether these are adjusted for the unique circumstances of this off-season.',
+      'Once Proposition D (timing) is settled, the league must decide the refresh buy cap for the new owner and whether dispersal teams\' caps are adjusted. ' +
+      'The 2026 refresh pool = 4,744 FAAB (prior year\'s total spend). The orphan team\'s assigned cap is 500 FAAB (8th place, 10.53%).',
     options: [
       {
         label: 'Option 1 — New owner inherits orphan team\'s earned cap (8th = 500 FAAB)',
@@ -523,28 +557,6 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
     ],
     recommendation:
       'Option 1 for new owner (8th-place cap). Option 4 for dispersal teams — they\'re already giving up roster assets, and reducing their refresh would double-penalize participation.',
-  },
-  {
-    id: 'E',
-    category: 'FAAB / Waivers',
-    title: 'Annual Refresh Timing — Before or After Dispersal Draft?',
-    context:
-      'The 2026 DogeFAAB annual refresh buy window is currently on hold pending this decision. ' +
-      'Whether the refresh opens before or after the dispersal draft has cascading effects on what FAAB teams have available and when the new owner gets their initial refresh.',
-    options: [
-      {
-        label: 'Option 1 — Refresh BEFORE dispersal draft',
-        description:
-          'All active owners (excluding the orphan slot) buy their annual refresh first. Then the dispersal draft occurs. New owner gets their refresh cap after joining, as a separate one-time event or at the same time as dispersal teams.',
-      },
-      {
-        label: 'Option 2 — Dispersal draft FIRST, then refresh for all',
-        description:
-          'Complete the dispersal draft and install the new owner. Then open the annual refresh buy window for all 12 owners simultaneously — including the new owner at their assigned cap. Clean and symmetrical.',
-      },
-    ],
-    recommendation:
-      'Option 2 — dispersal first, then refresh. This lets the new owner participate in the same refresh window as everyone else on equal footing, and avoids edge cases around refreshed FAAB interacting with dispersal contributions.',
   },
 ];
 
@@ -719,6 +731,15 @@ export default function MeetingPage() {
     const arr = proposalsByCategory.get(p.category) ?? [];
     arr.push(p);
     proposalsByCategory.set(p.category, arr);
+  });
+
+  // Proposition letter mapping for dynamic proposals (A–E = Commissioner pre-seeded; F+ = owner-submitted)
+  const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const propositionLetterMap = new Map<string, string>();
+  let letterIdx = COMMISSIONER_PROPOSITIONS.length; // start after pre-seeded (A–E = 0–4, so F = 5)
+  [...proposalsByCategory.values()].flat().forEach((p) => {
+    propositionLetterMap.set(p.proposal_id, ALPHA[letterIdx] ?? String(letterIdx + 1));
+    letterIdx++;
   });
 
   return (
@@ -995,13 +1016,13 @@ export default function MeetingPage() {
               <div>
                 <h2 className="text-base font-semibold text-white flex items-center gap-2">
                   <Vote size={16} className="text-[#ffd700]" />
-                  Submitted proposals
+                  Owner Propositions
                   {proposals.length > 0 && (
                     <span className="text-xs text-gray-500 font-normal">({proposals.length})</span>
                   )}
                 </h2>
                 <p className="text-gray-400 text-xs mt-0.5">
-                  Select your name below to vote on proposals during the meeting.
+                  Owner-submitted propositions — labeled {ALPHA[COMMISSIONER_PROPOSITIONS.length]}+ in meeting order. Select your name to vote.
                 </p>
               </div>
             </div>
@@ -1028,7 +1049,7 @@ export default function MeetingPage() {
               <p className="text-gray-500 text-sm">Loading proposals…</p>
             ) : proposals.length === 0 ? (
               <p className="text-gray-500 text-sm text-center py-8">
-                No proposals yet — be the first to submit one above.
+                No owner propositions yet — Commissioner pre-seeded Propositions A–E are above. Submit yours above.
               </p>
             ) : (
               <div className="space-y-6">
@@ -1045,6 +1066,7 @@ export default function MeetingPage() {
                           votes={votes}
                           activeVoter={activeVoter}
                           onVote={handleVote}
+                          propositionLabel={propositionLetterMap.get(p.proposal_id)}
                         />
                       ))}
                     </div>
