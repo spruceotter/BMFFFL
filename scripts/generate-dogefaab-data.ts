@@ -40,8 +40,13 @@ const CURRENT_SEASON = '2026';
  * 2025 Playoff finish order:
  *   1st: tdtd19844 (Champion), 2nd: Tubes94, 3rd: MLSchools12, 4th: Cmaleski,
  *   5th: SexMachineAndyD, 6th: JuicyBussy
- * 2025 Non-playoff (regular season rank 7-12):
- *   7th: eldridm20, 8th: MCSchools (orphan→bimfle), 9th: eldridsm, 10th: rbr, 11th: Cogdeill11, 12th: Grandes
+ * 2025 Non-playoff (regular season rank 7-12, tiebreaker = potential points NOT actual):
+ *   7th: eldridm20  (6-8, pot: 2146.6)
+ *   8th: MCSchools  (6-8, pot: 1943.4) orphan→bimfle
+ *   9th: eldridsm   (5-9, pot: 2007.3)
+ *  10th: cogdeill11 (5-9, pot: 1977.8) ← was 11th when using actual pts
+ *  11th: rbr        (5-9, pot: 1969.0) ← was 10th when using actual pts
+ *  12th: Grandes    (4-10, pot: 1862.8)
  *
  * Limits rounded to nearest integer. Total ≈ 4,744 FAAB.
  */
@@ -57,9 +62,9 @@ const REFRESH_LIMITS_2026: Record<string, number | null> = {
   'juicybussy':      pctToFaab(7.02),   // 2025: 6th place       → 333 FAAB
   'eldridm20':       pctToFaab(8.77),   // 2025: 7th (reg seas.) → 416 FAAB
   'bimfle':          pctToFaab(10.53),  // 2025: 8th (MCSchools/Escuelas orphan — TBD new owner) → 500 FAAB
-  'eldridsm':        pctToFaab(12.28),  // 2025: 9th             → 583 FAAB
-  'rbr':             pctToFaab(14.04),  // 2025: 10th            → 666 FAAB
-  'cogdeill11':      pctToFaab(15.79),  // 2025: 11th            → 749 FAAB
+  'eldridsm':        pctToFaab(12.28),  // 2025: 9th (5-9, pot 2007.3) → 583 FAAB
+  'cogdeill11':      pctToFaab(14.04),  // 2025: 10th (5-9, pot 1977.8) → 666 FAAB  ← potential pts tiebreaker
+  'rbr':             pctToFaab(15.79),  // 2025: 11th (5-9, pot 1969.0) → 749 FAAB  ← potential pts tiebreaker
   'grandes':         pctToFaab(17.54),  // 2025: 12th            → 832 FAAB
 };
 
@@ -198,8 +203,8 @@ function generate(): DogeFaabData {
     'eldridm20':       { pos: 7,  pct: 8.77  },
     'bimfle':          { pos: 8,  pct: 10.53 },
     'eldridsm':        { pos: 9,  pct: 12.28 },
-    'rbr':             { pos: 10, pct: 14.04 },
-    'cogdeill11':      { pos: 11, pct: 15.79 },
+    'cogdeill11':      { pos: 10, pct: 14.04 },  // 5-9, pot 1977.8 — beats rbr on potential pts
+    'rbr':             { pos: 11, pct: 15.79 },  // 5-9, pot 1969.0 — lowest potential among 5-9
     'grandes':         { pos: 12, pct: 17.54 },
   };
 

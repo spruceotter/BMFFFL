@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T17:14:15.336Z",
+  "generatedAt": "2026-05-18T17:40:06.544Z",
   "currentSeason": "2026",
   "treasury": {
     "totalDoge": 2530,
@@ -161,15 +161,15 @@
       "finishPct": 12.28
     },
     {
-      "username": "rbr",
-      "displayName": "rbr",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
       "limit": 666,
       "finishPosition": 10,
       "finishPct": 14.04
     },
     {
-      "username": "cogdeill11",
-      "displayName": "Cogdeill11",
+      "username": "rbr",
+      "displayName": "rbr",
       "limit": 749,
       "finishPosition": 11,
       "finishPct": 15.79

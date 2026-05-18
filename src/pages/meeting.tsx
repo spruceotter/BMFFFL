@@ -880,14 +880,14 @@ export default function MeetingPage() {
                 2025 Regular Season — Non-Playoff Finish Order (confirmed from DB)
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-0.5 text-xs text-gray-400">
-                <span><span className="text-gray-300 font-medium">7th</span> — eldridm20 (6-8, 1804.5 pts)</span>
-                <span><span className="text-orange-400 font-medium">8th</span> — MCSchools / Orphan (6-8, 1695.5 pts)</span>
-                <span><span className="text-gray-300 font-medium">9th</span> — eldridsm (5-9, 1751.8 pts)</span>
-                <span><span className="text-gray-300 font-medium">10th</span> — rbr (5-9, 1698.2 pts)</span>
-                <span><span className="text-gray-300 font-medium">11th</span> — Cogdeill11 (5-9, 1626.5 pts)</span>
-                <span><span className="text-gray-300 font-medium">12th</span> — Grandes (4-10, 1548.3 pts)</span>
+                <span><span className="text-gray-300 font-medium">7th</span> — eldridm20 (6-8, pot: 2146.6)</span>
+                <span><span className="text-orange-400 font-medium">8th</span> — MCSchools / Orphan (6-8, pot: 1943.4)</span>
+                <span><span className="text-gray-300 font-medium">9th</span> — eldridsm (5-9, pot: 2007.3)</span>
+                <span><span className="text-gray-300 font-medium">10th</span> — Cogdeill11 (5-9, pot: 1977.8)</span>
+                <span><span className="text-gray-300 font-medium">11th</span> — rbr (5-9, pot: 1969.0)</span>
+                <span><span className="text-gray-300 font-medium">12th</span> — Grandes (4-10, pot: 1862.8)</span>
               </div>
-              <p className="text-gray-600 text-xs mt-1.5">Tiebreaker within same record: points scored. Order is correct and aligns with 2026 draft pick order (12th = pick #1).</p>
+              <p className="text-gray-600 text-xs mt-1.5">Tiebreaker within same record: potential points (max possible lineup score). Aligns with 2026 draft pick order (12th = pick #1). rbr/Cogdeill11 corrected from prior version.</p>
             </div>
 
             <div className="space-y-2">
