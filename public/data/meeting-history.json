@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-05-18T18:44:00.000Z",
+  "note": "Scaffold — propositions/outcomes for 2016-2020 need source files from Commissioner. 2021+ partially confirmed.",
+  "meetings": [
+    {
+      "year": 2026,
+      "date": "May 26, 2026",
+      "status": "upcoming",
+      "summary": "The DogeFAAB era hits its first major governance test: MCSchools/Escuelas left the league without cashing out FAAB. The 2026 meeting determines what happens to orphan FAAB, how new owners are onboarded into the DOGE system, and whether the annual refresh happens before or after the dispersal draft.",
+      "context": "MCSchools left before 2026 season. New owner search underway. Roster 9 stewarded by Bimflé (AI). First dispersal draft in league history pending. 2026 Rookie Draft order locked.",
+      "propositions": [
+        {
+          "letter": "A",
+          "title": "Orphan FAAB Disposition — what happens to MCSchools' remaining FAAB?",
+          "description": "Options: new owner inherits the balance, FAAB reverts to league pool, or FAAB is forfeited.",
+          "outcome": "pending"
+        },
+        {
+          "letter": "B",
+          "title": "New Owner Starting FAAB",
+          "description": "How much FAAB does a new owner start with? Options: standard balance, prorated, league median, or fresh 0.",
+          "outcome": "pending"
+        },
+        {
+          "letter": "C",
+          "title": "Dispersal Teams — FAAB Eligibility",
+          "description": "Teams receiving dispersal draft picks: are they eligible to use FAAB immediately, or is there a restriction window?",
+          "outcome": "pending"
+        },
+        {
+          "letter": "D",
+          "title": "Annual Refresh Timing",
+          "description": "Should the 2026 annual FAAB refresh buy window open before or after the dispersal draft? Affects how new owner's cap is set.",
+          "outcome": "pending"
+        },
+        {
+          "letter": "E",
+          "title": "Refresh Buy Caps — New Owner and Dispersal Teams",
+          "description": "What refresh cap limits apply to the new owner and teams receiving dispersal assets?",
+          "outcome": "pending"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "date": "TBD (Spring 2025)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Heading into Season 10. MLSchools12 was the defending champion (2024). MCSchools still in the league.",
+      "propositions": []
+    },
+    {
+      "year": 2024,
+      "date": "TBD (Spring 2024)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Heading into Season 9. JuicyBussy was defending champion (2023).",
+      "propositions": []
+    },
+    {
+      "year": 2023,
+      "date": "TBD (Spring 2023)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Heading into Season 8. Grandes was defending champion (2022) — Commissioner's ring year.",
+      "propositions": []
+    },
+    {
+      "year": 2022,
+      "date": "TBD (Spring 2022)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Heading into Season 7. MLSchools12 was defending champion (2021). DogeFAAB in its first full season.",
+      "propositions": []
+    },
+    {
+      "year": 2021,
+      "date": "TBD (Spring 2021)",
+      "status": "partial",
+      "summary": "The meeting that created the DogeFAAB system — FAAB backed by Dogecoin held in Commissioner escrow. Owners can buy FAAB via annual refresh window at a fixed rate (5 FAAB = 1 DOGE). This fundamentally changed the economic stakes of waiver wire bidding.",
+      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League migrated to Sleeper the previous year. Rising crypto interest provided the creative spark for the DogeFAAB concept.",
+      "propositions": [
+        {
+          "letter": "—",
+          "title": "Introduce DogeFAAB System",
+          "description": "Back all FAAB with Dogecoin held in Commissioner escrow. Annual refresh buy window lets owners purchase FAAB at a fixed rate. FAAB carries over year to year.",
+          "outcome": "passed"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "date": "TBD (Spring 2020)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner. Transition year: league migrated from ESPN to Sleeper. Matt Moodie replaced by Joe Tuberdyke (Tubes94).",
+      "context": "ESPN era ends after 4 seasons. COVID year. Platform migration to Sleeper. New owner added.",
+      "propositions": []
+    },
+    {
+      "year": 2019,
+      "date": "TBD (Spring 2019)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Season 4 on ESPN. MLSchools12 defending champion (2018 runner-up, won 2019). Dan Gaudy still in league (replaced by Escuelas ~2019).",
+      "propositions": []
+    },
+    {
+      "year": 2018,
+      "date": "TBD (Spring 2018)",
+      "status": "placeholder",
+      "summary": "TBD — transcript/notes needed from Commissioner.",
+      "context": "Season 3 on ESPN. Cogdeill11 defending champion (2017). SexMachineAndyD played as 'Stand Against Trade Rape' this year.",
+      "propositions": []
+    },
+    {
+      "year": 2017,
+      "date": "TBD (Spring 2017)",
+      "status": "partial",
+      "summary": "Scoring system adjustments approved. Only 9 of 12 owners attended (missing: Moodie, Drysdale, Gaudy).",
+      "context": "Season 2 on ESPN. MLSchools12 defending inaugural champion (2016). Matt Moodie was still active — went 8-1 through Week 9 but eventually left the league.",
+      "propositions": [
+        {
+          "letter": "—",
+          "title": "Scoring Rule Changes",
+          "description": "Passes Defended: +1 point added. Sacks: increased from 2 to 3 points. Interceptions: increased from 2 to 4 points.",
+          "outcome": "passed"
+        }
+      ]
+    }
+  ]
+}
