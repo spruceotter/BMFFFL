@@ -12,7 +12,7 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import * as fs from 'fs';
 import * as path from 'path';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DollarSign, TrendingDown, Award, BarChart2, Trophy, ArrowRightLeft, CalendarDays } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -145,6 +145,22 @@ export default function DogeFaabPage({ data }: Props) {
   const { treasury, currentBalances, refreshLimits, historicalSpend, topBids, tradeFaab, leagueTotalsBySeasonFaab, currentSeason } = data;
   const seasons = Object.keys(leagueTotalsBySeasonFaab).sort();
   const [activeTab, setActiveTab] = useState<HistoryTab>('spending');
+  const [dogeUsd, setDogeUsd] = useState<number | null>(null);
+  const [priceFetched, setPriceFetched] = useState(false);
+
+  useEffect(() => {
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd')
+      .then(r => r.json())
+      .then(d => { setDogeUsd(d?.dogecoin?.usd ?? null); setPriceFetched(true); })
+      .catch(() => setPriceFetched(true));
+  }, []);
+
+  // USD helpers
+  const toUsd = (doge: number) => dogeUsd !== null ? (doge * dogeUsd).toFixed(2) : null;
+  const usdLabel = (doge: number) => {
+    const u = toUsd(doge);
+    return u !== null ? <span className="text-slate-400 text-xs ml-1">(${u})</span> : null;
+  };
 
   // ── Spend matrix ──────────────────────────────────────────────────────────
   const spendMatrix: Record<string, Record<string, SeasonSpend>> = {};
@@ -210,6 +226,11 @@ export default function DogeFaabPage({ data }: Props) {
               <div className="bg-slate-800 rounded-xl p-4 border border-slate-700/50">
                 <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">DOGE in Treasury</p>
                 <p className="text-2xl font-bold text-yellow-400">{treasury.totalDoge.toLocaleString()}</p>
+                {dogeUsd !== null && (
+                  <p className="text-sm font-semibold text-emerald-400 mt-0.5">
+                    ${(treasury.totalDoge * dogeUsd).toLocaleString('en-US', { maximumFractionDigits: 0 })} USD
+                  </p>
+                )}
                 <p className="text-xs text-slate-500 mt-1">DOGE (Commissioner escrow)</p>
               </div>
               <div className="bg-slate-800 rounded-xl p-4 border border-slate-700/50">
@@ -228,6 +249,23 @@ export default function DogeFaabPage({ data }: Props) {
                 <p className="text-xs text-slate-500 mt-1">FAAB per DOGE (sell windows)</p>
               </div>
             </div>
+            {/* Live DOGE price row */}
+            <div className="mt-3 flex items-center gap-2 bg-slate-800/60 border border-slate-700/40 rounded-lg px-4 py-2">
+              <span className="text-yellow-400 text-sm">◈</span>
+              <span className="text-xs text-slate-400">Live DOGE price:</span>
+              {!priceFetched ? (
+                <span className="text-xs text-slate-600 animate-pulse">fetching…</span>
+              ) : dogeUsd !== null ? (
+                <>
+                  <span className="text-sm font-semibold text-emerald-400">${dogeUsd.toFixed(4)}</span>
+                  <span className="text-xs text-slate-500">· Treasury value: ${(treasury.totalDoge * dogeUsd).toLocaleString('en-US', { maximumFractionDigits: 0 })}</span>
+                  <span className="text-xs text-slate-600 ml-auto">via CoinGecko</span>
+                </>
+              ) : (
+                <span className="text-xs text-slate-600">price unavailable</span>
+              )}
+            </div>
+
             {/* Buy Window banner */}
             <div className="mt-3 flex items-start gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-lg px-4 py-3">
               <CalendarDays className="w-4 h-4 text-yellow-400 mt-0.5 shrink-0" />
@@ -253,6 +291,7 @@ export default function DogeFaabPage({ data }: Props) {
                     <th className="text-right px-4 py-3">FAAB Remaining</th>
                     <th className="text-right px-4 py-3 hidden sm:table-cell">% of Pool</th>
                     <th className="text-right px-4 py-3">DOGE Share</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">USD Value</th>
                     <th className="px-4 py-3 hidden md:table-cell w-32"></th>
                   </tr>
                 </thead>
@@ -273,6 +312,11 @@ export default function DogeFaabPage({ data }: Props) {
                         <td className="px-4 py-3 text-right font-mono text-yellow-400">
                           {owner.dogeShare.toFixed(1)}
                         </td>
+                        <td className="px-4 py-3 text-right text-emerald-400 text-sm hidden sm:table-cell">
+                          {dogeUsd !== null
+                            ? `$${(owner.dogeShare * dogeUsd).toFixed(2)}`
+                            : <span className="text-slate-700">—</span>}
+                        </td>
                         <td className="px-4 py-3 hidden md:table-cell">
                           {pctBar(owner.pctOfPool, c.bar)}
                         </td>
@@ -289,6 +333,11 @@ export default function DogeFaabPage({ data }: Props) {
                     <td className="px-4 py-2 text-right text-slate-400 hidden sm:table-cell">100%</td>
                     <td className="px-4 py-2 text-right font-mono text-yellow-500">
                       {treasury.totalDoge.toLocaleString()}
+                    </td>
+                    <td className="px-4 py-2 text-right font-mono text-emerald-500 hidden sm:table-cell">
+                      {dogeUsd !== null
+                        ? `$${(treasury.totalDoge * dogeUsd).toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+                        : '—'}
                     </td>
                     <td className="hidden md:table-cell" />
                   </tr>
@@ -336,8 +385,13 @@ export default function DogeFaabPage({ data }: Props) {
                         <td className="px-4 py-3 text-right font-mono font-semibold text-cyan-400">
                           {r.limit !== null ? formatFaab(r.limit) : <span className="text-slate-600">TBD</span>}
                         </td>
-                        <td className="px-4 py-3 text-right font-mono text-yellow-400 hidden sm:table-cell">
-                          {dogeCost !== null ? dogeCost : <span className="text-slate-600">TBD</span>}
+                        <td className="px-4 py-3 text-right hidden sm:table-cell">
+                          <span className="font-mono text-yellow-400">
+                            {dogeCost !== null ? dogeCost : <span className="text-slate-600">TBD</span>}
+                          </span>
+                          {dogeCost !== null && dogeUsd !== null && (
+                            <span className="text-emerald-400 text-xs ml-1">(${(dogeCost * dogeUsd).toFixed(2)})</span>
+                          )}
                         </td>
                       </tr>
                     );
@@ -349,7 +403,12 @@ export default function DogeFaabPage({ data }: Props) {
                     <td className="hidden sm:table-cell" />
                     <td className="px-4 py-2 text-right text-slate-400 hidden md:table-cell">100%</td>
                     <td className="px-4 py-2 text-right font-mono text-slate-300">4,744</td>
-                    <td className="px-4 py-2 text-right font-mono text-yellow-500 hidden sm:table-cell">949</td>
+                    <td className="px-4 py-2 text-right hidden sm:table-cell">
+                      <span className="font-mono text-yellow-500">949</span>
+                      {dogeUsd !== null && (
+                        <span className="text-emerald-400 text-xs ml-1">(${(949 * dogeUsd).toFixed(0)})</span>
+                      )}
+                    </td>
                   </tr>
                 </tfoot>
               </table>
