@@ -13,7 +13,7 @@ import { GetStaticProps } from 'next';
 import * as fs from 'fs';
 import * as path from 'path';
 import { useState } from 'react';
-import { DollarSign, TrendingDown, Award, BarChart2, Trophy, ArrowRightLeft } from 'lucide-react';
+import { DollarSign, TrendingDown, Award, BarChart2, Trophy, ArrowRightLeft, CalendarDays } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -54,16 +54,26 @@ interface TradeNetFaab {
   sent: number;
 }
 
+interface RefreshLimit {
+  username: string;
+  displayName: string;
+  limit: number | null;
+}
+
 interface DogeFaabData {
   generatedAt: string;
+  currentSeason: string;
   treasury: {
     totalDoge: number;
     totalFaabOutstanding: number;
     buyRate: number;
     sellRate: number;
     balancesPulledAt: string;
+    buyWindowStatus: string;
+    buyWindowNote: string;
   };
   currentBalances: OwnerBalance[];
+  refreshLimits: RefreshLimit[];
   historicalSpend: SeasonSpend[];
   topBids: TopBid[];
   tradeFaab: TradeNetFaab[];
@@ -130,7 +140,7 @@ interface Props {
 type HistoryTab = 'spending' | 'trades' | 'purchases' | 'balances';
 
 export default function DogeFaabPage({ data }: Props) {
-  const { treasury, currentBalances, historicalSpend, topBids, tradeFaab, leagueTotalsBySeasonFaab } = data;
+  const { treasury, currentBalances, refreshLimits, historicalSpend, topBids, tradeFaab, leagueTotalsBySeasonFaab, currentSeason } = data;
   const seasons = Object.keys(leagueTotalsBySeasonFaab).sort();
   const [activeTab, setActiveTab] = useState<HistoryTab>('spending');
 
@@ -216,9 +226,16 @@ export default function DogeFaabPage({ data }: Props) {
                 <p className="text-xs text-slate-500 mt-1">FAAB per DOGE (sell windows)</p>
               </div>
             </div>
-            <p className="text-xs text-slate-600 mt-2">
-              Balances as of {treasury.balancesPulledAt} · Sell rate = Total FAAB ÷ Total DOGE
-            </p>
+            {/* Buy Window banner */}
+            <div className="mt-3 flex items-start gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-lg px-4 py-3">
+              <CalendarDays className="w-4 h-4 text-yellow-400 mt-0.5 shrink-0" />
+              <div>
+                <p className="text-xs font-semibold text-yellow-300">{treasury.buyWindowNote}</p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Balances as of {treasury.balancesPulledAt} · Sell rate = Total FAAB ÷ Total DOGE
+                </p>
+              </div>
+            </div>
           </section>
 
           {/* ── Current Balances ─────────────────────────────────────────── */}
@@ -275,6 +292,63 @@ export default function DogeFaabPage({ data }: Props) {
                   </tr>
                 </tfoot>
               </table>
+            </div>
+          </section>
+
+          {/* ── Refresh Limits ───────────────────────────────────────────── */}
+          <section className="mb-8">
+            <h2 className="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+              <CalendarDays className="w-4 h-4 text-yellow-400" /> {currentSeason} Annual Refresh Buy Limits
+            </h2>
+            <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-hidden">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
+                    <th className="text-left px-4 py-3">Owner</th>
+                    <th className="text-right px-4 py-3">Max FAAB to Buy</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">Max DOGE Cost</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {refreshLimits
+                    .sort((a, b) => {
+                      if (a.limit === null && b.limit === null) return 0;
+                      if (a.limit === null) return 1;
+                      if (b.limit === null) return -1;
+                      return b.limit - a.limit;
+                    })
+                    .map((r, i) => {
+                      const c = ownerColor(r.displayName);
+                      const dogeCost = r.limit !== null ? (r.limit / 5).toFixed(0) : null;
+                      return (
+                        <tr key={r.username} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
+                          <td className="px-4 py-3">
+                            <span className={`font-medium ${c.text}`}>{r.displayName}</span>
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono text-cyan-400">
+                            {r.limit !== null ? formatFaab(r.limit) : <span className="text-slate-600">TBD</span>}
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono text-yellow-400 hidden sm:table-cell">
+                            {dogeCost !== null ? dogeCost : <span className="text-slate-600">TBD</span>}
+                          </td>
+                          <td className="px-4 py-3 text-right hidden sm:table-cell">
+                            <span className={`text-xs px-2 py-0.5 rounded-full ${
+                              r.limit !== null
+                                ? 'bg-emerald-900/40 text-emerald-400'
+                                : 'bg-yellow-900/30 text-yellow-500'
+                            }`}>
+                              {r.limit !== null ? 'Set' : 'Pending'}
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
+              <p className="text-xs text-slate-600 px-4 py-2">
+                Buy rate: 5 FAAB per DOGE (fixed) · Pool = prior year total FAAB spend · Last-place gets highest limit · Window opens after Owners Meeting
+              </p>
             </div>
           </section>
 
@@ -356,7 +430,9 @@ export default function DogeFaabPage({ data }: Props) {
                     <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
                       <th className="text-left px-4 py-3 sticky left-0 bg-slate-800">Owner</th>
                       {seasons.map(s => (
-                        <th key={s} className="text-right px-3 py-3 min-w-16">{s}</th>
+                        <th key={s} className={`text-right px-3 py-3 min-w-16 ${s === currentSeason ? 'text-yellow-500' : ''}`}>
+                          {s}{s === currentSeason ? ' ▸' : ''}
+                        </th>
                       ))}
                       <th className="text-right px-4 py-3">Total</th>
                     </tr>

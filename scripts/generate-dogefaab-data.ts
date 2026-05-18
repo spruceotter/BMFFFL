@@ -24,6 +24,28 @@ const OUT_PATH = path.join(process.cwd(), 'public', 'data', 'dogefaab.json');
 
 const TOTAL_DOGE_TREASURY = 2530;
 const FAAB_BUY_RATE = 5; // 5 FAAB = 1 DOGE (fixed purchase rate)
+const CURRENT_SEASON = '2026';
+
+/**
+ * Annual refresh buy limits for 2026 — set by Commissioner based on 2025 finish order.
+ * Last place gets the highest limit. Values in FAAB units.
+ * NOTE: Set to null until Commissioner provides confirmed values.
+ * Formula: Pool = prior year total FAAB spend (4744), distributed inversely by standings.
+ */
+const REFRESH_LIMITS_2026: Record<string, number | null> = {
+  'cogdeill11':      null,  // 2025 finish: 11th  → pending Commissioner confirmation
+  'eldridsm':        null,  // 2025 finish: 9th
+  'rbr':             null,  // 2025 finish: 10th
+  'mlschools12':     null,  // 2025 finish: 1st  → lowest limit
+  'sexmachineandyd': null,  // 2025 finish: 3rd
+  'juicybussy':      null,  // 2025 finish: 5th
+  'bimfle':          null,  // orphan roster
+  'grandes':         null,  // 2025 finish: 12th → highest limit
+  'cmaleski':        null,  // 2025 finish: 6th
+  'tdtd19844':       null,  // 2025 finish: 4th  (2025 champion)
+  'tubes94':         null,  // 2025 finish: 2nd
+  'eldridm20':       null,  // 2025 finish: 7th
+};
 
 /**
  * Current 2026 FAAB balances (Sleeper API snapshot — update each season)
@@ -102,16 +124,26 @@ interface TradeNetFaab {
   sent: number;
 }
 
+interface RefreshLimit {
+  username: string;
+  displayName: string;
+  limit: number | null;
+}
+
 interface DogeFaabData {
   generatedAt: string;
+  currentSeason: string;
   treasury: {
     totalDoge: number;
     totalFaabOutstanding: number;
     buyRate: number;
     sellRate: number;
     balancesPulledAt: string;
+    buyWindowStatus: string;
+    buyWindowNote: string;
   };
   currentBalances: OwnerBalance[];
+  refreshLimits: RefreshLimit[];
   historicalSpend: SeasonSpend[];
   topBids: TopBid[];
   tradeFaab: TradeNetFaab[];
@@ -136,6 +168,13 @@ function generate(): DogeFaabData {
       dogeShare: Math.round((remaining / totalFaab) * TOTAL_DOGE_TREASURY * 10) / 10,
     }))
     .sort((a, b) => b.faabRemaining - a.faabRemaining);
+
+  // 1b. Refresh limits for current season
+  const refreshLimits: RefreshLimit[] = Object.entries(REFRESH_LIMITS_2026).map(([username, limit]) => ({
+    username,
+    displayName: USERNAME_TO_DISPLAY[username] ?? username,
+    limit,
+  }));
 
   // 2. Historical FAAB spend by season + owner
   const spendRows = (db.prepare(`
@@ -166,6 +205,10 @@ function generate(): DogeFaabData {
   const leagueTotals: Record<string, number> = {};
   for (const r of historicalSpend) {
     leagueTotals[r.season] = (leagueTotals[r.season] ?? 0) + r.totalSpent;
+  }
+  // Ensure current season appears in the matrix even with 0 spending (preseason)
+  if (!leagueTotals[CURRENT_SEASON]) {
+    leagueTotals[CURRENT_SEASON] = 0;
   }
 
   // 3. Top FAAB bids with player names
@@ -278,14 +321,18 @@ function generate(): DogeFaabData {
 
   return {
     generatedAt: new Date().toISOString(),
+    currentSeason: CURRENT_SEASON,
     treasury: {
       totalDoge: TOTAL_DOGE_TREASURY,
       totalFaabOutstanding: totalFaab,
       buyRate: FAAB_BUY_RATE,
       sellRate: Math.round(sellRate * 100) / 100,
       balancesPulledAt: '2026-05-18',
+      buyWindowStatus: 'pending',
+      buyWindowNote: '2026 annual refresh buy window opens after the Owners Meeting (May 26)',
     },
     currentBalances,
+    refreshLimits,
     historicalSpend,
     topBids,
     tradeFaab,
