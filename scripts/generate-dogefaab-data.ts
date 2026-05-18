@@ -56,7 +56,7 @@ const REFRESH_LIMITS_2026: Record<string, number | null> = {
   'sexmachineandyd': pctToFaab(5.26),   // 2025: 5th place       → 250 FAAB
   'juicybussy':      pctToFaab(7.02),   // 2025: 6th place       → 333 FAAB
   'eldridm20':       pctToFaab(8.77),   // 2025: 7th (reg seas.) → 416 FAAB
-  'bimfle':          pctToFaab(10.53),  // 2025: 8th (MCSchools orphan → bimfle) → 500 FAAB
+  'bimfle':          pctToFaab(10.53),  // 2025: 8th (MCSchools/Escuelas orphan — TBD new owner) → 500 FAAB
   'eldridsm':        pctToFaab(12.28),  // 2025: 9th             → 583 FAAB
   'rbr':             pctToFaab(14.04),  // 2025: 10th            → 666 FAAB
   'cogdeill11':      pctToFaab(15.79),  // 2025: 11th            → 749 FAAB
@@ -76,7 +76,7 @@ const CURRENT_FAAB_BALANCES: Record<string, number> = {
   'mlschools12':     10000 - 8715,  // 1285
   'sexmachineandyd': 10000 - 8844,  // 1156
   'juicybussy':      10000 - 8980,  // 1020
-  'bimfle':          10000 - 9014,  // 986  (steward of orphan roster)
+  'bimfle':          10000 - 9014,  // 986  (orphan roster — TBD new owner, steward: Bimflé)
   'grandes':         10000 - 9248,  // 752
   'cmaleski':        10000 - 9319,  // 681
   'tdtd19844':       10000 - 9495,  // 505
@@ -98,7 +98,7 @@ const USERNAME_TO_DISPLAY: Record<string, string> = {
   'tdtd19844':       'tdtd19844',
   'tubes94':         'Tubes94',
   'mmoodie12':       'MMoodie12',
-  'bimfle':          'Bimflé',
+  'bimfle':          'TBD - Orphan Roster',
 };
 
 // ─── Types ────────────────────────────────────────────────────────────────────

@@ -9,7 +9,7 @@
 
 import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
-import { CheckCircle2, Calendar, Users, RefreshCw, ClipboardList, Vote, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { CheckCircle2, Calendar, Users, RefreshCw, ClipboardList, Vote, ChevronDown, ChevronUp, BookOpen, Gavel, Lightbulb } from 'lucide-react';
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -391,6 +391,223 @@ function ProposalCard({
   );
 }
 
+// ─── Commissioner Propositions (pre-seeded agenda items) ──────────────────────
+
+interface PropOption {
+  label: string;
+  description: string;
+}
+
+interface CommissionerProposition {
+  id: string;          // 'A', 'B', 'C' …
+  category: string;
+  title: string;
+  context: string;
+  options: PropOption[];
+  recommendation?: string;
+}
+
+const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
+  {
+    id: 'A',
+    category: 'FAAB / Waivers',
+    title: 'Disposition of Orphan FAAB Balance (MCSchools / Escuelas)',
+    context:
+      'The departing Escuelas team left behind ~986 FAAB currently held in stewardship (mapped to Bimflé pending new owner placement). ' +
+      'The league must decide what happens to these funds before the new owner joins.',
+    options: [
+      {
+        label: 'Option 1 — Transfer to new owner',
+        description:
+          'The new owner receives the orphan\'s full current FAAB balance as their starting funds. Preserves the asset and rewards the incoming owner for taking on the inherited roster.',
+      },
+      {
+        label: 'Option 2 — Pro-rata redistribution to remaining owners',
+        description:
+          'The ~986 orphan FAAB is distributed proportionally across the remaining 11 active owners. Small boost for everyone; new owner starts fresh.',
+      },
+      {
+        label: 'Option 3 — Retire to treasury',
+        description:
+          'The orphan FAAB is removed from circulation entirely, reducing total outstanding FAAB (currently 14,283) and slightly improving the DOGE sell rate for all active owners.',
+      },
+    ],
+    recommendation:
+      'Option 1 — transfer to new owner. Keeps the asset whole, gives the new owner a fair starting cushion, and avoids the administrative overhead of redistribution.',
+  },
+  {
+    id: 'B',
+    category: 'FAAB / Waivers',
+    title: 'New Owner Starting FAAB',
+    context:
+      'Regardless of Proposition A\'s outcome, the league should formally decide what FAAB the incoming owner begins their first season with.',
+    options: [
+      {
+        label: 'Option 1 — Inherit orphan balance (dependent on Prop A, Option 1)',
+        description:
+          'If Prop A passes Option 1, this is automatically settled: new owner starts with ~986 FAAB.',
+      },
+      {
+        label: 'Option 2 — League median / average',
+        description:
+          'New owner starts with the league\'s current median FAAB balance (~1,189 FAAB based on 14,283 total / 12 teams). Puts them in the middle of the pack.',
+      },
+      {
+        label: 'Option 3 — Last-place starting grant',
+        description:
+          'New owner starts with a fixed new-owner grant equivalent to the last-place refresh cap (832 FAAB). Acknowledges they\'re entering mid-dynasty with no history.',
+      },
+      {
+        label: 'Option 4 — Zero FAAB',
+        description:
+          'New owner starts with $0 and must purchase their starting FAAB at the annual refresh. Only viable if refresh happens BEFORE the season — see Proposition E.',
+      },
+    ],
+    recommendation:
+      'If Prop A → Option 1: inherit orphan balance. Otherwise, league average is a fair and simple middle ground.',
+  },
+  {
+    id: 'C',
+    category: 'Dispersal / Ownership',
+    title: 'Dispersal Team FAAB — What Happens to Participating Teams\' Balances',
+    context:
+      'Teams contributing their full rosters + picks to the dispersal pool are giving up significant assets. The league should clarify whether and how their FAAB balances are affected.',
+    options: [
+      {
+        label: 'Option 1 — Dispersal teams keep 100% of their FAAB',
+        description:
+          'No FAAB adjustment for dispersal participation. Teams contribute roster assets only. Their FAAB is unaffected and available for the upcoming season.',
+      },
+      {
+        label: 'Option 2 — Dispersal teams contribute a fixed amount to the new owner',
+        description:
+          'Each dispersal team transfers a set amount (e.g., 100–200 FAAB) to the new owner as part of the dispersal package. Supplements the new owner\'s starting balance.',
+      },
+      {
+        label: 'Option 3 — Dispersal teams\' FAAB is frozen during the dispersal draft',
+        description:
+          'FAAB remains with dispersal teams but cannot be used during the dispersal draft itself. Prevents dispersal participants from having an edge in bidding on their own contributed players.',
+      },
+    ],
+    recommendation:
+      'Option 1 with a clarifying note: dispersal teams keep their FAAB. The dispersal draft is a roster draft, not a waiver auction — FAAB doesn\'t play a role in the dispersal process itself.',
+  },
+  {
+    id: 'D',
+    category: 'FAAB / Waivers',
+    title: 'Annual Refresh Buy Limit — New Owner & Dispersal Teams',
+    context:
+      'The 2026 annual refresh assigns a buy cap to each team based on their 2025 finish. The orphan team finished 8th (500 FAAB cap). Dispersal teams have their own assigned caps. ' +
+      'The league needs to decide whether these are adjusted for the unique circumstances of this off-season.',
+    options: [
+      {
+        label: 'Option 1 — New owner inherits orphan team\'s earned cap (8th = 500 FAAB)',
+        description:
+          'The incoming owner steps into the orphan slot, inheriting the 2025 8th-place refresh cap of 500 FAAB. Consistent with the "inherit the team" philosophy.',
+      },
+      {
+        label: 'Option 2 — New owner gets last-place cap (12th = 832 FAAB)',
+        description:
+          'Since the new owner is joining fresh mid-dynasty, they receive the largest refresh cap to help them compete. Dispersal teams keep their normal caps.',
+      },
+      {
+        label: 'Option 3 — Dispersal teams get reduced or zero refresh',
+        description:
+          'Teams that contributed to the dispersal draft forgo or reduce their refresh this year as a cost offset against the asset value they gave up. Controversial — may discourage dispersal participation.',
+      },
+      {
+        label: 'Option 4 — All caps unchanged, no special treatment',
+        description:
+          'Every team\'s 2026 refresh cap stands as computed. New owner uses orphan\'s 8th-place cap. Simpler; least disruption.',
+      },
+    ],
+    recommendation:
+      'Option 1 for new owner (8th-place cap). Option 4 for dispersal teams — they\'re already giving up roster assets, and reducing their refresh would double-penalize participation.',
+  },
+  {
+    id: 'E',
+    category: 'FAAB / Waivers',
+    title: 'Annual Refresh Timing — Before or After Dispersal Draft?',
+    context:
+      'The 2026 DogeFAAB annual refresh buy window is currently on hold pending this decision. ' +
+      'Whether the refresh opens before or after the dispersal draft has cascading effects on what FAAB teams have available and when the new owner gets their initial refresh.',
+    options: [
+      {
+        label: 'Option 1 — Refresh BEFORE dispersal draft',
+        description:
+          'All active owners (excluding the orphan slot) buy their annual refresh first. Then the dispersal draft occurs. New owner gets their refresh cap after joining, as a separate one-time event or at the same time as dispersal teams.',
+      },
+      {
+        label: 'Option 2 — Dispersal draft FIRST, then refresh for all',
+        description:
+          'Complete the dispersal draft and install the new owner. Then open the annual refresh buy window for all 12 owners simultaneously — including the new owner at their assigned cap. Clean and symmetrical.',
+      },
+    ],
+    recommendation:
+      'Option 2 — dispersal first, then refresh. This lets the new owner participate in the same refresh window as everyone else on equal footing, and avoids edge cases around refreshed FAAB interacting with dispersal contributions.',
+  },
+];
+
+function PropositionCard({ p }: { p: CommissionerProposition }) {
+  const [open, setOpen] = useState(false);
+
+  const categoryColor: Record<string, string> = {
+    'FAAB / Waivers':        'bg-orange-900/60 text-orange-300 border-orange-700',
+    'Dispersal / Ownership': 'bg-red-900/60 text-red-300 border-red-700',
+  };
+  const catClass = categoryColor[p.category] ?? 'bg-gray-800/60 text-gray-400 border-gray-600';
+
+  return (
+    <div className="bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-start justify-between gap-3 px-4 py-3 text-left hover:bg-gray-800/80 transition-colors"
+      >
+        <div className="flex items-start gap-3 flex-1 min-w-0">
+          <span className="flex-shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-[#ffd700]/10 border border-[#ffd700]/30 flex items-center justify-center text-xs font-black text-[#ffd700]">
+            {p.id}
+          </span>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap mb-0.5">
+              <span className={`text-xs px-2 py-0.5 rounded border font-medium ${catClass}`}>
+                {p.category}
+              </span>
+            </div>
+            <p className="text-sm font-semibold text-white leading-snug">Proposition {p.id} — {p.title}</p>
+          </div>
+        </div>
+        {open ? <ChevronUp size={15} className="text-gray-500 flex-shrink-0 mt-1" /> : <ChevronDown size={15} className="text-gray-500 flex-shrink-0 mt-1" />}
+      </button>
+
+      {open && (
+        <div className="px-4 pb-4 space-y-3 border-t border-gray-700/60">
+          <p className="text-gray-400 text-sm leading-relaxed pt-3">{p.context}</p>
+
+          <div className="space-y-2">
+            {p.options.map((opt, i) => (
+              <div key={i} className="bg-gray-900/60 rounded-lg p-3">
+                <p className="text-gray-200 text-xs font-semibold mb-0.5">{opt.label}</p>
+                <p className="text-gray-400 text-xs leading-relaxed">{opt.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {p.recommendation && (
+            <div className="flex items-start gap-2 bg-[#ffd700]/5 border border-[#ffd700]/20 rounded-lg p-3">
+              <Lightbulb size={14} className="text-[#ffd700] flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-[#ffd700] text-xs font-semibold mb-0.5">Bimflé recommends</p>
+                <p className="text-gray-300 text-xs leading-relaxed">{p.recommendation}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function MeetingPage() {
@@ -617,6 +834,45 @@ export default function MeetingPage() {
               ) : (
                 <ResultsGrid responses={pollResponses} />
               )}
+            </div>
+          </section>
+
+          {/* ── SECTION 1b: Commissioner Propositions ───────────────────────── */}
+          <section className="bg-gray-900/60 border border-gray-700 rounded-xl p-5">
+            <h2 className="text-base font-semibold text-white mb-1 flex items-center gap-2">
+              <Gavel size={16} className="text-[#ffd700]" />
+              Agenda: Orphan Roster &amp; DogeFAAB Dispositions
+            </h2>
+            <p className="text-gray-400 text-sm mb-1">
+              Pre-seeded agenda items from Commissioner for the 2026 Owners Meeting.
+              Expand each Proposition to see the options and Bimflé&apos;s recommendation.
+            </p>
+            <p className="text-gray-500 text-xs mb-4">
+              Background: MCSchools (Escuelas) has left the league. A new owner will be found via dispersal draft.
+              The items below must be decided before the 2026 DogeFAAB refresh window can open.
+            </p>
+
+            {/* 2025 Non-Playoff Standings Confirmation */}
+            <div className="mb-4 bg-gray-800/60 border border-gray-700 rounded-lg p-3">
+              <p className="text-xs font-semibold text-gray-300 mb-2 flex items-center gap-1.5">
+                <span className="text-[#ffd700]">◈</span>
+                2025 Regular Season — Non-Playoff Finish Order (confirmed from DB)
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-0.5 text-xs text-gray-400">
+                <span><span className="text-gray-300 font-medium">7th</span> — eldridm20 (6-8, 1804.5 pts)</span>
+                <span><span className="text-orange-400 font-medium">8th</span> — MCSchools / Orphan (6-8, 1695.5 pts)</span>
+                <span><span className="text-gray-300 font-medium">9th</span> — eldridsm (5-9, 1751.8 pts)</span>
+                <span><span className="text-gray-300 font-medium">10th</span> — rbr (5-9, 1698.2 pts)</span>
+                <span><span className="text-gray-300 font-medium">11th</span> — Cogdeill11 (5-9, 1626.5 pts)</span>
+                <span><span className="text-gray-300 font-medium">12th</span> — Grandes (4-10, 1548.3 pts)</span>
+              </div>
+              <p className="text-gray-600 text-xs mt-1.5">Tiebreaker within same record: points scored. Order is correct and aligns with 2026 draft pick order (12th = pick #1).</p>
+            </div>
+
+            <div className="space-y-2">
+              {COMMISSIONER_PROPOSITIONS.map((p) => (
+                <PropositionCard key={p.id} p={p} />
+              ))}
             </div>
           </section>
 

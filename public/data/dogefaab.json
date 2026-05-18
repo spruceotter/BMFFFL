@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T16:50:54.896Z",
+  "generatedAt": "2026-05-18T17:14:15.336Z",
   "currentSeason": "2026",
   "treasury": {
     "totalDoge": 2530,
@@ -55,7 +55,7 @@
     },
     {
       "username": "bimfle",
-      "displayName": "Bimflé",
+      "displayName": "TBD - Orphan Roster",
       "faabRemaining": 986,
       "pctOfPool": 6.9,
       "dogeShare": 174.7
@@ -148,7 +148,7 @@
     },
     {
       "username": "bimfle",
-      "displayName": "Bimflé",
+      "displayName": "TBD - Orphan Roster",
       "limit": 500,
       "finishPosition": 8,
       "finishPct": 10.53
