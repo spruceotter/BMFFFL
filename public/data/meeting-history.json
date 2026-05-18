@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T20:30:00.000Z",
-  "note": "2017–2019 confirmed from Facebook group archive (888 messages, 2016–2020). 2020 meeting happened April 9, 2020 — outcomes were posted in Sleeper (not Facebook); partial record. 2021 DogeFAAB confirmed from league context. 2022–2025 need Commissioner transcripts/Drive access.",
+  "generatedAt": "2026-05-18T22:15:00.000Z",
+  "note": "2017–2019 confirmed from Facebook group archive. 2020 partial (meeting confirmed Apr 9, outcomes in Sleeper). 2021 DogeFAAB confirmed from league context. 2025 confirmed from Google Doc transcript (May 28, 2025). 2022–2024 still need Commissioner transcripts.",
   "meetings": [
     {
       "year": 2026,
@@ -43,11 +43,48 @@
     },
     {
       "year": 2025,
-      "date": "TBD (Spring 2025)",
-      "status": "placeholder",
-      "summary": "TBD — transcript/notes needed from Commissioner.",
-      "context": "Heading into Season 10. MLSchools12 was the defending champion (2024). MCSchools still in the league.",
-      "propositions": []
+      "date": "May 28, 2025",
+      "status": "confirmed",
+      "summary": "Six propositions voted on. Major outcomes: QB roster capped at 4, roster cut by 2 more spots (to 26/22), and the loser punishment expanded to three selectable options — including the Moody Mile, the Wax, and the Golf Skirt. Treasury diversification (Trump coin/meme coins) and unlimited FAAB purchases both failed. Heading into Season 10.",
+      "context": "MLSchools12 won Season 9 (2024 champion). MCSchools still in the league. Meeting chaired by Commissioner Chris Rioux. Attendees included Schoolcraft, DeLaura, Eldridge, Vieyra, Maleski, Cogdeill, and others. Chris Rioux's brother attended via proxy.",
+      "propositions": [
+        {
+          "letter": "A",
+          "title": "Quarterback Roster Limit — Max 4 QBs",
+          "description": "Teams limited to a maximum of four quarterbacks on the active roster (excluding taxi squad and injured reserve). Designed to free up roster spots in free agency.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "B",
+          "title": "Starting Lineup Changes — Reduce RBs, Add Flex",
+          "description": "Proposed reducing required starting RBs from two to one and adding flex positions. Michael Schoolcraft opposed, citing experience in another league where 'running backs were worthless.'",
+          "outcome": "failed"
+        },
+        {
+          "letter": "C",
+          "title": "Last Place Punishment — Selectable Options",
+          "description": "Replaced the mandatory Moody Mile with three selectable punishments: (1) Run the Moody Mile, (2) Wax hairiest body part (excluding head/face), (3) Golf 18 holes in a skirt.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "D",
+          "title": "Treasury Diversification — Meme Coins / Collectibles",
+          "description": "Proposed diversifying DogeFAAB treasury from Dogecoin into Trump coin, meme coins, or sports card collectibles. Failed to pass.",
+          "outcome": "failed"
+        },
+        {
+          "letter": "E",
+          "title": "Roster Size Reduction — Cut 2 Spots",
+          "description": "Cut two roster spots: offseason roster reduced from 28 to 26, regular season active roster from 24 to 22.",
+          "outcome": "passed"
+        },
+        {
+          "letter": "F",
+          "title": "Remove FAAB Refresh Cap — Unlimited Purchases",
+          "description": "Matthew DeLaura proposed unlimited FAAB refresh purchases ('print the money'). Commissioner Rioux opposed, explaining the current cap prevents inflation based on prior spending history.",
+          "outcome": "failed"
+        }
+      ]
     },
     {
       "year": 2024,
