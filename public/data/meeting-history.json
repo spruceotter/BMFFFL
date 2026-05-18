@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T22:30:00.000Z",
-  "note": "2017–2019 confirmed from Facebook archive. 2019 Props A-J confirmed from official PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF + 2023 appendix slides — DogeFAAB (Prop D) passed; Prop K failed; Props L and M passed. 2022 fully confirmed from official results PDF. 2023 partial — only Prop D(oge) outcome confirmed FAIL. 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript.",
+  "generatedAt": "2026-05-18T23:10:00.000Z",
+  "note": "2017–2019 confirmed from Facebook archive + 2019 PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF + 2023 appendix slides. 2022 fully confirmed from official results PDF. 2023 fully confirmed from Google Meet transcript (May 24, 2023). 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript.",
   "meetings": [
     {
       "year": 2026,
@@ -151,58 +151,58 @@
     },
     {
       "year": 2023,
-      "date": "TBD (Spring 2023)",
-      "status": "partial",
-      "summary": "Seven propositions plus a special vote punishing Tyler Drysdale for his no-call/no-show. Key highlights: DogeFAAB Adjustments (Prop D, three parts) failed. Vieyra proposed renaming the Beer Mile to the 'Matt Moodie Memorial Mile.' Outcomes for most propositions not confirmed in the proposals PDF.",
-      "context": "Heading into Season 8. Grandes was defending champion (2022 season). Tyler Drysdale was a no-call, no-show (the only NCNS). Mike Schoolcraft arrived at 8:31, Mike Rioux at 8:37. Props K, L, M from the 2021 meeting included in appendix for reference.",
+      "date": "May 24, 2023",
+      "status": "confirmed",
+      "summary": "Eight items voted on. The Beer Mile was officially renamed 'The Matt Moodie Memorial Mile' (passed). Waivers moved to Tuesday evenings (passed 6-4). DogeFAAB had a mixed result — Parts 1 and 3 passed (FAAB to treasury, buy rate to 10 Doge/$100), Part 2 (fixed supply) failed. Taxi expanded to 3-year term and 5 spots (up from 4), but unlimited taxi failed. Mulligan Rule was a dead tie (6-6). Tyler Drysdale earned a full-season team naming for NCNS.",
+      "context": "Heading into Season 8. Grandes was defending champion (2022 season). Tyler Drysdale was the only NCNS — his team name was decided by the league via poll. Transcript recovered from Google Meet recording (fcs-ucvx-rrs, May 24, 2023). 11 owners present.",
       "propositions": [
         {
           "letter": "SV",
           "title": "Tyler Drysdale No-Call/No-Show Punishment",
-          "description": "For every 5 minutes late after 8:30pm start time, Tyler Drysdale would have a 1-week penalty in which the league names his team. As a no-call/no-show, the team-naming punishment applied for the entire 2023 season.",
+          "description": "Tyler was a no-call, no-show — the full-season team naming penalty applied under the 2022 Prop B Inactivity rules. The league voted to name his team via a subsequent group poll. Mike Rioux also arrived slightly late (1 week per the 5-min rule).",
           "outcome": "passed"
         },
         {
           "letter": "A",
           "title": "Mulligan Rule",
-          "description": "One time per year, an owner may replace a starter with a bench player after the game and have the score recalculated. Only one Mulligan allowed per season; usable in the playoffs.",
-          "outcome": "outcome unknown"
+          "description": "Proposed by Matt Schoolcraft: One time per year, an owner may replace a starter with a bench player after the game and have the score recalculated. Only one Mulligan per season; usable in playoffs. Commissioner Chris Rioux called it 'the most controversial rule in the game.' Voted while some owners wanted it pulled entirely. Result: 6-6 tie — failed.",
+          "outcome": "failed"
         },
         {
           "letter": "B",
           "title": "Rename the Beer Mile — 'The Matt Moodie Memorial Mile'",
-          "description": "Proposed by Vieyra: Rename the Beer Mile (the loser punishment run) to 'The Matt Moodie Memorial Mile' in honor of the league's founder.",
-          "outcome": "outcome unknown"
+          "description": "Proposed by Vieyra: Rename the Beer Mile (last-place punishment) to 'The Matt Moodie Memorial Mile' in honor of the league's founder. The league voted and it passed. The punishment run is now officially named in his memory.",
+          "outcome": "passed"
         },
         {
           "letter": "C",
           "title": "Waiver Clearance Day — Move from Wednesday to Tuesday",
-          "description": "Adjust the first weekly waiver clearance after games from Wednesday morning to Tuesday evenings.",
-          "outcome": "outcome unknown"
+          "description": "Proposed by Grandes: Move the first weekly waiver clearance from Wednesday morning to Tuesday evening. Passed 6-4. Motivation: reduce the IR timing issue where player statuses would change overnight causing waiver claim confusion. Michael Schoolcraft still argued Thursday would be better but the vote held.",
+          "outcome": "passed"
         },
         {
           "letter": "D(OGE)",
-          "title": "DogeFAAB Adjustments — Three-Part Proposal",
-          "description": "Proposed by Grandes. Part 1: Spent FAAB returns to treasury; only prior-year spent FAAB available to refresh. Part 2: Fixed-supply FAAB system (e.g., 12,000 or 18,000 total, prorated refresh). Part 3: Increase FAAB purchase price from 3 Doge per $100 to 10 Doge per $100.",
-          "outcome": "failed"
+          "title": "DogeFAAB Adjustments — Three-Part Proposal (Mixed Result)",
+          "description": "Proposed by Grandes. Part 1 (FAAB returns to treasury, only prior-year spent FAAB refreshes): PASSED. Part 2 (Fixed total supply system — set pool to 12,000 or 18,000 total): FAILED (Grandes himself voted it down). Part 3 (Increase buy rate from 3 Doge/$100 to 10 Doge/$100): PASSED. The overall prop had a confused re-vote process — Parts 1 and 3 effectively passed.",
+          "outcome": "modified"
         },
         {
           "letter": "E",
-          "title": "Expand Usefulness of Taxi Squads",
-          "description": "Proposed by Vieyra and Grandes. Part 1: Expand taxi to unlimited number of players. Part 2: Extend taxi eligibility from 2 years to 3 years — allowing more time for rookies to develop before forced activation.",
-          "outcome": "outcome unknown"
+          "title": "Expand Taxi Squads — 3-Year Term + 5 Spots",
+          "description": "Proposed by Vieyra and Grandes. Part 1 (Unlimited taxi players): FAILED — close vote, 'a lot of people are very vocal about this being a no.' Part 2 (Extend taxi term from 2 to 3 years): PASSED. Amendment proposed by Schoolcraft during meeting (expand from 4 to 5 taxi spots, seconded by DeLaura): PASSED (5-5 tie broken at last moment). Net result: taxi is now 5 spots, 3-year term.",
+          "outcome": "modified"
         },
         {
           "letter": "F",
           "title": "Weekly Best Player Jackpot",
-          "description": "Proposed by Grandes: Commit $20 to join a weekly best-player side game for 4 weeks. $5 accrues toward the jackpot each week, keeping a rolling pot instead of clearing it out entirely each week.",
-          "outcome": "outcome unknown"
+          "description": "Proposed by Grandes: Commit $20 for 4 weeks; $5/week accrues to the jackpot. Commissioners keeps and pays out. Voted on but as an informal interest check — only ~4 owners wanted to join. Chris explicitly said 'even if this fails I'm still gonna do it.' Did not formally pass as a league rule but was implemented informally by Commissioner.",
+          "outcome": "failed"
         },
         {
           "letter": "G",
-          "title": "Mac Jones? Who?",
-          "description": "Proposed by Matt S.: Mac Jones may only be referred to by a code word. No real name allowed.",
-          "outcome": "outcome unknown"
+          "title": "Mac Jones? Who? — Code Word Only",
+          "description": "Proposed by Matt Schoolcraft: Mac Jones may only be referred to by a code word (never by name). 'delaura' was suggested as the code word by Tuberdyke. All 11 owners voted. Result was close but 'it failed — Matt Jones can still be called Matt Jones because that's his name.'",
+          "outcome": "failed"
         }
       ]
     },
