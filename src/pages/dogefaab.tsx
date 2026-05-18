@@ -536,7 +536,7 @@ export default function DogeFaabPage({ data }: Props) {
                 <div className="bg-slate-800 rounded-xl border border-slate-700/50 p-4 mb-4">
                   <h3 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
                     <BarChart2 className="w-4 h-4 text-orange-400" /> FAAB Spend by Season
-                    <span className="text-xs text-slate-500 font-normal ml-1">(winning bids only · 2020–2021 budget was 1,000–2,000/owner; 2023+ is 10,000)</span>
+                    <span className="text-xs text-slate-500 font-normal ml-1">(winning bids only · FAAB carries over year-to-year · DogeFAAB era began 2021)</span>
                   </h3>
                   <ResponsiveContainer width="100%" height={280}>
                     <BarChart data={chartData} margin={{ top: 4, right: 8, bottom: 4, left: 0 }}>
@@ -650,7 +650,7 @@ export default function DogeFaabPage({ data }: Props) {
                   </tfoot>
                 </table>
                 <p className="text-xs text-slate-600 px-4 py-2">
-                  FAAB spent on winning waiver bids per season. Claims = successful bids only. $/Claim = avg FAAB per winning bid. FAAB budget per owner: 1,000 (2020), 2,000 (2021–22), 10,000 (2023+).
+                  FAAB spent on winning waiver bids per season. Claims = successful bids only. $/Claim = avg FAAB per winning bid. FAAB carries over year-to-year — DogeFAAB era began at the 2021 Owners Meeting. 2020 is pre-DogeFAAB.
                 </p>
               </div>
               </>
