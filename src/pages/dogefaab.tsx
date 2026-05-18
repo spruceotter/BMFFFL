@@ -14,6 +14,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { useState, useEffect } from 'react';
 import { DollarSign, TrendingDown, Award, BarChart2, Trophy, ArrowRightLeft, CalendarDays } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -105,6 +106,24 @@ function ownerColor(name: string) {
   return OWNER_COLORS[name] ?? { bar: 'bg-slate-500', text: 'text-slate-300', bg: 'bg-slate-900/30' };
 }
 
+// Hex colors for recharts (matching Tailwind palette above)
+const OWNER_HEX: Record<string, string> = {
+  Grandes:                '#3B82F6', // blue-500
+  SexMachineAndyD:        '#A855F7', // purple-500
+  rbr:                    '#10B981', // emerald-500
+  Cogdeill11:             '#14B8A6', // teal-500
+  MLSchools12:            '#F43F5E', // rose-500
+  Cmaleski:               '#F97316', // orange-500
+  eldridm20:              '#EAB308', // yellow-500
+  JuicyBussy:             '#EC4899', // pink-500
+  eldridsm:               '#6366F1', // indigo-500
+  tdtd19844:              '#EF4444', // red-500
+  Tubes94:                '#8B5CF6', // violet-500
+  MCSchools:              '#06B6D4', // cyan-500
+  MMoodie12:              '#0EA5E9', // sky-500
+  'TBD - Orphan Roster':  '#64748B', // slate-500
+};
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function formatFaab(n: number): string {
@@ -147,8 +166,10 @@ export default function DogeFaabPage({ data }: Props) {
   const [activeTab, setActiveTab] = useState<HistoryTab>('spending');
   const [dogeUsd, setDogeUsd] = useState<number | null>(null);
   const [priceFetched, setPriceFetched] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     fetch('https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd')
       .then(r => r.json())
       .then(d => { setDogeUsd(d?.dogecoin?.usd ?? null); setPriceFetched(true); })
@@ -174,6 +195,24 @@ export default function DogeFaabPage({ data }: Props) {
     if (!maxBySeasonFaab[row.season] || row.totalSpent > maxBySeasonFaab[row.season]) {
       maxBySeasonFaab[row.season] = row.totalSpent;
     }
+  }
+
+  // ── Chart data (spend per owner per season, excluding zero-spend current season) ──
+  const chartSeasons = seasons.filter(s => (leagueTotalsBySeasonFaab[s] ?? 0) > 0);
+  const chartData = chartSeasons.map(season => {
+    const point: Record<string, number | string> = { season };
+    for (const owner of allSpendOwners) {
+      point[owner] = spendMatrix[owner]?.[season]?.totalSpent ?? 0;
+    }
+    return point;
+  });
+
+  // ── Per-owner all-time claims totals ──
+  const ownerClaimsTotal: Record<string, number> = {};
+  for (const owner of allSpendOwners) {
+    ownerClaimsTotal[owner] = seasons.reduce(
+      (sum, s) => sum + (spendMatrix[owner]?.[s]?.claims ?? 0), 0
+    );
   }
 
   // ── Trade FAAB matrix ─────────────────────────────────────────────────────
@@ -491,6 +530,36 @@ export default function DogeFaabPage({ data }: Props) {
 
             {/* ── Spending tab ── */}
             {activeTab === 'spending' && (
+              <>
+              {/* ── Visualization ── */}
+              {mounted && chartData.length > 0 && (
+                <div className="bg-slate-800 rounded-xl border border-slate-700/50 p-4 mb-4">
+                  <h3 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
+                    <BarChart2 className="w-4 h-4 text-orange-400" /> FAAB Spend by Season
+                    <span className="text-xs text-slate-500 font-normal ml-1">(winning bids only · 2020–2021 budget was 1,000–2,000/owner; 2023+ is 10,000)</span>
+                  </h3>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <BarChart data={chartData} margin={{ top: 4, right: 8, bottom: 4, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+                      <XAxis dataKey="season" stroke="#64748b" tick={{ fontSize: 12, fill: '#94a3b8' }} />
+                      <YAxis stroke="#64748b" tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={(v: number) => v >= 1000 ? `${(v/1000).toFixed(0)}k` : String(v)} width={36} />
+                      <Tooltip
+                        contentStyle={{ background: '#1e293b', border: '1px solid #334155', borderRadius: 8, fontSize: 12 }}
+                        labelStyle={{ color: '#94a3b8', marginBottom: 4 }}
+                        formatter={(value: number, name: string) => value > 0 ? [value.toLocaleString() + ' FAAB', name] : null}
+                        cursor={{ fill: 'rgba(255,255,255,0.04)' }}
+                      />
+                      <Legend wrapperStyle={{ fontSize: 11, paddingTop: 8 }} />
+                      {allSpendOwners.map(owner => (
+                        <Bar key={owner} dataKey={owner} stackId="a"
+                          fill={OWNER_HEX[owner] ?? '#64748b'}
+                          maxBarSize={60}
+                        />
+                      ))}
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              )}
               <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -502,6 +571,8 @@ export default function DogeFaabPage({ data }: Props) {
                         </th>
                       ))}
                       <th className="text-right px-4 py-3">Total</th>
+                      <th className="text-right px-3 py-3 text-slate-400 min-w-14">Claims</th>
+                      <th className="text-right px-3 py-3 text-slate-400 min-w-16">$/Claim</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -542,6 +613,14 @@ export default function DogeFaabPage({ data }: Props) {
                             <td className="px-4 py-2 text-right font-mono font-semibold text-slate-300">
                               {formatFaab(total)}
                             </td>
+                            <td className="px-3 py-2 text-right font-mono text-slate-400 text-xs">
+                              {ownerClaimsTotal[owner] ?? 0}
+                            </td>
+                            <td className="px-3 py-2 text-right font-mono text-slate-400 text-xs">
+                              {ownerClaimsTotal[owner] > 0
+                                ? Math.round(total / ownerClaimsTotal[owner]).toLocaleString()
+                                : '—'}
+                            </td>
                           </tr>
                         );
                       })}
@@ -557,13 +636,24 @@ export default function DogeFaabPage({ data }: Props) {
                       <td className="px-4 py-2 text-right font-mono text-slate-300">
                         {formatFaab(Object.values(leagueTotalsBySeasonFaab).reduce((a, b) => a + b, 0))}
                       </td>
+                      <td className="px-3 py-2 text-right font-mono text-slate-400">
+                        {historicalSpend.reduce((s, r) => s + r.claims, 0)}
+                      </td>
+                      <td className="px-3 py-2 text-right font-mono text-slate-400">
+                        {(() => {
+                          const totalSpent = Object.values(leagueTotalsBySeasonFaab).reduce((a, b) => a + b, 0);
+                          const totalClaims = historicalSpend.reduce((s, r) => s + r.claims, 0);
+                          return totalClaims > 0 ? Math.round(totalSpent / totalClaims).toLocaleString() : '—';
+                        })()}
+                      </td>
                     </tr>
                   </tfoot>
                 </table>
                 <p className="text-xs text-slate-600 px-4 py-2">
-                  FAAB spent on winning waiver bids per season. FAAB carries over year-to-year — new FAAB enters only via the annual refresh buy window.
+                  FAAB spent on winning waiver bids per season. Claims = successful bids only. $/Claim = avg FAAB per winning bid. FAAB budget per owner: 1,000 (2020), 2,000 (2021–22), 10,000 (2023+).
                 </p>
               </div>
+              </>
             )}
 
             {/* ── Trades (Net) tab ── */}
