@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Trophy, Star, TrendingUp, Award, BookOpen, Scroll, Users, TrendingDown } from 'lucide-react';
+import { Trophy, Star, TrendingUp, Award, BookOpen, Scroll, Users, TrendingDown, Gavel } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 // ─── Hardcoded League Data ────────────────────────────────────────────────────
@@ -561,6 +561,36 @@ export default function HistoryPage() {
                 <p className="text-slate-400 text-xs leading-relaxed">
                   The official rules and bylaws of BMFFFL. Scoring settings, trade deadlines,
                   keeper rules, and the sacred clauses that govern every decision in the league.
+                </p>
+              </div>
+            </Link>
+
+            {/* Owners Meeting History */}
+            <Link
+              href="/history/meetings"
+              className={cn(
+                'group flex items-start gap-4 rounded-xl border p-6',
+                'bg-[#16213e] border-[#2d4a66]',
+                'hover:border-yellow-500/50 hover:bg-[#1a2d42] hover:-translate-y-0.5',
+                'transition-all duration-200'
+              )}
+              aria-label="Owners Meeting History — governance decisions and propositions since 2017"
+            >
+              <div className="w-11 h-11 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0">
+                <Gavel className="w-5 h-5 text-yellow-400" aria-hidden="true" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-white font-black text-base group-hover:text-yellow-400 transition-colors duration-150">
+                    Owners Meeting History
+                  </p>
+                  <span className="text-slate-600 group-hover:text-yellow-400 transition-colors duration-150 text-sm">
+                    &rarr;
+                  </span>
+                </div>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  Annual governance record — propositions, votes, and the rule changes that shaped
+                  the BMFFFL. DogeFAAB origin, scoring rules, and more.
                 </p>
               </div>
             </Link>
