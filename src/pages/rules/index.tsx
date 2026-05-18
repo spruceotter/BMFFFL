@@ -28,7 +28,7 @@ const GENERAL_RULES: RuleEntry[] = [
   },
   {
     term: 'IR Spots',
-    definition: '3 IR/Reserve spots. Player must have an official IR designation to be eligible.',
+    definition: '3 IR/Reserve spots. Eligible designations: IR, Out (O), or Doubtful (D). Players tagged SSPD, Did-not-report, or Not active do not qualify.',
   },
   {
     term: 'QB Limit',
@@ -90,18 +90,18 @@ const DRAFT_RULES: RuleEntry[] = [
   },
   {
     term: 'Future Pick Trading',
-    definition: 'Future draft picks (up to 2 years out) may be included in trades year-round.',
+    definition: 'Future draft picks may be included in trades year-round. Owners may only trade picks for seasons in which they have already pre-paid league dues. Any trade including picks for an unpaid season is invalid until dues are paid in full for that year and every year before it. Source: 2021 Meeting, Prop M.',
   },
 ];
 
 const PUNISHMENT_RULES: RuleEntry[] = [
   {
     term: 'Last Place — Loser Punishment',
-    definition: 'The Moodie Bowl loser selects one of three punishments before the season: (1) Run the Matt Moodie Memorial Mile (beer mile), (2) Wax their hairiest body part (excluding head/face), or (3) Play 18 holes of golf in a skirt. Established 2019 · Renamed 2023 · Selectable options added 2025.',
+    definition: 'The team that finishes last in the regular season standings must select one of three punishments before the season starts: (1) Run the Matt Moodie Memorial Mile (beer mile), (2) Wax their hairiest body part (excluding head/face), or (3) Play 18 holes of golf in a skirt. Established 2019 · Renamed 2023 · Selectable options added 2025.',
   },
   {
-    term: 'Moodie Bowl Trophy',
-    definition: 'The last-place finisher must display a framed photo of Matt Moodie in a bathroom in their home for the entire following season. Must prove compliance if asked. Non-compliance = $100 FAAB fine per the Inactivity rules. Source: 2022 Meeting, Prop G.',
+    term: 'Moodie Bowl — Losers Bracket',
+    definition: 'Non-playoff teams compete in the Moodie Bowl (Sleeper\'s losers bracket). Each round, the higher-scoring team "escapes" the Moodie Bowl. The team that cannot escape — the final Moodie Bowl loser — must display a framed photo of Matt Moodie in a bathroom in their home for the entire following season. Must prove compliance if asked. Non-compliance = $100 FAAB fine. Note: the same person can finish last in the regular season AND lose the Moodie Bowl (both happened to Grandes in 2025). Source: 2022 Meeting, Prop G.',
   },
   {
     term: 'No-Call / No-Show',
@@ -146,7 +146,8 @@ const SCORING_RULES: { category: string; entries: Array<{ play: string; points: 
     entries: [
       { play: 'Passing yards', points: '0.04 pts/yd (25 yds = 1 pt)' },
       { play: 'Passing TD', points: '4 pts' },
-      { play: 'Interception thrown', points: '-1 pt' },
+      { play: 'Interception thrown', points: '-3 pts' },
+      { play: 'Pick 6 (returned for TD)', points: '-4 pts total (-1 extra)' },
     ],
   },
   {
