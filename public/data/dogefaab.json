@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T17:40:06.544Z",
+  "generatedAt": "2026-05-18T17:45:06.087Z",
   "currentSeason": "2026",
   "treasury": {
     "totalDoge": 2530,
@@ -147,29 +147,29 @@
       "finishPct": 8.77
     },
     {
-      "username": "bimfle",
-      "displayName": "TBD - Orphan Roster",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
       "limit": 500,
       "finishPosition": 8,
       "finishPct": 10.53
     },
     {
-      "username": "eldridsm",
-      "displayName": "eldridsm",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
       "limit": 583,
       "finishPosition": 9,
       "finishPct": 12.28
     },
     {
-      "username": "cogdeill11",
-      "displayName": "Cogdeill11",
+      "username": "rbr",
+      "displayName": "rbr",
       "limit": 666,
       "finishPosition": 10,
       "finishPct": 14.04
     },
     {
-      "username": "rbr",
-      "displayName": "rbr",
+      "username": "bimfle",
+      "displayName": "TBD - Orphan Roster",
       "limit": 749,
       "finishPosition": 11,
       "finishPct": 15.79

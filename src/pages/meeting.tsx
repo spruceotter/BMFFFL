@@ -881,13 +881,13 @@ export default function MeetingPage() {
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-0.5 text-xs text-gray-400">
                 <span><span className="text-gray-300 font-medium">7th</span> — eldridm20 (6-8, pot: 2146.6)</span>
-                <span><span className="text-orange-400 font-medium">8th</span> — MCSchools / Orphan (6-8, pot: 1943.4)</span>
-                <span><span className="text-gray-300 font-medium">9th</span> — eldridsm (5-9, pot: 2007.3)</span>
-                <span><span className="text-gray-300 font-medium">10th</span> — Cogdeill11 (5-9, pot: 1977.8)</span>
-                <span><span className="text-gray-300 font-medium">11th</span> — rbr (5-9, pot: 1969.0)</span>
+                <span><span className="text-gray-300 font-medium">8th</span> — eldridsm (5-9, pot: 2007.3)</span>
+                <span><span className="text-gray-300 font-medium">9th</span> — Cogdeill11 (5-9, pot: 1977.8)</span>
+                <span><span className="text-gray-300 font-medium">10th</span> — rbr (5-9, pot: 1969.0)</span>
+                <span><span className="text-orange-400 font-medium">11th</span> — MCSchools / Orphan (6-8, pot: 1943.4)</span>
                 <span><span className="text-gray-300 font-medium">12th</span> — Grandes (4-10, pot: 1862.8)</span>
               </div>
-              <p className="text-gray-600 text-xs mt-1.5">Tiebreaker within same record: potential points (max possible lineup score). Aligns with 2026 draft pick order (12th = pick #1). rbr/Cogdeill11 corrected from prior version.</p>
+              <p className="text-gray-600 text-xs mt-1.5">Ranked by potential points (max possible lineup score) — primary criterion. W/L is secondary. MCSchools was 6-8 but had lowest potential among non-Grandes teams → 11th. Aligns with 2026 draft pick order.</p>
             </div>
 
             <div className="space-y-2">
