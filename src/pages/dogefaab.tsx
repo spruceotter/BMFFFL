@@ -58,6 +58,8 @@ interface RefreshLimit {
   username: string;
   displayName: string;
   limit: number | null;
+  finishPosition: number;
+  finishPct: number;
 }
 
 interface DogeFaabData {
@@ -304,50 +306,55 @@ export default function DogeFaabPage({ data }: Props) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
+                    <th className="text-left px-4 py-3 w-8">#</th>
                     <th className="text-left px-4 py-3">Owner</th>
-                    <th className="text-right px-4 py-3">Max FAAB to Buy</th>
-                    <th className="text-right px-4 py-3 hidden sm:table-cell">Max DOGE Cost</th>
-                    <th className="text-right px-4 py-3 hidden sm:table-cell">Status</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">2025 Finish</th>
+                    <th className="text-right px-4 py-3 hidden md:table-cell">Pool %</th>
+                    <th className="text-right px-4 py-3">Max FAAB</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">Max DOGE</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {refreshLimits
-                    .sort((a, b) => {
-                      if (a.limit === null && b.limit === null) return 0;
-                      if (a.limit === null) return 1;
-                      if (b.limit === null) return -1;
-                      return b.limit - a.limit;
-                    })
-                    .map((r, i) => {
-                      const c = ownerColor(r.displayName);
-                      const dogeCost = r.limit !== null ? (r.limit / 5).toFixed(0) : null;
-                      return (
-                        <tr key={r.username} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
-                          <td className="px-4 py-3">
-                            <span className={`font-medium ${c.text}`}>{r.displayName}</span>
-                          </td>
-                          <td className="px-4 py-3 text-right font-mono text-cyan-400">
-                            {r.limit !== null ? formatFaab(r.limit) : <span className="text-slate-600">TBD</span>}
-                          </td>
-                          <td className="px-4 py-3 text-right font-mono text-yellow-400 hidden sm:table-cell">
-                            {dogeCost !== null ? dogeCost : <span className="text-slate-600">TBD</span>}
-                          </td>
-                          <td className="px-4 py-3 text-right hidden sm:table-cell">
-                            <span className={`text-xs px-2 py-0.5 rounded-full ${
-                              r.limit !== null
-                                ? 'bg-emerald-900/40 text-emerald-400'
-                                : 'bg-yellow-900/30 text-yellow-500'
-                            }`}>
-                              {r.limit !== null ? 'Set' : 'Pending'}
-                            </span>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                  {refreshLimits.map((r, i) => {
+                    const c = ownerColor(r.displayName);
+                    const dogeCost = r.limit !== null ? Math.round(r.limit / 5) : null;
+                    const isPlayoff = r.finishPosition <= 6;
+                    return (
+                      <tr key={r.username} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
+                        <td className="px-4 py-3 text-slate-600 text-xs">{r.finishPosition}</td>
+                        <td className="px-4 py-3">
+                          <span className={`font-medium ${c.text}`}>{r.displayName}</span>
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-500 text-xs hidden sm:table-cell">
+                          <span className={`px-1.5 py-0.5 rounded text-xs ${isPlayoff ? 'bg-cyan-900/40 text-cyan-400' : 'bg-slate-700 text-slate-400'}`}>
+                            {isPlayoff ? 'Playoff' : 'Reg Season'}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-400 text-xs hidden md:table-cell">
+                          {r.finishPct}%
+                        </td>
+                        <td className="px-4 py-3 text-right font-mono font-semibold text-cyan-400">
+                          {r.limit !== null ? formatFaab(r.limit) : <span className="text-slate-600">TBD</span>}
+                        </td>
+                        <td className="px-4 py-3 text-right font-mono text-yellow-400 hidden sm:table-cell">
+                          {dogeCost !== null ? dogeCost : <span className="text-slate-600">TBD</span>}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
+                <tfoot>
+                  <tr className="border-t border-slate-700 bg-slate-700/30 text-xs font-semibold">
+                    <td className="px-4 py-2" colSpan={2}><span className="text-slate-400">Total Pool</span></td>
+                    <td className="hidden sm:table-cell" />
+                    <td className="px-4 py-2 text-right text-slate-400 hidden md:table-cell">100%</td>
+                    <td className="px-4 py-2 text-right font-mono text-slate-300">4,744</td>
+                    <td className="px-4 py-2 text-right font-mono text-yellow-500 hidden sm:table-cell">949</td>
+                  </tr>
+                </tfoot>
               </table>
-              <p className="text-xs text-slate-600 px-4 py-2">
-                Buy rate: 5 FAAB per DOGE (fixed) · Pool = prior year total FAAB spend · Last-place gets highest limit · Window opens after Owners Meeting
+              <p className="text-xs text-slate-500 px-4 py-2 border-t border-slate-700/50 bg-amber-950/20">
+                ⚠️ 2026 refresh pool = <strong className="text-amber-400">4,744 FAAB</strong> — notably smaller than prior seasons (2025 had one of the lowest waiver markets on record). Champion–3rd place share equally at 1.75% each. Window opens after Owners Meeting.
               </p>
             </div>
           </section>

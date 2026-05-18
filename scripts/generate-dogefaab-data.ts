@@ -27,24 +27,40 @@ const FAAB_BUY_RATE = 5; // 5 FAAB = 1 DOGE (fixed purchase rate)
 const CURRENT_SEASON = '2026';
 
 /**
- * Annual refresh buy limits for 2026 — set by Commissioner based on 2025 finish order.
- * Last place gets the highest limit. Values in FAAB units.
- * NOTE: Set to null until Commissioner provides confirmed values.
- * Formula: Pool = prior year total FAAB spend (4744), distributed inversely by standings.
+ * 2026 Annual Refresh Buy Limits — computed from 2025 finish order + prior year FAAB spend.
+ *
+ * Pool = 2025 total FAAB spend (4,744 FAAB, lowest since 2022)
+ * Formula (per Commissioner):
+ *   Positions 1-3 (playoff 1st/2nd/3rd): 1.75% each
+ *   Position 4 (playoff 4th): 3.51%
+ *   Position 5 (playoff 5th): 5.26%
+ *   Position 6 (playoff 6th): 7.02%
+ *   Positions 7-12 (non-playoff, regular season order): 8.77%, 10.53%, 12.28%, 14.04%, 15.79%, 17.54%
+ *
+ * 2025 Playoff finish order:
+ *   1st: tdtd19844 (Champion), 2nd: Tubes94, 3rd: MLSchools12, 4th: Cmaleski,
+ *   5th: SexMachineAndyD, 6th: JuicyBussy
+ * 2025 Non-playoff (regular season rank 7-12):
+ *   7th: eldridm20, 8th: MCSchools (orphan→bimfle), 9th: eldridsm, 10th: rbr, 11th: Cogdeill11, 12th: Grandes
+ *
+ * Limits rounded to nearest integer. Total ≈ 4,744 FAAB.
  */
+const POOL_2025 = 4744;
+function pctToFaab(pct: number) { return Math.round(POOL_2025 * pct / 100); }
+
 const REFRESH_LIMITS_2026: Record<string, number | null> = {
-  'cogdeill11':      null,  // 2025 finish: 11th  → pending Commissioner confirmation
-  'eldridsm':        null,  // 2025 finish: 9th
-  'rbr':             null,  // 2025 finish: 10th
-  'mlschools12':     null,  // 2025 finish: 1st  → lowest limit
-  'sexmachineandyd': null,  // 2025 finish: 3rd
-  'juicybussy':      null,  // 2025 finish: 5th
-  'bimfle':          null,  // orphan roster
-  'grandes':         null,  // 2025 finish: 12th → highest limit
-  'cmaleski':        null,  // 2025 finish: 6th
-  'tdtd19844':       null,  // 2025 finish: 4th  (2025 champion)
-  'tubes94':         null,  // 2025 finish: 2nd
-  'eldridm20':       null,  // 2025 finish: 7th
+  'tdtd19844':       pctToFaab(1.75),   // 2025: Champion        → 83 FAAB
+  'tubes94':         pctToFaab(1.75),   // 2025: Runner-up       → 83 FAAB
+  'mlschools12':     pctToFaab(1.75),   // 2025: 3rd place       → 83 FAAB
+  'cmaleski':        pctToFaab(3.51),   // 2025: 4th place       → 167 FAAB
+  'sexmachineandyd': pctToFaab(5.26),   // 2025: 5th place       → 250 FAAB
+  'juicybussy':      pctToFaab(7.02),   // 2025: 6th place       → 333 FAAB
+  'eldridm20':       pctToFaab(8.77),   // 2025: 7th (reg seas.) → 416 FAAB
+  'bimfle':          pctToFaab(10.53),  // 2025: 8th (MCSchools orphan → bimfle) → 500 FAAB
+  'eldridsm':        pctToFaab(12.28),  // 2025: 9th             → 583 FAAB
+  'rbr':             pctToFaab(14.04),  // 2025: 10th            → 666 FAAB
+  'cogdeill11':      pctToFaab(15.79),  // 2025: 11th            → 749 FAAB
+  'grandes':         pctToFaab(17.54),  // 2025: 12th            → 832 FAAB
 };
 
 /**
@@ -128,6 +144,8 @@ interface RefreshLimit {
   username: string;
   displayName: string;
   limit: number | null;
+  finishPosition: number;
+  finishPct: number;
 }
 
 interface DogeFaabData {
@@ -169,12 +187,34 @@ function generate(): DogeFaabData {
     }))
     .sort((a, b) => b.faabRemaining - a.faabRemaining);
 
-  // 1b. Refresh limits for current season
-  const refreshLimits: RefreshLimit[] = Object.entries(REFRESH_LIMITS_2026).map(([username, limit]) => ({
-    username,
-    displayName: USERNAME_TO_DISPLAY[username] ?? username,
-    limit,
-  }));
+  // 1b. Refresh limits for current season — with finish position + pct for display
+  const FINISH_ORDER_2026: Record<string, { pos: number; pct: number }> = {
+    'tdtd19844':       { pos: 1,  pct: 1.75  },
+    'tubes94':         { pos: 2,  pct: 1.75  },
+    'mlschools12':     { pos: 3,  pct: 1.75  },
+    'cmaleski':        { pos: 4,  pct: 3.51  },
+    'sexmachineandyd': { pos: 5,  pct: 5.26  },
+    'juicybussy':      { pos: 6,  pct: 7.02  },
+    'eldridm20':       { pos: 7,  pct: 8.77  },
+    'bimfle':          { pos: 8,  pct: 10.53 },
+    'eldridsm':        { pos: 9,  pct: 12.28 },
+    'rbr':             { pos: 10, pct: 14.04 },
+    'cogdeill11':      { pos: 11, pct: 15.79 },
+    'grandes':         { pos: 12, pct: 17.54 },
+  };
+
+  const refreshLimits: RefreshLimit[] = Object.entries(REFRESH_LIMITS_2026)
+    .map(([username, limit]) => {
+      const fo = FINISH_ORDER_2026[username] ?? { pos: 99, pct: 0 };
+      return {
+        username,
+        displayName: USERNAME_TO_DISPLAY[username] ?? username,
+        limit,
+        finishPosition: fo.pos,
+        finishPct: fo.pct,
+      };
+    })
+    .sort((a, b) => a.finishPosition - b.finishPosition);
 
   // 2. Historical FAAB spend by season + owner
   const spendRows = (db.prepare(`

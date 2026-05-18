@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T16:36:34.971Z",
+  "generatedAt": "2026-05-18T16:50:54.896Z",
   "currentSeason": "2026",
   "treasury": {
     "totalDoge": 2530,
@@ -98,64 +98,88 @@
   ],
   "refreshLimits": [
     {
-      "username": "cogdeill11",
-      "displayName": "Cogdeill11",
-      "limit": null
-    },
-    {
-      "username": "eldridsm",
-      "displayName": "eldridsm",
-      "limit": null
-    },
-    {
-      "username": "rbr",
-      "displayName": "rbr",
-      "limit": null
-    },
-    {
-      "username": "mlschools12",
-      "displayName": "MLSchools12",
-      "limit": null
-    },
-    {
-      "username": "sexmachineandyd",
-      "displayName": "SexMachineAndyD",
-      "limit": null
-    },
-    {
-      "username": "juicybussy",
-      "displayName": "JuicyBussy",
-      "limit": null
-    },
-    {
-      "username": "bimfle",
-      "displayName": "Bimflé",
-      "limit": null
-    },
-    {
-      "username": "grandes",
-      "displayName": "Grandes",
-      "limit": null
-    },
-    {
-      "username": "cmaleski",
-      "displayName": "Cmaleski",
-      "limit": null
-    },
-    {
       "username": "tdtd19844",
       "displayName": "tdtd19844",
-      "limit": null
+      "limit": 83,
+      "finishPosition": 1,
+      "finishPct": 1.75
     },
     {
       "username": "tubes94",
       "displayName": "Tubes94",
-      "limit": null
+      "limit": 83,
+      "finishPosition": 2,
+      "finishPct": 1.75
+    },
+    {
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "limit": 83,
+      "finishPosition": 3,
+      "finishPct": 1.75
+    },
+    {
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "limit": 167,
+      "finishPosition": 4,
+      "finishPct": 3.51
+    },
+    {
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "limit": 250,
+      "finishPosition": 5,
+      "finishPct": 5.26
+    },
+    {
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "limit": 333,
+      "finishPosition": 6,
+      "finishPct": 7.02
     },
     {
       "username": "eldridm20",
       "displayName": "eldridm20",
-      "limit": null
+      "limit": 416,
+      "finishPosition": 7,
+      "finishPct": 8.77
+    },
+    {
+      "username": "bimfle",
+      "displayName": "Bimflé",
+      "limit": 500,
+      "finishPosition": 8,
+      "finishPct": 10.53
+    },
+    {
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "limit": 583,
+      "finishPosition": 9,
+      "finishPct": 12.28
+    },
+    {
+      "username": "rbr",
+      "displayName": "rbr",
+      "limit": 666,
+      "finishPosition": 10,
+      "finishPct": 14.04
+    },
+    {
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "limit": 749,
+      "finishPosition": 11,
+      "finishPct": 15.79
+    },
+    {
+      "username": "grandes",
+      "displayName": "Grandes",
+      "limit": 832,
+      "finishPosition": 12,
+      "finishPct": 17.54
     }
   ],
   "historicalSpend": [
