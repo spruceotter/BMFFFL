@@ -9,7 +9,7 @@
 
 import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
-import { CheckCircle2, Calendar, Users, RefreshCw, ClipboardList, Vote, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, Calendar, Users, RefreshCw, ClipboardList, Vote, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -796,6 +796,98 @@ export default function MeetingPage() {
                 ))}
               </div>
             )}
+          </section>
+
+          {/* ── SECTION 4: Current League Rules ─────────────────────────────── */}
+          <section className="bg-gray-900/60 border border-gray-700 rounded-xl p-5">
+            <h2 className="text-base font-semibold text-white mb-1 flex items-center gap-2">
+              <BookOpen size={16} className="text-[#ffd700]" />
+              Current League Rules
+            </h2>
+            <p className="text-gray-400 text-sm mb-4">Reference during the meeting. Click any rule to expand.</p>
+
+            <div className="space-y-2">
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>Roster Format &amp; Scoring</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Lineup:</span> QB · RB · RB · WR · WR · WR · TE · FLEX · FLEX · SUPER_FLEX</p>
+                  <p><span className="text-gray-300">Bench:</span> 16 spots (cut to 12 before season)</p>
+                  <p><span className="text-gray-300">Taxi squad:</span> 5 players</p>
+                  <p><span className="text-gray-300">IR:</span> Off offseason/preseason; may turn on in-season</p>
+                  <p><span className="text-gray-300">Scoring:</span> Full PPR (1.0 rec) · 4-pt passing TDs</p>
+                </div>
+              </details>
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>Trades</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Counter window:</span> 24 hours after a trade is proposed</p>
+                  <p><span className="text-gray-300">No-counter signal:</span> Both sides include $1 FAAB → counter window waived, trade processes immediately</p>
+                </div>
+              </details>
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>FAAB — Prop D(OGE) System</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Rate:</span> 5 FAAB = 1 Dogecoin (current; has increased 3× since original)</p>
+                  <p><span className="text-gray-300">Treasury:</span> All Doge held in escrow by Commissioner</p>
+                  <p><span className="text-gray-300">Annual refresh:</span> Owners buy additional FAAB by paying Doge at market price; pool total = prior year's total FAAB spend</p>
+                  <p><span className="text-gray-300">In-season sell windows:</span> Weeks 4, 8, 12, 16</p>
+                  <p><span className="text-gray-300">Mid-season buy:</span> After Week 8, before Week 11 — bottom 6 teams only, up to $300 FAAB</p>
+                  <p><span className="text-gray-300">Cash-out (offseason):</span> Up to $500 FAAB in $100 increments at variable sell rate</p>
+                </div>
+              </details>
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>Playoffs</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Format:</span> 6-team bracket</p>
+                  <p><span className="text-gray-300">Auto bids:</span> 3 division winners (regardless of record)</p>
+                  <p><span className="text-gray-300">Wild cards:</span> 3 remaining spots by record (points tiebreaker)</p>
+                  <p><span className="text-gray-300">Byes:</span> Seeds 1 &amp; 2 — Seeds 3–6 play Round 1</p>
+                </div>
+              </details>
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>Preseason Cut-Down (2026+)</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Blocker players:</span> 2 added to each of the 6 prior-year playoff teams when FA opens (late June/July) — occupy bench slots until cut</p>
+                  <p><span className="text-gray-300">All-team cut:</span> All 12 teams cut 4 bench spots (16 → 12) before the season</p>
+                  <p>Playoff teams drop their blockers once the season begins as normal roster management</p>
+                </div>
+              </details>
+
+              <details className="group rounded-lg overflow-hidden">
+                <summary className="cursor-pointer select-none text-sm font-medium text-gray-200 hover:text-white py-2.5 px-3 bg-gray-800/60 rounded-lg flex items-center justify-between list-none">
+                  <span>Dispersal Draft (2026)</span>
+                  <ChevronDown size={14} className="text-gray-500 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-3 pt-2 pb-3 text-sm text-gray-400 space-y-1 bg-gray-800/30 rounded-b-lg">
+                  <p><span className="text-gray-300">Trigger:</span> Escuelas left the league — new owner needed</p>
+                  <p><span className="text-gray-300">Format:</span> Snake draft, randomized order — 3–4 teams participate</p>
+                  <p><span className="text-gray-300">Pool:</span> All participating teams contribute full roster + 2+ years of picks anonymously; new owner builds squad from pool</p>
+                  <p><span className="text-gray-300">Bonus:</span> One late 1st this year + one next year added to pool</p>
+                  <p>Open governance questions on FAAB disposition pending meeting vote</p>
+                </div>
+              </details>
+
+            </div>
           </section>
 
         </div>
