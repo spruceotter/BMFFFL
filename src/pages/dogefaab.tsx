@@ -2,10 +2,10 @@
  * BMFFFL DogeFAAB — Treasury, Balances & History
  * /dogefaab
  *
- * Section 1: League Treasury — total DOGE, buy/sell rates
- * Section 2: Current Owner Balances — FAAB remaining → DOGE share
- * Section 3: Historical FAAB Spending — per season matrix
- * Section 4: All-Time Top Bids
+ * Section 1: League Treasury
+ * Section 2: Current Owner Balances
+ * Section 3: All-Time Top Bids (standalone)
+ * Section 4: FAAB History tabs — Spending | Trades Net | Purchases | Balances
  */
 
 import Head from 'next/head';
@@ -13,7 +13,7 @@ import { GetStaticProps } from 'next';
 import * as fs from 'fs';
 import * as path from 'path';
 import { useState } from 'react';
-import { DollarSign, TrendingDown, Award, BarChart2 } from 'lucide-react';
+import { DollarSign, TrendingDown, Award, BarChart2, Trophy, ArrowRightLeft } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -41,6 +41,17 @@ interface TopBid {
   displayName: string;
   bidAmount: number;
   transactionId: string;
+  playerName: string | null;
+  playerPosition: string | null;
+}
+
+interface TradeNetFaab {
+  season: string;
+  username: string;
+  displayName: string;
+  netFaab: number;
+  received: number;
+  sent: number;
 }
 
 interface DogeFaabData {
@@ -55,6 +66,7 @@ interface DogeFaabData {
   currentBalances: OwnerBalance[];
   historicalSpend: SeasonSpend[];
   topBids: TopBid[];
+  tradeFaab: TradeNetFaab[];
   leagueTotalsBySeasonFaab: Record<string, number>;
 }
 
@@ -98,6 +110,15 @@ function pctBar(pct: number, color: string) {
   );
 }
 
+const POSITION_COLORS: Record<string, string> = {
+  QB: 'text-red-400',
+  RB: 'text-emerald-400',
+  WR: 'text-blue-400',
+  TE: 'text-orange-400',
+  K:  'text-slate-400',
+  DEF: 'text-purple-400',
+};
+
 // ─── Props ────────────────────────────────────────────────────────────────────
 
 interface Props {
@@ -106,26 +127,44 @@ interface Props {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function DogeFaabPage({ data }: Props) {
-  const { treasury, currentBalances, historicalSpend, topBids, leagueTotalsBySeasonFaab } = data;
-  const seasons = Object.keys(leagueTotalsBySeasonFaab).sort();
-  const [activeTab, setActiveTab] = useState<'spend' | 'topbids'>('spend');
+type HistoryTab = 'spending' | 'trades' | 'purchases' | 'balances';
 
-  // Build season matrix: owner → season → spend data
+export default function DogeFaabPage({ data }: Props) {
+  const { treasury, currentBalances, historicalSpend, topBids, tradeFaab, leagueTotalsBySeasonFaab } = data;
+  const seasons = Object.keys(leagueTotalsBySeasonFaab).sort();
+  const [activeTab, setActiveTab] = useState<HistoryTab>('spending');
+
+  // ── Spend matrix ──────────────────────────────────────────────────────────
   const spendMatrix: Record<string, Record<string, SeasonSpend>> = {};
-  const allOwners = [...new Set(historicalSpend.map(r => r.displayName))];
+  const allSpendOwners = [...new Set(historicalSpend.map(r => r.displayName))];
   for (const row of historicalSpend) {
     if (!spendMatrix[row.displayName]) spendMatrix[row.displayName] = {};
     spendMatrix[row.displayName][row.season] = row;
   }
-
-  // Max spend per season (for relative shading)
   const maxBySeasonFaab: Record<string, number> = {};
   for (const row of historicalSpend) {
     if (!maxBySeasonFaab[row.season] || row.totalSpent > maxBySeasonFaab[row.season]) {
       maxBySeasonFaab[row.season] = row.totalSpent;
     }
   }
+
+  // ── Trade FAAB matrix ─────────────────────────────────────────────────────
+  // Build: displayName → season → { net, received, sent }
+  const tradeMatrix: Record<string, Record<string, TradeNetFaab>> = {};
+  const allTradeOwners: string[] = [];
+  for (const row of tradeFaab) {
+    if (!tradeMatrix[row.displayName]) {
+      tradeMatrix[row.displayName] = {};
+      allTradeOwners.push(row.displayName);
+    }
+    tradeMatrix[row.displayName][row.season] = row;
+  }
+  // Sort by all-time net FAAB
+  const tradeOwnersSorted = [...new Set(allTradeOwners)].sort((a, b) => {
+    const netA = seasons.reduce((s, yr) => s + (tradeMatrix[a]?.[yr]?.netFaab ?? 0), 0);
+    const netB = seasons.reduce((s, yr) => s + (tradeMatrix[b]?.[yr]?.netFaab ?? 0), 0);
+    return netB - netA;
+  });
 
   return (
     <>
@@ -239,29 +278,78 @@ export default function DogeFaabPage({ data }: Props) {
             </div>
           </section>
 
-          {/* ── History Tabs ─────────────────────────────────────────────── */}
+          {/* ── Top Bids (standalone) ─────────────────────────────────────── */}
           <section className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
+            <h2 className="text-lg font-semibold text-slate-300 mb-4 flex items-center gap-2">
+              <Trophy className="w-4 h-4 text-yellow-400" /> All-Time Top Bids
+            </h2>
+            <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-hidden">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
+                    <th className="text-left px-4 py-3 w-8">#</th>
+                    <th className="text-left px-4 py-3">Owner</th>
+                    <th className="text-left px-4 py-3">Player</th>
+                    <th className="text-left px-4 py-3 hidden sm:table-cell">Pos</th>
+                    <th className="text-right px-4 py-3">FAAB Bid</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">Season</th>
+                    <th className="text-right px-4 py-3 hidden sm:table-cell">Week</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {topBids.map((bid, i) => {
+                    const c = ownerColor(bid.displayName);
+                    const posColor = bid.playerPosition ? (POSITION_COLORS[bid.playerPosition] ?? 'text-slate-400') : 'text-slate-600';
+                    return (
+                      <tr key={bid.transactionId} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
+                        <td className="px-4 py-3 text-slate-600 text-xs">{i + 1}</td>
+                        <td className="px-4 py-3">
+                          <span className={`font-medium ${c.text}`}>{bid.displayName}</span>
+                        </td>
+                        <td className="px-4 py-3 text-slate-200">
+                          {bid.playerName ?? <span className="text-slate-600">—</span>}
+                        </td>
+                        <td className={`px-4 py-3 font-mono text-xs font-semibold hidden sm:table-cell ${posColor}`}>
+                          {bid.playerPosition ?? '—'}
+                        </td>
+                        <td className="px-4 py-3 text-right font-mono font-semibold text-orange-400">
+                          {formatFaab(bid.bidAmount)}
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-400 hidden sm:table-cell">{bid.season}</td>
+                        <td className="px-4 py-3 text-right text-slate-400 hidden sm:table-cell">Wk {bid.week}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* ── FAAB History Tabs ─────────────────────────────────────────── */}
+          <section className="mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
               <h2 className="text-lg font-semibold text-slate-300 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-orange-400" /> FAAB History
               </h2>
-              <div className="flex gap-1 bg-slate-800 rounded-lg p-1">
-                <button
-                  onClick={() => setActiveTab('spend')}
-                  className={`px-3 py-1 text-xs rounded-md transition-colors ${activeTab === 'spend' ? 'bg-slate-600 text-slate-100' : 'text-slate-400 hover:text-slate-200'}`}
-                >
-                  By Season
-                </button>
-                <button
-                  onClick={() => setActiveTab('topbids')}
-                  className={`px-3 py-1 text-xs rounded-md transition-colors ${activeTab === 'topbids' ? 'bg-slate-600 text-slate-100' : 'text-slate-400 hover:text-slate-200'}`}
-                >
-                  Top Bids
-                </button>
+              <div className="flex gap-1 bg-slate-800 rounded-lg p-1 flex-wrap">
+                {(['spending', 'trades', 'purchases', 'balances'] as HistoryTab[]).map(tab => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-3 py-1 text-xs rounded-md transition-colors capitalize ${
+                      activeTab === tab
+                        ? 'bg-slate-600 text-slate-100'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {tab === 'trades' ? 'Trades (Net)' : tab === 'spending' ? 'Spending' : tab === 'purchases' ? 'Purchases' : 'Balances'}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {activeTab === 'spend' && (
+            {/* ── Spending tab ── */}
+            {activeTab === 'spending' && (
               <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -274,7 +362,7 @@ export default function DogeFaabPage({ data }: Props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {allOwners
+                    {allSpendOwners
                       .map(owner => ({
                         owner,
                         total: seasons.reduce((sum, s) => sum + (spendMatrix[owner]?.[s]?.totalSpent ?? 0), 0),
@@ -284,7 +372,7 @@ export default function DogeFaabPage({ data }: Props) {
                         const c = ownerColor(owner);
                         return (
                           <tr key={owner} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
-                            <td className={`px-4 py-2 sticky left-0 bg-slate-800 ${i % 2 !== 0 ? 'bg-slate-800/80' : ''} font-medium ${c.text}`}>
+                            <td className={`px-4 py-2 sticky left-0 ${i % 2 !== 0 ? 'bg-slate-800/80' : 'bg-slate-800'} font-medium ${c.text}`}>
                               {owner}
                             </td>
                             {seasons.map(s => {
@@ -298,7 +386,7 @@ export default function DogeFaabPage({ data }: Props) {
                                     <span
                                       className="text-orange-300"
                                       style={{ opacity: intensity / 100 }}
-                                      title={cell ? `${cell.claims} claims, biggest: ${cell.biggestBid}` : ''}
+                                      title={cell ? `${cell.claims} claims · biggest: ${cell.biggestBid}` : ''}
                                     >
                                       {formatFaab(spent)}
                                     </span>
@@ -330,44 +418,100 @@ export default function DogeFaabPage({ data }: Props) {
                   </tfoot>
                 </table>
                 <p className="text-xs text-slate-600 px-4 py-2">
-                  FAAB spent on winning waiver bids per season. FAAB carries over year-to-year with no fixed annual budget — new FAAB enters only via the annual refresh buy window.
+                  FAAB spent on winning waiver bids per season. FAAB carries over year-to-year — new FAAB enters only via the annual refresh buy window.
                 </p>
               </div>
             )}
 
-            {activeTab === 'topbids' && (
-              <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-hidden">
+            {/* ── Trades (Net) tab ── */}
+            {activeTab === 'trades' && (
+              <div className="bg-slate-800 rounded-xl border border-slate-700/50 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-slate-700/50 text-xs text-slate-500 uppercase tracking-wide">
-                      <th className="text-left px-4 py-3 w-8">#</th>
-                      <th className="text-left px-4 py-3">Owner</th>
-                      <th className="text-right px-4 py-3">FAAB Bid</th>
-                      <th className="text-right px-4 py-3 hidden sm:table-cell">Season</th>
-                      <th className="text-right px-4 py-3 hidden sm:table-cell">Week</th>
+                      <th className="text-left px-4 py-3 sticky left-0 bg-slate-800">Owner</th>
+                      {seasons.map(s => (
+                        <th key={s} className="text-right px-3 py-3 min-w-16">{s}</th>
+                      ))}
+                      <th className="text-right px-4 py-3">All-Time Net</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {topBids.map((bid, i) => {
-                      const c = ownerColor(bid.displayName);
+                    {tradeOwnersSorted.map((owner, i) => {
+                      const c = ownerColor(owner);
+                      const allTimeNet = seasons.reduce((s, yr) => s + (tradeMatrix[owner]?.[yr]?.netFaab ?? 0), 0);
                       return (
-                        <tr key={bid.transactionId} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
-                          <td className="px-4 py-3 text-slate-600 text-xs">{i + 1}</td>
-                          <td className="px-4 py-3">
-                            <span className={`font-medium ${c.text}`}>{bid.displayName}</span>
+                        <tr key={owner} className={`border-b border-slate-700/30 ${i % 2 === 0 ? '' : 'bg-slate-800/50'}`}>
+                          <td className={`px-4 py-2 sticky left-0 ${i % 2 !== 0 ? 'bg-slate-800/80' : 'bg-slate-800'} font-medium ${c.text}`}>
+                            {owner}
                           </td>
-                          <td className="px-4 py-3 text-right font-mono font-semibold text-orange-400">
-                            {formatFaab(bid.bidAmount)}
+                          {seasons.map(s => {
+                            const cell = tradeMatrix[owner]?.[s];
+                            const net = cell?.netFaab ?? 0;
+                            return (
+                              <td key={s} className="px-3 py-2 text-right font-mono">
+                                {net !== 0 ? (
+                                  <span
+                                    className={net > 0 ? 'text-emerald-400' : 'text-rose-400'}
+                                    title={cell ? `+${cell.received} received / -${cell.sent} sent` : ''}
+                                  >
+                                    {net > 0 ? '+' : ''}{formatFaab(net)}
+                                  </span>
+                                ) : (
+                                  <span className="text-slate-700">—</span>
+                                )}
+                              </td>
+                            );
+                          })}
+                          <td className={`px-4 py-2 text-right font-mono font-semibold ${allTimeNet > 0 ? 'text-emerald-300' : allTimeNet < 0 ? 'text-rose-300' : 'text-slate-500'}`}>
+                            {allTimeNet > 0 ? '+' : ''}{formatFaab(allTimeNet)}
                           </td>
-                          <td className="px-4 py-3 text-right text-slate-400 hidden sm:table-cell">{bid.season}</td>
-                          <td className="px-4 py-3 text-right text-slate-400 hidden sm:table-cell">Wk {bid.week}</td>
                         </tr>
                       );
                     })}
                   </tbody>
                 </table>
+                <p className="text-xs text-slate-600 px-4 py-2">
+                  Net FAAB exchanged in trades per season. Green = gained FAAB; red = gave FAAB away. Hover for received/sent breakdown.
+                </p>
               </div>
             )}
+
+            {/* ── Purchases tab ── */}
+            {activeTab === 'purchases' && (
+              <div className="bg-slate-800 rounded-xl border border-slate-700/50 p-8 text-center">
+                <ArrowRightLeft className="w-8 h-8 text-slate-600 mx-auto mb-3" />
+                <p className="text-slate-400 font-medium mb-2">FAAB Purchase History</p>
+                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                  Annual refresh purchase records are stored in Commissioner records (Google Drive).
+                  This section will be populated once those records are provided.
+                </p>
+                <div className="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-2 max-w-lg mx-auto opacity-30">
+                  {['2020', '2021', '2022', '2023', '2024', '2025'].map(yr => (
+                    <div key={yr} className="bg-slate-700 rounded-lg p-3 text-center">
+                      <p className="text-xs text-slate-500">{yr}</p>
+                      <p className="text-slate-600 text-xs mt-1">—</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ── Balances tab ── */}
+            {activeTab === 'balances' && (
+              <div className="bg-slate-800 rounded-xl border border-slate-700/50 p-8 text-center">
+                <BarChart2 className="w-8 h-8 text-slate-600 mx-auto mb-3" />
+                <p className="text-slate-400 font-medium mb-2">End-of-Season FAAB Balances</p>
+                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                  Historical FAAB balances at the end of each season (2020–2025) are not yet available
+                  from Sleeper data. This section will track how each owner&apos;s war chest evolved year over year.
+                </p>
+                <p className="text-xs text-slate-700 mt-4">
+                  Current 2026 balances shown above · Season-end snapshots coming soon
+                </p>
+              </div>
+            )}
+
           </section>
 
           {/* ── Footer ───────────────────────────────────────────────────── */}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T15:48:36.978Z",
+  "generatedAt": "2026-05-18T16:18:04.672Z",
   "treasury": {
     "totalDoge": 2530,
     "totalFaabOutstanding": 14283,
@@ -670,7 +670,9 @@
       "username": "juicybussy",
       "displayName": "JuicyBussy",
       "bidAmount": 550,
-      "transactionId": "585571396051050496"
+      "transactionId": "585571396051050496",
+      "playerName": "Antonio Brown",
+      "playerPosition": "WR"
     },
     {
       "season": "2020",
@@ -678,7 +680,9 @@
       "username": "eldridsm",
       "displayName": "eldridsm",
       "bidAmount": 520,
-      "transactionId": "647134983311400960"
+      "transactionId": "647134983311400960",
+      "playerName": "Ryan Finley",
+      "playerPosition": "QB"
     },
     {
       "season": "2020",
@@ -686,7 +690,9 @@
       "username": "rbr",
       "displayName": "rbr",
       "bidAmount": 508,
-      "transactionId": "622275655274401792"
+      "transactionId": "622275655274401792",
+      "playerName": "Travis Fulgham",
+      "playerPosition": "WR"
     },
     {
       "season": "2021",
@@ -694,7 +700,9 @@
       "username": "cmaleski",
       "displayName": "Cmaleski",
       "bidAmount": 500,
-      "transactionId": "725558029356969984"
+      "transactionId": "725558029356969984",
+      "playerName": "Jake Funk",
+      "playerPosition": "RB"
     },
     {
       "season": "2020",
@@ -702,7 +710,9 @@
       "username": "cogdeill11",
       "displayName": "Cogdeill11",
       "bidAmount": 499,
-      "transactionId": "647479774033293312"
+      "transactionId": "647479774033293312",
+      "playerName": "C.J. Beathard",
+      "playerPosition": "QB"
     },
     {
       "season": "2021",
@@ -710,7 +720,9 @@
       "username": "rbr",
       "displayName": "rbr",
       "bidAmount": 480,
-      "transactionId": "769579071876280320"
+      "transactionId": "769579071876280320",
+      "playerName": "Ryan Griffin",
+      "playerPosition": "TE"
     },
     {
       "season": "2021",
@@ -718,7 +730,9 @@
       "username": "rbr",
       "displayName": "rbr",
       "bidAmount": 469,
-      "transactionId": "761349489230462976"
+      "transactionId": "761349489230462976",
+      "playerName": "Jordan Howard",
+      "playerPosition": "RB"
     },
     {
       "season": "2023",
@@ -726,7 +740,9 @@
       "username": "escuelas",
       "displayName": "MCSchools",
       "bidAmount": 429,
-      "transactionId": "1020550150898520064"
+      "transactionId": "1020550150898520064",
+      "playerName": "Mecole Hardman",
+      "playerPosition": "WR"
     },
     {
       "season": "2021",
@@ -734,7 +750,9 @@
       "username": "eldridm20",
       "displayName": "eldridm20",
       "bidAmount": 425,
-      "transactionId": "717401224466472960"
+      "transactionId": "717401224466472960",
+      "playerName": "Larry Rountree",
+      "playerPosition": "RB"
     },
     {
       "season": "2021",
@@ -742,7 +760,9 @@
       "username": "escuelas",
       "displayName": "MCSchools",
       "bidAmount": 420,
-      "transactionId": "761012942509568000"
+      "transactionId": "761012942509568000",
+      "playerName": "Adrian Peterson",
+      "playerPosition": "RB"
     },
     {
       "season": "2021",
@@ -750,7 +770,9 @@
       "username": "cmaleski",
       "displayName": "Cmaleski",
       "bidAmount": 400,
-      "transactionId": "752962178134712320"
+      "transactionId": "752962178134712320",
+      "playerName": "Geno Smith",
+      "playerPosition": "QB"
     },
     {
       "season": "2023",
@@ -758,7 +780,9 @@
       "username": "tubes94",
       "displayName": "Tubes94",
       "bidAmount": 375,
-      "transactionId": "1025394143251570688"
+      "transactionId": "1025394143251570688",
+      "playerName": "Jaren Hall",
+      "playerPosition": "QB"
     },
     {
       "season": "2021",
@@ -766,7 +790,9 @@
       "username": "grandes",
       "displayName": "Grandes",
       "bidAmount": 369,
-      "transactionId": "746299088907210752"
+      "transactionId": "746299088907210752",
+      "playerName": "Demetric Felton",
+      "playerPosition": "RB"
     },
     {
       "season": "2022",
@@ -774,7 +800,9 @@
       "username": "tdtd19844",
       "displayName": "tdtd19844",
       "bidAmount": 359,
-      "transactionId": "905260850947395584"
+      "transactionId": "905260850947395584",
+      "playerName": "Brock Purdy",
+      "playerPosition": "QB"
     },
     {
       "season": "2023",
@@ -782,7 +810,9 @@
       "username": "eldridm20",
       "displayName": "eldridm20",
       "bidAmount": 325,
-      "transactionId": "1027450322924625920"
+      "transactionId": "1027450322924625920",
+      "playerName": "Tommy DeVito",
+      "playerPosition": "QB"
     },
     {
       "season": "2021",
@@ -790,7 +820,9 @@
       "username": "tubes94",
       "displayName": "Tubes94",
       "bidAmount": 319,
-      "transactionId": "761428251951378432"
+      "transactionId": "761428251951378432",
+      "playerName": "Derrick Gore",
+      "playerPosition": "RB"
     },
     {
       "season": "2021",
@@ -798,7 +830,9 @@
       "username": "sexmachineandyd",
       "displayName": "SexMachineAndyD",
       "bidAmount": 311,
-      "transactionId": "753861449050390528"
+      "transactionId": "753861449050390528",
+      "playerName": "Devontae Booker",
+      "playerPosition": "RB"
     },
     {
       "season": "2025",
@@ -806,7 +840,9 @@
       "username": "juicybussy",
       "displayName": "JuicyBussy",
       "bidAmount": 301,
-      "transactionId": "1273691941229301760"
+      "transactionId": "1273691941229301760",
+      "playerName": "Jake Browning",
+      "playerPosition": "QB"
     },
     {
       "season": "2025",
@@ -814,7 +850,9 @@
       "username": "escuelas",
       "displayName": "MCSchools",
       "bidAmount": 301,
-      "transactionId": "1291612437992214529"
+      "transactionId": "1291612437992214529",
+      "playerName": "Luke Musgrave",
+      "playerPosition": "TE"
     },
     {
       "season": "2023",
@@ -822,7 +860,9 @@
       "username": "juicybussy",
       "displayName": "JuicyBussy",
       "bidAmount": 300,
-      "transactionId": "990628219428605952"
+      "transactionId": "990628219428605952",
+      "playerName": "Trevor Siemian",
+      "playerPosition": "QB"
     },
     {
       "season": "2020",
@@ -830,7 +870,9 @@
       "username": "tdtd19844",
       "displayName": "tdtd19844",
       "bidAmount": 280,
-      "transactionId": "611255269044871168"
+      "transactionId": "611255269044871168",
+      "playerName": "Myles Gaskin",
+      "playerPosition": "RB"
     },
     {
       "season": "2020",
@@ -838,7 +880,9 @@
       "username": "cogdeill11",
       "displayName": "Cogdeill11",
       "bidAmount": 278,
-      "transactionId": "618517491471425536"
+      "transactionId": "618517491471425536",
+      "playerName": "D'Ernest Johnson",
+      "playerPosition": "RB"
     },
     {
       "season": "2021",
@@ -846,7 +890,9 @@
       "username": "tubes94",
       "displayName": "Tubes94",
       "bidAmount": 275,
-      "transactionId": "738188677871747072"
+      "transactionId": "738188677871747072",
+      "playerName": "Ty'Son Williams",
+      "playerPosition": "RB"
     },
     {
       "season": "2020",
@@ -854,7 +900,9 @@
       "username": "escuelas",
       "displayName": "MCSchools",
       "bidAmount": 269,
-      "transactionId": "629764886557171712"
+      "transactionId": "629764886557171712",
+      "playerName": "Matt Breida",
+      "playerPosition": "RB"
     },
     {
       "season": "2024",
@@ -862,7 +910,451 @@
       "username": "tubes94",
       "displayName": "Tubes94",
       "bidAmount": 255,
-      "transactionId": "1159730085822529536"
+      "transactionId": "1159730085822529536",
+      "playerName": "Cooper Rush",
+      "playerPosition": "QB"
+    }
+  ],
+  "tradeFaab": [
+    {
+      "season": "2020",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "netFaab": 145,
+      "received": 150,
+      "sent": 5
+    },
+    {
+      "season": "2020",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": 48,
+      "received": 209,
+      "sent": 161
+    },
+    {
+      "season": "2020",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 10,
+      "received": 10,
+      "sent": 0
+    },
+    {
+      "season": "2020",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "netFaab": 1,
+      "received": 1,
+      "sent": 0
+    },
+    {
+      "season": "2020",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2020",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2020",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "netFaab": -1,
+      "received": 0,
+      "sent": 1
+    },
+    {
+      "season": "2020",
+      "username": "rbr",
+      "displayName": "rbr",
+      "netFaab": -50,
+      "received": 0,
+      "sent": 50
+    },
+    {
+      "season": "2020",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": -53,
+      "received": 4,
+      "sent": 57
+    },
+    {
+      "season": "2020",
+      "username": "mmoodie12",
+      "displayName": "MMoodie12",
+      "netFaab": -100,
+      "received": 2,
+      "sent": 102
+    },
+    {
+      "season": "2021",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 3,
+      "received": 5,
+      "sent": 2
+    },
+    {
+      "season": "2021",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": 0,
+      "received": 3,
+      "sent": 3
+    },
+    {
+      "season": "2021",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "netFaab": 0,
+      "received": 10,
+      "sent": 10
+    },
+    {
+      "season": "2021",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "netFaab": 0,
+      "received": 6,
+      "sent": 6
+    },
+    {
+      "season": "2021",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "netFaab": 0,
+      "received": 6,
+      "sent": 6
+    },
+    {
+      "season": "2021",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "netFaab": 0,
+      "received": 2,
+      "sent": 2
+    },
+    {
+      "season": "2021",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "netFaab": 0,
+      "received": 6,
+      "sent": 6
+    },
+    {
+      "season": "2021",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": 0,
+      "received": 9,
+      "sent": 9
+    },
+    {
+      "season": "2021",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "netFaab": 0,
+      "received": 2,
+      "sent": 2
+    },
+    {
+      "season": "2021",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2021",
+      "username": "rbr",
+      "displayName": "rbr",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2021",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "netFaab": -3,
+      "received": 2,
+      "sent": 5
+    },
+    {
+      "season": "2022",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "netFaab": 150,
+      "received": 153,
+      "sent": 3
+    },
+    {
+      "season": "2022",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 100,
+      "received": 170,
+      "sent": 70
+    },
+    {
+      "season": "2022",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": 40,
+      "received": 83,
+      "sent": 43
+    },
+    {
+      "season": "2022",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "netFaab": 29,
+      "received": 39,
+      "sent": 10
+    },
+    {
+      "season": "2022",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": 0,
+      "received": 72,
+      "sent": 72
+    },
+    {
+      "season": "2022",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "netFaab": 0,
+      "received": 7,
+      "sent": 7
+    },
+    {
+      "season": "2022",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "netFaab": 0,
+      "received": 2,
+      "sent": 2
+    },
+    {
+      "season": "2022",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2022",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "netFaab": -100,
+      "received": 3,
+      "sent": 103
+    },
+    {
+      "season": "2022",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "netFaab": -219,
+      "received": 2,
+      "sent": 221
+    },
+    {
+      "season": "2023",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 651,
+      "received": 703,
+      "sent": 52
+    },
+    {
+      "season": "2023",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": 520,
+      "received": 1026,
+      "sent": 506
+    },
+    {
+      "season": "2023",
+      "username": "cogdeill11",
+      "displayName": "Cogdeill11",
+      "netFaab": 234,
+      "received": 335,
+      "sent": 101
+    },
+    {
+      "season": "2023",
+      "username": "rbr",
+      "displayName": "rbr",
+      "netFaab": 150,
+      "received": 151,
+      "sent": 1
+    },
+    {
+      "season": "2023",
+      "username": "tdtd19844",
+      "displayName": "tdtd19844",
+      "netFaab": 150,
+      "received": 151,
+      "sent": 1
+    },
+    {
+      "season": "2023",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "netFaab": 60,
+      "received": 64,
+      "sent": 4
+    },
+    {
+      "season": "2023",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "netFaab": 0,
+      "received": 3,
+      "sent": 3
+    },
+    {
+      "season": "2023",
+      "username": "eldridm20",
+      "displayName": "eldridm20",
+      "netFaab": 0,
+      "received": 2,
+      "sent": 2
+    },
+    {
+      "season": "2023",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": -49,
+      "received": 204,
+      "sent": 253
+    },
+    {
+      "season": "2023",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "netFaab": -219,
+      "received": 4,
+      "sent": 223
+    },
+    {
+      "season": "2023",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "netFaab": -700,
+      "received": 10,
+      "sent": 710
+    },
+    {
+      "season": "2023",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "netFaab": -797,
+      "received": 158,
+      "sent": 955
+    },
+    {
+      "season": "2024",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": 239,
+      "received": 240,
+      "sent": 1
+    },
+    {
+      "season": "2024",
+      "username": "eldridsm",
+      "displayName": "eldridsm",
+      "netFaab": 150,
+      "received": 151,
+      "sent": 1
+    },
+    {
+      "season": "2024",
+      "username": "sexmachineandyd",
+      "displayName": "SexMachineAndyD",
+      "netFaab": 75,
+      "received": 75,
+      "sent": 0
+    },
+    {
+      "season": "2024",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2024",
+      "username": "cmaleski",
+      "displayName": "Cmaleski",
+      "netFaab": -175,
+      "received": 2,
+      "sent": 177
+    },
+    {
+      "season": "2024",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": -289,
+      "received": 1,
+      "sent": 290
+    },
+    {
+      "season": "2025",
+      "username": "mlschools12",
+      "displayName": "MLSchools12",
+      "netFaab": 30,
+      "received": 30,
+      "sent": 0
+    },
+    {
+      "season": "2025",
+      "username": "tubes94",
+      "displayName": "Tubes94",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2025",
+      "username": "grandes",
+      "displayName": "Grandes",
+      "netFaab": 0,
+      "received": 1,
+      "sent": 1
+    },
+    {
+      "season": "2025",
+      "username": "juicybussy",
+      "displayName": "JuicyBussy",
+      "netFaab": -10,
+      "received": 0,
+      "sent": 10
+    },
+    {
+      "season": "2025",
+      "username": "escuelas",
+      "displayName": "MCSchools",
+      "netFaab": -20,
+      "received": 0,
+      "sent": 20
     }
   ],
   "leagueTotalsBySeasonFaab": {
