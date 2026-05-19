@@ -558,6 +558,24 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
     recommendation:
       'Option 1 for new owner (8th-place cap). Option 4 for dispersal teams — they\'re already giving up roster assets, and reducing their refresh would double-penalize participation.',
   },
+  {
+    id: 'F',
+    category: 'League Structure',
+    title: 'Division Schedule Draw + Division Renaming',
+    context:
+      'Per 2022 Prop A, the top 2 divisions from the prior year (by combined total points) may vote to rename their division (75% threshold). The top division also names the bottom division. ' +
+      'With the dispersal draft reshaping several rosters before the 2026 season, the live draw at the meeting will establish the new divisional alignment — after which renaming follows naturally. ' +
+      '2025 division standings by combined points will be computed prior to the meeting to determine which divisions hold naming rights.',
+    options: [
+      {
+        label: 'Procedure — Live draw at meeting',
+        description:
+          'Division assignments are drawn live at the meeting. Commissioner facilitates. Once the new alignments are set, each qualifying division votes on a name (requires 75% agreement among that division\'s owners). Top division also proposes a name for the bottom division.',
+      },
+    ],
+    recommendation:
+      'Procedural item — no advance vote needed. Plan to run the draw immediately after the dispersal draft is complete so owners know their new divisional context before naming.',
+  },
 ];
 
 function PropositionCard({ p }: { p: CommissionerProposition }) {
@@ -566,6 +584,7 @@ function PropositionCard({ p }: { p: CommissionerProposition }) {
   const categoryColor: Record<string, string> = {
     'FAAB / Waivers':        'bg-orange-900/60 text-orange-300 border-orange-700',
     'Dispersal / Ownership': 'bg-red-900/60 text-red-300 border-red-700',
+    'League Structure':      'bg-blue-900/60 text-blue-300 border-blue-700',
   };
   const catClass = categoryColor[p.category] ?? 'bg-gray-800/60 text-gray-400 border-gray-600';
 
