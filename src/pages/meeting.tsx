@@ -564,13 +564,16 @@ const COMMISSIONER_PROPOSITIONS: CommissionerProposition[] = [
     title: 'Division Schedule Draw + Division Renaming',
     context:
       'Per 2022 Prop A, the top 2 divisions from the prior year (by combined total points) may vote to rename their division (75% threshold). The top division also names the bottom division. ' +
-      'With the dispersal draft reshaping several rosters before the 2026 season, the live draw at the meeting will establish the new divisional alignment — after which renaming follows naturally. ' +
-      '2025 division standings by combined points will be computed prior to the meeting to determine which divisions hold naming rights.',
+      'With the dispersal draft reshaping several rosters before the 2026 season, the live draw at the meeting will establish the new divisional alignment — after which renaming follows naturally.\n\n' +
+      '2025 Division Rankings (by combined team points):\n' +
+      '🥇 #1 — "Moodie\'s Wives" (Div 2): 7,473 pts — MLSchools12, Cmaleski, MCSchools, Cogdeill11 — NAMING RIGHTS + names bottom division\n' +
+      '🥈 #2 — "Pig Bottoms" (Div 3): 7,425 pts — Tubes94, tdtd19844, eldridm20, eldridsm — NAMING RIGHTS\n' +
+      '🥉 #3 — "Group of Death" (Div 1): 7,088 pts — MilwaukeeBrowns, JuicyBussy, rbr, Grandes — NAMED by Div 2',
     options: [
       {
         label: 'Procedure — Live draw at meeting',
         description:
-          'Division assignments are drawn live at the meeting. Commissioner facilitates. Once the new alignments are set, each qualifying division votes on a name (requires 75% agreement among that division\'s owners). Top division also proposes a name for the bottom division.',
+          'Division assignments are drawn live at the meeting. Commissioner facilitates. The teams that land in the slots corresponding to the top 2 prior-year divisions (Div 2 and Div 3) vote on new names (75% threshold). The Div 2 slot also proposes a name for Div 1.',
       },
     ],
     recommendation:
