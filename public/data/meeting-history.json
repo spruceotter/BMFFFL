@@ -317,13 +317,13 @@
           "letter": "B",
           "title": "Name the Trophies After Moodie",
           "description": "Proposed by JuicyBussy: Name the Toilet Bowl Trophy after Moodie. Name the Championship Trophy after Moodie's wife.",
-          "outcome": "outcome unknown"
+          "outcome": "failed"
         },
         {
           "letter": "C",
           "title": "Regular Season Loser's Punishment \u2014 Add Variety",
           "description": "Proposed by JuicyBussy: Add a variety of punishments from which the loser may choose (rather than a single mandatory penalty).",
-          "outcome": "outcome unknown"
+          "outcome": "failed"
         },
         {
           "letter": "D(OGE)",
@@ -347,8 +347,8 @@
         {
           "letter": "G",
           "title": "Penalties for League Violations \u2014 FAAB Fines",
-          "description": "Proposed by JuicyBussy: Impose fines for league violations paid in DogeFAAB, deposited into a pot for the champion (or rolled over if the champion committed violations).",
-          "outcome": "outcome unknown"
+          "description": "Proposed by JuicyBussy: Impose fines for league violations paid in DogeFAAB, deposited into a pot for the champion (or rolled over if the champion committed violations). (Commissioner confirmed fines are in effect)",
+          "outcome": "passed"
         },
         {
           "letter": "H",
@@ -361,7 +361,7 @@
           "letter": "I",
           "title": "Mix Up Divisions Each Offseason",
           "description": "Proposed by Grandes: Part 1 \u2014 mix up who is in what division each offseason (randomly or by prior year's finish). Part 2 \u2014 make this permanent (annual redivisioning).",
-          "outcome": "outcome unknown"
+          "outcome": "failed"
         },
         {
           "letter": "J",
@@ -429,7 +429,7 @@
           "letter": "E",
           "title": "IR Eliminated in the Offseason",
           "description": "Proposed by Grandes: No IR slots allowed in the offseason until 1 week before Week 1. Prevents the common tactic of stashing extra players in IR spots over the off-season.",
-          "outcome": "outcome unknown"
+          "outcome": "passed"
         },
         {
           "letter": "F",
@@ -442,7 +442,7 @@
           "letter": "G",
           "title": "Team Name Restoration for Trophy Purposes",
           "description": "Proposed by 'Locked and Loaded': Change a team's name back to the name listed on the league trophy.",
-          "outcome": "outcome unknown"
+          "outcome": "failed"
         },
         {
           "letter": "H",
@@ -461,7 +461,7 @@
           "letter": "J",
           "title": "24-Hour Trade Counter Period",
           "description": "Proposed by Grandes: Institute a 24-hour trade counter period during the offseason. Once a trade is accepted in Sleeper and made public, other teams may reach out with counter offers. Both parties may waive the period ('push' the trade immediately). Trial offseason run to determine if owners want it in the regular season too.",
-          "outcome": "outcome unknown",
+          "outcome": "passed",
           "outcomeNote": "The 2020 proposal was explicitly framed as a trial run \u2014 not a permanent rule vote. A formal version ('Plan B') was eventually passed at the 2024 Owners Meeting as Prop G."
         },
         {
