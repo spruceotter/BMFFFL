@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-18T23:10:00.000Z",
-  "note": "2017–2019 confirmed from Facebook archive + 2019 PDF. 2020 proposals confirmed from PDF (outcomes unknown). 2021 confirmed from PDF + 2023 appendix slides. 2022 fully confirmed from official results PDF. 2023 fully confirmed from Google Meet transcript (May 24, 2023). 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript.",
+  "generatedAt": "2026-05-19T07:00:00.000Z",
+  "note": "2017–2019 confirmed from Facebook archive + 2019 PDF. 2020 proposals confirmed from PDF — several outcomes inferred from current rules (INT scoring, IR eligibility, Dispersal Draft framework, Superflex). 2021 confirmed from PDF + 2023 appendix slides — Props H, J inferred/confirmed from league state. 2022 fully confirmed from official results PDF. 2023 fully confirmed from Google Meet transcript (May 24, 2023). 2024 confirmed from official results PDF. 2025 confirmed from Google Doc transcript. Inferred outcomes noted with outcomeNote field.",
   "meetings": [
     {
       "year": 2026,
@@ -297,14 +297,15 @@
       "year": 2021,
       "date": "May 5, 2021",
       "status": "partial",
-      "summary": "Thirteen propositions — the landmark one being Prop D(OGE), which created the DogeFAAB system: FAAB backed by real Dogecoin held in Commissioner escrow, with tiered annual refresh windows. Also passed: Prop L (Rookie Draft power-hour, modified to 10-min clock) and Prop M (mandatory full dues pre-payment + official ledger). Prop K (Rookie Draft lottery) failed. Outcomes for Props A–C and E–J not recovered.",
-      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second season. The 2021 crypto bull run provided the creative spark for the DogeFAAB concept. Meeting held May 5, 8pm ET.",
+      "summary": "Thirteen propositions — the landmark one being Prop D(OGE), which created the DogeFAAB system: FAAB backed by real Dogecoin held in Commissioner escrow, with tiered annual refresh windows. Also passed: Prop H (required meeting attendance + proxy rules), Prop L (Rookie Draft power-hour, modified to 10-min clock), Prop M (mandatory full dues pre-payment + official ledger). Prop K (Rookie Draft lottery) failed. Prop A (adjust starters) failed — re-proposed in 2025 and failed again. Prop J mixed: Part 1 (3-year taxi term) passed; Part 2 (unlimited taxi) failed. Prop E (Tiered FAAB) rendered moot by D passing. Outcomes for Props B, C, F, G, I not recovered.",
+      "context": "Heading into Season 6. Cogdeill11 was defending champion (2020). League on Sleeper for its second season. The 2021 crypto bull run provided the creative spark for the DogeFAAB concept. Meeting held May 5, 8pm ET. Source: proposals PDF + 2023 appendix slides confirming Props K, L, M. Some outcomes inferred from current rules.",
       "propositions": [
         {
           "letter": "A",
           "title": "Adjustments to Starting Roster Requirements",
           "description": "Proposed by JuicyBussy: Reduce designated RB starter positions from 2 to 1. Reduce WR starter positions from 3 to 2. Add two additional Flex (WR/RB/TE) starter positions.",
-          "outcome": "outcome unknown"
+          "outcome": "failed",
+          "outcomeNote": "Inferred: Starting lineup remained 2 RB / 3 WR through 2024. An identical proposal (2025 Prop B) was re-submitted and also failed."
         },
         {
           "letter": "B",
@@ -328,7 +329,8 @@
           "letter": "E",
           "title": "Tiered FAAB — Fallback if Prop D Fails",
           "description": "Proposed by David Cogdeill: If Prop D failed, implement a tiered FAAB budget where teams finishing outside the playoffs receive more FAAB to start the following year than playoff teams. Rendered moot by Prop D passing.",
-          "outcome": "outcome unknown"
+          "outcome": "failed",
+          "outcomeNote": "Confirmed: Prop D(OGE) passed, rendering Prop E moot. Not formally voted on."
         },
         {
           "letter": "F",
@@ -346,7 +348,8 @@
           "letter": "H",
           "title": "Required Owners Meeting Attendance + Proxy Rules",
           "description": "Proposed by Grandes: Owners meeting becomes mandatory annual attendance. Owners unable to attend must assign a proxy voter or submit votes ahead of time. No-shows with no proxy or pre-submitted votes will be penalized.",
-          "outcome": "outcome unknown"
+          "outcome": "passed",
+          "outcomeNote": "Inferred: Required meeting attendance + proxy/NCNS penalty system became codified league rules, enforced by 2022 (Prop B NCNS fines) and every subsequent meeting."
         },
         {
           "letter": "I",
@@ -358,7 +361,8 @@
           "letter": "J",
           "title": "Expand Taxi Squad Usefulness — Multi-Year + Unlimited",
           "description": "Proposed by Vieyra and Grandes: Part 1 — allow taxi players to remain on taxi for multiple years (suggest 3 years) to reward drafting rookies. Part 2 — expand or make taxi unlimited so owners can stash more drafted rookies.",
-          "outcome": "outcome unknown"
+          "outcome": "modified",
+          "outcomeNote": "Confirmed from 2023 meeting appendix: Part 1 (3-year taxi term) passed. Part 2 (unlimited taxi) failed. The 3-year term was further extended in 2023 Prop E."
         },
         {
           "letter": "K",
@@ -384,32 +388,36 @@
       "year": 2020,
       "date": "April 9, 2020",
       "status": "partial",
-      "summary": "Eleven propositions on the ballot — a major COVID-era virtual meeting, the first on Sleeper. Notably included the original Dispersal Draft Rules (Prop K), which were eventually adopted by the league and are now being invoked for the first time in 2026. Outcomes for individual propositions not yet recovered.",
-      "context": "COVID year. League migrated from ESPN to Sleeper in December 2019 — Season 5 was the first fully on Sleeper. Matt Moodie was replaced by Joe Tuberdyke (Tubes94). Schedule-related proposals from 2019 (Props F and G) carried over to this ballot.",
+      "summary": "Eleven propositions. Three major passes confirmed by inference from current league rules: Prop B (INT scoring changed to -3/-4), Props C+D (IR eligibility now IR/Out/Doubtful only, SSPD excluded), and Prop K (Dispersal Draft framework — now being invoked for the first time in 2026). Prop A (eliminate Superflex) failed — Superflex remains a core position. Prop F (unlimited taxi) failed — taxi remained limited. Prop H (two divisions) failed — three divisions still in use. Outcomes for Props E, G, I, J not recovered. Vote counts not available from any recovered source.",
+      "context": "COVID year. League migrated from ESPN to Sleeper in December 2019 — Season 5 was the first fully on Sleeper. Matt Moodie was replaced by Joe Tuberdyke (Tubes94). Schedule-related proposals from 2019 (Props F and G) carried over to this ballot. Source: proposals PDF only — vote tallies not recovered.",
       "propositions": [
         {
           "letter": "A",
           "title": "Eliminate Superflex",
           "description": "Proposed by JuicyBussy: Remove the Superflex starting position from all lineups.",
-          "outcome": "outcome unknown"
+          "outcome": "failed",
+          "outcomeNote": "Inferred: Superflex remains a core BMFFFL starting position through 2026."
         },
         {
           "letter": "B",
           "title": "Make Interceptions More Costly",
           "description": "Proposed by Grandes: Increase interception penalty from -2 to -3 points. 'Pick 6' interceptions worth -4 points. Designed to better separate elite QBs from turnover-prone ones.",
-          "outcome": "outcome unknown"
+          "outcome": "passed",
+          "outcomeNote": "Inferred: Current BMFFFL scoring is INT -3 pts, Pick 6 -4 pts total. This matches Prop B exactly."
         },
         {
           "letter": "C",
           "title": "IR Restricted to Injured Players Only",
           "description": "Proposed by JuicyBussy: IR slots should only be allowed for players with Sleeper IR or Out (O) designations. Non-injury tags (SSPD, Did-not-report, Not active) would no longer qualify.",
-          "outcome": "outcome unknown"
+          "outcome": "passed",
+          "outcomeNote": "Inferred: Current IR rules explicitly exclude SSPD, Did-not-report, and Not active tags. Consistent with C+D both passing."
         },
         {
           "letter": "D",
           "title": "IR Should Include Doubtful-Tagged Players",
           "description": "Proposed by Grandes: Players listed as 'Doubtful' should be IR-eligible, since a Doubtful player is almost never going to play. Sleeper supports the 'D' tag for IR eligibility.",
-          "outcome": "outcome unknown"
+          "outcome": "passed",
+          "outcomeNote": "Inferred: Current IR rules include Doubtful (D) tag as eligible. Consistent with C+D both passing."
         },
         {
           "letter": "E",
@@ -421,7 +429,8 @@
           "letter": "F",
           "title": "Unlimited Taxi Squad",
           "description": "Proposed by 'Lockett or Load it' (Gun SAFE): Unlimited taxi squad positions for players you personally drafted. Designed to make draft picks more valuable and support full team rebuilds without being forced to cut prospects.",
-          "outcome": "outcome unknown"
+          "outcome": "failed",
+          "outcomeNote": "Inferred: Taxi squad remained limited (5 spots, 3-year max). Unlimited taxi was also re-proposed and failed at 2021 Prop J and 2023 Prop E meetings."
         },
         {
           "letter": "G",
@@ -433,7 +442,8 @@
           "letter": "H",
           "title": "Move to Two Divisions Instead of Three",
           "description": "Proposed by 'Alvin and the Chipmunks': Two divisions, with division winners seeded 1 and 2 (both get a first-round bye). Seeds 3–6 based on best records across the rest of the league.",
-          "outcome": "outcome unknown"
+          "outcome": "failed",
+          "outcomeNote": "Inferred: BMFFFL has used three divisions continuously through 2026."
         },
         {
           "letter": "I",
@@ -445,13 +455,15 @@
           "letter": "J",
           "title": "24-Hour Trade Counter Period",
           "description": "Proposed by Grandes: Institute a 24-hour trade counter period during the offseason. Once a trade is accepted in Sleeper and made public, other teams may reach out with counter offers. Both parties may waive the period ('push' the trade immediately). Trial offseason run to determine if owners want it in the regular season too.",
-          "outcome": "outcome unknown"
+          "outcome": "outcome unknown",
+          "outcomeNote": "The 2020 proposal was explicitly framed as a trial run — not a permanent rule vote. A formal version ('Plan B') was eventually passed at the 2024 Owners Meeting as Prop G."
         },
         {
           "letter": "K",
           "title": "Dispersal Draft Rules — The Full Framework",
           "description": "Proposed by Grandes: Defines when and how dispersal drafts occur. Required whenever a new owner joins; optional every even year (2020, 2022, etc.). 3–4 teams minimum/maximum. Each entrant puts all players and 2 years of picks into a pool; snake draft determines new teams. Two supplemental first-round picks added to the pool as incentive. Teams may not enter two consecutive dispersal drafts.",
-          "outcome": "outcome unknown"
+          "outcome": "passed",
+          "outcomeNote": "Inferred: The Dispersal Draft framework exists as a codified league rule and is being invoked for the first time in 2026 following MCSchools' departure."
         }
       ]
     },
