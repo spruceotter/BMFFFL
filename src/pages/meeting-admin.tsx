@@ -154,6 +154,18 @@ async function postQuestion(question: string) {
   });
 }
 
+async function callVoteOnStage(proposal: RuleProposal): Promise<void> {
+  const params = new URLSearchParams({
+    proposal_id: proposal.proposal_id,
+    title: proposal.title,
+    category: proposal.category,
+    proposer: proposal.owner_name,
+    text: proposal.proposal.slice(0, 400),
+  });
+  await fetch(`http://64.23.235.14:3002/meeting/call-vote?${params.toString()}`).catch(() => {});
+}
+}
+
 export default function MeetingAdminPage() {
   const [proposals, setProposals] = useState<RuleProposal[]>([]);
   const [meetingState, setMeetingState] = useState<MeetingState | null>(null);
@@ -301,6 +313,15 @@ export default function MeetingAdminPage() {
                   </button>
 
                   <div className="ml-auto flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        if (currentProposal) callVoteOnStage(currentProposal);
+                        setLastAction(`Vote opened on stage: ${currentProposal?.title?.slice(0,30)}`);
+                      }}
+                      className="flex items-center gap-1.5 px-4 py-2 bg-yellow-900/60 hover:bg-yellow-800/60 border border-yellow-600 rounded-lg transition-colors text-sm text-yellow-300"
+                    >
+                      🗳 Call Vote on Stage
+                    </button>
                     <button
                       onClick={() => navigate(currentIdx, 'passed')}
                       className="flex items-center gap-1.5 px-4 py-2 bg-green-800/60 hover:bg-green-700/60 border border-green-600 rounded-lg transition-colors text-sm text-green-300"
