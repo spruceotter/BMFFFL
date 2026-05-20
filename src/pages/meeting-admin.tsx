@@ -166,6 +166,17 @@ async function callVoteOnStage(proposal: RuleProposal, options = 'YES,NO,ABSTAIN
   await fetch(`http://64.23.235.14:3002/meeting/call-vote?${params.toString()}`).catch(() => {});
 }
 
+async function showProposalOnStage(proposal: RuleProposal): Promise<void> {
+  const params = new URLSearchParams({
+    proposal_id: proposal.proposal_id,
+    title: proposal.title,
+    category: proposal.category,
+    proposer: proposal.owner_name,
+    text: proposal.proposal.slice(0, 400),
+  });
+  await fetch(`http://64.23.235.14:3002/meeting/show-proposal?${params.toString()}`).catch(() => {});
+}
+
 export default function MeetingAdminPage() {
   const [proposals, setProposals] = useState<RuleProposal[]>([]);
   const [meetingState, setMeetingState] = useState<MeetingState | null>(null);
@@ -198,6 +209,10 @@ export default function MeetingAdminPage() {
     setLocalIdx(newIdx);
     setMeetingState({ current_proposal_index: newIdx, decision, updated_at: new Date().toISOString() });
     await setProposalIndex(newIdx, decision);
+    // Auto-push proposal to stage in discussion mode when navigating (not on pass/fail)
+    if (!decision && proposals[newIdx]) {
+      showProposalOnStage(proposals[newIdx]);
+    }
     setLastAction(decision ? `Marked ${decision}` : `Moved to proposal ${newIdx + 1}`);
   };
 
