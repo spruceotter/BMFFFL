@@ -287,7 +287,8 @@ export default function MeetingLivePage() {
         {/* ── TOP BAR ─────────────────────────────────────────────── */}
         <div className="flex items-center justify-between px-8 py-4 border-b border-gray-800">
           <div className="flex items-center gap-4">
-            <span className="text-[#ffd700] text-2xl font-black tracking-tight">🏈 BMFFFL</span>
+            <img src="/bmfffl-crest.png" alt="BMFFFL" className="h-10 w-10 object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <span className="text-[#ffd700] text-2xl font-black tracking-tight">BMFFFL</span>
             <span className="text-gray-500 text-lg">2026 Owners Meeting</span>
             <span className="text-gray-700 text-sm">May 26 · 9:00 PM ET</span>
           </div>
