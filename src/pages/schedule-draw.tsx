@@ -28,7 +28,7 @@ const DIVISIONS: { name: string; color: string; teams: string[] }[] = [
   {
     name: "Moodie's Wives",
     color: 'text-blue-400',
-    teams: ['Cogdeill11', 'MLSchools12', 'Cmaleski', 'Open Roster'],
+    teams: ['Cogdeill11', 'MLSchools12', 'Cmaleski', 'New Owner'],
   },
   {
     name: 'Pig Bottoms',

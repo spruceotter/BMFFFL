@@ -19,13 +19,17 @@ import { ChevronLeft, ChevronRight, RefreshCw } from 'lucide-react';
 
 const CONVEX_URL = 'https://resolute-setter-416.convex.cloud';
 
+// May 26, 2026 — 9:00pm ET official start (room opens 8:30pm ET)
 const AGENDA_ITEMS = [
-  { id: 'ownership', label: 'Ownership vote result + next steps', done: false },
-  { id: 'dispersal', label: 'Dispersal draft format & participants', done: false },
-  { id: 'rules', label: 'Rule change proposals (vote each)', done: false },
-  { id: 'faab', label: 'FAAB refresh — Escuelas disposition', done: false },
-  { id: 'schedule', label: 'Season schedule draw (live)', done: false },
-  { id: 'other', label: 'Other business', done: false },
+  { id: 'rollcall', label: 'Roll call + live proposals', done: false },
+  { id: 'ownership', label: 'New Owner — Commissioner decision', done: false },
+  { id: 'dispersal', label: 'Dispersal draft — format, pool, timeline', done: false },
+  { id: 'faab', label: 'Escuelas FAAB disposition + 2026 refresh', done: false },
+  { id: 'rules', label: 'Rule proposals — vote each', done: false },
+  { id: 'activity', label: 'Activity rules — shame + incentives', done: false },
+  { id: 'season', label: 'Season prep — blockers, cuts, rookie draft June 5', done: false },
+  { id: 'schedule', label: 'Schedule draw — live reveal', done: false },
+  { id: 'askbimfle', label: 'Ask Bimflé Anything', done: false },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -285,6 +289,7 @@ export default function MeetingLivePage() {
           <div className="flex items-center gap-4">
             <span className="text-[#ffd700] text-2xl font-black tracking-tight">🏈 BMFFFL</span>
             <span className="text-gray-500 text-lg">2026 Owners Meeting</span>
+            <span className="text-gray-700 text-sm">May 26 · 9:00 PM ET</span>
           </div>
           <div className="flex items-center gap-6 text-gray-400">
             <button onClick={loadData} className="flex items-center gap-1.5 text-sm hover:text-white transition-colors">

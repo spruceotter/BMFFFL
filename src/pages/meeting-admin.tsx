@@ -18,27 +18,55 @@ import { ChevronLeft, ChevronRight, CheckCircle, XCircle, MessageSquare, Send } 
 const CONVEX_URL = 'https://resolute-setter-416.convex.cloud';
 
 // Pre-written Bimflé commentary per proposal category/topic
+// May 26, 2026 agenda commentary — pre-written Bimflé lines by topic
 const PREPARED_COMMENTARY: Record<string, string[]> = {
+  'New Owner': [
+    "The Commissioner has made the call on Roster 9. Whoever joins the league tonight enters one of the most competitive dynasty windows in BMFFFL history — multiple title windows are open. The dispersal draft determines their starting point.",
+    "Welcome to the league. Ten years of history, eleven other owners who take this seriously. The bar is set.",
+  ],
+  'Dispersal': [
+    "Dispersal format: snake draft, randomized order, all participating teams put full rosters + 2+ years of picks into an anonymous pool. The new owner builds from that pool, then enters the rookie draft normally.",
+    "We currently have 2 of 4 confirmed participants. Deadline for pool entry is May 23. If we don't hit the minimum, Commissioner adjusts. More participants means a better roster for the new owner and a more interesting pool for everyone.",
+    "Supplemental bonus included: one late 1st this year plus one next year, added on top of the pool.",
+  ],
+  'FAAB': [
+    "Escuelas left $9.86 FAAB uncollected. Three options before us: (A) FAAB transfers to the new owner — simplest, cleanest, precedented; (B) Most active 2026 owner wins it — Grandes proposed this, already logged; (C) It forfeits. I'd recommend A or B, not C.",
+    "The 2026 FAAB refresh is on hold pending this vote. Once the disposition is settled, standard refresh proceeds normally. Don't let this block the season.",
+  ],
   'Ratify Roster 9': [
-    'The ownership question is straightforward: continuity requires a steward. If the YES vote carried, Roster 9 proceeds to dispersal. Commissioner decides the tiebreaker. Either way, the dispersal runs before June 5.',
+    'The ownership question is straightforward: continuity requires a steward. Roster 9 proceeds to dispersal. Either way, the dispersal runs before June 5.',
     'Eleven seasons of precedent say the roster stays at 12. The only question is who holds the keys.',
   ],
   'IR slots': [
     "IR slots serve a legitimate purpose — dynasty injury horizons run 10+ weeks. Turning them off year-round creates roster anxiety without tactical benefit. My recommendation: IR on during the regular season, off during offseason.",
     "Without IR, a CeeDee Lamb foot injury in Week 2 forces a difficult choice. With IR, you manage the season. The downside risk is minimal.",
   ],
-  'FAAB refresh': [
-    "Escuelas's $9.86 FAAB should follow the roster, not the man — give it to the new owner as part of the transition. The refresh question is separate: standard refresh proceeds normally.",
-    "Three options: (A) FAAB transfers to new owner, (B) FAAB enters dispersal pool, (C) forfeited. I'd recommend A — simplest, cleanest, precedented in other leagues.",
+  'Activity': [
+    "The data is clear: the league is at 50% of its 2020-2023 trade volume. The inactive tier — Cogdeill11, eldridm20, rbr — has zero trades across the last two seasons combined.",
+    "Shame mechanisms on the table: public monthly report, Ghost Owner designation, activity floor with buy-in penalty, dispersal ineligibility, pick forfeit. Vote which go into formal rules.",
+    "Incentives on the table: trade bonus FAAB, buy-in freeze for active owners, Most Active Owner award, comp pick for top activity. Grandes already proposed FAAB prize — that's on the board.",
+  ],
+  'Season Prep': [
+    "Blocker players go on the 2025 playoff rosters before FA opens: MLSchools12, Tubes94, SexMachineAndyD, tdtd19844, JuicyBussy, Cmaleski each get 2 blocker players holding bench spots. They can't pick up FA freely until they cut down.",
+    "All 12 teams cut 4 bench spots before the season — 16 bench to 12. This happens late August, before Week 1. Playoff teams drop their blockers as normal roster management once the season starts.",
+    "Rookie draft is June 5. That's 10 days out. Any prep items before then?",
+  ],
+  'Schedule': [
+    "Opening the schedule draw now. Navigate to bmfffl.vercel.app/schedule-draw — enter a seed word and we reveal the 14-week schedule week by week. Format: Weeks 1-3 division games, Weeks 4-11 cross-division, Weeks 12-14 division games again.",
+    "Pick a seed word as a group. Something that means something to this league.",
+  ],
+  'Ask Bimfle': [
+    "The floor is open. Ask me anything about the league, the data, the history, the rule proposals, or whatever else is on your mind. I'll answer live.",
+    "Ten seasons of BMFFFL data, every trade, every waiver, every matchup. Ask about head-to-head records, championship history, who's gotten the worst luck, who's underperformed their talent. I have the receipts.",
   ],
   'Expanded dispersal': [
-    "MLSchools12 said he'd enter dispersal only with enough teams for a fair shot. That's the right instinct — a 3-team dispersal gives minimal choice. Five or more creates real optionality. Vote to remove the cap.",
-    "The dispersal pool depth directly determines the new owner's team quality. Thin pool = weak new team = competitive imbalance. More participants = healthier outcome for the league.",
+    "More dispersal participants means a better roster for the new owner and a more interesting pool for everyone in it.",
+    "The dispersal pool depth directly determines competitive balance. Thin pool = weak new team. More participants = healthier outcome for the league.",
   ],
   'Generic': [
-    "The evidence suggests this rule change nets positive. The risk is adaptation lag — owners will adjust their strategies within a season.",
+    "The evidence suggests this rule change nets positive. The risk is adaptation lag — owners will adjust within a season.",
     "I've reviewed the historical precedent from the ESPN era through Sleeper. The league has evolved on this before and survived. Proceed.",
-    "This is a commissioner call at the margins. My read: if the vote is close, table it and revisit in September after seeing how the season plays out.",
+    "Commissioner call at the margins. My read: if the vote is close, table it and revisit in September after seeing how the season plays out.",
   ],
 };
 
