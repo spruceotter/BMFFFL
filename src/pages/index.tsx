@@ -277,15 +277,22 @@ export default function HomePage() {
               </div>
 
               {/* BMFFFL title */}
-              <h1 id="hero-heading" className="font-black text-white leading-none mb-3"
-                style={{ fontSize: 'clamp(64px, 14vw, 160px)', letterSpacing: '-0.05em' }}>
-                <span style={{
-                  background: 'linear-gradient(130deg, #ffd700 0%, #ffffff 45%, #e94560 100%)',
-                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                }}>
-                  BMFFFL
-                </span>
-              </h1>
+              <div className="flex items-center gap-4 mb-3">
+                <img
+                  src="/bmfffl-crest.png"
+                  alt="BMFFFL crest"
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_0_24px_rgba(255,215,0,0.35)]"
+                />
+                <h1 id="hero-heading" className="font-black text-white leading-none"
+                  style={{ fontSize: 'clamp(64px, 14vw, 160px)', letterSpacing: '-0.05em' }}>
+                  <span style={{
+                    background: 'linear-gradient(130deg, #ffd700 0%, #ffffff 45%, #e94560 100%)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                  }}>
+                    BMFFFL
+                  </span>
+                </h1>
+              </div>
 
               {/* Tagline */}
               <p className="text-xl sm:text-2xl font-bold text-slate-300 mb-2"

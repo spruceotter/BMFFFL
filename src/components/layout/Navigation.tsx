@@ -130,8 +130,10 @@ export default function Navigation() {
               className="flex items-center gap-2 group"
               aria-label="BMFFFL Home"
             >
-              <Trophy
-                className="w-6 h-6 text-[#ffd700] group-hover:scale-110 transition-transform duration-200"
+              <img
+                src="/bmfffl-crest.png"
+                alt="BMFFFL"
+                className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-200"
                 aria-hidden="true"
               />
               <span className="text-xl font-black tracking-widest text-white group-hover:text-[#ffd700] transition-colors duration-200">
