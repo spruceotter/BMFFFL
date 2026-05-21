@@ -21,21 +21,20 @@ const CONVEX_URL = 'https://resolute-setter-416.convex.cloud';
 // May 26, 2026 agenda commentary — pre-written Bimflé lines by topic
 const PREPARED_COMMENTARY: Record<string, string[]> = {
   'New Owner': [
-    "The Commissioner has made the call on Roster 9. Whoever joins the league tonight enters one of the most competitive dynasty windows in BMFFFL history — multiple title windows are open. The dispersal draft determines their starting point.",
-    "Welcome to the league. Ten years of history, eleven other owners who take this seriously. The bar is set.",
+    "Steven Cai is taking Roster 9 — Escuelas' former slot. Wholesale transfer: he inherits the roster as-is, enters the rookie draft normally, and joins the league with a full slate of assets. The Commissioner made the call. Welcome Steven.",
+    "Welcome to the league. Ten seasons of history, eleven owners who take this seriously. You're inheriting a real roster — not a shell. The bar is set.",
   ],
   'Dispersal': [
-    "Dispersal format: snake draft, randomized order, all participating teams put full rosters + 2+ years of picks into an anonymous pool. The new owner builds from that pool, then enters the rookie draft normally.",
-    "We currently have 2 of 4 confirmed participants. Deadline for pool entry is May 23. If we don't hit the minimum, Commissioner adjusts. More participants means a better roster for the new owner and a more interesting pool for everyone.",
-    "Supplemental bonus included: one late 1st this year plus one next year, added on top of the pool.",
+    "No dispersal draft this cycle. Steven is taking the roster wholesale — cleaner for everyone. The snake format exists for when we need redistribution. We didn't need it here.",
+    "The Roster 9 situation is resolved: Steven Cai in, Escuelas out, no picks redistributed. League stays at 12. This closes the orphan thread.",
   ],
   'FAAB': [
-    "Escuelas left $9.86 FAAB uncollected. Three options before us: (A) FAAB transfers to the new owner — simplest, cleanest, precedented; (B) Most active 2026 owner wins it — Grandes proposed this, already logged; (C) It forfeits. I'd recommend A or B, not C.",
-    "The 2026 FAAB refresh is on hold pending this vote. Once the disposition is settled, standard refresh proceeds normally. Don't let this block the season.",
+    "Escuelas left 986 FAAB uncollected — nearly a full season's budget. It transfers to Steven as part of the wholesale package. He can also buy more in the next refresh window. This is settled.",
+    "The 2026 FAAB refresh was on hold pending the orphan disposition. That's resolved now. Standard refresh proceeds on the normal schedule.",
   ],
   'Ratify Roster 9': [
-    'The ownership question is straightforward: continuity requires a steward. Roster 9 proceeds to dispersal. Either way, the dispersal runs before June 5.',
-    'Eleven seasons of precedent say the roster stays at 12. The only question is who holds the keys.',
+    'Roster 9 is ratified: Steven Cai. Wholesale transfer confirmed by the Commissioner. The dispersal draft format is tabled — no vote needed this cycle.',
+    'Eleven seasons of precedent say the roster stays at 12. It does. Steven Cai makes it twelve again.',
   ],
   'IR slots': [
     "IR slots serve a legitimate purpose — dynasty injury horizons run 10+ weeks. Turning them off year-round creates roster anxiety without tactical benefit. My recommendation: IR on during the regular season, off during offseason.",
