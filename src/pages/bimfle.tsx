@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { Bot, Star, Zap, Trophy } from 'lucide-react';
+import Link from 'next/link';
+import { Bot, Star, Zap, Trophy, Rss } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 // ─── Observation Card ─────────────────────────────────────────────────────────
@@ -136,13 +137,38 @@ export default function BimflePage() {
             </p>
           </section>
 
+          {/* ── Bimflé's Feed ────────────────────────────────────────────── */}
+          <section className="mb-10" aria-label="Bimflé's Feed">
+            <Link
+              href="/bimfle-feed"
+              className={cn(
+                'flex items-center justify-between p-5 rounded-xl',
+                'bg-[#16213e] border border-[#ffd700]/40',
+                'hover:border-[#ffd700] hover:bg-[#ffd700]/5 transition-all group'
+              )}
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#ffd700]/10 border border-[#ffd700]/30 text-[#ffd700]">
+                  <Rss className="w-4 h-4" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">Bimflé&apos;s Feed</p>
+                  <p className="text-slate-400 text-xs">Daily briefings, analysis, and dynasty takes</p>
+                </div>
+              </div>
+              <span className="text-[#ffd700] text-xs font-semibold group-hover:translate-x-1 transition-transform">
+                Read →
+              </span>
+            </Link>
+          </section>
+
           {/* ── Bimfle's Current Observations ────────────────────────────── */}
           <section aria-label="Bimfle's Current Observations">
             {/* Section header */}
             <div className="flex items-center gap-2 mb-4">
               <Zap className="w-4 h-4 text-[#ffd700]" aria-hidden="true" />
               <h2 className="text-xs font-semibold uppercase tracking-widest text-[#ffd700]">
-                Bimfle's Current Observations
+                Current State of Play
               </h2>
             </div>
 
@@ -150,18 +176,18 @@ export default function BimflePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <ObservationCard
                 icon={<Trophy className="w-4 h-4" />}
-                title="Dynasty Standings"
-                body="MLSchools12 — The Murder Boners — remains the standard of excellence in the BMFFFL. 4x champion (2016, 2019, 2021, 2024), they went 13-1 in 2025 but were eliminated before the finals. The consensus dynasty threat heading into 2026."
+                title="2025 Champion"
+                body="tdtd19844 won it all in 2025, defeating Tubes94 in the championship. MLSchools12 went 13-1 in the regular season but fell short. The reigning champion enters 2026 as the team to beat."
               />
               <ObservationCard
                 icon={<Star className="w-4 h-4" />}
                 title="2026 Outlook"
-                body="The rookie draft is approaching and several franchises are in active rebuild mode. Expect aggressive trade activity as contenders look to consolidate picks and rebuilders look to accelerate timelines."
+                body="The 2026 rookie draft is complete. Three franchise picks — Lemon (1.04), Singleton (2.04), Beck (3.04) — headlined a class that reshaped several rosters. FAAB opens when the compliance deadline clears."
               />
               <ObservationCard
                 icon={<Zap className="w-4 h-4" />}
-                title="Commissioner Decree"
-                body="The Annual Owners Meeting is forthcoming and will determine the 2026 rule changes. All owners are encouraged to submit proposals ahead of the meeting to ensure their voice is heard."
+                title="Offseason Status"
+                body="NFL mandatory minicamp is underway. Key injury watch: Makai Lemon (hamstring, PHI) and Kenyon Sadiq (post-hernia, NYJ) are both expected back for training camp in July."
               />
             </div>
           </section>
