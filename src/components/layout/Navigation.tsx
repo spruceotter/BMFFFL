@@ -60,6 +60,7 @@ const NAV_LINKS: NavLink[] = [
     label: 'Analytics & Articles',
     href: '/articles',
     children: [
+      { label: '🤖 Bimflé\'s Feed',      href: '/bimfle-feed' },
       { label: 'All Articles',          href: '/articles' },
       { label: 'All-Time Records',      href: '/analytics/all-time-records' },
       { label: 'Owner Dashboard',       href: '/analytics/owners' },
