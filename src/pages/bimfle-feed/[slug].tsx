@@ -67,6 +67,47 @@ export const getStaticProps: GetStaticProps<FeedSlugPageProps> = async ({ params
   };
 };
 
+// ─── MDX custom components ────────────────────────────────────────────────────
+
+const mdxComponents = {
+  table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="overflow-x-auto my-6 rounded-lg border border-[#2d4a66]">
+      <table className="w-full border-collapse text-sm">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-[#0f2744]">{children}</thead>
+  ),
+  tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className="divide-y divide-[#2d4a66]">{children}</tbody>
+  ),
+  th: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <th className="text-left px-4 py-2.5 text-[#ffd700] text-xs font-semibold uppercase tracking-wider whitespace-nowrap">
+      {children}
+    </th>
+  ),
+  td: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <td className="px-4 py-3 text-slate-300 text-sm align-top">
+      {children}
+    </td>
+  ),
+  tr: ({ children, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="hover:bg-[#0f2744]/40 transition-colors" {...props}>{children}</tr>
+  ),
+  h2: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 className="text-xl font-bold text-white mt-8 mb-3 pb-2 border-b border-[#2d4a66]">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 className="text-base font-bold text-white mt-6 mb-1">
+      {children}
+    </h3>
+  ),
+};
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function FeedSlugPage({ frontmatter, mdxSource }: FeedSlugPageProps) {
@@ -155,9 +196,9 @@ export default function FeedSlugPage({ frontmatter, mdxSource }: FeedSlugPagePro
 
           {/* MDX content */}
           <div className="prose prose-invert prose-sm sm:prose-base max-w-none
-            prose-headings:text-white prose-headings:font-bold
             prose-p:text-slate-300 prose-p:leading-relaxed
             prose-strong:text-white
+            prose-em:text-slate-400
             prose-a:text-[#ffd700] prose-a:no-underline hover:prose-a:underline
             prose-code:text-[#ffd700] prose-code:bg-[#1a2d42] prose-code:px-1 prose-code:py-0.5 prose-code:rounded
             prose-blockquote:border-[#ffd700]/40 prose-blockquote:text-slate-400
@@ -165,7 +206,7 @@ export default function FeedSlugPage({ frontmatter, mdxSource }: FeedSlugPagePro
             prose-li:text-slate-300
             prose-ul:list-disc prose-ol:list-decimal
           ">
-            <MDXRemote {...mdxSource} />
+            <MDXRemote {...mdxSource} components={mdxComponents} />
           </div>
 
           {/* Footer */}
