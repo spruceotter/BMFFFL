@@ -89,7 +89,7 @@ const mdxComponents = {
     </th>
   ),
   td: ({ children }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="px-4 py-3 text-slate-300 text-sm align-top">
+    <td className="px-4 py-3 text-slate-200 text-sm align-top">
       {children}
     </td>
   ),
@@ -105,6 +105,21 @@ const mdxComponents = {
     <h3 className="text-base font-bold text-white mt-6 mb-1">
       {children}
     </h3>
+  ),
+  h4: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h4 className="text-sm font-bold text-white mt-5 mb-1">
+      {children}
+    </h4>
+  ),
+  p: ({ children }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p className="text-slate-200 leading-relaxed mb-4">
+      {children}
+    </p>
+  ),
+  li: ({ children }: React.HTMLAttributes<HTMLLIElement>) => (
+    <li className="text-slate-200">
+      {children}
+    </li>
   ),
 };
 
@@ -196,14 +211,14 @@ export default function FeedSlugPage({ frontmatter, mdxSource }: FeedSlugPagePro
 
           {/* MDX content */}
           <div className="prose prose-invert prose-sm sm:prose-base max-w-none
-            prose-p:text-slate-300 prose-p:leading-relaxed
+            prose-p:text-slate-200 prose-p:leading-relaxed
             prose-strong:text-white
-            prose-em:text-slate-400
+            prose-em:text-slate-300
             prose-a:text-[#ffd700] prose-a:no-underline hover:prose-a:underline
             prose-code:text-[#ffd700] prose-code:bg-[#1a2d42] prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-            prose-blockquote:border-[#ffd700]/40 prose-blockquote:text-slate-400
+            prose-blockquote:border-[#ffd700]/40 prose-blockquote:text-slate-300
             prose-hr:border-[#2d4a66]
-            prose-li:text-slate-300
+            prose-li:text-slate-200
             prose-ul:list-disc prose-ol:list-decimal
           ">
             <MDXRemote {...mdxSource} components={mdxComponents} />
